@@ -1,0 +1,85 @@
+@import 'https://fonts.googleapis.com/css?family=Montserrat:700|Work+Sans:400,700|Source+Code+Pro:400';
+
+* {
+  box-sizing: border-box;
+}
+
+nav, h1, h2, h4 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #555;
+  line-height: 1.5;
+}
+
+a {
+  color: #FF1493; /* deeppink */
+  text-decoration: none;
+}
+
+a:hover {
+  border-bottom: 2px solid deeppink;
+}
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+blockquote {
+  border-left: 4px solid #FF1493; /* deeppink */
+  padding: 12px;
+  background-color: #F5F5F5; /* whitesmoke */
+  color: #888;
+}
+
+code {
+  font-family: "Source Code Pro", sans-serif;
+  font-weight: 400;
+  background-color: #FAF0E6; /* linen */
+  display: block;
+  padding: 12px;
+  color: #888;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h4 {
+  display: inline-block;
+  font-size: 30px;
+}
+
+nav {
+  font-size: 22px;
+  float: right;
+  padding-top: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  float: left;
+  margin-left: 10px;
+}
