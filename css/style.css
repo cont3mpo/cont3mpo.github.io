@@ -116,6 +116,7 @@ nav ul li a:hover {
 
 h2.title a {
   font-size: 1.625rem; /* 26px */
+  line-height: 1.5; /* 39px */
   color: #50555A;
 }
 
@@ -151,9 +152,9 @@ h2.title a {
 
 code, pre {
   font-family: "Source Code Pro", monospace;
-  font-weight: 600;
   font-size: 1rem; /* 16px */
   line-height: 1.65; /* 26.4px */
+  font-weight: 600;
   color: #90999A;
   background-color: #F6f0f0;
   display: block;
@@ -164,8 +165,8 @@ code, pre {
 
 h1 {
   font-size: 1.83rem; /* 29.28px */
+  line-height: 1.5; /* 43.92px */
   color: #50555A;
-  line-height: 1.5;
 }
 
 h2 {
