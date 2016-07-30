@@ -1,2 +1,2 @@
 # cont3mpo.github.io
-Código fuente del <a ref="https://cont3mpo.github.io">Blog Contempo</a>
+<p>Código fuente del <a href="https://cont3mpo.github.io">Blog Contempo</a></p>
