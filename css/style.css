@@ -161,6 +161,7 @@ code, pre {
   padding: 8px 14px;
   margin: 30px 10px;
   border-radius: 4px;
+  word-break: break-all;
 }
 
 h1 {
