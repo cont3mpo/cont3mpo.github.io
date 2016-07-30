@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Moviendo el blog a GitHub • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Moviendo el blog a GitHub</h1>
+
+      <p>Desde ahora todo lo que está visible en el blog, está hospedado en <a href="https://pages.github.com/">GitHub Pages</a>.</p>
+
+      <h2>Adiós Blogger, fueron buenos años</h2>
+
+      <p>Decidí mover los 134 artículos del blog (desde el año 2009) a GitHub. Blogger fue un buen aliado pero necesitaba tener mayor control sobre el código. Miré otras opciones como Wordpress, Medium, y Jekyll, pero quise dejar las cosas simples y a la misma vez tener bajo control en 100% el código de todo el blog. Solo usando <a href="https://es.wikipedia.org/wiki/HTML5">HTML5</a>, <a href="https://es.wikipedia.org/wiki/Hoja_de_estilos_en_cascada#CSS3">CSS3</a>, y <a href="https://es.wikipedia.org/wiki/JavaScript">JavaScript</a>.</p>
+
+      <h2>Limpiando el código y redundancias</h2>
+
+      <p>Para mover cientos de artículos desde Blogger es un proceso algo largo. Primero hay que limpiar divs y brs por montones. Blogger no es muy semántico y estructurado para armar sus artículos, y tuve que poner orden al código, otorgar significado semántico y no solo llenar de divs, y también eliminar redundancias.</p>
+
+      <p>En cada artículo aproveché de usar JavaScript para que use el mismo header en todos, así que cuando decida algún día cambiar el header, solo modifico un archivo JS. Pero para el Inicio, Articulos, y Yo, tuve que dejar el header en el HTML al cambiar el estado del menú nav. En el head hice lo mismo, crear un archivo JS con el meta-data de todas las páginas del blog.</p>
+
+      <p>También puse algo de <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Flexbox</a> en el header para ajustar el modo responsive que <a href="https://cont3mpo.github.io/post/2015/me-pase-responsive-design.html">había hecho anteriormente</a>. Las tipografías seguirán igual como <a href="https://cont3mpo.github.io/post/2016/tipografias-mas-peso-y-legibilidad.html">ya lo había dicho</a>. Y ahora todas las fuentes usan medidas rem. También usé un segundo archivo CSS basandome en <a href="https://necolas.github.io/normalize.css/">Normalize</a>, para que el blog responda bien en los demás navegadores.</p>
+
+      <p>Todas las imágenes están optimizadas y redimensionadas para su uso en web. El favicon está en PNG, y no pude usar SVG como favicon porque <a href="http://caniuse.com/#feat=link-icon-svg">solo Firefox lo soporta</a> por ahora. Y si, ya revisé el HTML para que validará sin errores en la <a href="https://validator.w3.org/">W3C</a>.</p>
+
+      <h2>Mejor SEO</h2>
+
+      <p>La mayoría de las visitas de cualquier sitio provienen desde Google, y al tener un sitio con buena semántica y mucho contenido en texto, benificia al <a href="https://es.wikipedia.org/wiki/Posicionamiento_en_buscadores">SEO</a> (Optimizacion de Posicionamiento en Buscadores).</p>
+
+      <h2>Accesibilidad</h2>
+
+      <p>Ahora todas las imágenes usan alt con descripción de imagen, etiquetas en menús, y titulos individuales de cada página. Todas las páginas indican el idioma en español. También nuevo <a href="https://cont3mpo.github.io/404.html">404</a>. GitHub Pages usa <a href="https://github.com/blog/2186-https-for-github-pages">HTTPS por defecto</a>.</p>
+    </article>
+  </div>
+</body>
+</html>

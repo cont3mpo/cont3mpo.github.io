@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Ver y grabar TV con Tivichan • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Ver y grabar TV con Tivichan</h1>
+
+      <p><a href="https://github.com/cont3mpo/Tivichan">Tivichan</a> son tres script para Linux que utilizan <a href="https://es.wikipedia.org/wiki/MPlayer">MPlayer</a> para su reproducción, y <a href="https://es.wikipedia.org/wiki/Mencoder">MEncoder</a> para su grabación.</p>
+
+      <h2>Habilitar privilegios para capturar TV</h2>
+
+      <p>Tienen que habilitar los privilegios para poder ver y capturar video de tarjetas de televisión en su cuenta de usuario.</p>
+
+      <ol>
+        <li>En Ubuntu, se dirigen a "Configuración de usuarios", eso se encuentra en la categoría "Sistema" o "Administración" en el menú de Ubuntu.</li>
+        <li>Luego necesitan ingresar su contraseña de usuario presionando el botón "Desbloquear", así podrán realizar los cambios que harán, luego seleccionan su cuenta de usuario y presionan el botón "Propiedades". Ahí se abrirán las propiedades de su cuenta, y seleccionan la pestaña "Privilegios del Usuario". </li>
+        <li>Marquen la opción "Capturar vídeo de TV o de webcams, y usar aceleración 3D". Acepten para terminar y cierren.</li>
+      </ol>
+
+      <h2>Configuración captura de audio</h2>
+
+      <p>En Terminal tipea:</p>
+
+      <code>alsamixer</code>
+
+      <p>Aprieten la tecla TAB, con ello se pasará a la vista "Capture". Ahí tienen que seleccionar con la barra de espacio las entradas de audio: "Line" o "Mic".</p>
+
+      <p>También tienen que subir la barra de volumen de la opción "Capture", subanlo hasta el número 93. En la vista "Playback", siempre es recomendable que dejen la opción "PCM" en el número 81 o menos, para que no se escuche mal o se produzca distorsión en el audio capturado.</p>
+
+      <h2>Descargar Tivichan</h2>
+
+      <p>En esta parte <a href="https://github.com/cont3mpo/Tivichan/releases">pueden bajar los tres scripts desde GitHub</a> (el zip) para prender el modulo (tivichan-on.sh), ver TV (tivichan.sh), y grabar (tivichan-rec.sh). Y dan permisos de ejecución para activarlos. Los pueden dejar en /usr/local/bin si quieren automatizar el proceso en Terminal.</p>
+
+      <h2>Como se usa Tivichan</h2>
+
+      <p>Luevo de activar tivichan-on.sh, en una terminal, por ejemplo ver el canal 4:</p>
+
+      <code>tivichan.sh 4</code>
+
+      <p>Y grabar el canal 4:</p>
+
+      <code>tivichan-rec.sh 4</code>
+
+      <p>Con la tecla "H" se sube de canal, y la tecla "K" se baja de canal.</p>
+
+      <p>La razón por la que el video no aparece mientras graba, es para facilitar el encodeo mientras graba de la televisión, y así no se produzcan altercados mientras lo guarda.</p>
+
+      <p>El video grabado utiliza el codec de video Xvid, y el codec de audio MP3 con una taza de bits de 128. Todo el proceso del video se realiza con una sola pasada de bitrate (taza de bits) constante. Para detener la grabación, utilicen las teclas "Ctrl+C".</p>
+
+      <p>Los videos grabados se guardan en el home del usuario, o dependiendo en que ruta se encuentre en la terminal en ese momento.</p>
+    </article>
+  </div>
+</body>
+</html>

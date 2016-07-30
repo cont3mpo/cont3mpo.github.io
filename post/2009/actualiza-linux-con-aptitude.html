@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Actualiza con Aptitude • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Actualiza con Aptitude</h1>
+
+      <p>Aprovechando la antesala del lanzamiento del nuevo administrador de actualizaciones de todo el sistema, e instalador de aplicaciones, si, me refiero al nuevo <a href="https://wiki.ubuntu.com/SoftwareStore">Ubuntu Software Store</a> (USS), aplicación que estará disponible en la versión 9.10 de <a href="https://es.wikipedia.org/wiki/Ubuntu">Ubuntu</a> (para octubre). Hablaré sobre el potente sistema de gestión de paquetes <a href="https://es.wikipedia.org/wiki/Aptitude">Aptitude</a>.</p>
+
+      <p>Aptitude es un potente y simple <a href="https://es.wikipedia.org/wiki/Sistema_de_gesti%C3%B3n_de_paquetes">gestor de paquetes</a> para el sistema Linux, y cuenta con una interfaz de usuario por consola muy fácil de utilizar (con mouse y todo eso), y que se puede acceder solamente escribiendo "aptitude" en alguna terminal. Pero no nos enfocaremos en la interfaz de usuario de aptitude, ya que en este momento experimentaremos la verdadera velocidad para mantener actualizado el sistema, e instalar y borrar aplicaciones (paquetes) en Linux.</p>
+
+      <h2>¿Aptitude o APT?</h2>
+
+      <p>Dejar en claro que Aptitude utiliza las mismas fuentes de <a href="https://es.wikipedia.org/wiki/Paquete_de_software">paquetes</a> (o listas de paquetes) que <a href="https://es.wikipedia.org/wiki/Advanced_Packaging_Tool">APT</a>, así que los paquetes los obtendrá del mismo lugar (bendito sean los <a href="https://es.wikipedia.org/wiki/Repositorio">repositorios</a>).</p>
+
+      <p>¡Ah!, y dejar también en claro que APT es otro gestor de paquetes en Linux solo para distribuciones basadas en <a href="https://es.wikipedia.org/wiki/Debian_GNU/Linux">Debian</a>, o que manejen el gestor de paquetes APT.</p>
+
+      <p>La razón por la cual no utilizo APT, es por que no es simple.
+      Esto define a Aptitude en contra de APT, ya que en apt se utilizan diferentes "agregados" a la hora de escribir la instrucción deseada, o comando principal.</p>
+
+      <p>Por ejemplo, en APT hay que estar cambiando entre apt-get, apt-cache, apt-cdrom, apt-config, apt-ftparchive, apt-key, etc... Y en Aptitude solamente se necesita el comando: aptitude. Nada de estar cambiando el comando principal, y además mantiene mejor administrada las dependencias (y paquetes), y del seguimiento que realiza después de instalar, <a href="http://www.ignside.net/man/linux/aptitude.php">y una pila de bondades y mejoras que tiene aptitude</a> al contrario de apt. En definición, aptitude es un solo comando con varias opciones, y APT son varios comandos y varias opciones.</p>
+
+      <p>En Aptitude (al igual que en APT), necesitamos de otras opciones o instrucciones a la hora de buscar, ver información, instalar, borrar, o actualizar el sistema. Así que ahora vamos a lo bueno.</p>
+
+      <h2>Comandos de Aptitude</h2>
+
+      <p>Actualizar el sistema tiene que ser lo más rápido posible, por eso es que utilizo la terminal para mantener actualizado el sistema, además de instalar aplicaciones y borrar las que ya no utilizo.</p>
+
+      <p>Al acostumbrarse y aprender estos simples comandos, aptitude será parte fundamental del día a día en la vida de un linuxero. A aptitude lo defino como "rápido y sencillo", como debe ser todo Linux.</p>
+
+      <p>En una oportunidad escribí los comandos más utilizados en Aptitude y <a href="https://es.wikipedia.org/wiki/Aptitude#Funcionamiento_de_Aptitude">los publiqué en Wikipedia</a>, así que ahora los publicaré aquí.</p>
+
+      <p>Para utilizar aptitude por terminal de comandos, al igual que apt, hay que estar logueados como super-usuario (<a href="https://es.wikipedia.org/wiki/Root">root</a>), o utilizar el comando <a href="https://es.wikipedia.org/wiki/Sudo">sudo</a> (ubuntu) al principio de cada linea de comandos. Aunque a veces no es necesario tener permisos de root para buscar o ver información de un paquete (search o show).</p>
+
+      <p>Las llaves "&lt; &gt;" no se agregan en la terminal cuando escriban el comando, solamente las agregué para definir que tipo de información se utiliza ahí. Y vamos al grano...</p>
+
+      <p>Actualiza la lista de paquetes disponibles en los repositorios:</p>
+
+      <code>aptitude update</code>
+
+      <p>Actualiza los paquetes que tengan disponibles nuevas versiones (safe-upgrade sirve igual):</p>
+
+      <code>aptitude upgrade</code>
+
+      <p>Actualiza paquetes, incluso si eso significa que debe desinstalar otros (útil si aparece una nueva versión de su distribución):</p>
+
+      <code>aptitude dist-upgrade</code>
+
+      <p>Busca un paquete (aplicación) en los repositorios:</p>
+
+      <code>aptitude search &lt;nombre_paquete&gt;</code>
+
+      <p>Muestra información del paquete:</p>
+
+      <code>aptitude show &lt;nombre_paquete&gt;</code>
+
+      <p>Instala paquetes:</p>
+
+      <code>aptitude install &lt;nombre_paquete&gt;</code>
+
+      <p>Elimina (desinstala) paquetes y sus archivos de configuración:</p>
+
+      <code>aptitude purge &lt;nombre_paquete&gt;</code>
+
+      <p>Elimina (desinstala) paquetes:</p>
+
+      <code>aptitude remove &lt;nombre_paquete&gt;</code>
+
+      <p>Elimina ficheros descargados de cuando se instaló software en el sistema:</p>
+
+      <code>aptitude clean</code>
+
+      <p>Elimina paquetes deb obsoletos:</p>
+
+      <code>aptitude autoclean</code>
+
+      <p>Fuerza a que un paquete permanezca en su versión actual, y no se actualice:</p>
+
+      <code>aptitude hold &lt;nombre_paquete&gt;</code>
+
+      <h2>Uso rápido y práctico</h2>
+
+      <p>Hagan cuenta que utilizan Ubuntu, entonces siempre que quieran a actualizar las aplicaciones del sistema, utilizarán estos dos comandos:</p>
+
+      <code>sudo aptitude update </code>
+
+      <code>sudo aptitude upgrade</code>
+
+      <p>Y listo. Aunque también serviría esto:</p>
+
+      <code>sudo aptitude update &amp;&amp; sudo aptitude upgrade</code>
+
+      <p>Lo mismo va para cuando vayan a instalar una aplicación. Primero ven si existe la aplicación en los repositorios, así que actualizan la lista de los paquetes disponibles y luego buscan, por ejemplo:</p>
+
+      <code>sudo aptitude update </code>
+
+      <code>aptitude search mplayer</code>
+
+      <p>Eso les mostrara si se encuentra o no instalado el paquete, si al lado izquierdo del paquete aparece una "p", es que no se encuentra instalada, si aparece una "i", es que se encuentra instalada.</p>
+
+      <p>Pero la manera rápida sería para instalar un paquete es actualizar la lista de paquetes y luego instalar el paquete:</p>
+
+      <code>sudo aptitude update </code>
+
+      <code>sudo aptitude install mplayer</code>
+
+      <p>Y listo. Para eliminar paquetes no es necesario actualizar la lista de paquetes.</p>
+    </article>
+  </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Tap, descarga imágenes masivamente • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Tap, descarga imágenes masivamente</h1>
+
+      <p><a href="https://github.com/cont3mpo/Tap">Tap</a> es un un script que hice para descargar las imágenes que veas en un sitio, y se usa en escritorios Linux y OS X.</p>
+
+      <h2>Porqué hice a Tap</h2>
+
+      <p>Tap solo descarga imágenes en la url que le indiques. Solo eso.</p>
+
+      <p>Tap lo probé en sitios donde se suben muchas imágenes, como Imgur, Facebook, Twitter, Instagram, Deviantart, 4chan, Tumblr, Reddit, Flickr, Dribbble, y Pinterest. Y la información que muestra en terminal es mínima y simple, y además lanza notificación al terminar la descarga.</p>
+
+      <p>Sé que existe <a href="https://github.com/eduardschaeli/wget-image-scraper">image-scraper</a>, pero este falló descargando desde varios de arriba. Además hay que agregar los enlaces a un archivo de texto manualmente, y lanza demasiada información en terminal, así que no.</p>
+
+      <h2>Usando Tap</h2>
+
+      <p><a href="https://github.com/cont3mpo/Tap">Tap</a> requiere de <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/curl.1.html">curl</a> y <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/wget.1.html">wget</a> para funcionar, <a href="https://github.com/cont3mpo/Tap/releases">descargar y ver código fuente</a> (zip). Dar permisos de ejecución (chmod +x tap.sh). Usen Homebrew en OS X para descargar wget.</p>
+
+      <p>Al usarlo pongan comillas en la URL, eso es algo que curl y wget todavía tienen que lidiar debido a los caracteres que podrían cortar el enlace:</p>
+
+      <code>./tap.sh "http://sitio.com/"</code>
+
+      <p>Descarga todas las imágenes que se vean en esa url. Soporta sitios que usen HTTP/HTTPS y formatos de imágenes JPG, JPEG, PNG, y GIF. En Instagram hasta descarga los videos en contenedor MP4.</p>
+
+      <p>En Facebook baja las imágenes del álbum que le indiques, y también si le indicas la url de la página donde aparece la foto más grande. No baja desde el muro/perfil de usuario porque es gigantesco la cantidad de código, y queda en loop.</p>
+
+      <h2>Malas mañas de algunos sitios</h2>
+
+      <p>Facebook y Instagram fueron una agonía, se esmeran mucho en que alguien no extraiga sus imágenes, pero Tap lo hizo. Y el único pero, es que en Facebook baja todas las imágenes sin su extensión, debido a que Facebook muestra las imágenes como enlaces sin extensión, pero igual se pueden ver con feh. O simplemente se puede hacer un renombrado masivo a todas las imágenes. Eso no lo agregué a Tap, porque dio más problemas que soluciones. Así que para mantener a Tap automático, tuve que dejarlo lo más simple posible. En los sitios donde se hace scroll para seguir viendo más, se crea una nueva página que no carga en la barra de direcciones (como twitter, instagram, facebook), y ahí estamos jodidos, ya que es como la dimensión desconocida.</p>
+
+      <p>En Pinterest descargará todas las imágenes y quedará esperando, eso pasa porque en Pinterest a cada rato aparece el mensaje de registro que es una jodida molestia. Pero pueden terminar Tap con "Ctrl + C" y tener sus imágenes de Pinterest. Todos los demás bien.</p>
+
+      <p>Con rename o mmv se puede hacer renombrado masivo para poner extensión JPG (si bajaste de Facebook):</p>
+      
+      <code>rename 's/(.*)/$1.jpg/' *</code>
+
+      <code>mmv "*" "#1.jpg"</code>
+    </article>
+  </div>
+</body>
+</html>

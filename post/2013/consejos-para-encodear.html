@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Consejos para encodear • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Consejos para encodear</h1>
+
+      <p>Algunos consejos a la hora de encodear.</p>
+
+      <h2>Encodea con comandos</h2>
+
+      <p>Puedes utilizar el encoder <a href="http://es.wikipedia.org/wiki/X264">x264</a> directamente con comandos, aunque después tendrás que encodear el audio con otra herramienta y unir todo con otra cosa. Así que mejor <a href="https://cont3mpo.github.io/post/2013/encodear-con-ffmpeg.html">encodea con FFmpeg</a>, se encarga de codificar y unir video/audio en una sola linea de comando. Avisynth es una molestia, hay que editar un archivo con ordenes creadas por extraterrestres.</p>
+
+      <p>Los encoders con interfaz gráfica tienen opciones limitadas, a veces se caen, son lentos, y hay que esperar que implementen opciones por interfaz.</p>
+
+      <h2>CRF es mejor que bitrate constante</h2>
+
+      <p>El encodeo de <a href="https://es.wikipedia.org/wiki/Tasa_de_bits_constante">bitrate constante</a> limita la misma cantidad de bits (según la prefijada) para cada imagen, ya sea con mucho o poco movimiento, y eso también es un desperdicio de bits que no son utilizados de mejor forma.</p>
+
+      <p>En cambio <a href="https://slhck.info/crf.html">CRF</a> se preocupa de brindar una calidad de imagen constante (pero no bitrate constante), otorgando <a href="https://es.wikipedia.org/wiki/Tasa_de_bits_variable#En_video">los bits necesarios para cada escena</a>, no limita el uso de bits y no desperdicia nada. Por ende siempre usa CRF en x264 (H.264/AVC) y vpx (VP8/VP9).</p>
+
+      <h2>No confíes en el peso de un video y bitrate</h2>
+
+      <p>Un video de peso pequeño puede tener mejor calidad de imagen que uno de peso grande, pero esto depende totalmente del tipo de encodeo.</p>
+
+      <p>Por ejemplo un encodeo de bitrate constante con compresión rápida puede crear archivos grandes debido al desperdicio de bits, pero en CRF con compresión lenta puede tener menor peso y hasta menos bitrate general, y aún así tener mejor calidad de imagen. Por esto <a href="https://cont3mpo.github.io/post/2013/encodear-con-ffmpeg.html">es bueno encodear con CRF</a> (mejor aún si es un CRF bajo con compresión lenta). Aunque un video con mucha acción puede pesar mucho más (si utiliza un CRF bajo).</p>
+
+      <p>Si encodeas una serie y cada capítulo dura lo mismo pero tienen peso diferente, no te preocupes, el CRF decidió que cantidad de bits usar y así preservar la calidad de cada uno, por eso el peso varia.</p>
+
+      <h2>Usa 10bit </h2>
+
+      <p>Comúnmente la mayoría de las fuentes (Blu-ray, HDTV) vienen en 8bit de <a href="https://en.wikipedia.org/wiki/Color_depth">profundidad de color</a>, ¿entonces por qué encodear a <a href="http://wiki.bakabt.me/index.php/Hi10P">10bit</a> en H.264? La gracia de pasar 8bit a 10bit es que nos ahorramos problemas de degradado de colores, los típicos cuadrados e imperfecciones con fondos de tonos oscuros, y así no tenemos que utilizar filtros que retoquen la imagen para combatir el <a href="https://en.wikipedia.org/wiki/Colour_banding">banding</a>. Otra cosa es que 10bit ayuda a disminuir el peso del video.</p>
+
+      <p>Además <a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding">H.265/HEVC</a> también utilizará un perfil 10bit, y se están desarrollando extensiones para soportar 12bit para el 2014. 8bit utiliza hasta 256 tonos por color, 10bit hasta 1024 tonos y 12bit hasta 4096 tonos.</p>
+
+      <h2>Usa audio sin pérdidas con FLAC</h2>
+
+      <p>El problema del audio <a href="https://en.wikipedia.org/wiki/DTS_(sound_system)">DTS</a> y <a href="https://en.wikipedia.org/wiki/Dolby_Digital">Dolby Digital</a>, es que ambos traen pérdida de calidad de audio, así que deja de utilizarlos. Usa <a href="https://en.wikipedia.org/wiki/Linear_pulse-code_modulation">LPCM</a>, <a href="https://en.wikipedia.org/wiki/DTS-HD_Master_Audio">DTS-HD MA</a> o <a href="https://en.wikipedia.org/wiki/Dolby_TrueHD">Dolby TrueHD</a> que son sin pérdidas, y pásalos a <a href="http://es.wikipedia.org/wiki/Free_Lossless_Audio_Codec">FLAC</a>. Lo único que hace FLAC es comprimir externamente y mantener el audio sin pérdidas de calidad, es como un zip de audio. Y mantén la <a href="https://en.wikipedia.org/wiki/Audio_bit_depth#24-bit_quantization">profundidad de audio de 24-bit</a>, con una <a href="https://en.wikipedia.org/wiki/Sample_rate#Audio">frecuencia de muestreo de 48kHz</a> (usada actualmente en blu-rays), aunque <a href="http://www.theverge.com/2015/11/6/9680140/chris-montgomery-digital-audio-hi-res-explainer">en realidad no necesitas más de 44kHz a 16-bit</a> (calidad CD), pero si viene por defecto nos ahorramos re-encodeos. FLAC soporta <a href="http://xiph.org/flac/faq.html#general__channels">hasta 8 canales de audio y 32 bits de profundidad</a>.</p>
+
+      <h2>Usa estéreo 2.0, el sonido 5.1 es redundante</h2>
+
+      <p>El problema con el <a href="https://en.wikipedia.org/wiki/5.1_surround_sound">sonido 5.1</a> es que divide la señal estéreo para 6 altavoces que tienen que ir posicionados alrededor tuyo en 360º grados, si no lo usas de esa forma entonces no sirve de nada, y solamente lo usan en películas. Eso es redundante, pone bits extras, además de ser un gasto digital y físico innecesario. En cambio <a href="https://es.wikipedia.org/wiki/Sonido_estereof%C3%B3nico">estéreo 2.0</a> gasta lo necesario en bits y calidad de audio al usar solo dos altavoces al frente, todos los sonidos están ahí. Estéreo 2.0 se encuentra por defecto en todos los equipos, y todas las series/películas/juegos/música lo incluyen. Además en UHDTV se implementarán los 22.2 canales de audio ¿te imaginas 22 altavoces alrededor tuyo?. Pero estéreo 2.0 seguirá ahí siempre. En el caso de no incluirse estéreo 2.0 sin pérdidas de sonido (ver codecs de arriba), entonces usa 5.1 de algunos de los codecs sin pérdidas.</p>
+
+      <h2>Usa subtitulos flotantes blancos, no los pegues</h2>
+
+      <p>Por favor no te atrevas a pegar subtitulos o logos al video (hardsub), eso arruina la calidad del video totalmente. Esto va dedicado a todos los Fansubs en español: utilicen subtitulos flotantes (<a href="https://es.wikipedia.org/wiki/Fansub#Tipos_de_subtitulado">softsub</a>) en blanco con fuente <a href="https://es.wikipedia.org/wiki/Palo_seco">sans-serif</a>, nada de colores ni karaokes que nadie volverá a leer por segunda vez. Si es un SRT (<a href="https://es.wikipedia.org/wiki/SubRip#Formato_de_archivo_SubRip">SubRip</a>) dentro de un MKV mejor aún.</p>
+
+      <h2>Usa contenedor MKV</h2>
+
+      <p><a href="https://en.wikipedia.org/w/index.php?title=Comparison_of_container_formats">MKV soporta una ilimitada cantidad de codecs de video/audio</a>, con pistas de múltiples subtítulos, y marcas de capítulos (ideal para video con intros o adelantos como en series). MP4 solo sirve para contenido RAW y su soporte de codecs es limitado. MKV es soportado en hardware reciente. Y el contenedor siempre se está actualizando en FFmpeg, gracias al equipo de desarrollo abierto, <a href="http://matroska.org/">Matroska</a>.</p>
+
+      <h2>No uses filtros para "mejorar" la imagen</h2>
+
+      <p>No pongas filtros de pastelación o agudizar lineas (especialmente los Fansubs), solo estás arruinando el video. Intenta preservar la fuente del video lo más que puedas, y eso se hace no poniendo sobrefiltros de imagen. El granulado del blu-ray está ahí para dar detalle y textura a la imagen, déjalos.</p>
+
+      <h2>No toques el balance de colores</h2>
+
+      <p>Deja todos los colores, brillos, contrastes y gama intactos. Si la fuente es buena no es necesario, y como ahora todo es Blu-ray o HDTV no es necesario, a menos que estés encodeando material para re-masterizar de una cinta magnética. Aunque en realidad ahí tendrías que escanear y limpiar imperfecciones, pero ese es otro tema.</p>
+
+      <h2>Mantén la resolución o bájala, pero no la subas</h2>
+
+      <p>Subir la <a href="http://es.wikipedia.org/wiki/Resoluci%C3%B3n_de_pantalla">resolución</a> de imagen de un video hace mal, estás dando pixeles y lineas que no existen y se distorsiona la imagen. Mantener la resolución de imagen o bajarla no brinda esos problemas. Cuidado con las supuestas <a href="http://shiroisoranofansub.wordpress.com/2014/03/27/resolucion-anime-y-sus-respectivos-blu-rays/">resoluciones 1080p que no lo son, común en series de anime</a>.</p>
+
+      <h2>Mantén la relación de aspecto</h2>
+
+      <p>La mayoría de los casos hay que dejar el <a href="http://en.wikipedia.org/wiki/Aspect_ratio_(image)">aspecto de imagen</a> intacto de una fuente, he visto hasta canales de tv metiendo el dedo y modificandolo. Esta es una de las razones de porqué una transmisión SD en 4:3 se ve mal en un televisor HDTV 16:9, se ve estirado a lo ancho (a parte de la falta de pixeles y lineas). También depende del caso, por ejemplo si hay una imagen cortada y debe realizarse un letterbox con otro aspecto puede servir.</p>
+
+      <h2>Usa un FPS estandarizado</h2>
+
+      <p>Los <a href="https://en.wikipedia.org/wiki/Frame_rate">FPS</a> (imágenes por segundo) actualmente se utilizan hasta los 30 o 24 FPS en consumo masivo. Si la fuente viene en 60 y sabes que la verán en reproductores de consumo masivo, entonces es demasiado y lo debes dejar en 30, debido a que todos los reproductores blu-ray ven los videos 1080p hasta 30fps, y la mayoría trae lector de archivos integrado. Además que si decides subirlo a YouTube, el sitio lo puede reproducir hasta 30fps. Pero no estés en contra de los altos FPS, actualmente el cine graba a <a href="https://en.wikipedia.org/wiki/24p">24</a> y se espera que se trasladen a los <a href="https://en.wikipedia.org/wiki/High_Frame_Rate">48</a>.</p>
+
+      <p>Actualización: <a href="http://es.gizmodo.com/youtube-por-fin-da-soporte-a-los-videos-a-60fps-1652517052">YouTube ahora soporta videos hasta 60fps</a> a 4K, así que no está demás usarlo.</p>
+
+      <p><a href="http://www.nhk.or.jp/strl/open2011/tenji/04_e.html">UHDTV</a> tendrá la capacidad de transmitir hasta 120 FPS progresivos, y <a href="https://en.wikipedia.org/wiki/High-definition_television">HDTV</a> llega hasta los 60, pero eso no quiere decir que hagas todo al máximo, depende del reproductor, así que sé razonable con los dispositivos actuales.</p>
+
+      <h2>Usa codecs estables y actualizados, no uses packs de codecs</h2>
+
+      <p>Sé que en Windows muchos usan packs de codecs, pero no lo hagas, se mantienen desactualizados y no sabes que estás instalando. Hay tres opciones en Windows, <a href="http://www.free-codecs.com/">buscar e instalar separadamente cada decoder</a>, instalar <a href="http://ffdshow-tryout.sourceforge.net/">FFdshow tryouts</a> (utiliza Libavcodec) o instalar <a href="https://github.com/Nevcairiel/LAVFilters/releases">LAV Filters</a>. En Ubuntu usamos <a href="https://es.wikipedia.org/wiki/Gstreamer">GStreamer</a> que incluye todo, pero estoy acostumbrado a usar <a href="https://es.wikipedia.org/wiki/Libavcodec#C.C3.B3decs">Libavcodec</a> directamente en FFmpeg y el reproductor mpv.</p>
+
+      <h2>Usa un reproductor bueno, nada de adornos</h2>
+
+      <p>Para todo en reproducción <a href="https://cont3mpo.github.io/post/2009/configurando-mplayer.html"><strike>uso MPlayer2</strike></a> ahora <a href="https://cont3mpo.github.io/post/2013/mpv-el-sucesor-de-mplayer2.html">uso mpv</a>, el cual es multiplataforma (Ubuntu, OS X, Windows), es rápido y liviano. En Windows también puedes usar <a href="http://mpc-hc.org/">MPC-HC</a> (Media Player Classic Home Cinema). Ambos soportan 10bit y son rápidos. VLC no, es lento como un tractor.</p>
+
+      <h2>Encodea cuando sea necesario</h2>
+
+      <p>Si ves que la fuente, por ejemplo de HDTV, tiene buena imagen con la resolución que necesitas y un peso aceptable, entonces déjala intacta, fue tomada de una capturadora de TV que ya encodeo la imagen, por ende re-encodear otra vez afectaría la calidad de imagen. Pero si tiene un peso monstruoso como un blu-ray en 1080p, entonces usa el mismo codec (H.264/AVC en su mayoría) para encodear. Copiar directamente video/audio no es pecado.</p>
+
+      <h2>Todo es sobre mantener la calidad</h2>
+
+      <p>Trata de ser lo menos invasivo posible con el video y audio a encodear, intenta no alterarlo demasiado, que se vea lo más parecido a la fuente original. Si tienes que usar más espacio para mantener un nivel de calidad comparable a la fuente, entonces hazlo. Si tienes tiempo para hacer un encodeo mejor, entonces hazlo. Deja de quejarte del tamaño del archivo, la calidad de imagen y sonido lo es todo. Y deja de usar codecs pésimos y configuraciones que sacrifican calidad por tener compatibilidad con tu teléfono.</p>
+
+      <h2>Atento a la nueva generación de codecs</h2>
+
+      <p>Si, <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC">H.264/AVC</a> es un sueño con su encoder <a href="https://en.wikipedia.org/wiki/X264">x264</a>, pero no te apegues demasiado. Ya están apareciendo encoders privados para <a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding">H.265/HEVC</a>, y el nuevo encoder abierto <a href="https://en.wikipedia.org/wiki/X265">x265</a>, que está basado en el código fuente de x264. <a href="https://en.wikipedia.org/wiki/VP9">VP9</a> (video) y <a href="https://en.wikipedia.org/wiki/Opus_(audio_format)">Opus</a> (audio) son otros a considerar, a pesar de ser orientados para su uso en web y streaming, son buenos aliados y abiertos, pero todavía están en etapa temprana al igual que H.265/HEVC. Hay que estar observando su progreso como nuevos codecs y encoders, ver su uso orientado para televisoras, discos de consumo e Internet.</p>
+
+      <p>Siempre investiga sobre que tiene mejor desempeño, o lo próximo en venir, como el codec de video <a href="http://people.xiph.org/~xiphmont/demo/daala/demo1.shtml">Daala</a>. Se supone que Daala replanteará la forma en como las imágenes son tratadas al encodear y decodificar un video, incluso piensa ser superior a H.265/HEVC. Daala es desarrollado por <a href="http://xiph.org/">Xiph</a>, el mismo equipo tras FLAC, Vorbis y Theora.</p>
+
+      <p>Y atento con las resoluciones <a href="https://en.wikipedia.org/wiki/4K_resolution">4K</a> y <a href="https://en.wikipedia.org/wiki/8K_resolution">8K</a> para <a href="https://en.wikipedia.org/wiki/Ultra_High_Definition_Television">UHDTV</a>, ya se están comercializando televisores con esas resoluciones. H.265/HEVC será parte primordial en el futuro.</p>
+
+      <p>También sigan poniendo el ojo en blu-ray, debido a que en el futuro <a href="http://www.techhive.com/article/2024919/blu-ray-looks-ahead-to-4k.html">los blu-ray usarán 4K</a>, agregando más capas al disco y mejor compresor (H.265/HEVC). Pero no confundir con los "Mastered in 4K", debido a que esos utilizan una fuente 4K que fue encodeada a 1080p para el blu-ray.</p>
+    </article>
+  </div>
+</body>
+</html>

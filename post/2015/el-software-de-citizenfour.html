@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>El software de Citizenfour • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>El software de Citizenfour</h1>
+
+      <p>Hace poco vi el documental <a href="http://www.imdb.com/title/tt4044364/">Citizenfour</a>, y me llamó la atención el software que apareció y lo que usaban para comunicarse.</p>
+
+      <h2>Snowden se humaniza</h2>
+
+      <p>El documental es una forma de humanizar la aparición publica de <a href="https://es.wikipedia.org/wiki/Edward_Snowden">Edward Snowden</a>, y lo más importante aquí; la recopilación de datos y monitoreo masivo a personas que lleva a cabo la <a href="https://es.wikipedia.org/wiki/Agencia_de_Seguridad_Nacional">NSA</a>. Y acceso a su información desde grandes compañías bajo el programa <a href="https://es.wikipedia.org/wiki/PRISM">PRISM</a>.</p>
+
+      <p>El mismo Snowden cuenta como el teléfono IP de la habitación donde se hospedaba en Hong Kong, podía pincharse remotamente para convertirse en un radio-escucha de la habitación. También sugiere a los periodistas que lo entrevistaron, que <a href="http://thelede.blogs.nytimes.com/2013/06/25/why-snowdens-visitors-put-their-phones-in-the-fridge/">pusieran sus teléfonos móviles en el refrigerador</a> para bloquear la señal y no pudieran escuchar remotamente las conversaciones.</p>
+
+      <h2>Mails y archivos encriptados</h2>
+
+      <p>Durante el documental se muestran muchos pantallazos de gpg. <a href="https://www.gnupg.org/">GnuPG</a> además de encriptar archivos, también sirve para encriptar mails con una clave pública de unos 2048 bits (actualmente se puede usar una clave de 4096 bits), y a eso sumarle una clave privada para abrir el mail.</p>
+
+      <p>Otro consejo que da, es la importancia de usar contraseñas largas. Snowden cuenta que la NSA tardaría solo un par de días en crackear contraseñas de 10 caracteres, o en menos tiempo si usaran fuerza bruta con palabras conocidas. Por eso es bueno tener múltiples contraseñas largas únicas de 20 o 30 caracteres y <a href="http://cont3mpo.github.io/post/2014/probando-keepass.html">guardarlas encriptadas en software como KeePass</a> (este software no aparece en el documental, pero vale la pena).</p>
+
+      <p>Snowden utilizaba el servicio <a href="https://es.wikipedia.org/wiki/Lavabit">Lavabit</a> para hospedar sus mails, el cual es totalmente seguro, ni siquiera sus administradores saben que tipo de correos se mandan. Pero después se dio a conocer que el FBI estaba forzando al servicio a entregar los mails y <a href="http://www.theguardian.com/commentisfree/2014/may/20/why-did-lavabit-shut-down-snowden-email">Lavabit tomó la decisión de cerrar</a>.</p>
+
+      <p>Otra herramienta que se muestra es <a href="https://rsync.samba.org/">rsync</a> (hablé de él en una <a href="http://cont3mpo.github.io/post/2014/comandos-productivos-simples.html">guía de comandos</a>), rsync permite mandar archivos usando conexión segura <a href="https://es.wikipedia.org/wiki/Secure_Shell">SSH</a> a otro equipo, el otro equipo tiene que tener un servidor SSH habilitado para recibir el archivo.</p>
+
+      <h2>OS y mensajería encriptados</h2>
+
+      <p><a href="http://www.wired.com/2014/04/tails/">Snowden anteriormente ha dicho</a> que utiliza el sistema operativo <a href="https://tails.boum.org/">Tails</a>&nbsp;desde un pendrive USB, el cual utiliza <a href="https://es.wikipedia.org/wiki/GNU/Linux">Linux</a> y <a href="https://www.torproject.org/">TOR</a> para su navegación y conexión anónima en general. También en los créditos se menciona a <a href="https://www.debian.org/">Debian GNU/Linux</a>. Pero antes de todo, tuvieron que encriptar el disco duro en si, usando <a href="http://truecrypt.sourceforge.net/">TrueCrypt</a> para guardar el material como las grabaciones, las cuales se editaron en Alemania. Y lo curioso es que los desarrolladores de TrueCrypt tuvieron que detener su desarrollo <a href="http://krebsonsecurity.com/2014/05/true-goodbye-using-truecrypt-is-not-secure/">diciendo que ya no era seguro</a> luego del efecto Snowden.</p>
+
+      <p>La mensajería instantánea se hizo con el protocolo <a href="https://otr.cypherpunks.ca/">OTR Messaging</a>, el cual encripta todos los mensajes de punto-a-punto con una clave privada. <a href="https://freedom.press/securedrop">SecureDrop</a> se usó primero para subir información anónima y proteger la fuente, para llevar los primeros datos a la periodista y directora <a href="https://es.wikipedia.org/wiki/Laura_Poitras">Laura Poitras</a>.</p>
+
+      <p>En otra entrevista, Snowden dijo que servicios como <a href="http://www.pcworld.com/article/2455215/edward-snowden-dropbox-is-hostile-to-privacy.html">Dropbox no respetan la privacidad</a>&nbsp;(<a href="https://blogs.dropbox.com/dropbox/2014/06/weve-got-your-back/">Dropbox dice haber tomado medidas de seguridad</a> después de eso), y recomienda que usen <a href="https://spideroak.com/">SpiderOak</a> para hospedar archivos. El cual ni siquiera sus administradores saben que es lo que suben debido a la alta encriptación. Otros productos como <a href="http://techcrunch.com/2014/10/11/edward-snowden-new-yorker-festival/">Facebook y Google estarían dentro del mismo saco</a>, y recomienda usar servicios de llamadas como <a href="https://whispersystems.org/">RedPhone</a> o <a href="https://silentcircle.com/">Silent Circle</a>, los cuales son encriptados.</p>
+
+      <p>Irónicamente, Snowden trabajaba para un contratista de la NSA en Hawái, el cual le dio acceso de nivel administrativo a los archivos ultrasecretos de la NSA (hay varias jerarquías de acceso dentro de la corporación).</p>
+
+      <p>Snowden actualmente <a href="http://www.theguardian.com/world/2014/aug/07/edward-snowden-permission-stay-in-russia-three-years">vive en Rusia</a>.</p>
+    </article>
+  </div>
+</body>
+</html>

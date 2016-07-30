@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Animatub, YouTube a gif • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Animatub, YouTube a gif</h1>
+
+      <p>La última vez hice un script para pasar video a gif animado, ahora es YouTube a gif animado, <a href="https://github.com/cont3mpo/animatub">Animatub</a>.</p>
+
+      <p>Para acortar las cosas, últimamente había estado ocupando el antecesor <a href="https://cont3mpo.github.io/post/2015/anima-video-gif.html">Anima</a> para pasar video a gif animado. Primero tenía que bajar el video, anotar el nombre en la terminal, y luego pasar lo que quería a gif.</p>
+
+      <p>Ahora decidí acortar el proceso y tomar el video directo desde YouTube y que pase lo seleccionado a gif animado. Todo esto con Animatub.</p>
+
+      <h2>Descarga Animatub</h2>
+
+      <p>Puedes descargar el <a href="https://github.com/cont3mpo/animatub/releases">archivo animatub.sh desde GitHub</a> (el zip).</p>
+
+      <p>Eso si, esto requiere de <a href="http://cont3mpo.github.io/post/2013/encodear-con-ffmpeg.html">FFmpeg</a>, <a href="https://rg3.github.io/youtube-dl/download.html">youtube-dl</a>, y <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/convert.1.html">convert</a> (viene incluido con imagemagick) para funcionar. Los requerimientos los puedes descargar desde APT en elementary OS/Ubuntu, o <a href="https://cont3mpo.github.io/post/2015/os-x-y-homebrew.html">Homebrew</a> en OS X.</p>
+
+      <h2>Modo de uso</h2>
+
+      <p>Es siempre el mismo orden:</p>
+
+      <code>./animatub.sh https://youtu.be/qwerty 00:01:00 5</code>
+
+      <p>Según el ejemplo de arriba, desde el minuto 1 tomará 5 segundos para crear el gif animado. El gif se guardará con el mismo nombre del video.</p>
+
+      <p>Los gifs se guardan con una resolución de ancho de 480px, respetando la relación de aspecto de la imagen. Usa tu navegador web para ver los gifs animados.</p>
+    </article>
+  </div>
+</body>
+</html>

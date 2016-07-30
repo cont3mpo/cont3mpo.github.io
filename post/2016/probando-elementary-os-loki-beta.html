@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Probando elementary OS Loki (Beta) • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Probando elementary OS Loki (Beta)</h1>
+      
+      <p>Como vengo haciendo cada dos años (<a href="https://cont3mpo.github.io/post/2012/probando-elementary-os-luna.html">Luna</a>, <a href="https://cont3mpo.github.io/post/2014/probando-elementary-os-freya-beta.html">Freya</a>), probé la nueva Beta de elementary OS Loki que fue <a href="http://blog.elementary.io/post/145881464631/loki-beta">liberada esta semana</a>.</p>
+
+      <h2>Diseño</h2>
+
+      <p>Loki se siente más rápido, más fluido al redimensionar ventanas, más pulido. Una percepción que me dejó en la primera impresión (solucionaron más de 800 bugs, debe ser eso).</p>
+
+      <p>Uno de los cambios sutiles de la interfaz fue que abandonaron la tipografía <a href="https://fonts.google.com/specimen/Droid+Sans?query=droid+sans">Droid Sans</a>, en favor de&nbsp;<a href="https://fonts.google.com/specimen/Open+Sans?query=open+sans">Open Sans</a>. El cambio es tan sutil que solo se nota con la "I" mayúscula que usaba Droid Sans. Open Sans tiene una familia tipográfica más grande comparada con la anterior. Además en Terminal y Scratch, la tipografía <a href="https://fonts.google.com/specimen/Droid+Sans+Mono?query=droid">Droid Sans Mono</a>&nbsp;fue cambiada por <a href="https://fonts.google.com/specimen/Roboto+Mono?query=roboto">Roboto Mono</a>.</p>
+
+      <p>Todos los menús de indicadores fueron rediseñados. La mayoría de los menús ahora tienen un botón deslizable para indicar el estado de su función, por ejemplo para encender el bluetooth, el Wi-Fi, y silenciar el audio. También agregaron un menú de notificaciones, para las notificaciones que se van acumulando, y no se pierdan en el aire.</p>
+
+      <p>Una de las cosas que más me gustó es que el menú de energía muestra una gran icono de batería de color verde y abajo las apps que más consumen energía.</p>
+
+      <p>Todos los iconos de la barra de menús cambian a negro monocromático al usar un wallpaper claro. Y sobre la pantalla y resolución: Loki tiene soporte para pantallas con <a href="https://en.wikipedia.org/wiki/Retina_Display">HiDPI</a>.</p>
+
+      <p>Otro detalle, es que en Terminal el nombre de usuario es de color verde, diferenciándose del resto de los comandos.</p>
+
+      <p>El soporte para barras de herramientas de colores ya existe (si, como en Android), pero todavía no he visto ni una app usarla (el tema oscuro es otra cosa).</p>
+
+      <h2>Apps</h2>
+
+      <p>La primera pregunta: ¿Donde está <a href="http://midori-browser.org/">Midori</a>?</p>
+
+      <p>Una de las cosas que más me llamó la atención fue que Midori ya no está. Lo que pasa es que fue reemplazado por otro navegador: <a href="https://wiki.gnome.org/Apps/Web">Epiphany</a>.</p>
+
+      <p>Lo que lleva a la segunda pregunta: ¿Qué carajo hace Epiphany aquí?</p>
+
+      <p>Epiphany es el navegador por defecto usado por la suite de GNOME. Es más nativo con las herramientas desarrolladas por GNOME, y lo que me lleva directamente al propósito del porqué Epiphany ahora es el dueño de la cuadra, ya que Midori no era muy nativo con GTK3 y portar sus herramientas se estaba volviendo un largo proceso de desarrollo. Pero.</p>
+
+      <p>Midori era rápido y tenía opciones útiles de configuración, y hasta tenía un bloqueador de publicidad nativo. Epiphany tiene poco de eso, e incluso ahora el botón para sumar más pestañas se encuentra en la barra de herramientas y no al lado de las pestañas. Con muy pocas opciones. Se siente que cambiaron a Midori por su apariencia pero no por su función.</p>
+
+      <p>Otro gran cambio fue que eliminaron el Centro de software (que fue heredado de Ubuntu), ahora tomó su lugar el esperado <a href="https://launchpad.net/appcenter">AppCenter</a>. La pantalla de inicio de AppCenter solo muestra grandes banners de cada categoría. Por ahora no está habilitada la conexión para instalar apps, y en la versión final todas las apps se actualizarán exclusivamente por AppCenter, debido a que el Actualizador de software también fue removido.</p>
+
+      <p>Otra sección que fue agregada a Configuración del sistema, es Compartir. Un lugar donde aparecerán todas las carpetas o medios que se quieran compartir a través de la Red de Area Local.</p>
+
+      <p><a href="http://blog.elementary.io/post/139731273161/re-geary">Geary fue clonado</a> y ahora existe bajo el nombre de Mail.</p>
+
+      <h2>Seguridad</h2>
+
+      <p>Como medio de seguridad el equipo de elementary decidió remover la opción de instalar apps por medios externos, o derechamente los .deb descargados desde otros sitios. Esto es algo en lo que si estoy a favor. Hay muchas personas que solo bajan e instalan lo que se les da la gana y aumentan el riesgo de instalar software malicioso. Y no, Linux no es un capullo que bloquea todo el software malicioso.</p>
+
+      <p>Lo más probable es que elementary OS se cambie a los paquetes Snap para sus apps, y abandone Deb. Al igual que lo que <a href="http://www.cio.com/article/3085079/linux/goodbye-rpm-and-deb-hello-snaps.html">está haciendo Ubuntu</a>. Los paquetes Snap se comportan como los .app de macOS, son apps individuales que se pueden ejecutar sin importar si falta alguna librería, mejorando la compatibilidad.</p>
+
+      <p>Una nueva sección de Control parental también llega a Configuraciones del sistema, lo que permite limitar el uso de apps de otros usuarios del sistema, bloquear sitios, y limitar el uso por horas del computador.</p>
+
+      <h2>Conclusiones</h2>
+
+      <p>Espero que cuando habiliten AppCenter, los desarrolladores puedan sumar rápidamente sus apps y mantener todo actualizado de manera más rápida. Hay varios ejemplos del porqué necesitamos esto: Chrome, Atom, WebTorrent Desktop, y varias apps que no están en los repositorios de Ubuntu (los cuales ocupa elementary OS).</p>
+
+      <p>Lo ideal sería que funcionase más parecido a los repositorios de Arch. Pero haciendo un llamado directo a cada desarrollador oficial, en Arch son los voluntarios los que suben las apps.</p>
+
+      <p>Por último, esta será la primera versión en usar solo 64-bits. Los 32-bits están muertos.</p>
+    </article>
+  </div>
+</body>
+</html>

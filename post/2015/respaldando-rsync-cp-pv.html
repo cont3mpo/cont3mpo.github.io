@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Respaldando y testeando: rsync, cp, gcp, pv, pycp • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Respaldando y testeando: rsync, cp, gcp, pv, pycp</h1>
+
+      <p>¿Quién es más rápido para respaldar archivos? ¿<a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/rsync.1.html">rsync</a>, <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/cp.1.html">cp</a>, <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/gcp.1.html">gcp</a>, <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/pv.1.html">pv</a>, o <a href="https://pypi.python.org/pypi/pycp/">pycp</a>?</p>
+
+      <p>Okey, <a href="http://blog.elementary.io/post/116134677986/freya-is-here">el sábado se lanzó elementary OS Freya</a> y tenía un notebook para renovar su OS, pero habían un montón de archivos por respaldar, y justo ahí empecé a indagar sobre qué es más rápido para copiar archivos a otros discos duros. Y puse a testear un archivo para ver quien ganaba la contienda.</p>
+
+      <h2>Bondades</h2>
+
+      <p><a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/rsync.1.html">rsync</a> se utiliza mucho para respaldar archivos modificados, no solo copia a ciegas, pone los más nuevos siempre a respaldar, sin estar gastando tiempo en cosas que ya fueron copiadas. Algo así como lo que hace Git. Con "cp -u" también se tiene una opción parecida, aunque rsync es más inteligente para respaldar. Con "rsync -Pa" se puede ver siempre la información de la transferencia. Y en rsync no usé la opción "-z" para comprimir datos (que se supone que acelera la transferencia, pero en realidad no), ya que utiliza demasiado procesamiento.</p>
+
+      <p>A pesar de que <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/pv.1.html">pv</a> no fue hecho para copiar, sirve como mediador de transferencias mientras copia, y muestra información al igual que rsync. Por otro lado, <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/cp.1.html">cp</a> se comporta más inteligente que pv al copiar, ya que no hay que dar el nombre del destinatario, solo la ruta de directorio, pero cp no muestra información de transferencias. <a href="https://pypi.python.org/pypi/pycp/">pycp</a> puede copiar carpetas sin opciones y muestra información de transferencias. <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/gcp.1.html">gcp</a> es otro que muestra información de transferencias, se comporta igual que cp en sus opciones.</p>
+
+      <h2>Tiempo de transferencia</h2>
+
+      <p>Hice unas transferencias/copias localmente. En un computador con <a href="http://cont3mpo.blogspot.com/2014/08/probando-elementary-os-freya-beta.html">elementary OS Freya</a> 64-bit ya instalado, el disco duro formateado en <a href="https://es.wikipedia.org/wiki/Ext4">Ext4</a>, y un archivo de 1,8 GB para testear. Después conecté el disco duro externo (HDD portátil) por USB 2.0 formateado en NTFS y le transferí el archivo:</p>
+
+      <ul>
+        <li>cp 30s (local) - 56s (externa)</li>
+        <li>pv 30s (local) - 56s (externa)</li>
+        <li>gcp 31s (local) - 57s (externa)</li>
+        <li>pycp 52s (local) - 1m 3s (externa)</li>
+        <li>rsync 1m 7s (local) - 1m 15s (externa)</li>
+      </ul>
+
+      <p>Localmente cp, pv y gcp fueron rápidos al transferir el archivo de 1,8 GB (gracias a <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/time.1posix.html">time</a> pude medir el tiempo de cp, el cual no entrega esa información). Pero pycp sacó el tercer lugar en tiempo, y rsync fue humillado en una esquina. Externamente cp, pv y gcp se relentizaron un poco, a pesar de que hicieron buenos tiempo. Pero le echo la culpa al driver NTFS para montar el HDD portátil para escribir en la unidad.</p>
+
+      <h2>Velocidad de transferencia</h2>
+
+      <p>Ahora los datos de transferencia promedio, a veces bajaban y subían:</p>
+
+      <ul>
+        <li>cp 51MB/s (local) - 27MB/s (externa)</li>
+        <li>pv 49MB/s (local) - 27MB/s (externa)</li>
+        <li>gcp 50MB/s (local) - 27MB/s (externa)</li>
+        <li>pycp 35MB/s (local) - 29MB/s (externa)</li>
+        <li>rsync 26MB/s (local) - 23MBs (externa)</li>
+      </ul>
+
+      <p>Gracias a <a href="http://manpages.ubuntu.com/manpages/trusty/en/man8/iotop.8.html">iotop</a> pude monitorear las transferencias de cp (cp no entrega esa información), y al igual que pv transfirió redondeando los 50 MB/s, a veces marcaba hasta 70 MB/s al igual que gcp. Pero cp, pv y gcp externamente marcaron casi todo el trayecto unos 27 MB/s promedio. De nuevo pycp sacó el tercer lugar. Y como rsync sacó los tiempos más lentos, también sacó la velocidad de transferencia más lenta.</p>
+
+      <h2>Procesamiento</h2>
+
+      <p>Ahora veremos el procesamiento que utiliza cada uno en la CPU, externamente fueron más fijos pero altos que localmente:</p>
+
+      <ul>
+        <li>cp 25% a 45% (local) - 51% (externa)</li>
+        <li>pv 25% a 47% (local) - 54% (externa)</li>
+        <li>pycp 30% a 50% (local) - 70% (externa)</li>
+        <li>gcp 30% a 80% (local) - 80% (externa)</li>
+        <li>rsync 60% a 78% (local) - 84% (externa)</li>
+      </ul>
+
+      <p>Al monitorear los procesos con <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/htop.1.html">htop</a>, rsync mostraba siempre un doble proceso localmente, y externamente me mostró tres procesos, el tercero era la unidad escribiendo datos. Con cp y pv fue decente, no sobrepasaron nunca la mitad, y a veces llegaban bajo el 20%. Pero al contrario gcp frecuentemente subía al 80% y bajaba al 30% repetidas veces. rsync no bajaba de la mitad, ouch. Externamente, lo que pasó con rsync no todo es su culpa, había un proceso del driver NTFS que lo empujó y ocupaba a veces como 30% el montado del HDD portátil. Lo mismo va para gcp externamente, eran dos procesos de 35% y 40%, el segundo eran los datos escribiendo en la unidad externa. Y además cp al principio apuntó 90% pero luego se mantuvo estable. pv pasó por lo mismo del proceso doble externamente, esos procesos eran bash y la unidad montada escribiendo. pycp se mantuvo digno localmente aunque no por mucho, y también consumió cpu externamente, aunque no tanta como rsync.</p>
+
+      <p>En fin. rsync será muy inteligente para respaldar y mostrar información, pero cp es muy rápido y puede copiar sin dar nombres de destinatarios como no lo hace pv, aunque los dos son rápidos y eficientes en procesamiento. gcp es muy rápido para copiar y mostrar información a la vez, usa las mismas opciones que cp pero en procesamiento se comporta medio extraño. Y pycp al menos le ganó a rsync pero no a los otros (¿culpa de Python?). Pero también si vas a <a href="https://lists.gnu.org/archive/html/coreutils/2014-08/msg00012.html">copiar millones de archivos en terabytes usando cp</a> de una sola tirada, mejor piénsalo y hazlo por secciones.</p>
+
+      <p>No probé <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/scp.1.html">scp</a>, ya que <a href="http://www.digitalsanctuary.com/tech-blog/debian/rsync-is-much-faster-than-scp.html">dicen que es jodidamente lento</a>. Y ya es conocido que <a href="https://lwn.net/Articles/400489/">rsync utiliza mucho procesamiento</a>. Pensaba testear <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/mv.1posix.html">mv</a> quizá, pero mv no copia, solo mueve, y no sería lo mismo. Pueden ver los <a href="http://cont3mpo.github.io/post/2014/comandos-productivos-simples.html">comandos productivos</a> para saber como se usan.</p>
+    </article>
+  </div>
+</body>
+</html>

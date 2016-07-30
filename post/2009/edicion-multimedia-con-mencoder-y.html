@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Edición video/audio: MEncoder y MPlayer (Parte 1) • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Edición video/audio: MEncoder y MPlayer (Parte 1)</h1>
+
+      <p><a href="https://es.wikipedia.org/wiki/Mencoder">MEncoder</a> junto con <a href="https://es.wikipedia.org/wiki/MPlayer">MPlayer</a> son las herramientas multimedia más potentes, versátiles y solidas que existen en Linux, y que también son utilizados en otras aplicaciones por terceros. Aunque también existen versiones para los sistemas operativos OS X, Windows y BSD, nos enfocaremos solo en Linux y su consola de comandos.</p>
+
+      <p><strong>Nueva guía 2013: <a href="https://cont3mpo.github.io/post/2013/encodear-con-ffmpeg.html">Encodear con FFmpeg</a></strong></p>
+
+      <p>La idea de este artículo es aprender a utilizar como un profesional a MEncoder y MPlayer, y para ello necesitamos de una Terminal o consola de comandos para poner en practica todas las opciones y pasos explicativos que utilizaremos en el artículo.</p>
+
+      <p>Todo esto nace a fines del año pasado, cuando dediqué varios meses al estudio y practica del uso de estas dos grandes herramientas, y el resultado de todo ello lo veremos después de la introducción que leerán a continuación.</p>
+
+      <h2>El Reproductor y el Codificador</h2>
+
+      <p>MPlayer es un reproductor multimedia a base de <a href="https://es.wikipedia.org/wiki/Linea_de_comandos">línea de comandos</a>, y que utiliza principalmente la librería de codecs <a href="https://en.wikipedia.org/wiki/Libavcodec">Libavcodec</a> para reproducir los variados <a href="https://es.wikipedia.org/wiki/C%C3%B3dec_de_v%C3%ADdeo">codecs de video</a> y <a href="https://es.wikipedia.org/wiki/C%C3%B3dec_de_audio">audio</a>.
+      Por su parte, MEncoder es un codificador (encoder) de línea de comandos para video y audio, y que también utiliza la librería de codecs Libavcodec para su cometido. Los dos (MPlayer/MEncoder), pueden también utilizar otras librerías de codecs por separado, como: <a href="https://es.wikipedia.org/wiki/Xvid">Xvid</a>, <a href="https://es.wikipedia.org/wiki/X264">x246</a> (H.264), <a href="https://es.wikipedia.org/wiki/Lame">LAME</a> (MP3), <a href="https://es.wikipedia.org/wiki/Advanced_Audio_Coding">AAC</a>, etc.</p>
+
+      <p>El desarrollo de MPlayer y MEncoder parte desde el año 2000 hasta la actualidad. El equipo de desarrollo de MPlayer todavía no ha liberado una versión 1.0 Final, ya que hasta el momento va en la versión <a href="http://www.mplayerhq.hu/design7/dload.html">1.0-RC2</a> (Release Candidate 2). El desarrollo ha durado muchos años, y ha dejado cifras muy positivas en los test de calidad a la hora de codificar.</p>
+
+      <h2>¿Qué es Libavcodec?</h2>
+
+      <p><a href="http://en.wikipedia.org/wiki/Libavcodec">Libavcodec</a> es una librería que junta los codecs de video/audio más importantes o utilizados en la actualidad, y pueden ser usados en cualquier reproductor multimedia (como MPlayer) y codificador (como MEncoder) para el propósito que sea. Y además, es el pilar principal del proyecto de software libre <a href="https://es.wikipedia.org/wiki/FFMPEG">FFmpeg</a>, y cuyo proyecto junta variadas herramientas para el trabajo con multimedia en distintas plataformas. Pero no hablaremos de FFmpeg, si no que hablaremos de MPlayer/MEncoder.</p>
+
+      <h2>Interfaz Gráfica</h2>
+
+      <p>MPlayer/MEncoder utilizan todas sus opciones y configuraciones a base de línea de comandos. Eso es para beneficiar su mejor desempeño a la hora de no mantener una interfaz gráfica de usuario levantada y funcionando, y no se produzca una posible caída del programa a la hora de codificar.
+      Para los dos existen interfaces gráficas muy completas, como el reproductor <a href="http://smplayer.sourceforge.net/">SMPlayer</a> y GNOME MPlayer, que es utilizado por usuarios novatos y/o avanzados. Y por la parte de la codificación, existe la interfaz gráfica: <a href="http://untrepid.com/acidrip/">AcipRip</a>. Pero abarca muy pocas opciones de configuración en comparación con las opciones que se prestan en la línea de comandos.</p>
+
+      <h2>Manos a la obra</h2>
+
+      <p>La bien explicativa introducción ya acabó, y ahora vamos a lo práctico.
+      Como MPlayer es solo un reproductor multimedia, ahora nos enfocaremos en su mayor parte a MEncoder. La mayoría de las opciones pre-configuradas que vienen por defecto en MEncoder son de por si excelentes, ya que el equipo de desarrollo de MEncoder siempre velará por la calidad final del medio encodeado, pero esas opciones siempre se pueden exprimir más, y sacar toda la calidad a relucir gracias a este codificador.</p>
+
+      <p>Esta es una codificación simple en MEncoder, y dejaremos las opciones por defecto del codec utilizado:</p>
+
+      <ul>
+        <li>Para la salida del video (-ovc) se utilizará el codec <a href="https://es.wikipedia.org/wiki/Xvid">Xvid</a>, y el <a href="https://es.wikipedia.org/wiki/Contenedor_multimedia">contenedor multimedia</a>  <a href="https://es.wikipedia.org/wiki/Avi">.AVI</a>, con un <a href="https://es.wikipedia.org/wiki/Bitrate">bitrate</a> (tasa de bits) de video de 2050 kbps. </li>
+        <li>Para la salida del audio (-oac) se utilizará el codec <a href="https://es.wikipedia.org/wiki/Mp3">MP3</a> con una <a href="https://es.wikipedia.org/wiki/Tasa_de_bits_constante">tasa de bits constante</a> (CBR) de 192 kbit en <a href="https://es.wikipedia.org/wiki/Sonido_estereof%C3%B3nico">estéreo</a> (mode=0):</li>
+        <li>La salida (-o) video_final.avi, es el resultado final del video.bla encodeado.</li>
+      </ul>
+
+      <code>mencoder video.bla -o video_final.avi -oac mp3lame -lameopts cbr:br=192:mode=0 -ovc xvid -xvidencopts pass=1:bitrate=2050</code>
+
+      <p>(El video.bla es el video a encodear, el .bla es el contenedor del video que se va a encodear, como por ejemplo: .wmv, .avi, .mp4, etc.)</p>
+
+      <p>Para empezar tu primer video encodeado, primero copia y pega la linea de comandos de arriba (el cuadro celeste) en una terminal de Linux (y tener MEncoder instalado, obvio), y... <i>(primero dejar en claro que se realizarán dos pasadas de codificación de datos al video para beneficiar el peso/calidad del video final)</i> ...primero haremos la primera pasada, esto lo haremos dejando la opción "pass=1" en la linea de comandos, y luego apretar la tecla Enter.
+      Al finalizar el proceso de esa primera pasada (pass=1), se cambiará el 1 por un 2, o sea "pass=2". Y tecla Enter.</p>
+
+      <p>Bueno, después que expliqué lo básico, ahora lo haremos a mi manera, con las opciones que utilizo, y todas las variantes y opciones que existen en MEncoder/MPlayer para exprimir la calidad al máximo.</p>
+
+      <h2>Video a XVID + MP3</h2>
+
+      <p>Estas opciones son idénticas al encodeado simple de arriba, pero solo las opciones del audio, ya que como vemos, el codec Xvid tiene muchas más opciones para brindar una mejor calidad al video final:</p>
+
+      <code>mencoder video.bla -o video_final.avi -oac mp3lame -lameopts cbr:br=192:mode=0 -ovc xvid -xvidencopts pass=1:bitrate=2050:zones=0,w,1.00:cartoon:chroma_opt:vhq=4:min_iquant=1
+      :max_iquant=8:min_pquant=1:max_pquant=16:min_bquant=1:max_bquant=24
+      :max_key_interval=300:quant_type=mpeg:curve_compression_high=10:
+      curve_compression_low=5:profile=asp5</code>
+
+      <p>Ahora explicaré solamente las opciones que se pueden cambiar, todas las demás opciones que no se pueden cambiar (para beneficiar la calidad) se dejarán intactas.</p>
+
+      <ul>
+        <li>El filtro "cartoon" solamente es útil para animaciones 2D, como Anime. Si se encodea un video con actores reales (Live Action) esta opción se tiene que remover.</li>
+        <li>La calidad del bitrate de audio puede diferir en si es constante, variable o medio, estos se pueden cambiar según tus requerimientos u oído: cbr (constante), vbr (variable), abr (medio).</li>
+        <li>Por defecto, los canales de audio (mode=) se seleccionarán automáticamente, pero igual se pueden cambiar: 0 (stereo), 1 (joint-stereo), 2 (dual-channel), 3 (mono).</li>
+      </ul>
+
+      <h3>Xvid con Libavcodec</h3>
+
+      <p>Arriba utilizamos el codec Xvid directamente para encodear, pero como mencioné al principio; Libavcodec es parte primordial de MEncoder, y haremos exactamente lo mismo de arriba pero con la librería de codecs Libavcodec:</p>
+
+      <code>mencoder video.bla -o video_final.avi -oac mp3lame -lameopts cbr:br=192:mode=0 -ffourcc XVID -ovc lavc -lavcopts vcodec=libxvid:vbitrate=2050:mpeg_quant</code>
+
+      <h3>DivX con Libavcodec</h3>
+
+      <p>También se puede utilizar <a href="https://es.wikipedia.org/wiki/Divx">DivX</a> con Libavcodec, es lo mismo, solo se utiliza el codec de video DivX gracias a Libavcodec:</p>
+
+      <code>mencoder video.bla -o video_final.avi -oac mp3lame -lameopts cbr:br=192:mode=0 -ovc lavc -lavcopts vcodec=mpeg4:vbitrate=2050:mbd=2:mv0:trell:v4mv:cbp:last_pred=3:predia=2
+      :dia=2:vmax_b_frames=2:vb_strategy=1:precmp=2:cmp=2:subcmp=2:preme=2
+      :qns=2</code>
+
+      <h2>Video a H.264 + AAC</h2>
+
+      <p>El codec de alta calidad <a href="https://es.wikipedia.org/wiki/H.264">H.264</a> (AVC) también se ha hecho muy popular este último tiempo, y es primordial en el uso de video <a href="https://es.wikipedia.org/wiki/Blu-ray">Blu-ray</a> (MPEG-4), ya que se utiliza para ripear (encodear) discos Blu-ray a videos de menor tamaño. Usualmente una película en Blu-ray se puede pasar a un video encodeado en H.264 con un peso de 4 GB a <a href="https://es.wikipedia.org/wiki/720p">720p</a> (resolución de 1024x720), pero he visto casos de películas ripeadas con un peso de 2,2 GB en H.264 que se ven muy bien a <a href="https://es.wikipedia.org/wiki/480p">480p</a> (720x480).</p>
+
+      <p>En este caso dejaremos el video en H.264 con el contenedor de video <a href="https://es.wikipedia.org/wiki/MPEG-4_Parte_14">.MP4</a>, y con el codec de audio <a href="https://es.wikipedia.org/wiki/Advanced_Audio_Coding">AAC</a>, dejando las mismas tasas de bits que el ejemplo usado arriba en Xvid:</p>
+
+      <code>mencoder video.bla -o video_final.mp4 -oac faac -faacopts br=192 -ovc x264 -x264encopts pass=1:bitrate=2050:bframes=2:direct_pred=spatial:weight_b:8x8dct:me=umh:
+      mixed_refs</code>
+
+      <p>Ahora explicaré solamente las opciones que se pueden cambiar, todas las demás opciones que no se pueden cambiar (para beneficiar la calidad) se dejarán intactas.</p>
+
+      <p>La predicción de movimiento "direct_pred=" tiene dos alternativas: spatial (Anime), temporal (imagen real Live Action).</p>
+
+      <h3>H.264 y AAC con Libavcodec</h3>
+
+      <p>Arriba utilizamos el codec H.264 y AAC directamente para encodear, ahora haremos exactamente lo mismo de arriba pero con la librería de codecs Libavcodec:</p>
+
+      <code>mencoder video.bla -o video_final.mp4 -oac lavc -lavcopts acodec=libfaac:abitrate=192 -ovc lavc -lavcopts vcodec=libx264:vbitrate=2050</code>
+
+      <h2>Video a WMV + WMA</h2>
+
+      <p>Los codecs de video y audio de Windows Media, también tienen cabida en MEncoder, y todo esto gracias a la librería de codecs Libavcodec. Pero hasta el momento, Libavcodec todavía no tiene soporte para encodear a <a href="https://es.wikipedia.org/wiki/VC-1#WMV3">WMV3</a> (WMV9), y solamente puede utilizar WMV2 (WMV8):</p>
+
+      <p>Utilizaremos el codec de video <a href="https://es.wikipedia.org/wiki/Wmv">WMV2</a> con el contenedor de video .WMV, y con el codec de audio <a href="https://es.wikipedia.org/wiki/Wma">WMA2</a>, dejando las mismas tasas de bits de los ejemplos de arriba:</p>
+
+      <code>mencoder video.bla -o video_final.wmv -oac lavc -lavcopts acodec=wmav2:abitrate=192 -ovc lavc -lavcopts vcodec=wmv2:vbitrate=2050</code>
+
+      <h2>DVD a XVID (o H.264) + AC-3 (o MP3 o AAC)</h2>
+
+      <p>Por fin llegamos al punto en que muchos se interesan, el ripeo, encodeo, o codificación de un DVD a Xvid, aunque también se puede utilizar H.264 si uno quiere, solamente se modifica la salida del codec de video "-ovc" hacia adelante. Lo mismo va para el audio y su salida del codec de audio "-oac" hacia adelante.</p>
+
+      <p>Lo primero es ver en que pista se encuentra el DVD, eso lo vemos con MPlayer:</p>
+
+      <code>mplayer dvd://</code>
+
+      <p>Ese simple comando empezaría con la reproducción del DVD, si no lo encuentra o tienes más unidades lectoras de DVD, prueba cambiando las pistas "dvd://2" ó la pista 3, ó 4, 5, etc.</p>
+
+      <code>dvd://1 -dvd-device /dev/dvd1</code>
+
+      <p>Primero explicaré algunas curiosidades sobre los DVDs. Los DVDs a veces vienen con unas lineas negras pequeñas que aparecen en los costados de la imagen (derecha, izquierda, arriba y abajo) (¡Ojo!: no confundir con las lineas widescreen (pantalla ancha) que traen algunos DVDs por defecto, no son esas lineas), todo eso de las lineas pequeñas negras, es debido a que los televisores convencionales (conocidos como CRT) se comen un poco la imagen del video, por eso es que las empresas que desarrollan el DVD les dejan esas líneas de los costados.
+      Pero esas líneas se pueden recortar, o hacer un cropping al video, con la opción "crop".</p>
+
+      <p>También dejar en claro que en la Parte 2 de la continuación de este artículo, explico varias opciones como recortar imagen del video, cortar (dividir) un video, unir un video, cambiar resolución y aspecto, copiar audio y encodear solo el video y viceversa, extraer audio o video, y pegar subtitulos (Fansub).</p>
+
+      <p>Las opciones de Xvid son identicas a las que hemos visto, y de hecho; se pueden cambiar por las de H.264 (como expliqué un poco más arriba). Lo mismo va para las opciones de audio, ya que se puede encodear a MP3 o AAC, pero en este caso dejaremos el audio AC-3 que venga en el DVD:</p>
+
+      <code>mencoder dvd://1 -chapter 1-1 -o video.avi -vf filmdint,eq=3:-2,crop=708:480:7:0,scale=704:396,dsize=16/9 -fps 30000/1001 -ofps 24000/1001 -aid 129 -oac copy -ovc xvid -xvidencopts pass=1:bitrate=2050:zones=0,w,1.00:chroma_opt:vhq=4:min_iquant=1
+      :max_iquant=8:min_pquant=1:max_pquant=16:min_bquant=1:max_bquant=24
+      :max_key_interval=300:quant_type=mpeg:curve_compression_high=10:
+      curve_compression_low=5:profile=asp5</code>
+
+      <h3>Opciones encodeado del DVD</h3>
+
+      <p>Ahora explicaré algunas opciones de la línea de comandos:</p>
+
+      <ul>
+        <li> La opción "-chapter 1-1" está seleccionando que solo encodeé la pista 1 del DVD, si fuera el DVD de un concierto o serie, serviría mucho si queremos solo extraer esa pista, pero si queremos que encodée otra pista, como por ejemplo la pista o track 4, lo dejarán de esta forma: "-chapter 4-4". Si quisieramos encodear una película o un concierto completo, tendremos que remover la opción "-chapter", y por supuesto también remover el número que tenga al lado de esa opción.</li>
+        <li>La opción "-vf", son los filtros de video que se utilizarán para mejorar la imagen del video final:  "filmdint" (telecine inverso, o desentrelazado), "pullup,softskip" (también se puede utilizar como telecine inverso o desentrelazado, y utilizar con la opción softskip), "yadif" (desentrelazado solo para DVDs PAL de 25 fps), "eq" (Brillo y Contraste de -100 a 100), "crop" (recortar imagen. En la Parte II de la continuación del artículo lo explico detalladamente), "scale" (escalando la resolución del video. Lo explico en la Parte II), "dsize" (aspecto proporcional del video).</li>
+        <li>Las opciones "-fps" y "-ofps" son la entradas de los frames del video y salida del mismo. En NTSC se utiliza como entrada 30000/1001 (29.97) y como salida 24000/1001 (23.976).</li>
+        <li>La opción "-aid" selecciona la pista 129 de audio, que es comunmente usada por AC-3 (aunque eso se puede ver fácilmente en la reproducción del DVD con MPlayer) para que sea copiada directamente sin encodear con la opción: "-oac copy".</li>
+      </ul>
+
+      <p>En el sitio de MPlayer hay <a href="http://www.mplayerhq.hu/design7/info.html#docs">mucha documentación</a> sobre todas las opciones que se pueden emplear, todo disponible en inglés y español. O también se puede ver el manual que viene incluido con MEncoder/MPlayer en Linux, ahí vienen todas las opciones para echarle un ojo. Solo tipear lo siguiente en una Terminal (las dos te llevaran al mismo manual):</p>
+
+      <code>man mplayer</code>
+
+      <code>man mencoder</code>
+
+      <p>La extensión de este artículo sobre MEncoder y MPlayer <a href="https://cont3mpo.github.io/post/2009/edicion-multimedia-mencoder-y-mplayer.html">continua en la Parte 2</a>, y ahí hablo y doy ejemplos sobre como recortar imagen del video, cortar (dividir) un video, unir un video, cambiar resolución y aspecto, copiar audio y encodear solo el video y viceversa, extraer audio o video, pegar subtitulos (Fansub), y etc.</p>
+    </article>
+  </div>
+</body>
+</html>

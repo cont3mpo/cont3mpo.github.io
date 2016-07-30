@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>El futuro unificado de Ubuntu • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>El futuro unificado de Ubuntu</h1>
+
+      <p>En los últimos dos meses no he escrito nada sobre los nuevos anuncios en el desarrollo de <a href="https://es.wikipedia.org/wiki/Ubuntu">Ubuntu</a>, pero ahora todas las piezas empiezan a encajar. Es enfocar todo en un solo <a href="https://es.wikipedia.org/wiki/Sistema_operativo">OS</a>.</p>
+
+      <h2>Su futuro es móvil</h2>
+
+      <p>No es sobre que Ubuntu se vuelva móvil solo para ver como luce, <a href="http://blog.canonical.com/2013/01/02/its-official-ubuntu-now-fits-phones/">es sobre su futuro</a>. Si Ubuntu sigue apegado al escritorio, llegará un punto en que no podrá seguir expandiendo su desarrollo y la llegada de nuevos usuarios. Al volverse móvil, tiene al alcance miles de nuevos dispositivos, un nuevo mercado de usuarios, y el seguir asegurando su crecimiento como OS.</p>
+
+      <h2>Control sobre aplicaciones</h2>
+
+      <p>A diferencia del escritorio y las <a href="https://live.gnome.org/Design/HIG">guías de interfaz basadas en GNOME</a>, Ubuntu phone/tablet tendrá control absoluto sobre el diseño de aplicaciones debido a <a href="http://design.ubuntu.com/apps">sus propias guías de interfaz para aplicaciones</a>, también el control sobre <a href="http://developer.ubuntu.com/get-started/gomobile/">su propio SDK</a> con las herramientas necesarias para crear aplicaciones optimizadas para Ubuntu con interfaz <a href="http://developer.ubuntu.com/resources/programming-languages/qml/">QML/Qt</a>, aceleraciones gráficas en <a href="http://developer.ubuntu.com/resources/tools/graphical-libraries/">OpenGL</a> y ser ejecutadas en <a href="http://developer.ubuntu.com/resources/programming-languages/c-and-c-plus-plus/">C/C++</a>.</p>
+
+      <p>También no me extrañaría que tomaran los mismos principios de phone/tablet para construir aplicaciones para el escritorio, de hecho, es lo más probable que ocurra. Todo esto debido a que actualmente las aplicaciones en el escritorio utilizan <a href="https://es.wikipedia.org/wiki/GTK%2B">GTK+</a> para el diseño visual y no <a href="https://es.wikipedia.org/wiki/Qt_(biblioteca)">Qt</a> como en phone/tablet. Quizás una nueva gama de aplicaciones básicas en el escritorio diseñadas en Qt tal como lo están haciendo en phone/tablet, aunque eso llevaría tiempo.</p>
+
+      <h2>Una interfaz y código unificado</h2>
+
+      <p>Ubuntu phone/tablet comparten una interfaz en común, la cual es Unity diseñada en QML/Qt, y proporciona animaciones rápidas y fluidas. El problema actual es que el escritorio utiliza <a href="http://developer.ubuntu.com/resources/platform/unity/">Unity</a> diseñada en <a href="http://askubuntu.com/questions/18413/what-is-nux-and-whats-it-used-for/18414#18414">Nux</a> sobre un plug-in del administrador de ventanas <a href="https://es.wikipedia.org/wiki/Compiz">Compiz</a>. Pero la gracia de crear un solo OS es también crear una sola interfaz.</p>
+
+      <p>Lo bueno es que ahora se creará una interfaz unificada en código y uso. <a href="https://wiki.ubuntu.com/UnityNextSpec">Unity Next</a> será la interfaz unificada para Ubuntu diseñada en QML con uso directo de OpenGL para el escritorio, teléfono, tablet y televisor. Con esto se ahorrará tiempo en mantenimiento de diferentes códigos y redundancias de desarrollo.</p>
+
+      <h2>Mir, por y para Ubuntu</h2>
+
+      <p><a href="https://wiki.ubuntu.com/MirSpec">Mir</a> será el nuevo servidor gráfico creado por <a href="https://es.wikipedia.org/wiki/Canonical_Ltd.">Canonical</a> para Ubuntu, diseñado y enfocado 100% a las necesidades y futuro desarrollo de Ubuntu. Mir viene a reemplazar a <a href="https://es.wikipedia.org/wiki/X_Window_System">X</a>, el cual lleva décadas y también tiene código de hace décadas, eso quiere decir que en la actualidad X es como un gran camión que sigue funcionando estable, pero con piezas y motor que en la actualidad tendrían que ser optimizados, claro pueden ser mejorados pero básicamente sería más fácil crear algo nuevo.</p>
+
+      <p>Hace un par de años <a href="http://www.markshuttleworth.com/archives/551">se anunció que Ubuntu utilizaría Wayland</a> como servidor gráfico, pero habría que reacondicionar Wayland para las necesidades técnicas de Ubuntu. Algunos reclaman que contribuiría a fragmentación de servidores gráficos, pero la gracia es que Mir está siendo creado 100% para Ubuntu y la interfaz Unity Next. Esto es como el meme de Bender diciendo "haré mi propia fiesta con juegos de azar y mujerzuelas", pero en este caso Canonical está creando Ubuntu con su propia interfaz, bajo su propio servidor gráfico enfocado en mejorar el desempeño de su OS y bajo sus propios parámetros de diseño de aplicaciones.</p>
+
+      <h2>¿Solo versiones LTS?</h2>
+
+      <p><a href="https://lists.ubuntu.com/archives/ubuntu-devel/2013-February/036537.html">Ahora se está discutiendo</a> sobre el fin del ciclo de versiones cada 6 meses, debido a que la mayor parte de empresas y usuarios preferían las <a href="https://es.wikipedia.org/wiki/Ubuntu#LTS:_Soporte_t.C3.A9cnico_extendido">versiones LTS</a> de soporte extendido, además se producía un problema a la hora de elegir una versión, por ejemplo ahora hay tres versiones en funcionamiento: 12.10, 12.04 LTS y 11.10 (<a href="http://www.ubuntu.com/download/desktop">en ubuntu.com se muestran dos para descargar</a>), y por último que los desarrolladores tenían que mantener diferentes versiones. Al cortar las versiones de 6 meses nos quedaríamos solo con una, un solo OS, y la gente no tendría problemas para ver cual es la correcta.</p>
+
+      <p>Además de quedarse con la LTS (se lanza cada dos años), se publicará una versión interna (no para el público en general) enfocada a desarrolladores y entusiastas, una versión <a href="https://en.wikipedia.org/wiki/Rolling_release">Rolling Release</a>. La versión RR cumpliría básicamente los requisitos de las versiones de desarrollo, se actualizará casi diariamente con cambios internos que a la gente le da lo mismo, pero que los desarrolladores de Ubuntu si necesitan para optimizar el sistema día a día hasta la próxima versión LTS. El problema con las versiones RR, <a href="http://www.markshuttleworth.com/archives/1228">es que ni siquiera son versiones, son solo actualizaciones constantes que podrían resultar inestables</a>, es un producto demasiado enfocado a desarrolladores y las actualizaciones para el público se dejan de lado.</p>
+
+      <p>Lo que propone Mark Shuttleworth es ir de LTS a LTS con actualizaciones mensuales que no comprometan la estabilidad del sistema, el rolling release actualiza todo diariamente y compromete la estabilidad del sistema. La idea es mantener un Ubuntu más seguro, estable y actualizado sin comprometer al usuario al sistema ni aplicaciones.</p>
+
+      <p>Puede que 13.04 se lance con un soporte corto, y 13.10 no se lance debido al desarrollo de Unity Next y Mir para 14.04.</p>
+
+      <h2>Una experiencia unificada</h2>
+
+      <p>Arriba de todo esto (Unity Next, Mir, QML, Versión LTS, un solo Ubuntu) está el usuario. Es sobre entregar una experiencia de usuario unificada, que la gente y desarrolladores vean esa consistencia. El desempeño de un mismo OS a través de dispositivos tiene que ser igual, su interacción igual, su diseño visual, lo que la gente experimenta usando el OS tiene que ser igual. Si aparece un problema, la solución será la misma en todos los dispositivos, eso es una experiencia consistente. Es como el ejemplo de la <a href="http://design.ubuntu.com/brand/ubuntu-font-family">fuente tipográfica Ubuntu</a>, la misma fuente en todos los dispositivos.</p>
+
+      <p>Toda esta unificación estará disponible al público en abril de 2014 para Ubuntu 14.04. La primeras versiones de testeo de Unity Next en el escritorio se verán a partir de Mayo 2013 al igual que Mir.</p>
+    </article>
+  </div>
+</body>
+</html>

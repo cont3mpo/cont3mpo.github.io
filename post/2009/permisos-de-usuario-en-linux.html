@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Permisos de usuario • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Permisos de usuario</h1>
+
+      <p>El tema de los <a href="https://es.wikipedia.org/wiki/Permisos_%28inform%C3%A1tica%29">permisos</a> sobre un archivo o directorio es básico.</p>
+
+      <p>Actualmente los permisos se pueden cambiar fácilmente con un administrador de archivos como Nautilus, Dolphin o Thunar. Pero si queremos control rápido sobre todo es mejor utilizar <a href="https://es.wikipedia.org/wiki/Chmod">chmod</a> y <a href="https://es.wikipedia.org/wiki/Chown">chown</a>. Estos dos comandos permiten tener bajo nuestra custodia la seguridad de nuestros archivos y directorios, y de permitir quienes o quien puede leer, escribir y ejecutar.</p>
+
+      <h2>chmod: Leer, Escribir, Ejecutar</h2>
+
+      <p>El comando <a href="https://es.wikipedia.org/wiki/Chmod">chmod</a> permite cambiar lo que puede hacer el propietario o grupo dueño del archivo/directorio en cuestión. Sé que existen siglas numéricas para cambiar permisos en chmod, pero no las utilizaré en estos ejemplos, ya que otorgar siglas numéricas para cambiar permisos no tiene sentido.</p>
+
+      <p>Para ver que permisos que tiene un archivo/directorio, solamente tipean en una terminal (para ver directorios/archivos ocultos usen "ls -la"):</p>
+
+      <code>ls -l</code>
+
+      <p>El comando les mostrará al lado izquierdo de la terminal una serie de letras:</p>
+
+      <code>rwx (propietario) rwx (grupo) rwx (otros)</code>
+
+      <p>Los entre-paréntesis muestran los tres que pueden controlar el archivo/directorio. Estas son las funciones de cada las letras:</p>
+
+      <ul>
+        <li>r: Permite leer.</li>
+        <li>w: Permite escribir.</li>
+        <li>x: Permite ejecutar.</li>
+        <li>-: Si el guion aparece quiere decir que no tiene permiso.</li>
+      </ul>
+
+      <h3>Dando la orden</h3>
+
+      <p>Para cambiar entre propietario (u), grupo (g), otros (o), todos los anteriores (a). Y dar permisos de lectura (r), escritura (w), ejecución (x). Se dan permisos con el signo más (+), se quitan permisos con el signo menos (-). Recuerda usar sudo primero:</p>
+
+      <code>chmod ugoa+rwx archivo</code>
+
+      <p>En un directorio se pone "-R", para dar permisos recursivamente de propietario:</p>
+
+      <code>chmod -R u+rwx directorio</code>
+
+      <p>Si quisieran quitar permisos a un archivo del propietario:</p>
+
+      <code>chmod u-rwx archivo</code>
+
+      <p>Si quisieran darle permisos a todos (propietario, grupo, otros):</p>
+
+      <code>chmod a+rwx archivo</code>
+
+      <p>Quitar permisos a externos recursivamente en un directorio:</p>
+
+      <code>chmod -R o-rwx directorio</code>
+
+      <p>Dar permiso a otros solo para leer:</p>
+
+      <code>chmod o+r archivo</code>
+
+      <p>Bueno, en general los permisos se pueden intercambiar y tratar individualmente, y ver cuales son los que más se acomodan a sus necesidades.</p>
+
+      <h2>chown: Usuario y Grupo</h2>
+
+      <p>El comando <a href="https://es.wikipedia.org/wiki/Chown">chown</a> determina quien es dueño del archivo o directorio, y además determina quien es el grupo dueño. Usualmente suelen ser los dos iguales, o sea: el mismo nombre del usuario es el mismo del grupo. Recuerda usar sudo primero.</p>
+
+      <p>Asignar como dueño del archivo al usuario "yo", perteneciente al grupo de usuarios "yos":</p>
+
+      <code>chown yo:yos archivo</code>
+
+      <p>Para directorio se aplican permisos de dueño recursivamente con -R:</p>
+
+      <code>chown -R yo:yos directorio</code>
+
+      <p>Si quisieran que solo el superusuario root fuera el dueño y grupo del fichero u directorio:</p>
+
+      <code>chown root:root archivo</code>
+
+      <p>Cambiar el dueño al directorio actual (si quieren que los aplique recursivamente agregan -R:</p>
+
+      <code>chown usuario *</code>
+
+      <p>Recordar que con "chmod" tienen control total de los permisos de lectura, escritura, y ejecución. Y con "chown" tienen control sobre el dueño y grupo del archivo/directorio.</p>
+    </article>
+  </div>
+</body>
+</html>

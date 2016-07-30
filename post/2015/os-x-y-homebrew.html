@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>OS X y Homebrew • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>OS X y Homebrew</h1>
+
+      <p>Antes de que me tiren piedras. Sigo usando <a href="http://cont3mpo.github.io/post/2014/probando-elementary-os-freya-beta.html">elementary OS</a>, porque practican buen diseño y hacen cosas que en Linux pocos hacen. Pero ahora tengo un MacBook Air y también uso OS X.</p>
+
+      <h2>El Mac</h2>
+
+      <p>Mi experiencia de uso con el hardware del MacBook Air ha sido pero-perfecta, el pero es que no trae HDMI y no puedo usar una doble pantalla para conectar un HDTV grande, pero ya venden adaptadores de Thunderbolt hacia HDMI. Y lo bueno es que la batería dura condenadamente mucho, el disco solido <a href="https://es.wikipedia.org/wiki/Unidad_de_estado_s%C3%B3lido">SSD</a> es un océano de diferencia en rapidez, energía y temperatura respecto a un disco duro HDD, además pude <a href="https://elementary.io/es/docs/installation#creating-an-installation-medium">bootear elementary OS Freya 0.3.1</a> sin problemas. Aunque ya lo uso en otro escritorio.</p>
+
+      <p>El resto de OS X está okey, o sea, hay demasiados gestos multitouch para todo. Y el desinstalar apps es algo curioso, porque hay dos maneras gráficas para hacerlo, pero ni una desde la App Store. Quicktime sigue sin leer archivos MKV, y lo peor es que el sistema no lee particiones NTFS. Esos dos últimos lo soluciono con mpv, y lo otro con Paragon.</p>
+
+      <h2>Homebrew y Cask</h2>
+
+      <p>En la App Store de OS X hay poco o nada de aplicaciones, la mayoría de las apps buenas que uso no están ahí (<a href="http://www.ffmpeg.org/">FFmpeg</a>, <a href="http://www.transmissionbt.com/">Transmission</a>, <a href="https://www.google.com/chrome/browser/desktop/index.html">Google Chrome</a>, <a href="http://www.keepassx.org/">KeePassX</a>, <a href="https://atom.io/">Atom</a>, <a href="http://mpv.io/">mpv</a>, <a href="http://www.gnu.org/software/wget/">wget</a>). Y como extraño por mares al poderoso <a href="https://en.wikipedia.org/wiki/Advanced_Packaging_Tool">APT</a>, tuve que instalar Homebrew en la Terminal.</p>
+
+      <p><a href="http://brew.sh/index_es.html">Homebrew</a> es casi lo mismo que los repositorios de apt, pero los repositorios de brew se actualizan más rápido que apt, aunque solo hay apps de linea de comandos. Para instalar apps gráficas, se necesita agregar <a href="http://caskroom.io/">Cask</a> junto con Homebrew.</p>
+
+      <p>Hay leves diferencias. Para buscar algo en Homebrew, e instalar (junto con Cask para apps gráficas):</p>
+
+      <code>brew search nombre</code>
+
+      <code>brew cask search nombre (apps gráficas)</code>
+
+      <code>brew install nombre</code>
+
+      <code>brew cask install nombre (apps gráficas)</code>
+
+      <p>También hay que actualizar la base de datos al igual que apt, y también para actualizar las apps (las apps gráficas se actualizan por si solas):</p>
+
+      <code>brew update</code>
+
+      <code>brew upgrade</code>
+
+      <p>Para desinstalar, y remover las versiones antiguas de las apps, y también ver información como la versión de una app (las apps gráficas se pueden desinstalar en Finder o Launchpad):</p>
+
+      <code>brew uninstall nombre</code>
+
+      <code>brew cask uninstall nombre (apps gráficas)</code>
+
+      <code>brew cleanup</code>
+
+      <code>brew info nombre</code>
+
+      <p>Y ver la lista de apps instaladas con Homebrew, y las apps gráficas con cask:</p>
+
+      <code>brew list</code>
+
+      <code>brew cask list</code>
+
+      <p>De esa manera mantengo todo actualizado, por un desarrollador externo como lo es Homebrew, ¿por qué Apple no los compra y aplica su idea por defecto en OS X? Ahora a esperar la actualización de <a href="http://www.apple.com/cl/osx/elcapitan-preview/">El Capitan</a> a fin de mes.</p>
+    </article>
+  </div>
+</body>
+</html>

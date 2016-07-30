@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Notificación de terremotos con Pinquake • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Notificación de terremotos con Pinquake</h1>
+
+      <p>Hice un pequeño script de notificación de terremotos para Linux y OS X. Y lo llamé <a href="https://github.com/cont3mpo/Pinquake">Pinquake</a>.</p>
+
+      <h2>Que hace Pinquake</h2>
+
+      <p>Pinquake hace una cosa y la hace bien: Notificar.</p>
+
+      <p>Los scripts monitorean la información desde su fuente cada 1 minuto, y si hay un nuevo terremoto entonces se lanza la notificación, y si no, no se lanza la notificación. La notificación queda en frente hasta que la cierres en Linux, en OS X quedará almacenada en el Centro de notificaciones. Pueden agregar los scripts a la partida del sistema si quieren.</p>
+
+      <h2>¡Descarga!</h2>
+
+      <p>Los 3 scripts (Global, Chile, Japón) se pueden ejecutar por separado o todos juntos, y los subí todos a GitHub, <a href="https://github.com/cont3mpo/Pinquake">para Linux</a> y <a href="https://github.com/cont3mpo/Pinquake-OS-X">OS X</a>. Pueden descargar y ver el código fuente (descarga el zip y dar permisos de ejecución al .sh). Pinquake requiere de <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/curl.1.html">curl</a>, <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/diff.1posix.html">diff</a>, y&nbsp;<a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/notify-send.1.html">notify-send</a> para lanzar las notificaciones en Linux, y en OS X necesitan de terminal-notifier, el cual pueden instalar con <a href="http://brew.sh/index_es.html">Homebrew</a>.</p>
+
+      <h2>Terremotos globales</h2>
+
+      <p>La notificación para terremotos globales utiliza tres fuentes de medición, la <a href="http://earthquake.usgs.gov/">U.S. Geological Survey</a>, <a href="http://geofon.gfz-potsdam.de/">GFZ German Research Centre for Geosciences</a>, y la <a href="http://www.emsc-csem.org/">European-Mediterranean Seismological Centre</a>. Cada una notificará por separado e indicando la fuente en la burbuja de notificación (USGS, GEOFON, EMSC). Todas notifican sismos sobre los 4.0/4.5 grados de magnitud.</p>
+
+      <p>La información que entregó la USGS fue más practica, con&nbsp;<a href="http://earthquake.usgs.gov/earthquakes/feed/v1.0/">diferentes formatos de lectura</a> como archivos CSV, en cambio los de GEOFON y EMSC solo entregan RSS. Así que tuve que extraer los datos con cuidado.</p>
+
+      <h2>Terremotos en Chile</h2>
+
+      <p>Para los que vivimos en Chile, sabemos como es de movida la Tierra. Y el <a href="http://www.sismologia.cl/">Centro Sismológico de la Universidad de Chile</a> es lo más rápido para notificar. Aunque su sitio no entrega nada para extraer los datos, tuve que leer directo desde HTML. Todos los sismos notifican sobre los 3.0 grados de magnitud.</p>
+
+      <h2>También Japón</h2>
+
+      <p>Y Japón, porque es uno de los países donde siempre temblará igual que en Chile. La información es gracias al <a href="http://www.jma.go.jp/jma/indexe.html">Japan Meteorological Agency</a>, donde encontré un <a href="http://www.jma.go.jp/jma/en/Publications/publications.html">montón de PDFs sobre que hacer durante un terremoto y prevención de riesgo</a>, pero ni un solo archivo o RSS para extraer los datos, así que también tuve que extraer los datos con cuidado desde HTML. Los sismos creo que se registran desde los 1.0 grados de magnitud.</p>
+    </article>
+  </div>
+</body>
+</html>

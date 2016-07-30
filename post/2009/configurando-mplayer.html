@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Configurando MPlayer2 • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Configurando MPlayer2</h1>
+
+      <p><a href="http://www.mplayer2.org/">MPlayer2</a> es un gran reproductor de video/audio que existe en Ubuntu (Windows y OS X también), y también utiliza las librerías de codecs Libavcodec del proyecto <a href="https://es.wikipedia.org/wiki/FFmpeg">FFmpeg</a>.</p>
+
+      <p><strong>Nuevo reproductor: <a href="https://cont3mpo.github.io/post/2013/mpv-el-sucesor-de-mplayer2.html">mpv, el sucesor de Mplayer2</a></strong></p>
+
+      <h2>Instalación</h2>
+
+      <p>Lo único que hay que hacer es instalar GNOME MPlayer (interfaz para ver videos), aquello instalará automáticamente MPlayer2, la versión alterna y mejorada del MPlayer original. Y listo, ahora podrán vincular sus videos con GNOME MPlayer en propiedades del archivo en "Abrir con".</p>
+
+      <h3>Reproducir sin GUI ni terminal</h3>
+
+      <p>Si quieres reproducir directamente sin GUI ni terminal, primero abre nautilus con permisos root en la ruta (abrir por terminal una vez):</p>
+
+      <code>sudo nautilus /usr/share/applications</code>
+
+      <p>Cuando se abra saldrán varios iconos, elige el icono de Videos y abre las Propiedades (click derecho), en el cuadro Orden cambia totem por mplayer, y en el cuadro Nombre cambia Vídeos por MPlayer. Ahora en cualquier video abre las propiedades (click derecho) y ve a "Abrir con" y selecciona MPlayer. Listo, ahora todos esos videos se abrirán directamente.</p>
+
+      <h2>Configuración</h2>
+
+      <p>MPlayer2 cuenta con un archivo de configuración que se guarda en el directorio de tu usuario (activar en Nautilus "mostrar archivos ocultos"). Aparecerá la carpeta .mplayer y dentro "config". El archivo "config" puede ser altamente configurable. Estas son las opciones que utilizo en mi archivo de configuración de MPlayer2 (los # son comentarios que no toma en cuenta):</p>
+
+      <code>#Especifica driver de salida de video y audio<br>
+      vo=xv,x11,<br>
+      ao=pulse,alsa,<br>
+      <br>
+      #Configuración de subtítulos y OSD<br>
+      subfont-text-scale=4<br>
+      subfont-osd-scale=3<br>
+      subfont-blur=0<br>
+      use-filename-title=yes<br>
+      <br>
+      #Detiene al protector de pantalla mientras reproduce<br>
+      stop-xscreensaver=yes<br>
+      <br>
+      #Para evitar la amplificación o modificación del volumen general<br>
+      softvol=yes<br>
+      <br>
+      #Opciones de contraste y brillo (opcional)<br>
+      #vf=eq</code>
+
+      <p>También pueden ver la <a href="http://www.mplayer2.org/docs/mplayer/#options">documentación de MPlayer2 para ver opciones</a> y modificar el archivo "config". <a href="http://www.mplayer2.org/docs/mplayer/#interactive-control">Teclas útiles</a>.</p>
+    </article>
+  </div>
+</body>
+</html>

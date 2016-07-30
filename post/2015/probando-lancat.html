@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Probando lancat • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Probando lancat</h1>
+
+      <p>Probé <a href="https://github.com/grahamedgecombe/lancat">lancat</a>, un comando que facilita la transferencia de archivos a través de la Red de Área Local. En Linux y OS X.</p>
+
+      <h2>Fácil y automático</h2>
+
+      <p>Lo mejor de lancat es la buena configuración por defecto, nada de poner IPs o puertos, lancat se preocupa de localizar al destinatario dentro de la Red de Área Local (<a href="https://es.wikipedia.org/wiki/Red_de_%C3%A1rea_local">LAN</a>), y esperar que lo reciba. Por conexión Ethernet o Wi-Fi, no importa, los recibe igual. Mucho más fácil que ncat.</p>
+
+      <h2>Instalar</h2>
+
+      <p>En Linux, primero hay que instalar <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/ruby.1.html">ruby</a> usando apt (Ubuntu 14.04 y elementary OS Freya tienen Ruby 1.9 en los repos). En OS X, ruby ya viene listo. Ahora se puede instalar lancat usando <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/gem.1.html">gem</a>:</p>
+
+      <code>sudo gem install lancat</code>
+
+      <h2>Usar</h2>
+
+      <p>El uso es muy simple. Alguien tiene que mandar el archivo dentro de la red local (-s). Y otro tiene que recibir el archivo (-r):</p>
+
+      <code>lancat -s &lt; archivo</code>
+
+      <code>lancat -r &gt; archivo</code>
+
+      <p>Por ahora lancat solo permite enviar un archivo a la vez, pero se pueden mandar varios archivos usando <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/tar.1.html">tar</a>.</p>
+
+      <p>Mandar varios archivos (tar cf). Y recibir varios archivos (tar xf):</p>
+
+      <code>tar cf - archivo1 archivo2 | lancat -s</code>
+
+      <code>lancat -r | tar xf -</code>
+
+      <p>Los peros son que los datos que envía a través de la red local no están encriptados, antes de enviar los archivos pueden usar <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/gpg.1.html">gpg</a> o <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/openssl.1ssl.html">openssl</a> para encriptar y proteger sus datos. Es orientado para redes locales que conozcas o domesticas, ya que alguien más podría recibir el archivo si activa lancat antes en la LAN.</p>
+    </article>
+  </div>
+</body>
+</html>

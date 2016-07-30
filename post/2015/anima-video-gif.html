@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Anima, video a gif • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Anima, video a gif</h1>
+
+      <p><a href="https://github.com/cont3mpo/Anima">Anima</a> es un script que hice para pasar escenas predeterminadas de un video a <a href="https://es.wikipedia.org/wiki/Graphics_Interchange_Format">gif</a> animado de calidad, y funciona en Linux y OS X.</p>
+
+      <h2>Descarga Anima</h2>
+
+      <p>Anima se <a href="https://github.com/cont3mpo/Anima/releases">descarga en un zip desde GitHub</a>. Luego se extrae, y le dan permisos de ejecución a anima.sh (en terminal: chmod +x anima.sh).</p>
+
+      <p>Anima requiere de <a href="http://cont3mpo.blogspot.com/2013/05/encodear-con-ffmpeg.html">FFmpeg</a>, <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/convert.1.html">convert</a> (viene incluido con <a href="http://manpages.ubuntu.com/manpages/trusty/man1/ImageMagick.1.html">imagemagick</a>). Usen Homebrew en OS X para instalar FFmpeg y imagemagick.</p>
+
+      <h2>Fácil de usar</h2>
+
+      <p>Anima es muy fácil de usar, solo se pone el video, el tiempo desde donde partirá la captura, y la duración del gif animado. Los comandos van en ese orden siempre:</p>
+
+      <code>./anima.sh video.mp4 00:01:00 5</code>
+
+      <p>El ejemplo de arriba muestra que de video.mp4, a partir del minuto 1, extraerá 5 segundos para crear el gif animado.</p>
+
+      <p>Los gifs usan resolución de 480px de ancho (respetando la relación de aspecto del video), y se guardan con el mismo nombre del video. Las imágenes se ven bien, sin múltiples puntos al fondo de la imagen.</p>
+
+      <p>Ve los gifs animados en tu navegador web.</p>
+    </article>
+  </div>
+</body>
+</html>

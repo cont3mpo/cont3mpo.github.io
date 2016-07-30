@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Benditos sean los repositorios • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Benditos sean los repositorios</h1>
+
+      <p>Los <a href="https://es.wikipedia.org/wiki/Repositorio">repositorios</a> en Linux son simplemente un lugar donde se almacenan aplicaciones para que los usuarios puedan acceder y descargar desde la comodidad de su computador. Esto se facilita aún más cuando la distribución de Linux tiene su propio repositorio, y en ese lugar se almacenan todas las aplicaciones creadas por la distribución y terceros.</p>
+
+      <p>Son cientos de aplicaciones soportadas por la comunidad de desarrolladores, y además las soportadas por el equipo de desarrollo de la distribución, todas esas aplicaciones son necesarias para poner en funcionamiento el sistema operativo. Un sistema de gestión de paquetes muy superior al de otros sistemas operativos en respecto al soporte de aplicaciones creadas por terceros, ya que ni siquiera es necesario acceder a Internet y buscar los programas para su instalación, y mejor aún... se actualizan todos los programas a la misma vez, no hay que estar uno por uno actualizando las aplicaciones, se actualizan todos a la misma vez. Esto, dependiendo de si esa aplicación haya lanzado una nueva versión, claro está.</p>
+
+      <h2>¿Y por qué agregar más repositorios?</h2>
+
+      <p>Ocurre muchas veces que las distribuciones (y en particular Ubuntu) "congelan" las versiones de sus aplicaciones, esto ocurre debido a que no quieren actualizar las aplicaciones más importantes hasta el lanzamiento de la próxima versión de su distro, eso es para que actualicen hacia la nueva versión de la distro cuando se lance. Para que no "congelen", y puedan actualizar su aplicación favorita, existe una fácil solución, y es solo agregar los repositorios de las aplicaciones que consideren más importantes. O sea, si quieren tener siempre actualizado Banshee (el reproductor de música), solamente añaden el repositorio de Banshee, y listo, de ahí en adelante siempre se mantendrá actualizado y al día, no importa si su distro "congela" ese paquete y no lo quiere actualizar hasta que salga una nueva versión de su distribución Linux, ya que el repositorio para Banshee tiene la última versión disponible.</p>
+
+      <h2>Formas de agregar Repositorios</h2>
+
+      <p>Gracias a PPA (Personal Package Archives) se puede agregar el repositorio inmediatamente, y la firma GPG se agrega automáticamente.
+      Después del "ppa:", solo se agrega el nombre de la aplicación, por ejemplo:</p>
+
+      <code>sudo add-apt-repository ppa:compiz/ppa </code>
+
+      <p>También se puede agregar directamente en "Orígenes del software", solamente hay que agregar por ejemplo "ppa:compiz/ppa" y poniendo siempre el "ppa:", esto es mucho más fácil de hacer, debido a que no utiliza la terminal.</p>
+
+      <h2>Firmas GPG</h2>
+
+      <p>Las firmas son solamente una manera de verificar que la dirección de donde se está descargando o actualizando es la real, y no una copia. Es solo por seguridad.</p>
+
+      <p>Para listar las listas de firmas GPG que se encuentran en el sistema, solo hay que tipear en una terminal esto (aunque en "Origenes del software" también se muestran"):</p>
+
+      <code>sudo apt-key list</code>
+
+      <p>Para agregar una firma se pueden dirigir a "Orígenes del Software" y agregar el archivo que contenga la llave. Los sitios que proporcionan repositorios comúnmente ponen a disposición un archivo de descarga, ese archivo de baja y se agrega.</p>
+
+      <p>Hay otra forma igual de rápida para agregar la firma, solo hay que tener la dirección del archivo que contiene las firmas y pegarla en el siguiente comando:</p>
+
+      <code>wget -q -O - http://dirección_del_archivo_aquí | sudo apt-key add -</code>
+
+      <p>Otra forma: Como ya es común, y sobre todo en sitios que almacenan cientos de repositorios (como lo es Launchpad), tienen a disposición los números de confirmación para que la firma se instale automáticamente. Y el comando sería algo así:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 03E02400</code>
+
+      <p>Ese número aparece en el sitio del repositorio en Launchpad, y siempre se encuentra en el enlace que dice "Technical details about this PPA", hagan click, de ahí se abrirá un menú y justo abajo dirá "Signing key", y se anota todo lo que viene después de la barra "/". Por ejemplo: Si aparece 1024R/03E02400, solo anotan el 03E02400. Solo cambian el número en el comando de arriba, solo el número, nada más.</p>
+
+      <p>Problemas con la firma (key):</p>
+
+      <p>Si no han agregado la firma GPG correspondiente al repositorio que agregaron, no hay problema, la llave se puede agregar de la siguiente forma.</p>
+
+      <p>Primero descargar la clave gracias a la llave entregada en el warning (advertencia) que se lanza al final el comando "sudo aptitude update". Ahí se mostrarán unos números al final, copien y peguen como por ejemplo este número "2A5E3A5A52ABFCB1" (es solo un ejemplo):</p>
+
+      <code>gpg --recv-key 2A5E3A5A52ABFCB1</code>
+
+      <p>Luego de descargada la llave, solo hay que exportarla a un archivo con nombre "llave":</p>
+
+      <code>gpg --export 2A5E3A5A52ABFCB1 &gt; llave</code>
+
+      <p>Ahora solamente instalan el archivo "llave", instalando la clave desde el archivo:</p>
+
+      <code>sudo apt-key add clave</code>
+
+      <p>Y listo. Si quieren acortar un poco los pasos, pueden hacer los dos últimos pasos en una sola linea:</p>
+
+      <code>gpg --export 2A5E3A5A52ABFCB1 | sudo apt-key add -</code>
+
+      <h2>Listas de Repositorios</h2>
+
+      <p>Ahora daré algunas listas de repositorios principalmente para Ubuntu, pero en el nombre de cada aplicación dejaré un enlace para el sitio oficial del repositorio, para que agreguen a sus distros.</p>
+
+      <p>Si aparece "karmic", y tienen una versión más antigua de Ubuntu, solamente la cambian por el nombre de la suya: jaunty, intrepid, hardy.</p>
+
+      <h3><a href="http://www.google.com/linuxrepositories/">Google</a></h3>
+
+      <p>Una manera fácil de agregar programas de Google y mantenerlos actualizados (Picasa, Google Earth, Google Chrome, Google Gadgets, Google Desktop).</p>
+
+      <code>deb http://dl.google.com/linux/deb/ stable non-free main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>wget -q http://dl.google.com/linux/linux_signing_key.pub -O- | sudo apt-key add -</code>
+
+      <h3><a href="http://www.transmissionbt.com/download.php">Transmission</a></h3>
+
+      <p>Cliente simple y liviano de Torrent.</p>
+
+      <code>deb http://ppa.launchpad.net/transmissionbt/ppa/ubuntu karmic main<br>
+      deb-src http://ppa.launchpad.net/transmissionbt/ppa/ubuntu karmic main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 365C5CA1</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:transmissionbt/ppa</code>
+
+      <h3><a href="http://dev.deluge-torrent.info/wiki/Download">Deluge</a></h3>
+
+      <p>Cliente de Torrent muy parecido a uTorrent en su interfaz de usuario.</p>
+
+      <code>deb http://ppa.launchpad.net/deluge-team/ppa/ubuntu karmic main<br>
+      deb-src http://ppa.launchpad.net/deluge-team/ppa/ubuntu karmic main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 249AD24C </code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:deluge-team/ppa</code>
+
+      <h3><a href="http://www.winehq.org/download/">Wine</a></h3>
+
+      <p>El emulador de aplicaciones de Windows para ejecutarlas en Linux.
+      Para Jaunty: (repositorio oficial)</p>
+
+      <code>deb http://wine.budgetdedicated.com/apt jaunty main</code>
+
+      <p>Firma GPG: (repositorio oficial)</p>
+
+      <code>wget -q http://wine.budgetdedicated.com/apt/387EE263.gpg -O- | sudo apt-key add -</code>
+
+      <p>Para Karmic: (pero desde Launchpad)</p>
+
+      <code>deb http://ppa.launchpad.net/ubuntu-wine/ppa/ubuntu karmic main</code>
+
+      <code>deb-src http://ppa.launchpad.net/ubuntu-wine/ppa/ubuntu karmic main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com F9CB8DB0</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:ubuntu-wine/ppa</code>
+
+      <h3><a href="http://www.virtualbox.org/wiki/Linux_Downloads">VirtualBox</a></h3>
+
+      <p>Virtualiza sistemas operativos dentro de Linux.</p>
+
+      <code>deb http://download.virtualbox.org/virtualbox/debian karmic non-free</code>
+
+      <p>Firma GPG:</p>
+
+      <code>wget -q http://download.virtualbox.org/virtualbox/debian/sun_vbox.asc -O- | sudo apt-key add -</code>
+
+      <h3><a href="http://packages.medibuntu.org/">Mediubuntu</a></h3>
+
+      <p>Incluye aplicaciones multimedia (reproductores), y los últimos codecs para una buena reproducción.</p>
+
+      <code>deb http://packages.medibuntu.org/ karmic free non-free</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0C5A2783</code>
+
+      <h3><a href="https://launchpad.net/~openoffice-pkgs/+archive/ppa">OpenOffice</a></h3>
+
+      <p>La suite ofimática por excelencia en Linux. (Repositorio vacío por ahora)</p>
+
+      <code>deb http://ppa.launchpad.net/openoffice-pkgs/ppa/ubuntu lucid main<br>
+      deb-src http://ppa.launchpad.net/openoffice-pkgs/ppa/ubuntu lucid main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 247D1CFF</code>
+
+      <h3><a href="http://banshee-project.org/download/">Banshee</a></h3>
+
+      <p>Reproductor y administrador de música.</p>
+
+      <code>deb http://ppa.launchpad.net/banshee-team/ubuntu jaunty main<br>
+      deb-src http://ppa.launchpad.net/banshee-team/ppa/ubuntu jaunty main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 6E80C6B7</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:banshee-team/ppa</code>
+
+      <h3><a href="http://www.getsongbird.com/download/">Songbird</a></h3>
+
+      <p>Reproductor y administrador de música.</p>
+
+      <code>deb http://ppa.launchpad.net/songbird-daily/ppa/ubuntu karmic main<br>
+      deb-src http://ppa.launchpad.net/songbird-daily/ppa/ubuntu karmic main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 5719E347</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:songbird-daily/ppa</code>
+
+      <h3><a href="https://launchpad.net/~jmatthew/+archive/ppa">Rhythmbox</a></h3>
+
+      <p>Reproductor de música basado en iTunes. Para Jaunty:</p>
+
+      <code>deb http://ppa.launchpad.net/jmatthew/ppa/ubuntu jaunty main<br>
+      deb-src http://ppa.launchpad.net/jmatthew/ppa/ubuntu jaunty main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E855A72E</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:jmatthew/ppa</code>
+
+      <h3><a href="http://www.videolan.org/vlc/">VLC</a></h3>
+
+      <p>Reproductor multimedia.</p>
+
+      <code>deb http://ppa.launchpad.net/c-korn/ubuntu karmic main<br>
+      deb-src http://ppa.launchpad.net/c-korn/vlc/ubuntu karmic main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 7613768D</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:c-korn/vlc</code>
+
+      <h3><a href="http://www.boxee.tv/">Boxee</a></h3>
+
+      <p>Un Centro Multimedia (Media Center) todo en uno.</p>
+
+      <code>deb http://apt.boxee.tv karmic main</code>
+
+      <h3><a href="http://xbmc.org/download/">XBMC</a><b> </b>(Xbox Media Center)</h3>
+
+      <p>Un popular Centro Multimedia que se conoce como Xbox Media Center, debido al parecido de su interfaz de usuario con el de Xbox 360.</p>
+
+      <code>deb http://ppa.launchpad.net/team-xbmc/ppa/ubuntu karmic main<br>
+      deb-src http://ppa.launchpad.net/team-xbmc/ppa/ubuntu karmic main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 91E7EE5E</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:team-xbmc/ppa</code>
+
+      <h3><a href="http://www.moovida.com/wiki/Distribution/LinuxPackages">Moovida</a></h3>
+
+      <p>Otro popular Centro Multimedia.</p>
+
+      <code>deb http://ppa.launchpad.net/moovida-packagers/ppa/ubuntu karmic main<br>
+      deb-src http://ppa.launchpad.net/moovida-packagers/ppa/ubuntu karmic main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 26C2E075</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:moovida-packagers/ppa</code>
+
+      <h3><a href="http://mediainfo.sourceforge.net/es/Download">MediaInfo</a></h3>
+
+      <p>Permite ver todos los datos técnicos de un video, como bitrate audio/video, peso individual del video y del audio por separado, duración, codec utilizado, programa usado, resolución de video, aspecto proporcional, tipo de escaneo, fotogramas por segundo, perfiles y parametros usados en el codec de video y audio, etc. Muy útil para archivos MKV. Para instalar la interfaz gráfica hay que instalar el paquete mediainfo-gui.</p>
+
+      <code>deb http://ppa.launchpad.net/shiki/mediainfo/ubuntu karmic main<br>
+      deb-src http://ppa.launchpad.net/shiki/mediainfo/ubuntu karmic main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com F9D8BC54</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:shiki/mediainfo</code>
+
+      <h3><a href="https://launchpad.net/~ubuntu-mozilla-security/+archive/ppa">Mozilla</a></h3>
+
+      <p>Instala las diferentes aplicaciones de Moziila: Firefox, Thunderbird, y Seamonkey.</p>
+
+      <code>deb http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu karmic main<br>
+      deb-src http://ppa.launchpad.net/ubuntu-mozilla-security/ppa/ubuntu karmic main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 7EBC211F</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:ubuntu-mozilla-security/ppa</code>
+
+      <h3><a href="https://launchpad.net/~chromium-daily/+archive/ppa">Chromium</a></h3>
+
+      <p>Navegador Web de código abierto, y la base de Google Chrome. En constante desarrollo.</p>
+
+      <code>deb http://ppa.launchpad.net/chromium-daily/ppa/ubuntu karmic main<br>
+      deb-src http://ppa.launchpad.net/chromium-daily/ppa/ubuntu karmic main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 4E5E17B5</code>
+
+      <p>Automático PPA: (versión Daily)</p>
+
+      <code>sudo add-apt-repository ppa:chromium-daily/ppa</code>
+
+      <p>Automático PPA: (versión Dev)</p>
+
+      <code>sudo add-apt-repository ppa:chromium-daily/dev</code>
+
+      <p>Automático PPA: (versión Beta)</p>
+
+      <code>sudo add-apt-repository ppa:chromium-daily/beta</code>
+
+      <h3><a href="http://www.opera.com/browser/download/?os=linux-i386&amp;list=all">Opera</a></h3>
+
+      <p>Navegador Web.</p>
+
+      <code>deb http://deb.opera.com/opera/ stable non-free</code>
+
+      <h3><a href="https://launchpad.net/~kubuntu-ppa">KDE</a></h3>
+
+      <p>El entorno gráfico de escritorio de KDE.</p>
+
+      <code>deb http://ppa.launchpad.net/kubuntu-ppa/beta/ubuntu karmic main<br>
+      deb-src http://ppa.launchpad.net/kubuntu-ppa/beta/ubuntu karmic main </code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 8AC93F7A</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:kubuntu-ppa/beta</code>
+
+      <h3><a href="http://do.davebsd.com/download.shtml">GNOME Do</a></h3>
+
+      <p>Lanzador de aplicaciones.</p>
+
+      <code>deb http://ppa.launchpad.net/do-core/ppa/ubuntu karmic main<br>
+      deb-src http://ppa.launchpad.net/do-core/ppa/ubuntu karmic main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 77558DD0</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:do-core/ppa</code>
+
+      <h3><a href="http://wiki.go-docky.com/index.php?title=Install">Docky</a><b> </b>(Require tener Compiz habilitado)</h3>
+
+      <p>Un Dock de escritorio como en Mac OS X.</p>
+
+      <code>deb http://ppa.launchpad.net/docky-core/ppa/ubuntu karmic main</code>
+
+      <code>deb-src http://ppa.launchpad.net/docky-core/ppa/ubuntu karmic main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 3528AE20</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:docky-core/ppa</code>
+
+      <h3><a href="https://launchpad.net/~awn-core/+archive/ppa">Avant Window Navigator</a> (Requiere tener Compiz habilitado)</h3>
+
+      <p>Un Dock de escritorio al más puro estilo de Mac OS X. Este repositorio incluye los extras. Para Jaunty:</p>
+
+      <code>deb http://ppa.launchpad.net/awn-core/ppa/ubuntu jaunty main<br>
+      deb-src http://ppa.launchpad.net/awn-core/ppa/ubuntu jaunty main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com CE9FDCA9</code>
+
+      <p>Para Karmic:</p>
+
+      <code>deb http://ppa.launchpad.net/awn-testing/ppa/ubuntu karmic main<br>
+      deb-src http://ppa.launchpad.net/awn-testing/ppa/ubuntu karmic main </code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com BF810CD5</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:awn-core/ppa</code>
+
+      <p>Automático PPA: (más nuevos, para testeo)</p>
+
+      <code>sudo add-apt-repository ppa:awn-testing/ppa</code>
+
+      <h3><a href="http://wiki.compiz-fusion.org/Distributions">Compiz</a></h3>
+
+      <p>Efectos de escritorio y ventanas.</p>
+
+      <code>deb http://ppa.launchpad.net/compiz/ppa/ubuntu karmic main<br>
+      deb-src http://ppa.launchpad.net/compiz/ppa/ubuntu karmic main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 42C24D89</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:compiz/ppa</code>
+
+      <h3><a href="http://www.getmiro.com/download/">Miro</a></h3>
+
+      <p>Ver videos en alta definición y en linea, y además permite descargarlos.</p>
+
+      <code>deb http://ftp.osuosl.org/pub/pculture.org/miro/linux/repositories/ubuntu karmic/</code>
+
+      <h3><a href="http://www.pidgin.im/download/">Pidgin</a></h3>
+
+      <p>Cliente de mensajería instantanea con soporte de multiples protocolos.</p>
+
+      <code>deb http://ppa.launchpad.net/pidgin-developers/ppa/ubuntu karmic main<br>
+      deb-src http://ppa.launchpad.net/pidgin-developers/ppa/ubuntu karmic main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com A1F196A8</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:pidgin-developers/ppa</code>
+
+      <h3><a href="http://live.gnome.org/Empathy">Empathy</a></h3>
+
+      <p>Cliente de mensajería instantanea con soporte de multiples protocolos.</p>
+
+      <code>deb http://ppa.launchpad.net/telepathy/ppa/ubuntu karmic main<br>
+      deb-src http://ppa.launchpad.net/telepathy/ppa/ubuntu karmic main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com FA3A1271</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:telepathy/ppa</code>
+
+      <h3<a href="http://www.gimp.org/downloads/">Gimp</a></h3>
+
+      <p>Editor y manipulador de imágenes de uso profesional.</p>
+
+      <code>deb http://ubuntu.org.ua/ getdeb/</code>
+
+      <p>Aunque también serviría esta:</p>
+
+      <code>deb http://archive.getdeb.net/ubuntu karmic-getdeb apps</code>
+
+      <h3><a href="http://conky.sourceforge.net/">Conky</a></h3>
+
+      <p>Monitor de procesos en el escritorio, altamente configurable por texto.</p>
+
+      <code>deb http://ppa.launchpad.net/norsetto/ppa/ubuntu karmic main<br>
+      deb-src http://ppa.launchpad.net/norsetto/ppa/ubuntu karmic main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 95628707</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:norsetto/ppa</code>
+
+      <h3><a href="http://code.google.com/p/gnome2-globalmenu/">Global Menu Bar</a></h3>
+
+      <p>Se comporta igual que el menú de opciones de una ventana que se utiliza en Mac OS X. Todos los menús se despliegan en la barra superior del escritorio, el cambio entre menús es instantáneo, muy rápido. Al instalarlo solo hay que añadir el "menú global" al panel que uno quiera en el escritorio.</p>
+
+      <code>deb http://ppa.launchpad.net/globalmenu-team/ppa/ubuntu karmic main<br>
+      deb-src http://ppa.launchpad.net/globalmenu-team/ppa/ubuntu karmic main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com DA6DEEAA</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:globalmenu-team/ppa</code>
+
+      <h3><a href="http://ubuntu-tweak.com/">Ubuntu Tweak</a></h3>
+
+      <p>Permite administrar repositorios, instalar programas, y configurar varios aspectos del sistema Ubuntu.</p>
+
+      <code>deb http://ppa.launchpad.net/tualatrix/ppa/ubuntu karmic main<br>
+      deb-src http://ppa.launchpad.net/tualatrix/ppa/ubuntu karmic main</code>
+
+      <p>Firma GPG:</p>
+
+      <code>sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0624A220</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:tualatrix/ppa</code>
+    </article>
+  </div>
+</body>
+</html>

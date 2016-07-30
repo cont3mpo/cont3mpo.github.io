@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Monitorea todo con Conky • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Monitorea todo con Conky</h1>
+
+      <p><a href="https://en.wikipedia.org/wiki/Conky_%28software%29">Conky</a> es un programa para monitorear prácticamente todos los acontecimientos que ocurren en Linux, y monitorear todos los componentes de tu hardware, como por ejemplo; temperaturas, velocidad, potencia, horas transcurridas, etc. Es que en realidad, es una larga lista de variables que existen a la hora de configurar Conky.</p>
+
+      <p>Conky es altamente configurable, y se pueden lograr <a href="http://ubuntuforums.org/showthread.php?t=281865">miles de combinaciones</a> a la hora de ingresar opciones al programa, y con ello tener un resultado final ya andando con una interfaz de usuario única. Es como si cada uno pudiera tener la oportunidad de crear su propio monitor de actividades de su sistema. Conky es un diamante en bruto; fácil de configurar, simple, rápido, y todo eso por texto.</p>
+
+      <h2>Funcionamiento de Conky</h2>
+
+      <p>Todas las opciones de Conky se pueden escribir, modificar y guardar en un archivo de configuración llamado: .conkyrc</p>
+
+      <p>Este archivo de configuración se guarda en su carpeta de usuario (/home/usuario/.conkyrc), y la configuración simple consta de dos "segmentos". El archivo lo pueden abrir con cualquier editor de texto (mousepad, leafpad, gedit).</p>
+
+      <p>El primer segmento siempre es el posicionamiento y comportamiento de la ventana, si... ventana, por que Conky corre en una ventana simple, y nada más. El segundo segmento es es más amplio, todas las configuraciones de las opciones y variables de Conky se escriben ahí. Incluidas las de interfaz de usuario.</p>
+
+      <p>La manera más fácil de instalar Conky es buscando en los repositorios de su distribución. Solamente tipear "conky", y aparecerá (Synaptic en Ubuntu). Si son adictos a la terminal de comandos, y utilizan Ubuntu (o alguna distro basada en Debian), pueden tipear en una terminal:</p>
+
+      <code>sudo aptitude install conky</code>
+
+      <p>Aunque también se puede bajar actualizado desde su <a href="http://conky.sourceforge.net/">sitio oficial</a>.</p>
+
+      <p>Para iniciar Conky, solamente hay que mantener apretadas estas dos teclas: Alt + F2. Y luego tipear en el cuadro (aunque más adelante enseño como agregarlo automáticamente al inicio del sistema):</p>
+
+      <code>conky</code>
+
+      <p>Para matar a Conky (cerrarlo), se hace lo mismo: Alt + F2. Pero luego tipear en el cuadro:</p>
+
+      <code>killall conky</code>
+
+      <p>Conky también puede ejecutarse con varias ventanas simultáneamente, solo hay que crear otro archivo de configuración: .conkyrc1, .conkyrc2, etc. (se entiende  la idea).</p>
+
+      <h2>Configuración básica</h2>
+
+      <p>Vamos a ir por partes, lo más básico es monitorear los típicos procesos del sistema, como es el caso del uso de CPU, RAM, Swap, velocidad de Internet, cantidad de datos bajados, hora, fecha, cosas muy básicas. Además, se puede modificar la interfaz de usuario del programa. Las opciones un poco más avanzadas son otra cosa, y no nos adelantaremos, vamos de a poco.</p>
+
+      <h3>Comportamiento de la ventana</h3>
+
+      <p>En el punto de "Funcionamiento de Conky" hablé sobre los dos segmentos, este es el primer segmento de comportamiento de la ventana y posicionamiento. Mi configuración para el comportamiento de la ventana es así:</p>
+
+      <code>background yes<br>
+      update_interval 1.0<br>
+      use_xft yes<br>
+      xftfont verdana:size=8<br>
+      alignment bottom_right<br>
+      xftalpha 0.8<br>
+      own_window yes<br>
+      own_window_type override<br>
+      own_window_transparent yes<br>
+      own_window_hints undecorated,sticky,skip_taskbar,skip_pager,below<br>
+      double_buffer yes<br>
+      draw_shades no<br>
+      draw_outline no<br>
+      draw_borders no<br>
+      stippled_borders 0<br>
+      border_margin 4<br>
+      border_width 1<br>
+      default_shade_color grey<br>
+      default_outline_color black<br>
+      default_color BADCDD<br>
+      use_spacer none<br>
+      no_buffers yes<br>
+      uppercase no<br>
+      color1 F8DF58</code>
+
+      <p>Esa es una configuración simple de la ventana, será transparente (para ver su papel tapiz de fondo), y se posicionará en la parte baja del lado derecho de su escritorio. También agregué unas opciones para que se posicionara siempre por debajo de todas las ventanas, y se "pegara" al fondo del escritorio. Y además lo deje con bordes de ventana más delgados.</p>
+
+      <p>Todo eso de arriba va al principio del archivo de configuración ".conkyrc", para después del salto de un par de líneas en el archivo, se pueda empezar con el segundo segmento, para configurar todas las opciones y variables que existen en Conky, y la interfaz de usuario final, o sea... lo que verán en su escritorio andando.</p>
+
+      <h3>Opciones y variables</h3>
+
+      <p>El segundo segmento son todas las opciones, y la gran cantidad de variables que tiene Conky, todas esas variables se pueden ver en <a href="http://conky.sourceforge.net/variables.html">este sitio</a> (en inglés). En aquel sitio solamente fijense en la primera columna de la izquierda, ahí aparece el nombre de cada variable. En la primera columna del lado derecho se muestra la explicación de esa variable (que es lo que hace, su función).</p>
+
+      <p>Ahora publicaré el segundo segmento de opciones, y luego explicaré que opción sirve para cada cosa en el texto:</p>
+
+      <code>TEXT
+      ${color ffffff}${font PizzaDude Bullets:size=14}v${font} ${voffset -3}&lt;i&gt;Up&lt;/i&gt; ${&lt;b&gt;upspeed&lt;/b&gt; eth0} Kb/s<br>
+      ${voffset 3}${color ffffff}${font PizzaDude Bullets:size=14}r${font} ${voffset -2}&lt;i&gt;Down&lt;/i&gt; ${&lt;b&gt;downspeed&lt;/b&gt; eth0} Kb/s<br>
+      ${color ffffff}${font PizzaDude Bullets:size=14}M${font} ${voffset -3}&lt;i&gt;Subido&lt;/i&gt; ${&lt;b&gt;totalup&lt;/b&gt; eth0}<br>
+      ${voffset 3}${color ffffff}${font PizzaDude Bullets:size=14}S${font} ${voffset -3}&lt;i&gt;Bajado&lt;/i&gt; ${&lt;b&gt;totaldown&lt;/b&gt; eth0}<br>
+      <br>
+      ${color ffffff}${font StyleBats:size=15}Q${font} ${voffset -4}&lt;i&gt;CPU&lt;/i&gt; ${&lt;b&gt;cpu&lt;/b&gt; cpu0}% ${cpubar cpu0}<br>
+      ${voffset 2}${color ffffff}${font StyleBats:size=15}X${font} ${voffset -4}&lt;i&gt;RAM&lt;/i&gt; $&lt;b&gt;mem&lt;/b&gt; / ${memperc}%<br>
+      ${voffset 3}${color ffffff}${font StyleBats:size=15}B${font} ${voffset -4}&lt;i&gt;Swap&lt;/i&gt; $&lt;b&gt;swap&lt;/b&gt; / ${swapperc}%<br>
+      <br>
+      ${font StyleBats:size=15}P${font} ${voffset -3}&lt;i&gt;Linux&lt;/i&gt;<br> ${&lt;b&gt;uptime_short&lt;/b&gt;}<br>
+      <br>
+      ${color ffffff}${font Radio Space:size=13}${&lt;b&gt;time %A %d&lt;/b&gt;}<br>
+      ${font Radio Space:size=14}${&lt;b&gt;time %H:%M&lt;/b&gt;}</code>
+
+      <p>Ahora voy a explicar las variables utilizadas (en negrita) en el texto, de arriba a abajo:</p>
+
+      <ul>
+        <li>upspeed: Velocidad de subida (Internet).</li>
+        <li>downspeed: Velocidad de bajada (Internet).</li>
+        <li>totalup: Total datos subidos (Internet).</li>
+        <li>totaldown: Total datos bajados (Internet).</li>
+        <li>cpu: Uso de CPU (procesador).</li>
+        <li>mem: Uso de memoria RAM.</li>
+        <li>swap: Uso de memoria Swap.</li>
+        <li>uptime_short: Tiempo que lleva prendida la máquina (computador).</li>
+        <li>time %A %d: Fecha actual.</li>
+        <li>time %H:%M: Hora y minuto actual.</li>
+      </ul>
+
+      <p>Los textos menos relevantes en cursiva se pueden modificar a gusto. Y siempre recordar que se pueden agregar todas las variables y combinaciones que quieran, y que se muestran en el sitio oficial de Conky. <a href="http://conky.sourceforge.net/variables.html">Todas las variables aquí</a>.</p>
+
+      <p>Bueno, antes de guardar todo, tienen que bajar <a href="http://www.mediafire.com/?cozcmlvmyhl">esta carpeta</a> (descomprimirla, es un zip), esa carpeta incluye todas las fuentes de letras que se encuentran en el texto de configuración, esa carpeta se llama: .fonts
+      Y irá guardada en su carpeta de usuario (/home/usuario/.fonts).</p>
+
+      <p>Ahora si, juntarán los dos segmentos que he dado, y guardarán esos dos textos en el archivo: .conkyrc</p>
+
+      <p>O mejor aún, bajen desde <a href="http://www.mediafire.com/?mmtclnfxsmb">este enlace</a> el archivo de configuración listo para guardar y utilizar.</p>
+
+      <h2>Configuración avanzada</h2>
+
+      <p>En este punto no tocaremos el primer segmento de comportamiento de la ventana, ya que está lista. Ahora se verá el clima, las temperaturas del procesador, disco duro, y placa madre, y finalmente ver los nuevos correos que han llegado a su cuenta de Gmail.</p>
+
+      <p>Todos estas opciones avanzadas necesitan de scripts (lineas de comandos y operaciones creadas para ejecutarse en un archivo) para luego ser ejecutadas externamente. Todos los scripts se guardarán en una carpeta bajo el nombre: scripts. Y irá guardada en su carpeta de usuario (/home/usuario/scripts).</p>
+
+      <h3>Clima de tu ciudad</h3>
+
+      <p>La opción de clima funcionará gracias a un script externo a Conky, ya que ese script contiene las ordenes para consultar al sitio de <a href="http://weather.yahoo.com/">Yahoo! Weather</a> sobre el estado del clima en la ciudad especificada en el script, ese script se llama: pogodynka.sh
+      Y el script se puede bajar desde <a href="http://www.mediafire.com/?3razmcjbteo">este enlace</a>. Y mencionar que aquel script viene por defecto con el clima de la ciudad de Santiago, Chile. También requerirán de otro script (conditions.sh) para que funcione debidamente, y lo pueden descargar desde <a href="http://www.mediafire.com/?moextazyztj">este enlace</a>.</p>
+
+      <p>Para agregar otra ciudad se dirigen a <a href="http://weather.yahoo.com/">Yahoo! Weather</a>, y en el cuadro que indica "Enter city or zip code" escriben su ciudad y país, para luego copiar el código que aparecerá arriba en el cuadro de direcciones URL. Por ejemplo, si buscaran "Ciudad de Buenos Aires, Argentina", aparecerá esta dirección: http://weather.yahoo.com/forecast/ARBA0107.html</p>
+
+      <p>De esa dirección solamente copian este código: ARBA0107</p>
+
+      <p>Y ese código se pega en el script "pogodynka.sh" justo en la línea de texto que aparece lo siguiente: kod=</p>
+
+      <p>Y que quedaría finalmente de esta manera: kod=ARBA0107</p>
+
+      <p>La línea de opciones y variables en el archivo de configuración ".conkyrc" quedaría algo así:</p>
+
+      <code>${color ffffff}${font weather:size=28}${execi 600 ~/scripts/conditions.sh}${color ffffff}${font Radio Space:size=14}${voffset -9}${execi 1200 ~/scripts/pogodynka.sh}</code>
+
+      <p>Esa linea completa va justo después de la palabra "TEXT" en el archivo de configuración, y listo.</p>
+
+      <h3>Instalar y configurar lm-sensors</h3>
+
+      <p>Antes que nada, necesitan instalar el programa "lm-sensors", que ayudará a examinar la temperatura del procesador, disco duro y placa madre. Muy necesario para que encuentre los sensores de su hardware.</p>
+
+      <p>El programa "lm-sensors" se utiliza para examinar la temperatura del hardware, y se puede descargar desde los repositorios de su distro. Por una terminal en Ubuntu sería así:</p>
+
+      <code>sudo aptitude install lm-sensors</code>
+
+      <p>Si no tienen lm-sensors en sus repositorios (que es poco probable que eso ocurra), pueden <a href="http://dl.lm-sensors.org/lm-sensors/releases/">descargar el código fuente</a> desde su sitio oficial (archivo 2.10.8.tar.gz, o el .tar.gz más nuevo que salga). Las librerías recomendadas a instalar, antes de instalar el código fuente de lm-sensors, se pueden descargar desde los repositorios, así:</p>
+
+      <code>sudo aptitude install bison cook flex sysfsutils libsysfs-dev libsysfs2</code>
+
+      <p>Ahora a instalar el código fuente con dos lineas de comandos:</p>
+
+      <code>sudo make user<br>
+      sudo make user_install</code>
+
+      <p>Lo último es solo para el código fuente, si tienen lm-sensors en sus repositorios, no es necesaria la parte de código fuente, ya que bajará todas las librerías automáticamente.</p>
+
+      <p>Ahora que se encuentra instalado lm-sensors, se configurará por terminal para que detecte los componentes y sensores de su hardware. Y en Ubuntu sería así:</p>
+
+      <code>sudo sensors detect</code>
+
+      <p>Inmediatamente el sistema de configuración empezará con una serie de preguntas técnicas, solamente tipeen una "y", para confirmar la pregunta (yes). Después de terminar la configuración de sensores, añadirán el modulo en el inicio del sistema. Y mencionar que justo antes de finalizar la configuración de sensores arriba, aparecerá algo como esto:</p>
+
+      <code>#—-cut here—-<br>
+      # Chip drivers<br>
+      modprobe coretemp<br>
+      # sleep 2 # optional<br>
+      /usr/local/bin/sensors -s<br>
+      #—-cut here—-</code>
+
+      <o>Eso, o lo que les aparezca al final de la configuración de sensores, lo tienen que añadir al archivo de módulos, (ojo, añadir al archivo, no reemplazar lo que se encuentre en ese archivo), así que abrirán el archivo de módulos (gedit es el editor de texto de GNOME):</p>
+
+      <code>sudo gedit /etc/modules</code>
+
+      <p>Creo que esto último de agregar los módulos ni siquiera es necesario, ya que parece (y si mi memoria no falla) los módulos de lm-sensors se agregan automáticamente al archivo de módulos, creo. Y ahora reinician la máquina (computador) y listo.</p>
+
+      <p>Esto nada que ver con Conky, pero si quieren seguir echandole el ojo a lm-sensors, pueden instalar un "applet" para así poder ver las temperaturas donde queramos en nuestra barra de herramientas:</p>
+
+      <code>sudo aptitude install sensors-applet</code>
+
+      <p>La temperatura del disco duro también requiere de un script externo llamado: ColorTempCPU.sh</p>
+
+      <p>Ese script se puede <a href="http://www.mediafire.com/?jnqzidmmdgn">descargar desde este enlace</a>.</p>
+
+      <p>La linea de opciones en el archivo de configuración de Conky quedaría así:</p>
+
+      <code>${color ffffff}${font weather:size=39}x${font}  ${voffset -31}CPU<br> ${color5}${execpi 8 sensors | grep 'CPU Temp' | cut --characters 15-16 | xargs ~/scripts/ColorTempCPU.sh}°$color</code>
+
+      <p>La temperatura del disco duro también requiere de un script externo llamado: hddmonit.sh</p>
+
+      <p>Ese script se puede descargar desde <a href="http://www.mediafire.com/?zz0zhw32zc3">este enlace</a>.</p>
+
+      <p>La temperatura del procesador también requiere de lm-sensors, pero la instalación y configuración ya fue vista arriba, así que nos saltaremos eso. Eso si, necesitaremos de otra aplicación llamada "hddtemp", y se instala de la siguiente manera por una terminal:</p>
+
+      <code>sudo aptitude install hddtemp</code>
+
+      <p>Y eso solamente, no hay que configurar nada en hddtemp, como ya fue instalado, ahora vamos a como se verían las opciones en el archivo de configuración de Conky:</p>
+
+      <code>${color ffffff}HDD ${execi 1 ~/scripts/hddmonit.sh}°</code>
+
+      <p>El monitor de temperatura de la placa madre, utiliza el mismo scritp de la temperatura del procesador, que es este: ColorTempCPU.sh</p>
+
+      <p>El script lo pueden descargar arriba, pero para los que andan apurados también lo pueden descargar desde <a href="http://www.mediafire.com/?jnqzidmmdgn">este mismo enlace</a> (igual al de arriba).</p>
+
+      <p>La linea de opciones en el archivo de configuración quedaría así:</p>
+
+      <code>${color ffffff}M/B  ${color5}${execpi 8 sensors | grep 'M/B Temp' | cut --characters 15-16 | xargs ~/scripts/ColorTempCPU.sh}°$color</code>
+
+      <h3>Viendo correos de Gmail</h3>
+
+      <p>Para ver los correos nuevos que han llegado a nuestra cuenta de Gmail, se necesitará de un script externo creado en lenguaje de programación Python, y que se llama: gmail_parser.py</p>
+
+      <p>Este script en Python se puede ver fácilmente en cualquier editor de texto (o en BlueFish para re-programarlo), y para su seguridad (y la mía) no tomará ningún dato de transferencia como correos y contraseña del usuario, ya que todo eso lo pueden confirmar ustedes mismos viendo el código fuente del archivo en un editor de texto.</p>
+
+      <p>El script de Gmail lo pueden <a href="http://www.mediafire.com/?umkkcznd1tm">descargar desde este enlace</a>.</p>
+
+      <p>La línea de opciones en el archivo de configuración de Conky quedaría de la siguiente manera:</p>
+
+      <code>${color F8DF58}${font FreeSans:size=16}@${font}${execpi 300 python ~/scripts/gmail_parser.py &lt;b&gt;tu-usuario-de-gmail@gmail.com&lt;/b&gt; &lt;b&gt;contraseña-de-gmail&lt;/b&gt; 3}</code>
+
+      <p>Vean bien lo que está escrito en negrita, ya que eso se debe reemplazar por los datos que pide.</p>
+
+      <p>Con esto finaliza la configuración avanzada con el uso de scripts externos, y recordar nuevamente que todos los scripts dados se guardan en la carpeta "scripts", en tu carpeta de usuario, en que solo tu tendrás permiso de acceso (/home/usuario/scripts).</p>
+
+      <h2>Consejos</h2>
+
+      <p>Si quieren que Conky se ejecute automáticamente al prender el sistema, y con ello evitar el procedimiento de estar siempre tecleando al prender el sistema: Alt + F2. (y después tipear: conky). Para no hacer eso, harán algo más sencillo.</p>
+
+      <p>Para que Conky se inicie siempre con el sistema crearán un rápido script, abran un editor de texto y copian esto:</p>
+
+      <code>#!/bin/bash<br>
+      sleep 10 &amp;&amp; conky</code>
+
+      <p>El script lo guardan bajo el nombre: ini-conky</p>
+
+      <p>El script lo pueden guardar en su carpeta de usuario (/home/usuario/ini-conky) o en la ruta de ejecutables de usuarios en: /usr/local/bin/ini-conky</p>
+
+      <p>Y por supuesto que tienen que dar permisos de ejecución al script "ini-conky":</p>
+
+      <code>sudo chmod +x ini-conky</code>
+
+      <p>Ahora para que tienen el script guardado en la carpeta "bin", solamente se dirigen a "Sesión e inicio" (si es que lo tienen instalado), y ahí van a autoarranque de aplicaciones y añaden una nueva aplicación, y agregan el comando ini-conky en la casilla de comando, y colocan el mismo nombre cuando pida el nombre.</p>
+
+      <p>Si decidieron guardar el script en su carpeta de usuario, solo agreguen la ruta en donde se encuentra. Así que escriben en la casilla de comandos lo siguiente: /home/usuario/ini-conky</p>
+
+      <p>En GNOME, KDE y Xfce, eso funciona de maravilla aunque en Xfce se demora en abrirlo, ya que espera esos 10 segundos (pueden ser mas o menos) para cargar el escritorio.</p>
+
+      <p>Y así finaliza esta guía explicatica y configuración de Conky, y recordando finalmente que existen <a href="http://conky.sourceforge.net/variables.html">decenas de variables</a> disponibles en Conky, y sus configuraciones son varias, solamente es cosa de buscar en Google sobre <a href="http://ubuntuforums.org/showthread.php?t=281865">configuraciones de usuarios</a>, y ver que les puede servir, en los foros de Linux siempre se encuentran temas relacionados con este excelente monitor de sistema ligero y rápido.</p>
+    </article>
+  </div>
+</body>
+</html>

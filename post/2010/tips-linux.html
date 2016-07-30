@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Tips Ubuntu • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Tips Ubuntu</h1>
+
+      <p>La idea es simple, solo tips para facilitar la vida en Ubuntu.</p>
+
+      <h2>Tips Básicos</h2>
+
+      <p>Instalar el soporte de archivos RAR:</p>
+
+      <code>Ir al Centro de software de Ubuntu y buscar: rar (ahora Ubuntu lo busca e instala al descomprimir el archivo rar)</code>
+
+      <p>Instalar el soporte de FLASH:</p>
+
+      <code>Ir al Centro de software de Ubuntu y buscar: flash (o usar <a href="http://www.google.cl/chrome">Chrome</a> que viene con la última versión integrada)</code>
+
+      <p>Instalar fuentes de letras de Windows (Arial, Courier, Times New Roman, etc.):</p>
+
+      <code>Ir al Centro de software de Ubuntu y buscar: ttf-mscorefonts-installer (no es necesario, solo opcional)</code>
+
+      <p>Instalando Codecs de Audio y Video:</p>
+
+      <code>En Ubuntu, cuando quieres reproducir un video o escuchar música, el sistema busca automáticamente el codec y lo instala, al menos en Totem y Rhythmbox.</code>
+
+      <p>(Lo que yo uso para reproducir video es <a href="http://code.google.com/p/gnome-mplayer/">GNOME Mplayer</a>, búsquenlo en el Centro de software. Viene con todos los codecs necesarios para reproducir, y mejor control sobre los subtítulos.)</p>
+
+      <p>Cambiar el icono de un archivo o directorio:</p>
+
+      <code>Haz click derecho sobre el archivo o directorio, abre 'Propiedades', presiona el icono que aparece al lado de Nombre, ahí podrás seleccionar un icono que hayas bajado de Internet.</code>
+
+      <p>Cambiar la aplicación que se abre por defecto un archivo:</p>
+
+      <code>Haz click derecho sobre el archivo (un video, un audio, una fotografía, un documento, etc.), abre 'Propiedades', y selecciona la pestaña 'Abrir con', ahí puedes seleccionar de una lista, o presionar el botón 'Añadir' para buscar más aplicaciones.</code>
+
+      <h2>Tips Avanzados</h2>
+
+      <p>Usar dos pantallas individuales: Monitor y TV (para Nvidia):</p>
+
+      <code>Ir a 'NVIDIA X Server Settings' (Sistema &gt; Administración), elegir la pestaña 'X Server Display Configuration', seleccionar el cuadrado de la TV, apretar el botón 'Configure...', y seleccionar 'Separate X screen (required X restart)'. Guarda los cambios apretando el botón 'Save to X Configuration File'.</code>
+
+      <p>Cambiar el servidor del repositorio de Ubuntu cuando no se conecta o no se actualiza:</p>
+
+      <code>Ir a Orígenes del software (Sistema &gt; Administración), en la pestaña 'Software de Ubuntu' ir al menú desplegable y elegir 'Otro...', ahí cambia por otro servidor de tu país, o otro cercano.</code>
+
+      <p>Agregar repositorio PPA rápidamente:</p>
+
+      <code>Ir a 'Origenes del software' (Sistema &gt; Administración), elegir pestaña 'Otro software' y añadir el PPA (de Launchpad.net), ejemplo de PPA: ppa:chromium-daily/stable</code>
+
+      <p>Abrir Nautilus como Super-usuario (root):</p>
+
+      <code>Presionar las dos teclas Alt + F2 (eso abrirá el ejecutador de aplicaciones), y tipear: gksu nautilus<br>
+      <br>
+      También se pueden agregar rutas para entrar directamente a un directorio, por ejemplo:
+      gksu nautilus /usr/share</code>
+
+      <p>Cambiar permisos de un archivo y cambiar usuario:</p>
+
+      <code>Haz click derecho sobre el archivo o directorio que quieras, abre 'Propiedades', y selecciona la pestaña 'Permisos'. Ahí podrás cambiar el Acceso del propietario del archivo (tu usuario, otro, o el usuario root), puedes dejarlo como 'Lectura y escritura', 'Solo Lectura' o '---' (ninguno). Puedes cambiar los permisos del grupo que tiene acceso a ese archivo (usualmente tu usuario). También puedes darle permisos de ejecución (para que se ejecute como aplicación o script).
+      También puedes cambiar el propietario del archivo entrando a Nautilus como Super-usuario (root), arriba aparece como entrar.</code>
+
+      <p>Ejecutar archivos binarios .BIN y scripts .SH:</p>
+
+      <code>Primero hay que dar permisos de ejecución al archivo: Click derecho sobre el archivo, abrir 'Propiedades', seleccionar la pestaña 'Permisos' y darle permisos de ejecución en la caja de verificación. Abrir el archivo (doble click sobre él) y apretar el botón 'Ejecutar'.</code>
+    </article>
+  </div>
+</body>
+</html>

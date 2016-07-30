@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Particiones: Lo que hay que saber • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Particiones: Lo que hay que saber</h1>
+
+      <p>Cuando se instala una distro de Linux popular y fácil de usar como los son <a href="https://es.wikipedia.org/wiki/Ubuntu_(distribuci%C3%B3n_Linux)">Ubuntu</a>, <a href="https://es.wikipedia.org/wiki/Fedora_Core">Fedora</a>, <a href="https://es.wikipedia.org/wiki/Mandriva">Mandriva</a>, <a href="https://es.wikipedia.org/wiki/Debian_GNU/Linux">Debian</a>, o <a href="https://es.wikipedia.org/wiki/OpenSUSE">openSUSE</a>, el instalador realiza un formateo del disco duro completo, o sea... borra todo. Para luego empezar a instalar el sistema operativo desde cero, y además crea una pequeña swap (la swap es como una memoria RAM extra de intercambio). Y eso sería, es super simple lo que hace una distro Linux fácil de usar, todo lo hace automático, solo hay que aceptar todo lo que salga en la instalación gráficamente.</p>
+
+      <p>La gracia viene cuando tenemos particionado el disco duro. Las particiones se refieren a cuando se divide el disco duro en las partes que uno desee para instalar otros sistemas operativos (OS) en el mismo disco, o también para dejar un espacio aparte para guardar lo que sea (como por ejemplo; si le pasa algo al sistema operativo y hay que volver a formatear, pero si tenemos datos guardados en una partición aparte no les ocurriría nada</p>
+
+      <h2>Sistema de Archivos y Directorios</h2>
+
+      <p>El <a href="https://es.wikipedia.org/wiki/Sistema_de_archivos">sistema de archivos</a> es lo que se utiliza al momento de formatear e instalar el sistema operativo. Como por ejemplo: En Windows se utiliza el sistema de archivos <a href="https://es.wikipedia.org/wiki/NTFS">NTFS</a> o <a href="https://es.wikipedia.org/wiki/FAT32#FAT32">FAT32</a>. En Mac OS X se utiliza <a href="https://es.wikipedia.org/wiki/ZFS_(sistema_de_archivos)">ZFS</a>. Y en Linux se puede utilizar <a href="https://es.wikipedia.org/wiki/Ext3">ext3</a>, <a href="https://es.wikipedia.org/wiki/Ext4">ext4</a>, <a href="https://es.wikipedia.org/wiki/Btrfs">Btrfs</a>, o <a href="https://es.wikipedia.org/wiki/XFS">XFS</a>.</p>
+
+      <p>Ahora se masificó el uso de ext4, y usaremos ese (aunque Btrfs es igual de bueno).</p>
+
+      <p>Cuando se particiona manualmente, hay solo dos cosas que se tienen que hacer obligatoriamente. Y esas son: Crear el directorio raíz: " / ", y crear la swap. La swap no utiliza directorio, es solo un pequeño particionamiento de intercambio de memoria. El directorio raíz es solo una barra invertida: " / ", y ahí es donde se instala todo el sistema y los sub-directorios que parten desde " / ", por eso es obligatorio crearlo. La partición en Linux se hace gráficamente desde cualquier disco de instalación de las distros mencionadas arriba.</p>
+
+      <h2>Agregando más directorios</h2>
+
+      <p>Si ya hay otros sistemas operativos instalados en el disco, o si hay otras particiones para guardar datos. Se pueden agregar directorios para tenerlos ordenados y/o darles permisos de solo lectura a cada directorio mas adelante cuando ya esté todo instalado (hace un tiempo escribí sobre <a href="https://cont3mpo.github.io/post/2009/permisos-de-usuario-en-linux.html">los permisos en los directorios</a> para evitar a los intrusos). La creación de estos directorios es absolutamente opcional, si quieren los crean, pero servirá para que el sistema los tome en cuenta en cada partida del sistema. Y ojo: no se formatean si ya hay un sistema operativo (OS) instalado en ellos.</p>
+
+      <h2>¿Que se puede agregar?</h2>
+
+      <p>A las particiones aparte se les puede colocar el nombre que uno quiera, como un ejemplo...</p>
+
+      <p>Si tienen Windows, pueden crear el directorio: /win<br>
+      Si tiene Mac OS X, pueden crear el directorio: /osx<br>
+      O si tienen una partición en que solo guardan datos: /data o /cosas</p>
+
+      <p>Todos estos son directorios que aparecerán en su directorio raíz " / " una vez instalado el sistema. No se formatean (a menos que no haya nada ahí), si formatean se borrará lo que hay en esas particiones.</p>
+
+      <h2>El directorio de usuarios</h2>
+
+      <p>El directorio de usuarios lleva por nombre "/home". Ahí es donde se guardan las configuraciones de cada usuario creado, y se guarda absolutamente todo lo relacionado con el escritorio, archivos de configuración de las aplicaciones y todo tipo de configuraciones del usuario.</p>
+
+      <p>Este directorio también es opcional crearlo en el particionamiento manual, ya que "/home" se crea automáticamente cuando se instala el sistema. Esto es solo para tenerlo en una partición aparte y mantener guardadas para siempre las configuraciones del usuario, y no perder todo eso en un próximo formateo. Se puede formatear en ext4, al igual que el sistema operativo que está instalado en " / ". Si el directorio "/home" ya existe con anterioridad, no lo formateen.</p>
+
+      <h2>Particiones, directorio y formateo</h2>
+
+      <p>Ahora pasamos rápidamente a como se vería todo, y lo que hay que hacer en cada caso:</p>
+
+      <p>Obligatorios</p>
+
+      <ul>
+        <li>Directorio raíz: / (utilicen ext4 para formatear)</li>
+        <li>La swap (memoria de intercambio): No utiliza directorio, dejen unos 256 MB de memoria.</li>
+      </ul>
+
+      <p>Opcionales</p>
+
+      <ul>
+        <li>Directorio de usuarios: /home (utilicen ext4 para formatear, si ya existe no formatear)</li>
+        <li>Directorio de Windows: /win (si ya hay un OS instalado no formatear)</li>
+        <li>Directorio de Mac OS X: /osx (si ya hay un OS instalado no formatear)</li>
+        <li>Directorio de otros datos: /data (si ya existe no formatear)</li>
+      </ul>
+
+      <p>Y eso. No es una gran ciencia, es fácil si se recuerda lo que hay que hacer.</p>
+    </article>
+  </div>
+</body>
+</html>

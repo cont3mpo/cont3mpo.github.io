@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Me pasé a Responsive Design • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Me pasé a Responsive Design</h1>
+
+      <p>Oh si, esos tiempos de la versión móvil de Blogger ya no van más. Ahora adapté el blog para que sea completamente <a href="https://es.wikipedia.org/wiki/Dise%C3%B1o_web_adaptable">Responsive Design</a>.</p>
+
+      <h2>Blogger no tiene Responsive Design</h2>
+
+      <p>Blogger no sabe que es Responsive Design, y ni idea cuando Google hará lo correcto y eliminará eso de "versión móvil". La Web ahora se ve a través de dispositivos, ya no es escritorio y móvil, es una sola para todo. Además Blogger utiliza plantillas <a href="https://es.wikipedia.org/wiki/Extensible_Markup_Language">XML</a>, que mezcla el código <a href="https://es.wikipedia.org/wiki/HTML">HTML</a> + <a href="https://es.wikipedia.org/wiki/Hoja_de_estilos_en_cascada">CSS</a> + <a href="https://es.wikipedia.org/wiki/JavaScript">JavaScript</a> en una gigante y larga hoja, transformandose en algo muy engorroso de usar.</p>
+
+      <h2>Lo que adapté</h2>
+
+      <p>Primero. Deshabilité la versión móvil de Blogger, pasé el tamaño de las fuentes a mediciones <a href="https://es.wikipedia.org/wiki/Em_(tipograf%C3%ADa)">em</a> y rem en algunos casos (relativas), e incluso los altos de linea, y saqué los <a href="https://es.wikipedia.org/wiki/P%C3%ADxel">px</a> (absolutas) de las letras, ya que px no sirve mucho en móviles, y el 99% del blog son letras (cabecera, titulares, letras del cuerpo, citados).</p>
+
+      <p>Las pocas imágenes que hay en algunos artículos los pasé a porcentajes % con ancho máximo limitado (max-width), para que no quedarán fuera del borde.</p>
+
+      <p>Gracias a los <a href="https://es.wikipedia.org/wiki/Media_query">media queries</a> de <a href="https://es.wikipedia.org/wiki/Hoja_de_estilos_en_cascada#CSS3">CSS3</a>, pasé el ancho de los artículos a porcentaje % más un max-width en escritorio (con mucho borde a los lados), y que luego ese porcentaje aumentara al llegar a los 768px del ancho de la pantalla del dispositivo, y finalmente que aumentara otra vez el porcentaje de ancho de artículo al bajar a 480px de ancho de pantalla.</p>
+
+      <p>Al pasar a los 480px de ancho de pantalla, se modifican también el tamaño de las letras automáticamente. Prueben redimensionando horizontalmente la ventana del navegador para ver como se cambian los anchos del artículo y tamaño de letras.</p>
+
+      <p>En resumen, responsive utiliza porcentajes para anchos, imágenes e incluso letras, em y rem para sobreescribir la fuente del body (otras <a href="http://www.w3schools.com/cssref/css_units.asp">mediciones relativas</a>), y limitadores de ancho de pantalla para ajustar esos anchos y tamaños.</p>
+
+      <p>También agregué un tono oscuro a la barra de Chrome/Safari o navegadores móviles que soporten color con <a href="https://developers.google.com/web/fundamentals/design-and-ui/browser-customization/theme-color">theme-color</a>.</p>
+
+      <p>Y no usé <a href="http://www.w3schools.com/css/css3_flexbox.asp">Flexbox</a>, porque la mayoría del blog es vertical, y es más practico con sitios con elementos horizontales mezclado con verticales.</p>
+
+      <p>Ah, y ahora el blog soporta <a href="https://es.wikipedia.org/wiki/Hypertext_Transfer_Protocol_Secure">HTTPS</a>.</p>
+    </article>
+  </div>
+</body>
+</html>

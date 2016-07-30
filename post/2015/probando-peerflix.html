@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Probando Peerflix • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Probando Peerflix</h1>
+
+      <p>Estuve probando <a href="https://github.com/mafintosh/peerflix">Peerflix</a>, una app de terminal para ver video en streaming de torrents.</p>
+
+      <h2>Demasiado bueno para ser cierto</h2>
+
+      <p>Gracias al motor <a href="https://github.com/mafintosh/torrent-stream">torrent-stream</a>, Peerflix puede existir. Solo toma el torrent o enlace magnético y comienza a cargar desde el principio del video. Se puede utilizar con múltiples reproductores (mpv, MPlayer, VLC), y agregar subtitulos.</p>
+
+      <h2>Instalar</h2>
+
+      <p>Si estás usando Ubuntu 14.04 o elementary OS Freya, primero <a href="https://launchpad.net/~chris-lea/+archive/ubuntu/node.js">agrega este repositorio</a>, y instala <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/nodejs.1.html">nodejs</a>&nbsp;(viene incluido&nbsp;<a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/npm.1.html">npm</a>). En OS X instala npm usando <a href="http://cont3mpo.github.io/post/2015/os-x-y-homebrew.html">Homebrew</a>. Instalar peerflix es igual para todos:</p>
+
+      <code>sudo npm install -g peerflix</code>
+
+      <h2>Usar</h2>
+
+      <p>Ahora para reproducir contenido se usa así, junto con mi reproductor favorito <a href="http://cont3mpo.github.io/post/2013/mpv-el-sucesor-de-mplayer2.html">mpv</a> (otros: --mplayer --vlc):</p>
+
+      <code>peerflix archivo.torrent --mpv</code>
+
+      <code>peerflix "magnet:enlace" --mpv</code>
+
+      <p>Para agregar subtitulo y que el reproductor lo lea (<a href="http://cont3mpo.blogspot.com/2009/08/torrents-y-cine-en-tu-casa.html">lista de sitios de torrents y subtitulos</a>):</p>
+
+      <code>peerflix archivo.torrent --mpv --subtitles subtitulo.srt</code>
+
+      <p>Dependiendo de la velocidad de su conexión, quizás tengan que pausar al inicio un minuto el reproductor, para que no haya tropiezos más tarde. Si quieren saber más sobre como usar Peerflix: peerflix --help</p>
+    </article>
+  </div>
+</body>
+</html>

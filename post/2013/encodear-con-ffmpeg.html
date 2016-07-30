@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Encodear con FFmpeg: H.264 + FLAC • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Encodear con FFmpeg: H.264 + FLAC</h1>
+
+      <p>Dejaré de lado a <a href="https://es.wikipedia.org/wiki/MEncoder">MEncoder</a>, y usaré <a href="https://es.wikipedia.org/wiki/FFmpeg">FFmpeg</a>.</p>
+
+      <p>El año 2009 escribí <a href="https://cont3mpo.github.io/post/2009/edicion-multimedia-con-mencoder-y.html">unas guías sobre edición</a> de <a href="https://cont3mpo.github.io/post/2009/edicion-multimedia-mencoder-y-mplayer.html">video/audio con MEncoder</a>, es de pelos, pero el proyecto está ahí abandonado, así que ahora (mayo 2013) comenzaré a usar <a href="https://ffmpeg.org/">FFmpeg</a>, debido a que actualizan <a href="https://ffmpeg.org/download.html#releases">cada 3 meses</a>, es multiplataforma, utiliza <a href="http://libav.org/">libavcodec</a>, tiene sintaxis simples y es abierto. Todo esto se puede hacer en <a href="https://cont3mpo.github.io/post/2013/el-futuro-unificado-de-ubuntu.html">Ubuntu</a>, <a href="https://cont3mpo.github.io/post/2012/probando-elementary-os-luna.html">elementary OS</a> y <a href="https://cont3mpo.github.io/post/2015/os-x-y-homebrew.html">OS X</a>, también <a href="http://slhck.info/video-encoding.html">gracias a algunas ayudas</a> que me topé por ahí.</p>
+
+      <h2>Calidad: H.264, CRF, 10bit y FLAC</h2>
+
+      <h3>H.264</h3>
+
+      <p>Hace ya mucho tiempo que decidí ver todo en <a href="https://es.wikipedia.org/wiki/H.264/MPEG-4_AVC">H.264/AVC</a>, con su encoder abierto <a href="https://es.wikipedia.org/wiki/X264">x264</a> se logra gran calidad y mejor compresión.</p>
+
+      <h3>Constant Rate Factor (CRF)</h3>
+
+      <p>Fijarse solo en el bitrate al encodear para limitar el peso de un video está mal. La gracia de la opción <a href="http://slhck.info/crf.html">CRF</a> en x264 es que solo se enfoca en mantener una calidad constante al video por medio de distribución de <a href="https://en.wikipedia.org/wiki/Bitrate#Multimedia_encoding">bitrates</a> dependiendo de las escenas, él decidirá cuantos bits usar en cada imagen sin importar el peso del video y así mantener una calidad constante</p>
+
+      <h3>10bit</h3>
+
+      <p><a href="http://wiki.bakabt.me/index.php/Hi10P">10bit</a> brinda una mejor <a href="https://en.wikipedia.org/wiki/Color_depth">profundidad de color</a> en un video H.264, el degradado de colores se ve más suave al redimensionar la imagen o encodear desde un blu-ray. 10bit también contribuye en disminuir el peso del video. Actualmente el uso de 10bit se ha popularizado en los encoders de Animes.</p>
+
+      <h3>FLAC</h3>
+
+      <p>La gracia del codec abierto <a href="https://es.wikipedia.org/wiki/Free_Lossless_Audio_Codec">FLAC</a> es que no tiene pérdidas de calidad de audio. Debes usar una fuente de <a href="https://en.wikipedia.org/wiki/Blu-ray_Disc#Audio">audio sin pérdidas (Lossless)</a>. Usa <a href="https://en.wikipedia.org/wiki/Linear_pulse-code_modulation">LPCM</a>, <a href="https://en.wikipedia.org/wiki/DTS-HD_Master_Audio">DTS-HD MA</a> y <a href="https://en.wikipedia.org/wiki/Dolby_TrueHD">Dolby TrueHD</a>, los cuales no traen pérdida de audio (lossless), utiliza esos para encodear a FLAC. <a href="https://en.wikipedia.org/wiki/DTS_(sound_system)">DTS</a> y <a href="https://en.wikipedia.org/wiki/Dolby_Digital">Dolby Digital</a> traen perdida (lossy), así que no encodeen desde esos dos.</p>
+
+      <h2>Instalar x264-10bit y FFmpeg</h2>
+
+      <p>Solo 10 bit: Se instalan 3 cosas, <a href="https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu">instalar dependencias (+ yasm), x264, y FFmpeg</a> (en ese orden), copiar/pegar en la terminal lo que aparece en los cuadros. Para compilar x264-10bit, al final de la linea "./configure" tienes que agregar: --bit-depth=10 (Antes de instalar FFmpeg, primero borra de la lista todos los encoders que no instalaste, como por ejemplo --enable-libfdk-aac, --enable-libmp3lame, etc.)</p>
+
+      <p>Solo 8 bit: Esto es más fácil, instala <a href="https://launchpad.net/~mc3man/+archive/ubuntu/trusty-media">FFmpeg actualizado desde un PPA</a> (otro <a href="https://launchpad.net/~djcj/+archive/ubuntu/hybrid">PPA con FFmpeg, la última versión de x264 y Mkvtoolnix</a>). Y listo, a encodear.</p>
+
+      <p>En OS X instala FFmpeg usando <a href="http://brew.sh/index_es.html">Homebrew</a>. Y para agregar más encoders:</p>
+
+      <code>brew reinstall ffmpeg --with-faac --with-libvpx --with-x265 --with-opus</code>
+
+      <h2>Uso básico FFmpeg</h2>
+
+      <p>Si quieres especificar un codec, solamente agrega -c:v (para video) -c:a (para audio), y al lado el nombre del codec correspondiente, en este caso libx264 y flac:</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -c:a flac salida.mkv</code>
+
+      <p>Si quieres copiar el video o audio directamente, cambia el nombre de los codecs por copy:</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v copy -c:a copy salida.mkv</code>
+
+      <p>Para ver el nombre de los encoders disponibles usa ffmpeg -encoders y para ver la lista de decoders con ffmpeg -decoders, para ver más opciones de configuración usa ffmpeg --help y la lista de todos los codecs con ffmpeg -codecs</p>
+
+      <h2>Configurar CRF, Compresión, y FLAC</h2>
+
+      <p>CRF tiene un <a href="https://trac.ffmpeg.org/wiki/Encode/H.264#a1.ChooseaCRFvalue">rango de medición de calidad entre 0 a 63 (en 10bit)</a>, siendo 0 lo mejor y 63 lo peor, entre más bajo el número de CRF más grande el tamaño del video. Se recomienda usar CRF entre 18 a 15 (por defecto usa 23). Si eres exigente y quieres mantener calidad en secuencias complejas, usa 15, si trae poco movimiento o imagen estática, usa 17. CRF utiliza una sola pasada constante, nada de dos pasadas, así quedaría -crf 15:</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -c:a copy salida.mkv</code>
+
+      <p>Ahora hay que agregar un <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles">profile high10</a> (10bit) y un <a href="http://mewiki.project357.com/wiki/X264_Settings#preset">preset</a> para comprimir en lento (slow), más lento (slower) o muy lento (veryslow), cada uno ajusta automáticamente las opciones de compresión, entre más lento más comprimido y mejor será el encodeo. Normalmente uso slow, no demora tanto en comprimir y prioriza la calidad (<a href="https://trac.ffmpeg.org/wiki/Encode/H.264#Whyisplaceboawasteoftime">slow comprime de un 5 a 10% comparado al medium, slower agrega un 5% más a eso y veryslow un 3% más</a>). No utilizo un "<a href="http://mewiki.project357.com/wiki/X264_Settings#level">-level</a>" específico, debido a que automáticamente le otorga uno dependiendo de la compresión. Si quisieran compatibilidad con un reproductor blu-ray o smart TV tendrían que poner "-level 4.1". Finalmente quedaría así: -preset slow -profile:v high10 (por defecto no agrega profile, usa preset medium y level automático):</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -preset slow -profile:v high10 -c:a copy salida.mkv</code>
+
+      <p>Modificar opciones x264: Opcionalmente si no quiere usar un preset, también puedes modificar parámetros específicos en la compresión de x264 + ffmpeg, <a href="http://sonnati.wordpress.com/2011/08/19/ffmpeg-%E2%80%93-the-swiss-army-knife-of-internet-streaming-%E2%80%93-part-iii/">por ejemplo modificar los bframes, me_method, refs, me_range, etc</a> (solo recomendado para usuarios avanzados, y <a href="http://mewiki.project357.com/wiki/X264_Settings#Frame-type_options">lee para que sirve cada uno</a>, también su <a href="https://sites.google.com/site/linuxencoding/x264-ffmpeg-mapping">nombre al ponerlos con ffmpeg</a> y en la <a href="https://ffmpeg.org/ffmpeg-codecs.html">documentación de ffmpeg</a>). Unas modificaciones para mejorar el encodeo:</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -profile:v high10 -bf 8 -refs 8 -b_strategy 2 -me_range 24 -trellis 2 -subq 9 -me_method umh -deblock 1:-1:-2 -qcomp 0.80 -psy-rd 0.70:0.00 -rc-lookahead 120 -aq-strength 1.0 -c:a copy avanzado.mkv</code>
+
+      <p>Si quieres utilizar las opciones nativas de x264, hazlo con -x264opts. Con ello podrás modificar todas las <a href="http://mewiki.project357.com/wiki/X264_Settings">opciones nativas existentes en x264</a>:</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -profile:v high10 -x264opts bframes=8:ref=8:b-adapt=2:merange=24:trellis=2:subme=9:me=umh:deblock=1,-1,-2:qcomp=0.80:psy-rd=0.70,0.00:rc-lookahead=120:aq-strength=1.0 -c:a copy salida.mkv</code>
+
+      <p>Puedes agregar <a href="http://mewiki.project357.com/wiki/X264_Settings#tune">tune para optimizaciones de imágenes</a>, en Animes usa -tune animation, con actores reales usa -tune film, con video granulado usa -tune grain. Por defecto no viene ni una activada, prueba primero y si no ves cambios positivos entonces no los uses (<a href="http://superuser.com/questions/564402/explanation-of-x264-tune?answertab=votes#tab-top">ve para que sirve cada una y que hacen</a>):</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -tune animation -c:a copy salida.mkv</code>
+
+      <p>FLAC utiliza un <a href="http://flac.sourceforge.net/documentation_tools_flac.html#flac_options_levels">rango de compresión de archivo entre 0 a 8</a> y el audio se mantiene sin pérdidas, siendo 0 menos comprimido y 8 más comprimido. Por defecto comprime en 5, así que no lo modifico. Se usa así -c:a flac -compression_level 8. FLAC soporta <a href="http://xiph.org/flac/faq.html#general__channels">hasta 8 canales de audio y 32 bits de profundidad</a>:</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v copy -c:a flac salida.mkv</code>
+
+      <p>Como dato extra, puedes <a href="http://cont3mpo.blogspot.com/2009/10/encodear-audio-en-linux.html">encodear los archivos de audio por separado (MP3/AAC/Vorbis/Opus/FLAC)</a>.</p>
+
+      <p>Y finalmente, si por ejemplo encodearamos un Anime con video H.264 en 10bit, CRF 15 y audio FLAC sería así (en este orden; crf, preset, tune y demás configuraciones):</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -preset slow -tune animation -profile:v high10 -c:a flac salida.mkv</code>
+
+      <p>Las demás opciones las dejé por defecto debido a que la mayoría son recomendables, una configuración simple pero buena a la vez, vean más opciones en ffmpeg --help y x264 --fullhelp.</p>
+
+      <h2>BDMV (archivos Blu-ray)</h2>
+
+      <p>Un <a href="http://tmpgenc.pegasys-inc.com/es/product/taw4_tutorial/taw4_start_bd.html">BDMV</a> (común en torrents, <a href="http://en.wikipedia.org/wiki/Share_(P2P)">Share</a>/<a href="http://en.wikipedia.org/wiki/Perfect_Dark_(P2P)">PerfectDark</a>) incluye todos los archivos del blu-ray, y archivos con contenedor <a href="https://en.wikipedia.org/wiki/.m2ts">.m2ts</a>, ese archivo contiene el video y las múltiples pistas de audio dentro (PCM, True HD, DTS), usualmente el .m2ts más grande es el video principal.</p>
+
+      <p>Para extraer una pista determinada primero tienen que ver que pistas hay dentro.</p>
+
+      <code>ffmpeg -i video.m2ts </code>
+
+      <code>Stream #0:0 Video: AVC<br>
+      Stream #0:1 Audio: pcm_bluray<br>
+      Stream #0:2 Audio: ac3 </code>
+
+      <p>Por ejemplo 0:0 sería el video a encodear, y 0:1 es la pista de audio lossless que queremos. Se usaría así: -map 0:0 -map 0:1 (y otras opciones recomendadas para encodear blu-ray).</p>
+
+      <code>ffmpeg -i entrada.m2ts -map 0:0 -c:v libx264 -crf 15 -preset slow -profile:v high10 -nal-hrd vbr -b-pyramid strict -slices 4 -aud 1 -map 0:1 -c:a flac salida.mkv</code>
+
+      <p>O también la configuración con opciones nativas recomendadas para encodear blu-ray con el <a href="http://mewiki.project357.com/wiki/X264_Settings#colorprim">uso de colores bt709</a>:</p>
+
+      <code>ffmpeg -i entrada.m2ts -map 0:0 -c:v libx264 -crf 15 -preset slow -x264opts nal-hrd=vbr:b-pyramid=strict:slices=4:aud:colorprim=bt709:transfer=bt709:colormatrix=bt709 -map 0:1 -c:a flac salida.mkv</code>
+
+      <h2>Extras: Resolución video, relación aspecto, recortar imagen, dividir/pegar video, extraer audio/video, info MKV, poner bitrate, FPS, captura pantalla/micrófono y cámara</h2>
+
+      <h3>Resolución video</h3>
+
+      <p>Para bajar la resolución de imagen de un video (por ejemplo de 1920x1080 a 1280x720) se agrega -vf scale=ancho:alto o también -s:v ancho:alto. Nunca es recomendable subir la resolución, el upscaling queda mal. <a href="http://shiroisoranofansub.wordpress.com/2014/03/27/resolucion-anime-y-sus-respectivos-blu-rays/">Cuidado con las supuestas resoluciones 1080p que no lo son, común en series de anime</a>. Pero este método no respetaría el aspecto proporcional en algunos casos (los dos dan el mismo resultado):</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -vf scale=1280:720 -c:a copy salida.mkv</code>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -s:v 1280:720 -c:a copy salida.mkv</code>
+
+      <p>Para redimensionar y mantener el aspecto proporcional usa -1 en el alto (no sirve en -s:v):</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -vf scale=1280:-1 -c:a copy salida.mkv</code>
+
+      <p>Para redimensionar aleatoriamente y que automáticamente se cree un aspecto proporcional que se ajuste a esa resolución (pero mejor intenta preservar el aspecto original):</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -vf scale=800:400,setsar=1:1 -c:a copy salida.mkv</code>
+
+      <h3>Relación aspecto</h3>
+
+      <p>Mejor conocido como <a href="http://www.equasys.de/aspectratio.html">Aspect Ratio</a>, sirve para dar un aspecto proporcional al cuadro de la imagen, como por ejemplo 4:3/1.33 (pantallas de televisores CRT/SD), 3:2/1.5 (cámaras DSLR), 16:10/1.6 (monitor computador), 16:9/1.77 (HDTV), 1.85 (Cinema Film), y 2.35 o 2.39 (Cinemascope), ordenadas desde semicuadrada hasta rectangular. No es recomendable que retoques el aspecto proporcional original de un video, esto solo sirve para casos donde se recorta agresivamente la imagen o casos especiales. El filtro se pone como setdar, por ejemplo 16:9, aunque agregar directamente (sin filtro) -aspect 16:9 también sirve (los dos dan el mismo resultado):</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -vf setdar=16:9 -c:a copy salida.mkv</code>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -aspect 16:9 -c:a copy salida.mkv</code>
+
+      <h3>Recortar imagen</h3>
+
+      <p>Sirve principalmente para recortar bordes negros e imperfecciones en la orilla de un video. El filtro crop=A:B:C:D se explica así: (A) Cortar ancho de la imagen, (B) Cortar alto de la imagen, (C) Mover imagen de derecha a izquierda, (D) Mover imagen de arriba a abajo. El siguiente ejemplo cortaría el alto (B) y movería arriba (D) para centrar un poco:</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -vf crop=1280:718:0:2 -c:a copy salida.mkv</code>
+
+      <h3>Dividir y pegar videos</h3>
+
+      <p>Para dividir partes de un video primero se pone la parte desde donde se extraerá (-ss) y luego el tiempo que se cortará (-t). Por ejemplo si quisieran cortar desde el segundo 30 unos 10 segundos (también se pueden agregar milisegundos para ser más precisos 00:00:10.500):</p>
+
+      <code>ffmpeg -ss 00:00:30 -i entrada.mkv -c:v copy -c:a copy -t 10 salida.mkv</code>
+
+      <p>Para volver a pegar varios videos usualmente sirve concat:</p>
+
+      <code>ffmpeg -i concat:"video1.avi|video2.avi|video3.avi" -c copy pegado.avi</code>
+
+      <p>Pero eso no sirve para los MKV, así que hay que instalar Mvktoolnix (<a href="https://www.bunkus.org/videotools/mkvtoolnix/downloads.html#ubuntu">versión actualizada</a>), el cual trae mkvmerge. Con esto pega los videos en MKV:</p>
+
+      <code>mkvmerge video1.mkv + video2.mkv -o pegado.mkv</code>
+
+      <h3>Extraer video/audio</h3>
+
+      <p>Para extraer la pista 1 de audio hay que deshabilitar el video (-vn):</p>
+
+      <code>ffmpeg -i entrada.mkv -vn -map 0:1 -c:a copy audio.flac</code>
+
+      <p>Para extraer el video hay que deshabilitar el audio (-an):</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v copy -an video.mkv</code>
+
+      <p>Para extraer solo el video sin que copie el subtitulo flotante (-sn):</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v copy -an -sn video.mkv</code>
+
+      <p>Si quisiéramos extraer el video junto con una pista de audio determinada, por ejemplo el Stream #6 de audio (con "ffmpeg -i video.mkv" se puede saber el número de Stream):</p>
+
+      <code>ffmpeg -i entrada.mkv -map 0:0 -c:v copy -map 0:6 -c:a copy salida.mkv</code>
+
+      <h3>Extraer con Mkvextract</h3>
+
+      <p>Con mkvextract (incluido en mkvtoolnix) también se pueden extraer las pistas de video, audio y subtitulos (con mkvinfo se puede ver el número ID de cada pista):</p>
+
+      <code>mkvextract tracks video.mkv 0:video.mkv 1:audio.aac 2:subtitulo.srt</code>
+
+      <h3>Unir video/audio y agregar más pistas de audio</h3>
+
+      <p>Para unir video (sin audio) y el nuevo audio, en MKV se demora:</p>
+
+      <code>ffmpeg -i video.mkv -i audio.flac -c:v copy -c:a copy unido.mkv</code>
+
+      <p>Mkvmerge es ideal para adjuntar archivos a MKV, agrega el audio a la última pista, y es rápido:</p>
+
+      <code>mkvmerge video.mkv audio.flac -o unido.mkv</code>
+
+      <p>Para agregar múltiples pistas de audio y subtitulo:</p>
+      <code>
+      mkvmerge video.mkv audio1.flac audio2.ac3 sub.srt -o unido.mkv</code>
+
+      <h3>Agregar información video/audio</h3>
+
+      <p>Después de agregar todas las pistas, se puede agregar información de idioma o título a las pistas, se usa --language id:lengua ("mkvmerge --list-languages" para ver la lista) y --track-name id:"Información". Con "mkvmerge -i video.mkv" se puede ver el ID de cada pista.</p>
+
+      <code>mkvmerge --language 1:eng --track-name 1:"Inglés FLAC 5.1" --language 2:spa --track-name 2:"Español AC3 5.1" --lenguage 3:spa --track-name 3:"Español SubRip" entrada.mkv -o salida.mkv</code>
+
+      <h3>Poner bitrate</h3>
+
+      <p>Si quieres un peso determinado o limitar los bits usa el <a href="https://es.wikipedia.org/wiki/Bitrate">bitrate</a>, eso se puede ajustar con -b:v, adjuntando el numero del bitrate con una k de kBits o m de mBits al lado, los dos ejemplos brindan el mismo resultado, aunque k es más preciso:</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -b:v 4000k -c:a copy salida.mkv </code>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -b:v 4m -c:a copy salida.mkv</code>
+
+      <p>Para audio agrega -b:a:</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v copy -c:a libfaac -b:a 640k salida.mkv</code>
+
+      <h3>FPS</h3>
+
+      <p>Si queremos bajar los <a href="https://es.wikipedia.org/wiki/Im%C3%A1genes_por_segundo">FPS</a>, por ejemplo a <a href="https://en.wikipedia.org/wiki/24p">24 (23.976)</a>, se agrega -vf fps= (los dos ejemplos dan el mismo resultado):</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -vf fps=23.976 salida.mkv </code>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -vf fps=24000/1001 salida.mkv</code>
+
+      <p>O entero pero sin subframes con -r:</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -r 24 salida.mkv</code>
+
+      <h3>Grabar escritorio, audio micrófono/cámara</h3>
+
+      <p>Para grabar todo el escritorio en video de alta calidad (salir: Q):</p>
+
+      <code>ffmpeg -f x11grab -s 1440x900 -framerate 30 -i :0.0 -c:v libx264 -qp 0 -preset ultrafast salida.mkv</code>
+
+      <p>Grabar audio desde el micrófono del notebook. O grabar video+audio desde la cámara del notebook (salir: Ctrl + C). Vean en alsamixer si tienen el micrófono en captura al 100 (Cambiar a captura alsamixer: TAB):</p>
+
+      <code>ffmpeg -f alsa -i pulse salida.wav </code>
+
+      <code>ffmpeg -f video4linux2 -i /dev/video0 -f alsa -i pulse salida.mkv</code>
+
+      <p>Y varios <a href="https://ffmpeg.org/ffmpeg-filters.html">filtros de ffmpeg para modificar video/audio</a> (úsalos responsablemente). También hace tiempo escribí una guía sobre como <a href="http://cont3mpo.github.io/post/2009/encodear-audio-en-linux.html">encodear audio por separado</a>. Para más ayuda vean la <a href="http://ffmpeg.org/documentation.html">documentación completa de FFmpeg</a>. También más cosas en <a href="https://ffmpeg.org/trac/ffmpeg/wiki/x264EncodingGuide">la wiki para encodeo de x264</a>. Algunas <a href="http://slhck.info/video-encoding.html">ayudas extras</a> no oficiales que me <a href="http://sonnati.wordpress.com/2011/08/08/ffmpeg-%E2%80%93-the-swiss-army-knife-of-internet-streaming-%E2%80%93-part-ii/">topé por ahí</a>. Un documento de x264 sobre las <a href="http://x264.nl/x264/10bit_02-ateme-why_does_10bit_save_bandwidth.pdf">diferencias técnicas de 8bit y 10bit</a>. Unas guías de la wiki para <a href="https://ffmpeg.org/trac/ffmpeg/wiki#Encoding">encodear diferentes cosas</a>. La lista de <a href="http://mewiki.project357.com/wiki/X264_Settings">opciones disponibles para x264 y su función</a>.</p>
+
+      <p>Asegúrate de instalar el <a href="https://cont3mpo.github.io/post/2013/mpv-el-sucesor-de-mplayer2.html">reproductor mpv</a>. Utiliza <a href="http://screenshotcomparison.com/">Screenshot Comparison</a> para subir capturas de video y comparar diferencias de imagen con tus encodeos. Utiliza <a href="http://mediainfo.sourceforge.net/es">Mediainfo</a> para ver en detalle la información del video/audio (con vista HTML o por terminal es más detallado).</p>
+    </article>
+  </div>
+</body>
+</html>

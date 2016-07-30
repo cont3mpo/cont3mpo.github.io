@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>mpv, el sucesor de MPlayer2 • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>mpv, el sucesor de MPlayer2</h1>
+
+      <p>Comencé a usar <a href="http://mpv.io/">mpv</a>, y con ello le digo adiós a <a href="https://cont3mpo.github.io/post/2009/configurando-mplayer.html">mplayer2</a>.</p>
+
+      <h2>MPlayer2 fue abandonado</h2>
+
+      <p>Se detuvo mplayer2 como reproductor, debido a que se congeló su desarrollo. De hecho, desde el 2012 que no se lanza una nueva versión y los reportes de desarrollo cesaron en abril de 2013. Todo se detuvo. A pesar de que todavía sigue siendo un gran reproductor (si se utiliza con los últimos Libavcodec), no tiene un futuro de desarrollo en esta <a href="https://cont3mpo.github.io/post/2013/sobre-4k.html">época de cambios en video/audio</a> y la llegada de nuevo hardware.</p>
+
+      <h2>Su sucesor</h2>
+
+      <p><a href="http://mpv.io/">mpv</a> es un reproductor basado en mplayer2 y continúa agregando características directas del MPlayer original. Actualmente el <a href="http://www.mplayerhq.hu/design7/news.html">MPlayer original</a> sigue en desarrollo, pero mpv solo toma lo bueno de MPlayer <a href="https://github.com/mpv-player/mpv/blob/master/DOCS/man/changes.rst#why-this-fork">para optimizarlo y hacer limpieza de código zombie</a>. También agrega nuevas características para hardware y software actual. Y mpv sigue en constante desarrollo.</p>
+
+      <p>El MPlayer original es un reproductor en bruto, es ideal para ser modificado, optimizado y agregar las características que uno quiera, y eso mpv lo ha aprovechado muy bien.</p>
+
+      <h2>Solo funciona</h2>
+
+      <p>mpv tiene una <a href="https://github.com/mpv-player/mpv/blob/master/DOCS/man/changes.rst">gran lista de características útiles por defecto</a>. Algunas son, el redimensionado de subtitulos y mensajes OSD más nítido. Uso optimizado de video OpenGL por defecto. El control de volumen suave no afecta el volumen de distorsión. Los demuxers son de Libavformat. Soporte nativo del driver VAAPI de Intel. Soporte para Wayland. Reproductor directo de YouTube. Barra de progreso con capítulos. Utiliza los <a href="https://github.com/mpv-player/mpv/wiki/FFmpeg-versus-Libav">últimos codecs y formatos de FFmpeg</a>. Al igual que mplayer2, también trae ordered chapters para MKV. El instalador es extremadamente liviano. <a href="https://github.com/mpv-player/mpv/blob/master/DOCS/encoding.rst">Opciones para encodear</a> directamente. Etc. En <a href="https://cont3mpo.github.io/post/2012/probando-elementary-os-luna.html">elementary OS Luna</a> aparece un control de reproducción en pantalla, muy útil.</p>
+
+      <p>Además, si se quiere vincular un formato de video en Ubuntu o elementary OS, solo se va a Propiedades del archivo, "Abrir con", y cambiar a mpv Media Player.</p>
+
+      <p>Y <a href="http://mpv.io/manual/stable/">manual de opciones</a>.</p>
+
+      <h2>Instalar mpv</h2>
+
+      <p>Los repositorios de Ubuntu 14.04 y elementary OS Freya traen mpv, solo es cosa de buscar en el Centro de software e instalar, también pueden instalar la versión <a href="https://launchpad.net/~mc3man/+archive/ubuntu/trusty-media">actualizada de un PPA</a> (y otro <a href="https://launchpad.net/~mc3man/+archive/ubuntu/mpv-tests">PPA de respaldo</a>).</p>
+
+      <p>En la <a href="http://mpv.io/installation/">sección de instalación</a>, también están disponibles los <a href="http://sva.wakku.to/~chris/mpv_builds/mpv_latest.zip">binarios para OS X</a>. O <a href="https://github.com/mpv-player/homebrew-mpv">agregar una formula en Homebrew</a> para instalar y mantener actualizado desde terminal. Y el <a href="http://mpv.srsfckn.biz/mpv-i686-latest.7z">ejecutable de Windows</a> (<a href="http://mpv.srsfckn.biz/mpv-x86_64-latest.7z">y 64-bit</a>), solo hay que descomprimir.</p>
+
+      <p>Y atento a las <a href="https://github.com/mpv-player/mpv/releases">actualizaciones de mpv</a> que se van lanzado todos los meses.</p>
+
+      <p>En las últimas versión de mpv aumentaron el tamaño de letra en subtitulos externos, así que agrego esto al archivo "config" en la ruta: ~/.config/mpv/</p>
+
+      <code>--sub-text-font-size=34<br>
+      --osd-font-size=34</code>
+    </article>
+  </div>
+</body>
+</html>

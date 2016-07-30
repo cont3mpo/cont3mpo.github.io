@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Edición video/audio: MEncoder y MPlayer (Parte 2) • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Edición video/audio: MEncoder y MPlayer (Parte 2)</h1>
+
+      <p>Esta es la continuación y final del artículo anterior sobre <a href="https://cont3mpo.github.io/post/2009/edicion-multimedia-con-mencoder-y.html">Edición video/audio: MEncoder y MPlayer (Parte 1)</a>.</p>
+
+
+      <p><strong>Nueva guía 2013: <a href="https://cont3mpo.github.io/post/2013/encodear-con-ffmpeg.html">Encodear con FFmpeg</a></strong></p>
+
+      <h2>Recortar imagen del video (Cropping)</h2>
+
+      <p>Al final de la primera parte del artículo anterior, hablé sobre las opción que se utiliza para recortar la imagen del video, y sobre el problema que se presenta en los DVDs con las lineas negras pequeñas que aparecen en los costados de la imagen (derecha, izquierda, arriba y abajo). Esta opción también es útil para cualquier tipo de recorte de imagen, prácticamente se puede remover la mitad de la imagen del video si uno quisiera.</p>
+
+      <p>Menciono que la mejor forma de previsualizar un video antes de su codificación (encodeo) con MEncoder, es reproduciendo el video con MPlayer, así tendremos una clara idea sobre como quedará finalmente el video con la imagen recortada.</p>
+
+      <p>La opción del filtro de video "crop" se activa gracias al filtro de video: "-vf", y se utiliza de la siguiente forma en su previsualización, para ver como como quedará:</p>
+
+      <code>mplayer video.avi -vf crop=w:h:x:y</code>
+
+      <p>Ahora explicaré que significa cada letra: crop=w:h:x:y</p>
+
+      <ul>
+        <li>w: Ancho de la imagen del video que quedará al final.</li>
+        <li>h: Alto de la imagen del video que quedará al final.</li>
+        <li>x: Moviendo la imagen de derecha a izquierda, para dejarla centrada.</li>
+        <li>y: Moviendo la imagen de abajo hacia arriba, para dejarla centrada.</li>
+      </ul>
+
+      <p>A la hora de tener recortada la imagen es muy recomendable agregar la opción "scale", que sivre para escribir la nueva resolución con la que quedará finalmente el video.</p>
+
+      <p>En este caso estaremos recortando la imagen de un video con una resolución de 720x480, y que finalmente quedará con una resolución de 640x480. Y notar que solamente recortaremos el ancho de la imagen, y moveremos de derecha a izquierda la imagen para que quede centrada:</p>
+
+      <code>mplayer video.avi -vf crop=699:480:12:0,scale=640:480</code>
+
+      <p>Para el resultado final del video, solamente se cambiara por mencoder, y se agregaran algunas opciones como la salida del nombre del video (-o), la salida del codec de audio (-oac), y la salida del codec de video (-ovc), y agregaremos las opciones simples de Xvid que expliqué en la Parte I para no gastar espacio, y el audio lo dejaremos intacto, sin encodear:</p>
+
+      <code>mencoder video.avi -o video_imagen_recortada.avi -vf crop=699:480:12:0,scale=640:480 -oac copy -ovc xvid -xvidencopts pass=1:bitrate=2050</code>
+
+      <h2>Resolución y dimensión imagen del video</h2>
+
+      <p>Como nombré más arriba, el filtro de video "scale", sirve para cambiar la resolución de la imagen de un video, esto sirve para disminuir o aumentar la resolución del tamaño de la imagen del video.</p>
+
+      <p>Al cambiar la resolución, el aspecto proporcional del video lo ajustará automáticamente en MPlayer y MEncoder, pero para utilizarlo como un profesional es mejor seguir los siguientes consejos:</p>
+
+      <p>Si queremos una imagen de pantalla ancha (widescreen), y no sabemos que resolución se utiliza para ello, es mejor tener una idea solamente del ancho en que queremos que quede.</p>
+
+      <p>La opción "-2" determina automáticamente el alto del video en que quedara nuestra imagen de video, y la opción "dsize=16/9" se encargara de dejarla en el aspecto 16:9 que es propio de los videos con una imagen de pantalla ancha (widescreen) para televisores del tipo HDTV. El  resultado de esto será una imagen de 704x396:</p>
+
+      <code>mplayer video.avi -vf scale=704:-2,dsize=16/9</code>
+
+      <p>Ahora haremos lo mismo, pero con una imagen semicuadrada con un aspecto proporcional de 4:3, que es común en televisores convencionales CRT. El resultado de esto será una imagen de 640x480:</p>
+
+      <code>mplayer video.avi -vf scale=640:-2,dsize=4/3</code>
+
+      <p>En este caso ocuparemos las opciones de encodeo simple para no gastar mucho espacio en el artículo:</p>
+
+      <code>mencoder video.avi -o video_imagen_aspecto_escalado.avi -vf crop=699:480:12:0,scale=640:-2,dsize=4/3 -oac copy -ovc xvid -xvidencopts pass=1:bitrate=2050</code>
+
+      <h2>Dividir un video</h2>
+
+      <p>Para dividir un video, solamente se requiere de dos opciones: "-ss" y "-endpos" y se utilizan de la siguiente manera.</p>
+
+      <p>Primero previsualizaremos lo que cortaremos del video, eso se realiza seleccionando desde que segundo queremos que empiece a cortar y cuantos segundos queremos que encodeé. Con "-ss <segundos>" indicamos que parta en los segundos que le indiquemos, y "-endpos <segundos_a_encodear>" le indicamos cuantos segundos queremos que encodeé o procese. </segundos_a_encodear></segundos>
+      O sea; que parta desde el segundo 180 y se muestren solamente o encodeé (si es el caso de MEncoder) 240 segundos:</p>
+
+      <code>mplayer video.avi -ss 180 -endpos 240</code>
+
+      <p>Esos si, los tiempos no siempre son precisos, MEncoder/MPlayer sólo pueden empezar o terminar una codificación en una keyframe (llave de un fotograma) ya estipulada en el video.</p>
+
+      <h3>Copia directa del resultado</h3>
+
+      <p>En el caso de cortar un video no es necesario volver a encodear un video, y dejaremos el audio y video intactos en lo que respecta a calidad o cambio en la tasa de bits.</p>
+
+      <p>Tengo un video de 10 minutos y quiero encodear solamente desde el minuto 3 al 7, perdiendo el resto:</p>
+
+      <code>mencoder -nobps video.avi -o video_cortado.avi -ss 180 -endpos 240 -oac copy -ovc copy</code>
+
+      <h2>Unir varios videos</h2>
+
+      <p>Lo siguiente solo funciona si los videos a unir tienen la misma resolución (obvio), y el mismo codec de video y audio. También si tiene el mismo contenedor, ya sea .AVI, .WMV, .MP4, etc.</p>
+
+      <p>Dicho y entendido lo de arriba, se pueden unir la cantidad que uno quiera de videos en uno solo, y dejando intactos, sin encodear, los codecs de audio y video:</p>
+
+      <code>mencoder -nobps -forceidx video1.bla video2.bla -o video_unido.bla -oac copy -ovc copy</code>
+
+      <h2>Copias directas de audio o video</h2>
+
+      <p>En algunos casos, como DVDs o videos con contenedor .AVI, vienen con múltiples pistas de audio, y si queremos seleccionar una determina, solamente emplearemos lo siguiente, y como dice el subtitulo, haremos copias directas sin encodear el audio o el video:</p>
+
+      <code>mencoder video1.avi -o video2.avi -oac copy -aid 1 -ovc copy</code>
+
+      <p>Ahora haremos lo mismo, pero encodearemos solo el audio, y dejando el video intacto:</p>
+
+      <code>mencoder video1.avi -o video2.avi -oac -aid 1 mp3lame -lameopts cbr:br=192 -ovc copy</code>
+
+      <p>Ahora lo haremos al revés, encodearemos solo el video con una opción simple de encodeo de Xvid, y dejando el audio intacto:</p>
+
+      <code>mencoder video.mp4 -o video.avi -oac copy -ovc xvid -xvidencopts bitrate=2050</code>
+
+      <h3>MKV</h3>
+
+      <p>En el caso de utilizar el contenedor MKV, y quieran extraer las pistas, instalan "mkvtoolnix", ese paquete vendrá con la aplicación "mkvextract", la cual permite extraer pistas de los MKV. Y por una termianl sería:</p>
+
+      <code>mkvextract tracks video.mkv 1:video.avi 2:audio.aac 3:subtitulo.srt</code>
+
+      <p>Arriba primero se muestra el archivo MKV que se tiene (video.mkv), luego el número de la pista en que se encuentra el video a extraer (1:video.avi), luego el número de pista del audio (2:audio.aac), y luego el número de la pista del subtitulo (3:audio.srt), usualmente es en ese orden.
+      Si trae más pistas de audio, solamente se selecciona en que pista de audio se encuentra la que ustedes quieran. Si no quieren extraer el subtitulo o el video, solamente remueven esas opciones.</p>
+
+      <h3>DVD</h3>
+
+      <p>Ahora pasaremos su uso a DVD. Pasando el video DVD (MPEG-2) en bruto RAW y el audio PCM, a un video con contenedor .MPG (para pasar toda la película, hay que borrar la opción -chapter 1-1, y si queremos el audio AC-3, agregaremos la opción -aid 129, o el número en que se encuentre la pista del AC-3 visto con MPlayer):</p>
+
+      <code>mencoder dvd://1 -chapter 1-1 -ovc copy -oac pcm -o video.mpg</code>
+
+      <p>Estas opciones también sirven para pasar copias directas... Y ahora pasaremos el video DVD (MPEG-2) más el audio deseado (AC-3 ó PCM) a un video con contenedor .MPG:</p>
+
+      <code>mplayer dvd://1 -aid 129 -dumpstream -dumpfile video.mpg</code>
+
+      <h2>Extraer o agregar audio/video</h2>
+
+      <p>En algunas ocasiones, nos dará por extraer solo el audio o el video de un archivo multimedia, para después agregarlo a otro archivo, eso es lo que haremos ahora.</p>
+
+      <p>Extrayendo solo el audio MP3 de un video (utilizar -aid por si hay mas de un audio). Esto también sirve para otros tipos de audio, como: AAC, Ogg, WMA, PCM, etc:</p>
+
+      <code>mplayer video_con_audio.avi -dumpaudio -dumpfile audio.mp3</code>
+
+      <p>Extrayendo solo el video, sin audio:</p>
+
+      <code>mencoder video_con_audio.avi -nosound -ovc copy -o video_sin_audio.avi</code>
+
+      <p>Dejar una sola pista de audio en un video venga con múltiples pistas de audio (nº: especifica el número de pista de audio deseada)</p>
+
+      <code>mencoder entrada.avi -aid nº -oac copy -ovc copy -o salida.avi</code>
+
+      <p>Juntando el audio más el video en un solo archivo.</p>
+
+      <code>mencoder video_sin_audio.avi -audiofile audio.mp3 -oac copy -ovc copy -o video_con_audio.avi</code>
+
+      <p>También serviría utilizar FFmpeg:</p>
+
+      <code>ffmpeg -i video.avi -i audio.mp3 -acodec copy -vcodec copy video_con_audio.avi</code>
+
+      <h3>DVD</h3>
+
+      <p>Extrayendo audio PCM del primer capitulo de un DVD (para extraer todo el audio, hay que borrar la opción "-chapter 1-1")</p>
+
+      <code>mplayer dvd://1 -chapter 1-1 -vo null -aid 160 -ao pcm:file=track1.wav</code>
+
+      <p>Extrayendo audio AC3 del primer capitulo de un DVD (para extraer todo el audio, hay que borrar la opción -chapter 1-1)</p>
+
+      <code>mplayer dvd://1 -chapter 1-1 -vo null -aid 129 -dumpaudio -dumpfile audio.ac3</code>
+
+      <p>Extrayendo video del DVD (MPEG-2) a un video con contenedor MPG sin audio (para extraer toda la película, hay que borrar la opción -chapter 1-1)</p>
+
+      <code>mencoder dvd://1 -chapter 1-1 -nosound -ovc copy -o video_sin_audio.mpg</code>
+
+      <h2>Suprimir logo en video</h2>
+
+      <p>En muchos casos, los videos grabados desde la televisión o creados por otros usuarios, traen logos, animaciones en las esquinas del video, o en otros casos, traen leyendas en la parte bajar o arriba de la imagen del video.</p>
+
+      <p>Para tapar el logo, o lo que sea que moleste, se puede emplear el filtro de video "delogo", y que funciona de la siguiente manera: delogo=x:y:w:h:t</p>
+
+      <code>mplayer -vf delogo=x:y:w:h:t</code>
+
+      <p>Ahora explicaré que significa cada letra: delogo=x:y:w:h:t</p>
+
+      <ul>
+        <li>x: La ubicación de la transparencia en el ancho del video.</li>
+        <li>y: La ubicación de la transparencia en el alto del video.</li>
+        <li>w: El ancho de la transparencia final.</li>
+        <li>h: El alto de la transparencia final.</li>
+        <li>t: Tono del color de la transparencia.</li>
+      </ul>
+
+      <p>Y como ejemplo:</p>
+
+      <code>mplayer video.avi -vf delogo=624:29:42:25:0</code>
+
+      <h2>Pegar subtitulos al video (Hardsub)</h2>
+
+      <p>En el mundo de los <a href="https://es.wikipedia.org/wiki/Fansub">Fansubs</a> esto es muy común, pero para conservar el video intacto no es muy recomendable. Pero si quieres "fansubear" o "hardsubear" un video, ahí tu. Aunque yo siempre dejo los subtitulo SubRip (SRT) por separados, dejando el subtitulo con el mismo nombre que el video o dentro de un MKV.</p>
+
+      <p>La configuración es la siguiente (escribe el nombre del subtitulo SRT):</p>
+
+      <code>mencoder video.avi -o video_harsubeado.avi -sub subtitulo.srt -subfont-text-scale 2.8 -subfont-blur 0 -subfont-outline 1.8 -ffactor 0.90 -subcp iso-8859-15 -font * -oac copy -ovc xvid -xvidencopts pass=1:bitrate=2050</code>
+
+      <p>En el caso de un DVD que viene con los subtitulos seleccionable, y quisieramos encodearlo junto con los subtitulos, solo necesitamos la opción "-sid", para que haga todo el trabajo de pegado del subtitulo:</p>
+
+      <code>mplayer dvd://1 -o video_hardsubeado.avi -sid 0  -oac copy -ovc xvid -xvidencopts pass=1:bitrate=2050</code>
+
+      <h2>Extras</h2>
+
+      <p>En los casos de recortar la imagen de un video (cropping), o cambiar la resolución de este, es también aconsajable para algunos casos el filtro "harddup", el filtro forza los marcos de imagen duplicados para codificarse en la salida del video. Este filtro se agrega al final de la cadena de filtros para video "-vf".</p>
+
+      <p>Si quieren crear una imagen en movimiento GIF, eso se puede lograr facilmente según está linea de comandos:</p>
+
+      <code>mplayer video.avi -ss 10 -endpos 5 -vo gif89a -vf scale=100:100</code>
+
+      <p>Ver video en blanco y negro:</p>
+
+      <code>mplayer video.avi -vf hue=0:0</code>
+
+      <p>Efecto espejo, reflejar la imagen:</p>
+
+      <code>mplayer video.avi -vf mirror</code>
+
+      <p>Dar vuelta el video:</p>
+
+      <code>mplayer video.avi -flip<br>
+      mplayer video.avi -vf flip</code>
+
+      <p>Poner el video parado:</p>
+
+      <code>mplayer video.avi -vf rotate=1<br>
+      mplayer video.avi -vf rotate=2</code>
+
+      <p>Reproducir DVD con subtitulos y desentrelazado:</p>
+
+      <code>mplayer dvd://1 -sid 0 -vf filmdint</code>
+
+      <p>Reproducir CD de audio:</p>
+
+      <code>mplayer cdda://1</code>
+
+      <p>Pasar Track #1 de CD de audio a WAV:</p>
+
+      <code>mplayer cdda://1-1 -ao pcm:file=track1.wav</code>
+
+      <p>Ver los codecs de video que hay para encodear:</p>
+
+      <code>mencoder -ovc help</code>
+
+      <p>Ver los codecs de audio que hay para encodear:</p>
+
+      <code>mencoder -oac help</code>
+
+      <p>Y recordar que los ejemplos que tengan la opción "pass=1" en el encodeo de Xvid, hay que realizar una segunda pasada luego de terminar la primera pasada.</p>
+
+      <p>Y también recordar que en el sitio de MPlayer hay <a href="http://www.mplayerhq.hu/design7/info.html#docs">mucha documentación</a> sobre todas las opciones que se pueden emplear, todo disponible en inglés y español. O también se puede ver el manual que viene incluido con MEncoder/MPlayer en Linux, ahí vienen todas las opciones para echarle un ojo. Solo tipear lo siguiente en una Terminal (las dos te llevaran al mismo manual):</p>
+
+      <code>man mplayer</code>
+
+      <code>man mencoder</code>
+
+      <p>Con esto doy por finalizado (hasta el momento) las guías de Edición multimedia. <a href="https://cont3mpo.github.io/post/2009/edicion-multimedia-con-mencoder-y.html">La Parte 1 de este artículo ya fue publicado</a>.</p>
+    </article>
+  </div>
+</body>
+</html>

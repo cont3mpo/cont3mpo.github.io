@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Interpretar órdenes: Shell Script • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Interpretar órdenes: Shell Script</h1>
+
+      <p>Un <a href="https://es.wikipedia.org/wiki/Shell_script">script</a>, es solamente una lista de instrucciones en un texto plano, eso. Es muy sencillo y fácil escribir un <a href="https://es.wikipedia.org/wiki/Shell_script">Shell script</a>, no se necesitan grandes conocimientos para ello, solamente tener lógica y razonamiento a la hora de armar sus instrucciones para que luego se ejecuten. Como ya he mencionado en el tutorial de "<a href="https://cont3mpo.github.io/post/2009/ver-y-grabar-tv-en-linux.html">Ver y grabar TV en Linux</a>".</p>
+
+      <p>Lo primero es tener una idea para una orden, o sea; que es lo que quieren que haga (o cumpla). Lo segundo es escribir las ordenes, y lo último es ejecutar el script. Que en resumidas cuentas es: Idea, construcción, y ejecución. Como todo en la vida.</p>
+
+      <p>No hablaré sobre como construir scripts con ordenes complejas, no. Hablaré solo lo básico, y como crear scripts que cualquiera pudiera utilizar, además de dar ejemplos con ello. Para todo se utilizará el Shell de Unix: <a href="https://es.wikipedia.org/wiki/Bash">Bash</a>. El Bash, es un interprete de ordenes que se utiliza comúnmente en las consolas/terminales de casi todas las distros de Linux que existen actualmente. Ahora, las manos a la masa...</p>
+
+      <h2>Entrada y salida de comandos</h2>
+
+      <p>Antes de llegar a la creación de un script, se necesitan conocimientos de como ejecutar ordenes en una terminal directamente. Que en realidad, es como crear un script, ya que todos estas ordenes se pueden agregar en un script sin problemas.</p>
+
+      <p>Un comando siempre se puede combinar con otro comando para formar una instrucción más elaborada, o tomar información de un archivo de texto a su conveniencia, todo eso explicado a continuación.</p>
+
+      <h3>Entrada de comandos</h3>
+
+      <p>En la construcción de una orden existen símbolos que se utilizan para una mejor lectura de la orden a la hora su ejecución. El símbolo '|' toma un comando de salida y lo convierte en la entrada de otro comando. Que sería como; el que va saliendo puede ayudar al que va entrando.</p>
+
+      <p>Primero tendré que dar un ejemplo muy básico para que entiendan como se pueden después ingresar más ordenes de entrada. Si queremos que se muestre un texto exactamente igual al escrito en la terminal, se utilizará el comando 'echo' y las comillas con la oración entre medio de ellas:</p>
+
+      <code>echo "vuelan alas cortas"</code>
+
+      <p>Ahora, en vez de mostrar la oración "vuelan alas cortas" en una sola linea con el comando 'echo' que está saliendo, se agregará la entrada 'tr' después del símbolo '|' (es el que observa cuales son las ordenes que están saliendo, en este caso 'echo') para que entre esta nueva orden que es 'tr'. Y 'tr' irá acompañado de dos comillas sin nada entre medio (" "), y eso hará que se eliminen los espacios que existan en al oración. Y la entrada '/n' hará que cada palabra se salte hacia la otra linea (o que cada palabra ocupe una linea):</p>
+
+      <code>echo "vuelan alas cortas" | tr " " "\n"<br>
+      vuelan<br>
+      alas<br>
+      cortas</code>
+
+      <p>Ahora harán exactamente lo mismo que el ejemplo de arriba, pero lo combinarán con un segundo símbolo '|', para que entre un nuevo comando a la orden. Este nuevo comando es la entrada 'sort', y mostrará cada palabra en orden alfabético:</p>
+
+      <code>echo "vuelan alas cortas" | tr " " "\n" | sort<br>
+      alas<br>
+      cortas<br>
+      vuelan</code>
+
+      <p>También se pueden mezclar los comentarios de 'echo' con las comillas invertidas (`comando`), que al ejecutarse mostrará el resultado de la comando en vez del texto que se encuentre ahí, o sea que lo reemplazará. Por ejemplo, mezclen texto con una orden dentro de las comillas, esto mostrará el resultado al lado derecho de la oración "Directorio_actual:", que en este caso es 'pwd', para ver en que directorio se encuentran:</p>
+
+      <code>echo "Directorio_atual:`pwd`"</code>
+
+      <p>Esto serviría en el caso de un formulario de información también, se hará casi lo mismo, mezclar texto con comandos entre medio de las comillas invertidas (`comando`), y se saltará una línea por cada espacio que encuentre con la entrada 'tr " " "\n"':</p>
+
+      <code>echo "Usuario:$USERNAME Maquina:$HOSTNAME<br>
+      Directorio_de_usuario:$HOME Directorio_actual:`pwd`<br>
+      Archivos_txt:`ls *.txt`" | tr " " "\n"</code>
+
+      <p>La instrucción de ordenes del formulario mostrará lo siguiente (pero reemplazada por sus datos):</p>
+
+      <code>Usuario:&lt;tu usuario&gt;<br>
+      Maquina:&lt;nombre máquina&gt;<br>
+      Directorio_de_usuario:&lt;/home/tu_usuario&gt;<br>
+      Directorio_actual:&lt;/ruta/directorio/actual/&gt;<br>
+      Archivos_txt:&lt;archivos.txt encontrados en el directorio&gt;</code>
+
+      <p>Otro ejemplo de como emplear el símbolo '|', es ver el tamaño de un archivo mientras se copia, y que con el comando 'watch' (que es el de entrada) más unas opciones de ese comando junto con el comando 'ls' se puede observar el progreso de lo copiado del archivo:</p>
+
+      <code>cp /directorio/archivo /directorio_actual | watch -n 0 ls -sh archivo</code>
+
+      <h3>Salida de comandos</h3>
+
+      <p>Hablaré sobre el símbolo '&gt;', que redirige la salida de un comando hacia un archivo (si el archivo no existe es creado automáticamente). La información que nos dé el comando 'date' será la fecha actual, eso se enviará al archivo.txt en forma de texto:</p>
+
+      <code>date &gt; archivo.txt</code>
+
+      <p>El símbolo '&gt;' reemplazará todo lo que se encuentre escrito en archivo.txt (borrará lo que se encuentre escrito ahí y escribirá lo nuevo), si quieren agregar información a archivo.txt sin que se borra lo anterior, entonces utilizarán los simbolos '&gt;&gt;', ejemplo:</p>
+
+      <code>date &gt;&gt; archivo.txt</code>
+
+      <p>El símbolo '&lt;' toma el contenido de un archivo y lo utiliza como entrada de un comando. Es parecido a '|', pero con este podemos utilizar instrucciones que se encuentren en textos, o simplemente datos que se encuentren en ellos para mostrarlos en pantalla.</p>
+
+      <p>El comando 'wc' cuenta las lineas, las palabras (o lo que este separado por espacios) y bytes del archivo en total (lineas palabras bytes), quiere decir que en el archivo.txt hay 2 lineas, 12 palabras, y 58 bytes, ejemplo:</p>
+
+      <code>wc &lt; archivo.txt<br>
+      2   12   58</code>
+
+      <p>Algo parecido sería utilizar el símbolo '|' para utilizar el comando de entrada 'wc' (con el comando 'cat' se lee lo que hay en el archivo.txt):</p>
+
+      <code>cat archivo.txt | wc<br>
+      2   12   58</code>
+
+      <h2>Sentencias de control</h2>
+
+      <p>Las ordenes son primordiales a la hora de ejecutar un script, para eso hay que emplear su lenguaje, las sentencias de control. Es bien básico todo, no creo que se agobien con cinco ordenes.</p>
+
+      <p>La primera, la ejecución condicional 'if', que es la que parte la orden de instrucciones, y 'fi', que es la que la finaliza. Los demás son bucles o ciclos de control, como: for, while, until (ruptura de bucle: continue, break). Y la elección de opciones 'case'.</p>
+
+      <p>Las sentencias de control como: if, while, for, until, y case. Cuentan con expresiones para su correcta ejecución, como por ejemplo: "en el caso de...", "que pasaría sí...", "y si...", "o también...", cosas de ese estilo para emplearse en diferentes situaciones:</p>
+
+      <p>Uso general</p>
+
+      <ul>
+        <li>! expresión (La expresión es falsa)</li>
+        <li>expr1 -a expr2 (AND (español: y))</li>
+        <li>expr1 -o expr2 (OR (español: o))</li>
+      </ul>
+
+      <p>Expresiones con ficheros</p>
+
+      <ul>
+        <li>-e fichero (El fichero existe)</li>
+        <li>-f fichero (El fichero existe y es un fichero ordinario)</li>
+        <li>-d fichero (El fichero es un directorio)</li>
+        <li>-r fichero (El fichero tiene permiso de lectura)</li>
+        <li>-w fichero (El fichero tiene permiso de escritura)</li>
+        <li>-s fichero (El fichero tiene tamaño no nulo)</li>
+      </ul>
+
+      <p>Comparación de cadenas</p>
+
+      <ul>
+        <li>-z cadena (La cadena esta vacía)</li>
+        <li>-n cadena (La cadena no esta vacía)</li>
+        <li>cadena1 = cadena2 (Las cadenas son iguales)</li>
+      </ul>
+
+      <p>Comparación de enteros</p>
+
+      <ul>
+        <li>a -eq b (Los enteros son iguales)</li>
+        <li>a -ne b (Los enteros son distintos)</li>
+        <li>a -lt b (a es menor que b)</li>
+        <li>a -gt b (a es mayor que b)</li>
+        <li>a -le b (a es menor o igual que b)</li>
+        <li>a -ge b (a es mayor o igual que b)</li>
+      </ul>
+
+      <h2>Esqueleto de órdenes</h2>
+
+      <p>Para crear un buen script tenemos que tener razonamiento, y poder crear un buen esqueleto de ordenes o sintaxis de control.</p>
+
+      <h3>Sintaxis de if</h3>
+
+      <p>Explicaré el ejemplo 3, ya que es el más ostentoso, y por ende se peude sacar por logica los otros dos ejemplos. Empieza así:</p>
+
+      <p>Si (if) orden1 se cumple<br>
+      entonces (then)<br>
+      orden2 se ejecuta<br>
+      además si (elif)<br>
+      orden3 se cumple<br>
+      entonces (then)<br>
+      orden4 se ejecuta<br>
+      de otro modo (else)<br>
+      orden5 se ejecutará<br>
+      fin operación (fi)</p>
+
+      <code><pre>
+      Ejem. 1:      | Ejem. 2:      | Ejem. 3:
+      if orden1     | if orden 1    | if orden1
+      then          | then          | then
+      orden2        | orden2        | orden2
+      fi            | else          | elif
+                    | orden3        | orden3
+                    | fi            | then
+                                    | orden4
+                                    | else
+                                    | orden5
+                                    | fi</pre></code>
+
+      <h3>Sintaxis de while</h3>
+
+      <p>Mientras que se ejecuta orden1, si el resultado es verdadero, ejecuta orden2 y vuelve a ejecutar orden1. (dentro de orden2 se puede usar 'continue' para volver al comienzo del bucle y 'break' para salir de él).</p>
+
+      <code>while orden1<br>
+      do<br>
+      orden2<br>
+      done</code>
+
+      <h3>Sintaxis de for</h3>
+
+      <p>Ejecuta "orden" tantas veces como palabras haya, la variable 'var' toma el valor de la palabra correspondiente.</p>
+
+      <code>for var in palabras<br>
+      do<br>
+      orden<br>
+      done</code>
+
+      <h3>Sintaxis de until</h3>
+
+      <p>Ejecuta orden1. Si el resultado es falso, ejecuta orden2 y vuelve a ejecutar orden1.</p>
+
+      <code>until orden1<br>
+      do<br>
+      orden2<br>
+      done</code>
+
+      <h3>Sintaxis de case</h3>
+
+      <p>Si hay varios patrones que coinciden, se ejecuta el conjunto de ordenes del primero que lo haga. Si no coincide con ninguno, no se ejecuta nada.</p>
+
+      <code>case palabra in patron1 | patron2<br>
+      * )  orden ;;<br>
+      esac</code>
+
+      <h2>Creando un script e interpretar una orden</h2>
+
+      <p>Utilizando ordenes básicas de script en un editor de texto, utilizarán la lógica de verdadero o falso (Si o No, en este caso).</p>
+
+      <h2>Primer script</h2>
+
+      <p>La orden es preguntar si existe (-e) el archivo.txt en el directorio en que se encuentra actualmente. Si existe archivo.txt lanzará un Si, si no existe lanzará un No.</p>
+
+      <code>#!/bin/bash<br>
+      if [ -e archivo.txt ]<br>
+      then<br>
+      echo "Si"<br>
+      else<br>
+      echo "No"<br>
+      fi</code>
+
+      <p>Siempre al guardar un script, ecribir en la primera linea '#!/bin/bash', para que el sistema reconozca que es un script para shell y vea el shell que se está utilizando.</p>
+
+      <p>Para guardar el script (en un archivo de texto), se puede utilizar cualquier nombre, pero ahora le pondrán "script" (o el que quieran). Ya guardado, se cambian los permisos de ejecución del archivo, y en una terminal tipear:</p>
+
+      <code>chmod +x script</code>
+
+      <p>Ejecutando el script en una terminal:</p>
+
+      <code>./script</code>
+
+      <p>Como mencioné arriba: Si existe "archivo.txt" lanzará un Si, si no existe lanzará un No.</p>
+
+      <h3>Diferentes formas de escribir el mismo script</h3>
+
+      <p>También el punto y coma ';' es una gran ayuda a la hora de ahorrar espacio en un script, pero no muy buena idea si se quiere un script fácil de leer al ojo. Como por ejemplo, se puede utilizar el mismo ejemplo de arriba:</p>
+
+      <code>if [ -e archivo.txt ]; then echo "Si"; else echo "No"; fi</code>
+
+      <p>El comando 'test' también se puede utilizar, ya que cumple la misma función que "[ -e archivo.txt ]" (y por que es un alias de '[ ]', o sea que cumple la misma función). El mismo ejemplo de arriba:</p>
+
+      <code>if test -e archivo.txt<br>
+      then<br>
+      echo "Si"<br>
+      else<br>
+      echo "No"<br>
+      fi</code>
+
+      <p>Los scripts también se pueden interpretar directamente en la terminal, sin ninguna clase de fichero de texto de por medio, solamente se presiona la tecla 'Enter' al final de cada línea. Y también se pueden escribir con punto y coma (;) en una terminal, al igual que en un script, de la siguiente manera, con el mismo ejemplo de que hemos visto hasta ahora:</p>
+
+      <code>if [ -e archivo.txt ]; then echo "Si"; else echo "No"; fi</code>
+
+      <p>Y también en caso de utilizar el alias 'test':</p>
+
+      <code>if test -e archivo.txt; then echo "Si"; else echo "No"; fi</code>
+
+      <p>También se pueden utilizar condiciones de ejecución, como '&amp;&amp;' (AND, español: y), '||' (OR, español: o). Y por supuesto, con el mismo ejemplo que hemos visto:</p>
+
+      <code>[ -e archivo.txt ] &amp;&amp; echo "Si" || echo "No"</code>
+
+      <p>Y también en caso de utilizar el alias 'test':</p>
+
+      <code>test -e archivo.txt &amp;&amp; echo "Si" || echo "No"</code>
+
+      <p>Como se ha visto hasta ahora, un script puede ser escrito de diferentes formas, pero dando al final el mismo resultado. Ya sea con la ayuda de un editor de texto para su futura utilización, o por medio de la terminal, el script tendrá el mismo funcionamiento y resultado.</p>
+
+      <h2>Leer argumentos de ingreso de información</h2>
+
+      <p>A la hora de leer un script y que la shell sepa diferenciar ordenes, se puede emplear el símbolo '$' cuando alguien ingresa información, y el script tome esa información y la ejecute.</p>
+
+      <h3>Ingreso de información no numérica</h3>
+
+      <p>Para interpretar solo números se utiliza: $#. Para interpretar todo tipo de argumentos se utiliza: $*. Si se cambia el signo #, a un valor numérico: $1, $2, $3. El valor numérico indicará el lugar (después de un espacio) en donde se interpreta un argumento en la terminal (sea cual sea: texto, numérico o caracteres).</p>
+
+      <p>El siguiente script mostrará solamente los primeros tres argumentos que se den en la terminal, mostrando un argumento por linea:</p>
+
+      <code>echo $1<br>
+      echo $2<br>
+      echo $3</code>
+
+      <p>El script también puede ser así:</p>
+
+      <code>echo $1; echo $2; echo $3</code>
+
+      <p>Si lo ejecutan en terminal, y más lo que están argumentando/escrito por ustedes en la terminal (la oración), mostraría el siguiente resultado:</p>
+
+      <code>./script Soy de Latinoamerica<br>
+      Soy<br>
+      de<br>
+      Latinoamerica</code>
+
+      <p>Si escribieran más de tres argumentos, no mostraría el cuarto argumento (lo omitiría).</p>
+
+      <h3>Ingreso de información numérica</h3>
+
+      <p>Ahora utilizarán la orden 'expr', que solamente sirve para valores numéricos. La orden es que tome los primeros dos valores numéricos (separados por espacios) que escriban ustedes a la hora de ejecutarlo en la terminal, sume esos dos, y que les de el resultado final. El script es así:</p>
+
+      <code>echo "Los valores dados son:" $1 "y" $2<br>
+      echo "El resultado de los valores es:" `expr $1 + $2`</code>
+
+      <p>Si lo ejecutan en terminal, y más los valores numéricos dados por ustedes:</p>
+
+      <code>./script 24 6<br>
+      Los valores dados son: 24 y 6<br>
+      El resultado de los valores es: 30</code>
+
+      <p>Si dieran un valor no numérico nos saldría: "expr: argumento no numérico".</p>
+
+      <h3>Interactuar con el script: Pregunta y respuesta</h3>
+
+      <p>La siguiente es una operación que interactua con el usuario, gracias al comando 'read' con dos variables (fnom y lape), y el símbolo '$'. La orden es que pregunte y espere la respuesta del usuario, para que finalmente de el resultado final de las respuestas:</p>
+
+      <code>echo "¿Tu nombre?"<br>
+      read fnom<br>
+      echo "¿Tu apellido?"<br>
+      read lape<br>
+      echo "Hola $fnom $lape"</code>
+
+      <p>Si lo ejecutan en terminal se vería así:</p>
+
+      <code>./script<br>
+      ¿Tu nombre?<br>
+      &lt;aqui escriben su nombre&gt; (y tecla Enter)<br>
+      ¿Tu apellido?<br>
+      &lt;aqui escriben su apellido&gt; (y tecla Enter)<br>
+      Hola &lt;su_nombre&gt; &lt;su_apellido&gt;</code>
+
+      <p>Algo similar a lo anterior, sería que en una sola línea escribieran el nombre y apellido, solo hay que juntar las variables fnom y lape, o el nombre de las variables que quieran. Así quedaría el script:</p>
+
+      <code>echo "¿Tu nombre y apellido?"<br>
+      read fnom lape<br>
+      echo "Hola $fnom $lape"</code>
+
+      <h3>Utilizarlas con sentencias de control</h3>
+
+      <p>Ahora harán un 'if' que lleve lo que hemos visto hasta ahora. Al ejecutarse tendrán que ingresar un número (la variable numvar es la que leerá la información ingresada), si no es un 7, nos pedirá ingresar un siete, si ingresamos un 7, nos lanzará un mensaje positivo.</p>
+
+      <code>echo -n "Ingresa un número: "<br>
+      read numvar<br>
+      if [ "$numvar" = "7" ]; then<br>
+      echo "¡Por fin ingresaste un siete!"<br>
+      else<br>
+      echo "Por favor ingresa el número siete."<br>
+      fi</code>
+
+      <p>Ahora crearán un script que contiene dos 'if', y que integre lo que se ha visto hasta el momento. Les pedirá ingresar un número menor que 3, si se ingresa un 1 o un 2 lanzará un mensaje positivo, si se ingresa un número igual o mayor que 3, lanzará un mensaje negativo.</p>
+
+      <code>echo -n "Ingresa un número menor que 3: "<br>
+      read numvar<br>
+      if [ "$numvar" = "1" ]<br>
+      then<br>
+      echo "Ingresaste un uno."<br>
+      else<br>
+      if [ "$numvar" = "2" ]<br>
+      then<br>
+      echo "Ingresaste un dos."<br>
+      else<br>
+      echo "No ingresaste un número menor que 3."<br>
+      fi<br>
+      fi</code>
+
+      <p>En este caso, también se puede emplear 'case' en vez de utilizar 'if'. La orden será la misma que el ejemplo anterior:</p>
+
+      <code>echo -n "Ingresa un número menor que 3: "<br>
+      read numvar<br>
+      case $numvar in<br>
+      1 ) echo "Ingresaste un uno."<br>
+      ;;<br>
+      2 ) echo "Ingresaste un dos."<br>
+      ;;<br>
+      * ) echo "No ingresaste un número menor que 3."<br>
+      esac</code>
+
+      <p>Y así es como seguiría por días dando ejemplos, en que practicamente es casi lo mismo, pero solo cambiarian las ordenes y las sentencias de control. Así que a partir de aquí ya es asunto de ustedes cuanto pueden interactuar, y como podrían contruir sus propios scripts gracias a esta base de conocimiento, que nunca está demás seguir leyendo guías de Shell script.</p>
+    </article>
+  </div>
+</body>
+</html>

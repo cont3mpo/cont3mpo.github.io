@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Subir el ratio de un Tracker con RatioMaster • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Subir el ratio de un Tracker con RatioMaster</h1>
+
+      <p>Hoy hablaré sobre una aplicación muy útil para aquellos que descargan material de la red por medio de redes P2P, o el famoso torrent. Esa aplicación es <a href="http://www.moofdev.net/ratiomaster">RatioMaster</a>, esta aplicación tiene una versión en Linux, pero es muy antigua esa versión y poco actualizada, por ende utilizarán la versión de Windows para ello, y todo gracias al programa de emulación <a href="https://es.wikipedia.org/wiki/Wine">Wine</a>, que nos permite ejecutar aplicaciones de Windows en Linux.</p>
+
+      <h2>Trackers, seeds, leechers y ratio</h2>
+
+      <p>Ya <a href="https://cont3mpo.github.io/post/2009/torrents-y-cine-en-tu-casa.html">he hablado de los torrents</a>, y de como existen decenas de <a href="https://es.wikipedia.org/wiki/Tracker_%28BitTorrent%29">trackers</a> (sitios que permiten compartir contenido por medio de servidores propios, y así poder compartir lo que ustedes tengas en su computador con otras personas) para bajar distintos tipos de material, pero solo unos pocos trackers son los buenos en realidad.</p>
+
+      <p>Los trackers buenos son los que necesitan petición de registro paras poder loguearse, y son buenos por que el material de calidad en esos trackers abunda, también se pueden distinguir por su alto nivel de seeds, o semillas. Las semillas son aquellos que se quedan seedeando (compartiendo o subiendo) el material. Por así decirlo; son los que tienen el archivo completo de origen y lo suben (comparten) para que otros puedan descargar esos archivos (los leech, o leechers son los que descargan), una vez que descargan todo el archivo al 100%, se convierten en semilla de ese torrent, y ahora estarán seedeando.</p>
+
+      <p>El problema viene cuando el ratio baja. El ratio se podría explicar como; la taza promedio de datos que el usuario comparte en esa red. Si esa taza promedio (ratio) baja, estarán en problemas y podrían ser baneados (borraran su cuenta) del tracker, solo si este tracker es de registro o privado. Por eso siempre hay que estar seedeando el archivo mientras se descarga, y mejor aún si ya lo han descargado y tienen el archivo al 100%. No se conviertan solo en leechers, que solo descargan y no comparten con nadie, la <a href="https://es.wikipedia.org/wiki/Protocolo_BitTorrent#Estructura_de_una_red_Bittorrent">idea del P2P</a> (torrent) no es esa, sino que "compartir".</p>
+
+      <p>Es muy frecuente que el ratio baje si no hay leechers con quien compartir el archivo, y eso perjudica mucho al que está sedeeando un archivo, ya que su ratio no aumentará. Y te pueden banear, ya que muchos trakcers con registro banearán tu cuenta si tienes un ratio bajo, digamos que menos de 0.5 es critico y les mandarán mensajes de advertencia para que suban su ratio, aunque todo depende de las reglas que tenga cada tracker, por favor lean las reglas de cada tracker antes de empezar a descargar material. Bueno, para solucionar el problema del ratio existe RatioMaster.</p>
+
+      <h2>¿Para qué sirve RatioMaster?</h2>
+
+      <p>RatioMaster sirve para aumentar el ratio de sus cuentas que tengan en algún tracker, y como lo explique más arriba, el ratio es la taza promedio de datos que el usuario comparte en ese tracker. Sin un buen ratio están fritos y serán baneados (borraran su cuenta) del tracker en el cual estén inscritos.</p>
+
+      <p>RatioMaster tiene muchas opciones pero solamente hay que explicar lo escencial y básico que les servira a ustedes. Lo que hace RatioMaster es tomar el torrent del archivo y mandar datos falsos al tracker, o sea; subir datos que nunca existieron al tracker para aumentar el ratio. Tan simple como eso.</p>
+
+      <h2>Lo que no se debe hacer en RatioMaster</h2>
+
+      <p>Nunca hay que hostigar el mismo torrent subiendo por una semana a una velocidad de subida a 100 kbps, no eso no, los administradores del tracker se darían cuenta y borrarían su cuenta del tracker. La idea es nunca subir a más de 95 kbps de velocidad un archivo. Y mencionar que su velocidad real de subida no afecta a RatioMaster, ya que toda la información que manda es falsa, incluso la velocidad de subida. No importa si ustedes tienen 40 kbps de subida, igual pueden poner una velocidad más alta, digamos 90 kbps, y eso tampoco afectara su navegación habitual de Internet, no afecta en nada, podrán navegar y descargar todo sin problemas.</p>
+
+      <p>No bajar archivos pequeños o que tengan pocos seed y leechers, siempre bajen los torrent que sean de DVD-R (4GB o más), mejor aún si son packs de episodios de alguna serie, ya que esos son los que pesan más, y son bastante populares, ya que tienen muchos seeds y leecher para pasar desapercibido. La idea es buscar torrents con muchos seeds (semillas) y algunos leechers fijos, que no disminuyan, hay que pasar desapercibido.</p>
+
+      <p>También mencionar otro punto, nunca deben estar descargando un archivo del mismo tracker en que RatioMaster se encuentre bajando material, nunca el mismo, tendrán que pausar RatioMaster y de ahí descargar un archivo de ese mismo tracker. ¿Y por qué no? por que el tracker vería que hay dos conexiones diferentes que provienen de la misma IP, y el administrador del tracker se dará cuenta de ello, y serán baneados. Como consejo, y lo mejor, es dejar a RatioMaster dos o tres días para subir el ratio sin pausas (durante el día). Otra idea buena, es descargar archivos de otro tracker al que RatioMaster no esté utilizando, es otra idea bien útil, tener dos tracker siempre activos, uno para descargar archivos mientras que en el otro tracker se utiliza RatioMaster. Por si un tracker falla (tiene ratio bajo), el otro siempre será su respaldo mientras subes su ratio.</p>
+
+      <h2>Instalando lo necesario: Wine, winetricks y extras</h2>
+
+      <p>Como mencioné al principio, usaremos la versión de RatioMaster para Windows que está más actualizada (mucho más actualizada) que en Linux, y todo gracias a <a href="https://es.wikipedia.org/wiki/Wine">Wine</a>.</p>
+
+      <p>Primero: Instalen Wine (versión 1.1.x en adelante) desde los repositorios de su distro.</p>
+
+      <p>En una terminal:</p>
+
+      <code>sudo aptitude install wine1.2</code>
+
+      <p>Aunque en el "Centro de software de Ubuntu" lo encontrarán fácilmente, ahí tienen que buscar el Wine que dice "lanzamiento beta".</p>
+
+      <p>Solo usen la versión de los repositorios de su distro, no usen la versión de los repositorios PPA de launchpad si usan Ubuntu 9.10. La versión Wine 1.1.31 funciona impecable con RatioMaster.</p>
+
+      <p>Segundo: Bajen el script llamado <a href="https://wiki.winehq.org/winetricks_es">Winetricks</a>, para poder instalar unas aplicaciones extras de Windows, y así poner en funcionamiento a RatioMaster. Bajando el script desde la terminal:</p>
+
+      <code>wget http://www.kegel.com/wine/winetricks</code>
+
+      <p>Eso descargará un script al directorio en que se encuentren. Luego tipear en una terminal:</p>
+
+      <code>chmod +x winetricks</code>
+
+      <code>sudo mv winetricks /usr/local/bin</code>
+
+      <p>La primera linea le dará permisos de ejecución al archivo, la segunda linea de comando moverá el script "winetricks" al directorio de ejecutables del usuario.</p>
+
+      <p>Instalen la librería libmono-db2 de esta forma en la terminal:</p>
+
+      <code>sudo aptitude install libmono-db2-1.0-cil</code>
+
+      <p>También recomiendo instalar las fuentes tipicas de Windows (Arial, Courier) para no ocasionar probleamas de lenguaje en el programa. Eso es fácil solo se instala este paquete:</p>
+
+      <code>sudo aptitude install ttf-mscorefonts-installer</code>
+
+      <p>Tercero: Ahora ejecuten Winetricks para empezar a instalar lo que necesitan:</p>
+
+      <code>winetricks dotnet20</code>
+
+      <p>Con eso comenzará la descarga e instalación de ".Net Frameworks", acepten todo. Empezará a descargar e instalar todo. Y listo.</p>
+
+      <h2>Instalar y configurar RatioMaster</h2>
+
+      <p>Bajar RatioMaster <a href="http://www.moofdev.net/ratiomaster/downloads">de este sitio</a> (la versión 1.9.0 es la actual), luego ejecutar con Wine normalmente. Aparecerá en otro idioma, pero arriba hay un menú para cambiarle el idioma a RatioMaster, solo seleccionen "Español".</p>
+
+      <h3>Velocidad de subida</h3>
+
+      <p>Ahora solo hay que ir a la pestaña de "Avanzado" y abajo poner la velocidad de máximo de subida en 90, y el de mínimo de subida en 88, y marcar la casilla de la izquierda que dice "Subida (kB/s)" (no deben extralimitarse poniendo más que eso). También tendrán que seleccionar en el menú "Emulación de cliente", el cliente de torrent que quieran utilizar para mandar los datos, y recuerden que todo es falso, así que seleccionarán uTorrent en la última versión que esté disponible en la lista (aunque ustedes no tengan uTorrent instalado). Todo lo demás no lo toquen, todo anda por defecto.</p>
+
+      <h3>Configuraciones varias</h3>
+
+      <p>En la pestaña "Red", marcar la opción "Usar listener TCP". Y en la opción "Dejar de subir cuando el número de leechers sea menor", colocar el número 3. De esa manera cuando solo hayan 3 leechers descargando, RatioMaster se detendrá, así no correrán peligro de ser baneados del tracker si seedean mucho a solo 3 leechers.</p>
+
+      <h3>Ratio</h3>
+
+      <p>Recomiendo que antes de llegar al 4.0 (o 3.0) de ratio en su tracker, pausen RatioMaster, ya que no es aconsejable tener un ratio de unos 6.0, porque que los administradores del tracker podrían sospechar.</p>
+
+      <p>Antes que todo, tienen que tener el .torrent para que el programa sepa de donde viene. Van al tracker, bajan el .torrent en su escritorio y luego desde RatioMaster seleccionan ese .torrent para que empiece a sedeear (subir datos). Luego hagan click en el botón "Iniciar" que es para que empiece a mandar los datos, y "Detener" para pausarlo y queramos que descanse, y el "Cerrar" para cerrar el programa.</p>
+
+      <p>En todo el proceso lo único que se demora es instalar Wine, winetricks, .Net Frameworks, pero eso solo se hace una sola vez, así que es un alivio.</p>
+    </article>
+  </div>
+</body>
+</html>

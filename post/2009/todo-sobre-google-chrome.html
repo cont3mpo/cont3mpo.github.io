@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Sobre Google Chrome • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Sobre Google Chrome</h1>
+
+      <p>El navegador <a href="http://www.google.cl/chrome">Google Chrome</a> (y que hace poco cumplió un año de vida), resultó ser uno de los mejores navegadores web que he visto en mis años de experiencia en software y aplicaciones web. Hasta este momento no había querido hablar del navegador, ya que dentro de muy poco tiempo (creo que a mediados o finales de noviembre) tendremos entre nosotros el primer alfa/beta de <a href="https://es.wikipedia.org/wiki/Google_Chrome_OS">Chrome OS</a>. Chrome OS será el futuro sistema operativo de Google, y que tendrá como centro de todas sus actividades "en la nube" al navegador Chrome, además tendrá como núcleo el <a href="https://es.wikipedia.org/wiki/Linux_%28n%C3%BAcleo%29">kernel Linux</a>. Y como quiero darle la bienvenida a Chrome OS, hablaré y desmenuzaré a Google Chrome.</p>
+
+      <p>Vamos de a poco, primero fue lanzado para Windows, teniendo una estupenda bienvenida por parte de los usuarios gracias a su interfaz limpia, sencilla e intuitiva, y los desarrolladores lo amaron. Luego surgió la pregunta... ¿Y cuando para Linux y Mac?</p>
+
+      <p>Las versiones para Linux (32 y 64 bits) se encuentran disponibles, pero no son totalmente estables, pero hasta este momento son lo más cercano a lo que puede decirse como "estable", ya que todavía siguen recibiendo cambios a pesar de ser la versión de Chrome y no la de <a href="http://code.google.com/intl/es-ES/chromium/">Chromium</a> (inmediatamente hablaré sobre las diferencias entre estas versiones). Las versión para Mac también se encuentra disponible, pero no es estable hasta el momento, igual que en Linux.</p>
+
+      <p>Actualización: En hora buena, ya se lanzó <a href="http://www.google.com/chrome?platform=linux&amp;hl=es-419">Chrome Beta para Linux</a> y Mac.</p>
+
+      <h2>¿Chrome o Chromium?</h2>
+
+      <p><a href="http://www.google.cl/chrome">Chrome</a> es el navegador de Google y está basado en el navegador de código abierto <a href="http://code.google.com/intl/es-ES/chromium/">Chromium</a>, el equipo de desarrolladores de Chromium ahora trabaja completamente con el equipo de Chrome para solucionar problemas e implementar nuevas características como equipo en conjunto.</p>
+
+      <p>Entonces... ¿por qué no utilizar Chromium solamente?, lo que pasa es que Chromium está en constante desarrollo, es la meca de todo, y cuenta solamente con herramientas de código abierto, y al otro lado se encuentra Chrome, el cual trae algunas características propietarias (como codecs de audio y video propietarios). Es por eso que existen dos proyectos: Chromium para su desarrollo abierto, para que cualquier programador pueda contribuir al navegador, y Chrome, para el usuario final con algunas características de uso propietario.</p>
+
+      <h3>Diferencias</h3>
+
+      <p>Como lo indica <a href="http://code.google.com/p/chromium/wiki/ChromiumBrowserVsGoogleChrome">el sitio de Chromium</a> en Google Code, hay varias diferencias entre Chrome y Chromium, y especialmente en el uso de codecs propietarios, y todo esto gracias al proyecto <a href="https://es.wikipedia.org/wiki/FFMPEG">FFmpeg</a>, el cual otorga la posibilidad de leer codecs nativos para reproducción multimedia en <a href="https://es.wikipedia.org/wiki/HTML_5">HTML5</a>.</p>
+
+      <p>Como por ejemplo, Chrome puede reproducir sin problemas los codecs H.264, AAC y MP3, pero Chromium no, ya que son propietarios y Chromium se caracteriza por ser un proyecto con herramientas totalmente abiertas, como el uso de codecs libres, como lo son Theora y Vorbis (y los cuales también se pueden reproducir en Chrome).</p>
+
+      <h2>Navegador multiproceso</h2>
+
+      <p>Google Chrome es un navegador <a href="https://es.wikipedia.org/wiki/Multiproceso">multiproceso</a>, quiere decir que cada una de sus pestañas o nuevas ventanas, las trata como si fueran procesos únicos e independientes, esto provoca que al cerrar una pestaña, la memoria que utilizaba esa pestaña se desocupe totalmente de la memoria. Así la memoria RAM se aprovecha mejor.</p>
+
+      <p>Esto no ocurre en los demás navegadores. Hagan el ejemplo de que tienen a <a href="https://es.wikipedia.org/wiki/Google_Chrome">Chrome</a>, <a href="https://es.wikipedia.org/wiki/Firefox">Firefox</a> y <a href="https://es.wikipedia.org/wiki/Opera">Opera</a> abiertos, y los tres navegadores con 8 pestañas abiertas. Los tres utilizarían una considerable porción de memoria, casi iguales, pero al momento de cerrar 7 pestañas en los tres navegadores, la diferencia es notoría. Lo que pasa es que Firefox y Opera al no ser multiproceso, tratan a las pestañas como a una sola gran ventana. Es como si el enjambre creciera, y al cerrar las 7 pestañas, ese enjambre no bajaría, ya que las trata como si fuera una sola gran ventana que crece y crece. En Chrome al cerrar las 7 pestañas, en realidad cierra 7 ventanas independientes.</p>
+
+      <p>Esto me causo mucha curiosidad el día que se lanzó Chrome el año pasado, ya que así es como trabaja un sistema operativo y no un navegador web, por eso se empezó a especular que se venía Chrome OS. Y además de incluir un administrador de tareas para monitorear los diferentes procesos que utiliza el navegador (como ventanas abiertas, plugins usandose), al igual que un sistema operativo.</p>
+
+      <h2>Instalando Chromium (Daily, Dev y Beta)</h2>
+
+      <p>En Linux, la manera más fácil es agregar los repositorios (de Launchpad), y desde ahí mantener actualizado el navegador para futuras versiones.</p>
+
+      <h3>Canales de distribución en Chromium</h3>
+
+      <p>Chrome al igual que Chromium tiene tres canales de distribución. Chromium cuenta con los siguientes canales:</p>
+
+      <ul>
+        <li>El canal "Daily Builds" (o nightly builds), el cual se utiliza para publicar actualizaciones diarias en su desarrollo. Es un canal no testeado y inestable, solo para curiosos.</li>
+        <li>El canal "Dev" es un poco menos frecuente en sus publicaciones que el anterior. Una vez a la semana sería lo común en sus actualizaciones. Estás versiones están más testeadas para su uso.</li>
+        <li>El canal "Beta" recibe actualizaciones como cada dos o tres veces al mes. Sus versiones son más testeadas que las anteriores.</li>
+      </ul>
+
+      <h3>Chromium (Daily Builds)</h3>
+
+      <p>En Ubuntu la manera más fácil de instalar Chromium es agregar estos dos repositorios en "Origenes del software" &gt; "Software de terceros":</p>
+
+      <code>deb http://ppa.launchpad.net/chromium-daily/ppa/ubuntu karmic main
+      deb-src http://ppa.launchpad.net/chromium-daily/ppa/ubuntu karmic main</code>
+
+      <p>Y agregar esta llave GPG (para la firma de donde proviene):</p>
+
+      <code>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4E5E17B5</code>
+
+      <p>E instalar los paquetes (el primero es el navegador, el segundo es para que quede en español):</p>
+
+      <code>chromium-browser chromium-browser-l10n</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:chromium-daily/ppa</code>
+
+      <h3>Chromium (Dev)</h3>
+
+      <p>Agregando los repositorios:</p>
+
+      <code>deb http://ppa.launchpad.net/chromium-daily/dev/ubuntu karmic main
+      deb-src http://ppa.launchpad.net/chromium-daily/dev/ubuntu karmic main</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:chromium-daily/dev</code>
+
+      <h3>Chromium (Beta)</h3>
+
+      <h3>Agregando los repositorios:</h3>
+
+      <code>deb http://ppa.launchpad.net/chromium-daily/beta/ubuntu karmic main
+      deb-src http://ppa.launchpad.net/chromium-daily/beta/ubuntu karmic main</code>
+
+      <p>Automático PPA:</p>
+
+      <code>sudo add-apt-repository ppa:chromium-daily/beta</code>
+
+      <p>Los tres canales utilizan la misma llave GPG que el primer canal Daily Builds.</p>
+
+      <h2>Instalando Google Chrome (Dev, Beta)</h2>
+
+      <p>Chrome para Linux ya se encuentra en estado Beta, y hay dos formas para instalarlo, el primero es instalando desde los repositorios de Google, y el segundo es bajando un 'deb' o 'rpm' ejecutable desde el sitio de Chrome. Aunque igualmente hay que agregar los repositorios de Google para futuras actualizaciones del navegador.</p>
+
+      <p>Por el momento hay dos canales disponibles para Linux, el "Dev", y "Beta". Todavía no hay un canal estable para Linux.</p>
+
+      <h3>Chrome (Dev)</h3>
+
+      <p>Lo más fácil para obtener la versión para desarrolladores es ir al <a href="http://dev.chromium.org/getting-involved/dev-channel">sitio de desarrollo de Chromium</a> para bajar las versiones de desarrollo (Dev) de Chrome, y bajar los ejecutables para los tres sistemas operativos (Linux, Mac, Windows). Y mencionar nuevamente que ese es Chrome, a pesar de que sea el sitio de Chromium. Las versiones de <a href="http://www.google.com/chrome/intl/en/eula_dev.html?dl=unstable_i386_deb">32</a> y <a href="http://www.google.com/chrome/intl/en/eula_dev.html?dl=unstable_amd64_deb">64</a> bits para Linux se encuentran casi al final de la hoja (son .deb).</p>
+
+      <h3>Chrome (Beta)</h3>
+
+      <p>Como se esperaba, una versión Beta de Chrome fue lanzada. La manera más fácil es hiendo al sitio de Chrome y descargalo en .deb o .rpm, dependiendo de la distro que tengan. <a href="http://www.google.com/chrome?platform=linux&amp;hl=es-419">Obtén Google Chrome BETA para Linux</a>. Debian, Ubuntu, Fedora, y openSUSE son las distros soportadas, según lo que informa el sitio de Chrome, para 32 y 64 bits. El repositorios de Google se agregará automaticamente en sus repositorios.</p>
+
+      <h3>Repositorios de Google</h3>
+
+      <p>La otra manera de obtener y mantener acutalizado a Chrome es agregar el repositorio de Google manualmente.</p>
+
+      <p>Primero importar la clave (key). Hacer click derecho <a href="https://dl-ssl.google.com/linux/linux_signing_key.pub">en este enlace</a> y seleccionar "Guardar enlace como" para guardar la clave. Luego solamente agregan o importan ese archivo, en "Origenes del software" &gt; "Autenticación" en Ubuntu.</p>
+
+      <p>Agregar repositorio de Google en "Orígenes del software" &gt; "Software de terceros":</p>
+
+      <code>deb http://dl.google.com/linux/deb/ stable non-free main</code>
+
+      <p>E instalar el paquete (navegador):</p>
+
+      <code>google-chrome-beta</code>
+
+      <p>También pueden ir a los <a href="http://www.google.com/linuxrepositories/">repositorios de Google</a> y ver los métodos (con imágenes) de como agregar los repositorios para sus distros.</p>
+
+      <h2>Temas y extensiones</h2>
+
+      <p>Chrome ya cuenta con temas visuales, creados por Google y por variados artistas visuales. Y hasta el momento llevan <a href="https://tools.google.com/chrome/intl/es/themes/google.html">29 temas</a> creados por Google, y <a href="https://tools.google.com/chrome/intl/es/themes/index.html">94 temas</a> creados por artistas. En la <a href="https://tools.google.com/chrome/intl/es/themes/index.html">galería de temas</a> se encuentran todos los temas. Y disponibles para los tres sistemas operativos.</p>
+
+      <h3>Extensiones</h3>
+
+      <p>Ya fue lanzada la <a href="https://chrome.google.com/extensions">galería de extensiones oficial para Chrome</a>, y cuenta con más de 1700 extensiones. Ahí también se encuentran temas visuales creados por usuarios.</p>
+
+      <p>Después para ver que extensiones se encuentran instaladas, solamente tienen que escribir esto la arra de direcciones:</p>
+
+      <code>chrome://extensions/</code>
+
+      <p>Ahí aparecerán todas las extensiones que tengas y podrán desinstalarlas mediante una simple interfaz de usuario.</p>
+
+      <h2>Sincronización de marcadores en la nube</h2>
+
+      <p>El soporte de sincronización solo se encuentra disponible para la versión de desarrollo 4.0, y solo para Windows. Y solamente hay que agregar un pequeño argumento, hay que crear un acceso directo y agregar la opción al final de la cadena de destino, en la opción "propiedades".</p>
+
+      <p>Esto agregan:</p>
+
+      <code>--enable-sync</code>
+
+      <p>Luego en el menú de Chrome aparecerá la opción de sincronización, y habrá que loguearse igual como se loguean en Gmail o cualquier cuenta de Google. Todos los marcadores serán guardados en Google Docs.</p>
+
+      <h2>Extras</h2>
+
+      <p>En general, Chrome es muy intuitivo, pero siempre se puede sacar provecho de su potencial gracias a los siguientes ejemplos.</p>
+
+      <p>En la versión para Windows 3.0 se encuentra una opción experimental que será implementada en Chrome OS, según lo que publicó un desarrollador de Chromium en el sitio de publicación de fallas. Esta función es la de un botón de menú de marcadores desplegables al lado de la barra de direcciones. El icono del botón, es una carpeta con una estrella en su esquina.</p>
+
+      <p>El botón se agrega de la misma forma que el de sincronización de marcadores (solo en Windows):</p>
+
+      <code>--bookmark-menu</code>
+
+      <p>También se puede crear un acceso directo solo para abrir ventanas incógnitas, eso se realiza con el mismo método que arriba, solo hay que agregar esto al final:</p>
+
+      <code>--incognito</code>
+
+      <p>Para ver la memoria que está utilizando el navegador en su sistema, y también para ver la memoria que está utilizando otro navegador que tengas abierto. Lo más sencillo es ir a ver en la siguiente ruta en la barra de direcciones:</p>
+
+      <code>about:memory</code>
+
+      <p>Para ver todos los plugins como Flash, DivX, QuickTime, FFmpeg, pueden escribir esto en la barra de direcciones:</p>
+
+      <code>about:plugins</code>
+
+      <p>Si quisieran información exacta sobre la versión del navegador que motor JavaScript (V8 se llama el de Chrome) y que motor de renderizado que tiene (WebKit es el de Chrome). Solamente escriben esto en la barra de direcciones:</p>
+
+      <code>about:</code>
+
+      <p>También es muy útil crear "accesos directos a las aplicaciones" en el menú de Chrome, ya que esa es la gracia de Chrome, las aplicaciones en la nube. Por ejemplo crear accesos director a Gmail, Reader, Docs, Picasa, Twitter, y los accesos son muy rápidos, ya que no crea una ventana completa, no tiene botones, ni menús, ni barra de direcciones. Es lo más sencillo y practico que hay para abrir una aplicación en la web sin estar abriendo todo el navegador.</p>
+
+      <p>Cuando quieran eliminar una pestaña pegada o quieran matar el proceso de un plugin que se haya quedado pegado, solamente hacen click derecho en la barra superior y seleccionan el "Administrador de tareas". Ahí pueden seleccionar que proceso quieren finalizar y aprietan el botón "Finalizar proceso".</p>
+
+      <p>El plugin de Flash funciona muy bien (el paquete "libflashplayer"), y además si quisieran ver videos tipo wmv u avi, o escuchar audio como mp3 o ogg, solo tendrían que bajar el paquete "mplayerplug-in", que se encuentra disponible en cualquier repositorio de cualquier distro. Y no se preocupen, Chrome lo tomará y pondrá en funcionamiento inmediatamente por defecto.</p>
+
+      <p>Si quieren poner a prueba el motor V8 de JavaScript para medirlo con otros navegadores, pueden utilizar el sitio <a href="http://www.chromeexperiments.com/">Chrome Experiments</a>, que reúne las mejores pruebas para JavaScript que puedan existir. Además ya se encuentran disponibles varias pruebas para testear HTML5 en Chrome.</p>
+
+      <p>Pueden seguir viendo las <a href="https://es.wikipedia.org/wiki/Google_Chrome#Opciones_experimentales">opciones experimentales en el Wikipedia de Google Chrome</a>, quien yo mismo me he dedicado a mantener actualizado y al día.</p>
+
+      <p>Todas los cambios y publicaciones de las versiones de desarrollo (Dev), Betas y versiones estables, son <a href="http://googlechromereleases.blogspot.com/">publicadas en el blog de lanzamiento de versiones</a> de Google Chrome.</p>
+
+      <p>Ante cualquier problema o sugerencia que quieran hacer para el desarrollo del navegador, la pueden hacer en <a href="http://code.google.com/p/chromium/issues/list">el sitio de Chromium en Google Code</a>. Ahí pueden crear un tema, u opinar sobre los problemas que ocurren y crear sugerencias para futuras implementaciones en el navegador.</p>
+    </article>
+  </div>
+</body>
+</html>

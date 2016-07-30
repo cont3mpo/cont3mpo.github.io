@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Encodear con FFmpeg: VP9 + Opus (WebM) • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Encodear con FFmpeg: VP9 + Opus (WebM)</h1>
+
+      <p>En esta serie de <a href="https://cont3mpo.github.io/post/2013/encodear-con-ffmpeg.html">Encodear con FFmpeg</a>, le toca el turno a <a href="http://es.wikipedia.org/wiki/VP9">VP9</a> y <a href="https://es.wikipedia.org/wiki/Opus_(c%C3%B3dec)">Opus</a>.</p>
+
+      <p>VP9 es usado masivamente en Youtube, además la próxima generación de UHDTV traerá soporte integrado de VP9. Según Google, VP9 <a href="https://youtu.be/K6JshvblIcM">brinda mejor calidad a bajo bitrate que H.264</a>. Y Opus es el <a href="http://www.opus-codec.org/comparison/">mejor codec de audio</a> con perdida que existe.</p>
+
+      <p>Antes que nada, VP9 pide un poco más de procesamiento para reproducir que H.264, así que podría haber desincronización dependiendo del tipo de encodeo o maquina usada. Además que el encodeo toma más tiempo. Todo esto lo puedes hacer en <a href="https://cont3mpo.blogspot.com/2012/11/probando-elementary-os-luna.html">elementary OS</a>, <a href="https://cont3mpo.github.io/post/2013/el-futuro-unificado-de-ubuntu.html">Ubuntu</a>, y <a href="https://cont3mpo.github.io/post/2015/os-x-y-homebrew.html">OS X</a>.</p>
+
+      <h2>Instalar VP9 y Opus junto con FFmpeg</h2>
+
+      <p>En Ubuntu/elementary OS agregan un <a href="https://launchpad.net/~mc3man/+archive/ubuntu/trusty-media">PPA con FFmpeg actualizado</a> e instala FFmpeg.</p>
+
+      <p>En OS X instalan FFmpeg usando <a href="http://brew.sh/index_es.html">Homebrew</a>. Y para agregar los encoders que faltan:</p>
+
+      <code>brew reinstall ffmpeg --with-faac --with-libvpx --with-x265 --with-opus</code>
+
+      <h2>Configurar CRF, Compresión, y Audio</h2>
+
+      <p>Por suerte VP9 utiliza calidad constante al encodear, con la opción -crf. CRF tiene un rango de calidad entre 0 a 63, siendo 0 lo mejor y 63 lo peor, 10 o 15 es recomendable. Pero también tienes que poner un bitrate máximo/tope variable, con la opción -b:v pondremos un bitrate tope de 5M (5000 kbps). Y usaremos el encoder libvpx-vp9:</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libvpx-vp9 -crf 10 -b:v 5M -c:a copy salida.webm</code>
+
+      <p>Para mayor calidad usen las opciones -qmin -qmax. En -qmin tienen un rango de 0 a 63, de 0 a 4 es recomendable. En -qmax lo mismo, pero un 50 o más bajo es recomendable:</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libvpx-vp9 -qmin 0 -qmax 50 -crf 10 -b:v 5M -c:a copy salida.webm</code>
+
+      <p>Para compresión está la opción -deadline, el cual usa los rangos best, good, y realtime, siendo best lo más lento (más comprimido) y realtime lo más rápido (menos comprimido). Por defecto usa good y es recomendable, pero si quisieran cambiar:</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libvpx-vp9 -crf 10 -b:v 5M -deadline realtime -c:a copy salida.webm</code>
+
+      <h2>Audio</h2>
+
+      <p>Puedes utilizar <a href="https://cont3mpo.github.io/post/2009/encodear-audio-en-linux.html">cualquier audio</a>, pero usaremos Opus porque es lo usa WebM, con un bitrate variable máximo de 320k. Y finalmente todo quedaría así:</p>
+
+      <code>ffmpeg -i entrada.mkv -c:v libvpx-vp9 -qmin 0 -qmax 50 -crf 10 -b:v 5M -c:a libopus -vbr on -b:a 320k salida.webm</code>
+
+      <p>Echa un ojo a las demás <a href="https://sites.google.com/a/webmproject.org/wiki/ffmpeg">opciones de libvpx en FFmpeg</a>. Últimamente el <a href="http://www.webmproject.org/hardware/vp9/">decoder para hardware de VP9 soporta 4K</a> (2160p a 60fps). VP9 ahora cuenta con el soporte de varios fabricantes de hardware como <a href="http://www.phoronix.com/scan.php?page=news_item&amp;px=MTU1ODk">Intel, ARM, Nvidia, Broadcom, LG, Philips, Samsung, Realtek, etc</a>. Y YouTube transmite en <a href="http://www.androidauthority.com/youtube-4k-streaming-coming-ces-new-vp9-codec-329112/">4K con VP9</a>, al igual que todos sus demás videos. Chrome, Firefox y Android ya vienen con el decoder VP9. Para reproducir VP9 usen <a href="https://cont3mpo.github.io/post/2013/mpv-el-sucesor-de-mplayer2.html">mpv</a>.</p>
+    </article>
+  </div>
+</body>
+</html>

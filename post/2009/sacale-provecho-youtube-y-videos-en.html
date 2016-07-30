@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Sacale provecho a YouTube • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Sacale provecho a YouTube</h1>
+
+      <p><a href="http://www.youtube.com/">YouTube</a> es una gran herramienta para entretenernos en nuestros ratos de ocio, y como este servicio es gratuito, nos aprovecharemos de exprimirlo al máximo. Y también nos aprovecharemos de otros sitios que tengan videos en línea pero que no sean basados en el reproductor Flash.</p>
+
+      <p>Varios reclaman que los videos de YouTube se ven más o menos mal, y la calidad deja mucho que desear, y etc. Pero desde hace meses que muchos usuarios suben videos en calidad <a href="https://es.wikipedia.org/wiki/Alta_definici%C3%B3n">HD</a> (720p H.264), y HQ ó <a href="https://es.wikipedia.org/wiki/Definici%C3%B3n_est%C3%A1ndar">SD</a> (H.264/MP4), ya sean trailers de películas, o videos grabados desde la televisión en Alta Definición (HDTV).</p>
+
+      <h2>Ver videos en HQ y HD</h2>
+
+      <p>Para ver HQ se agrega esto al final de la dirección del video:</p>
+
+      <code>&amp;fmt=18</code>
+
+      <p>Para ver en HD (720p) se agrega esto al final de la dirección del video:</p>
+
+      <code>&amp;hd=1</code>
+
+      <p>Para ver en Full HD (1080p) se agrega esto al final de la dirección del video:</p>
+
+      <code>&amp;fmt=37</code>
+
+      <p>Lo anterior es muy básico, y sirve para incrustar videos en blogs y foros, o dejar el enlace directo para verlo en una de esas dos opciones. Si quieren saber si en realidad está reproduciendo a 720p o 1080p, solamente hagan click derecho en el video y seleccionar "Show Video Info" para ver la resolución del video, además de ver otros aspectos técnicos del video como el bitrate.</p>
+
+      <h2>YouTube en nuestro escritorio</h2>
+
+      <p>También podemos ver los videos directamente en nuestro escritorio y reproductor de videos. El reproductor <a href="https://es.wikipedia.org/wiki/VLC_media_player">VLC</a> nos facilitará esta tarea:</p>
+
+      <p>En Linux solamente se abre una terminal y se típea:</p>
+
+      <code>vlc http://url_de_youtube_aquí</code>
+
+      <p>Con eso, ya estarán viendo un video de YouTube en VLC. También se puede hacer exactamente lo mismo pero por medio de la interfaz gráfica de VLC, solamente copiando la url de YouTube en el apartado Red que tiene el reproductor.</p>
+
+      <h2>Videos en tu escritorio</h2>
+
+      <p>Como dato, para ver cualquier video que esté hospedado en algún sitio que no sea por medio de Flash, o sea... que sea vea en la url la extensión .mov, .avi, .mpg, .mp4, ó .wmv (y esto también va para los audios .mp3, .aac, y .ogg) se puede utilizar <a href="https://es.wikipedia.org/wiki/MPlayer">MPlayer</a> para esa tarea.</p>
+
+      <p>Con MPlayer en Linux o Windows para ver video o audio en línea:</p>
+
+      <code>mplayer http://url_de_video/video.avi<br>
+      mplayer http://url_de_audio/audio.mp3</code>
+
+      <p>Con eso verán el video o audio que se encuentre en linea (solo si este no es por medio de Flash).</p>
+
+      <p>Como recomendación: Todos los videos hospedados en el sitio de <a href="http://www.apple.com/trailers/">Apple Trailers</a> vienen en .mov (H.264), y tienen excelente calidad, y ahora la mayoría en calidad HD (720p) o Full HD (1080p).</p>
+
+      <p>Viendo video de Apple Trailers en nuestro escritorio con MPlayer:</p>
+
+      <code>mplayer http://movies.apple.com/movies/disney/ponyo/ponyo-clip_480p.mov</code>
+
+      <h2>Descargar videos de YouTube</h2>
+
+      <p>Existen variados métodos para descargar un video de YouTube, pero siempre hay que conservar esa línea de calidad y no descargar los videos en <a href="https://es.wikipedia.org/wiki/Flash_Video">FLV</a> (video originario de Flash) que se ven horribles.</p>
+
+      <p>La herramientas que descargan el video en FLV son muchas, y la mayoría son originarias de las extensiones de <a href="https://es.wikipedia.org/wiki/Firefox">Firefox</a>, como <a href="https://addons.mozilla.org/en-US/firefox/addon/3006">Download Helper</a>. Pero no nos enfocaremos en esas herramientas que descargan los videos en FLV, ya que descargaremos los videos en la calidad en que fueron subidos, casi intactos.</p>
+
+      <p>Ahora iremos de menor a mayor en que es mejor para nosotros, cuatro opciones distintas para descargar un video:</p>
+
+      <ul>
+        <li>Lo primero que se puede utilizar es el sitio <a href="http://keepvid.com/">KeepVid</a>, que nos brinda descargar el video en H.264 con contenedor MP4, solamente hay que pegar la url de YouTube y hacer click en "Downnload", en la opción "High Quality". Al final tendremos el video pero con una resolución estándar SD.</li>
+        <li>Lo segundo sería probar descargando los videos en HD (720p) o Full HD (1080p) gracias a la extensión de Firefox: <a href="https://addons.mozilla.org/en-US/firefox/addon/10137">Easy YouTube Video Downloader</a>, pero solo si los videos están disponibles en esa resolución, y propiamente tal; tenerlos activados con el agregado "&amp;hd=1" o "&amp;fmt=37" al final de la url de YouTube. También se pueden descargar en otras resoluciones y calidad gracias a esta extensión.</li>
+        <li>En tercer lugar pueden utilizar <a href="http://www.chromeextensions.org/?s=youtube&amp;scat=all">cualquiera de estas extensiones para Google Chrome</a>. Ese sitio de extensiones no es el oficial, ya que en Google no permiten descargar videos de YouTube. Pero en ese sitio hay excelentes extensiones para bajar videos en 720p y 1080p.</li>
+        <li>Lo cuarto que se puede utilizar es un JavaScript agregado en los marcadores del navegador. Solamente hay que hacer click derecho sobre el siguiente link: "<a href="javascript:(function(){if(document.getElementById('download-youtube-video'))return;var%20args=null,video_title=null,video_id=null,video_hash=null;var%20download_code=new%20Array();var%20fmt_labels={'18':'standard%20MP4','22':'HD%20720p','37':'HD%201080p'};try{args=yt.getConfig('SWF_ARGS');video_title=yt.getConfig('VIDEO_TITLE')}catch(e){}if(args){var%20fmt_url_map=unescape(args['fmt_url_map']);if(fmt_url_map=='')return;video_id=args['video_id'];video_hash=args['t'];video_title=video_title.replace(/[%22\'\?\\\/\:\*%3C%3E]/g,'');var%20fmt=new%20Array();var%20formats=fmt_url_map.split(',');var%20format;for(var%20i=0;i%3Cformats.length;i++){var%20format_elems=formats[i].split('|');fmt[format_elems[0]]=unescape(format_elems[1])}for(format%20in%20fmt_labels){if(fmt[format]!=null){download_code.push('%3Ca%20href=\''+(fmt[format]+'&amp;title='+video_title)+'\'%3E'+fmt_labels[format]+'%3C/a%3E')}else%20if(format=='18'){download_code.push('%3Ca%20href=\'http://www.youtube.com/get_video?fmt=18&amp;video_id='+video_id+'&amp;t='+video_hash+'\'%3E'+fmt_labels[format]+'%3C/a%3E')}}}if(video_id==null||video_hash==null)return;var%20div_embed=document.getElementById('watch-embed-div');if(div_embed){var%20div_download=document.createElement('div');div_download.innerHTML='%3Cbr%20/%3E%3Cspan%20id=\'download-youtube-video\'%3EDownload:%20'+download_code.join('%20|%20')+'%3C/span%3E';div_embed.appendChild(div_download)}})();void(0)">Descargar de YouTube</a>", y seleccionar "Añadir este enlace a marcadores", y con ello se creara automáticamente ese marcador. Después para descargar el video, hay que estar viendo el video en YouTube y hacer click en ese marcador, y apareceran las opciones de descarga que estén disponibles en el cuadro de la derecha. Puede que el video esté disponible en Standard MP4, HD 720p, o HD 1080p.
+        </li>
+      </ul>
+
+      <h2>Curiosidades extras</h2>
+
+      <p>YouTube tiene un sitio creado especialmente para televisores y consolas de video juegos con soporte de navegación, el sitio <a href="http://www.youtube.com/xl">YouTube XL</a> nos ayuda a ver todo mucho más grande.</p>
+
+      <p>En la categoría películas "<a href="http://www.youtube.com/movies">Movies</a>" de YouTube, se pueden ver películas completas, pero usualmente solo se pueden ver si vives en Estados Unidos, en la categoría "<a href="http://www.youtube.com/music">Music</a>", hay muchos videos musicales, pero no se pueden ver por culpa de la restricción, al igual que otras categorías <a href="http://www.youtube.com/videos">que se encuentran aquí</a>, así que removeremos esa restricción internacional.</p>
+
+      <p>Al estar en <a href="http://www.youtube.com/movies">Movies</a>, solamente hay que situarse encima del titulo de alguna película, click derecho y seleccionar: "Copiar la ruta del enlace", eso lo pegamos en la barra de direcciones del navegador, y luego cambiamos esto "watch?v=" por esto "v/" en la url (sin las comillas por supuesto). Así podremos ver los videos con restricción internacional en el país que estemos. Lo único malo, es que el video ocupa todo el ancho de la pantalla del navegador.</p>
+
+      <p>Lo otro, y más fácil y cómodo que se puede hacer, es copiar el enlace que está restringido, por ejemplo vean la <a href="http://www.youtube.com/user/SHOWTIME">cuenta de YouTube del canal de TV Showtime</a>, cualquiera de sus videos tienen restricción, solamente hay que copiar el enlace de uno de sus videos, ir a el <a href="http://translate.google.cl/">traductor de Google</a>, pegar el enlace, y que traduzca del inglés al español, eso. Esto no funciona en Firefox en Linux, ya que aparece un aviso sobre que no está Flash instalado, pero funciona perfectamente en Chrome en Linux (la versión Dev de desarrolladores).</p>
+
+      <p>Y todos los trailers en HD de YouTube <a href="http://www.youtube.com/trailers">se publican aquí</a>.</p>
+    </article>
+  </div>
+</body>
+</html>
