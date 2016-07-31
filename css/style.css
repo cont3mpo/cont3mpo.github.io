@@ -222,6 +222,14 @@ iframe {
   margin: 20px 0;
 }
 
+time {
+  font-size: 1rem; /* 16px */
+  font-weight: 600;
+  color: #80888A;
+  display: block;
+  text-align: right;
+}
+
 /* 404 */
 
 .perdidos {
