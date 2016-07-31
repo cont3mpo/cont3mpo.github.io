@@ -303,4 +303,8 @@ iframe {
   max-width: 95%;
   height: auto;
 }
+
+time {
+  font-size: 0.9rem; /* 14.4px */
+}
 }
