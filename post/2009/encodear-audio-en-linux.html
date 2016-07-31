@@ -14,7 +14,7 @@
     <article>
       <h1>Encodear audio con FFmpeg</h1>
 
-      <p><a href="http://cont3mpo.github.io/post/2009/edicion-multimedia-con-mencoder-y.html">Anteriormente vi como desmenuzar el video en Linux</a>, con MEncoder y MPlayer, pero esta vez hablaré sobre como encodear audio con FFmpeg.</p>
+      <p><a href="https://cont3mpo.github.io/post/2009/edicion-multimedia-con-mencoder-y.html">Anteriormente vi como desmenuzar el video en Linux</a>, con MEncoder y MPlayer, pero esta vez hablaré sobre como encodear audio con FFmpeg.</p>
 
       <h2>Instalar FFmpeg</h2>
 
@@ -26,15 +26,15 @@
 
       <h2>Encodeando WAV a MP3/AAC/Vorbis/Opus/FLAC</h2>
 
-      <p>Ya teniendo archivos WAV (o cualquier lossless), se puede encodear a un codec de audio comprimido <a href="https://es.wikipedia.org/wiki/Algoritmo_de_compresi%C3%B3n_con_p%C3%A9rdida#Compresi.C3.B3n_de_audio_con_p.C3.A9rdida">con pérdida</a> o <a href="https://es.wikipedia.org/wiki/Algoritmo_de_compresi%C3%B3n_sin_p%C3%A9rdida">sin pérdida</a>. Aparecen varios <a href="https://en.wikipedia.org/wiki/Encoder">encoders</a> específicos y también <a href="https://en.wikipedia.org/wiki/Ffmpeg">FFmpeg</a>, el cual utiliza los mismos encoders.</p>
+      <p>Ya teniendo archivos <abbr title="Waveform Audio File Format">WAV</abbr> (o cualquier lossless), se puede encodear a un codec de audio comprimido <a href="https://es.wikipedia.org/wiki/Algoritmo_de_compresi%C3%B3n_con_p%C3%A9rdida#Compresi.C3.B3n_de_audio_con_p.C3.A9rdida">con pérdida</a> o <a href="https://es.wikipedia.org/wiki/Algoritmo_de_compresi%C3%B3n_sin_p%C3%A9rdida">sin pérdida</a>. Aparecen varios <a href="https://en.wikipedia.org/wiki/Encoder">encoders</a> específicos y también <a href="https://en.wikipedia.org/wiki/Ffmpeg">FFmpeg</a>, el cual utiliza los mismos encoders.</p>
 
       <h3>Usa VBR</h3>
 
-      <p>La mejor manera de mantener una calidad de audio a través de toda la pista es usando un <a href="https://es.wikipedia.org/wiki/Tasa_de_bits_variable">bitrate variable VBR</a>, el cual utiliza solo los bits necesarios para preservar la calidad de audio. Por otro lado, encodear con <a href="https://es.wikipedia.org/wiki/Tasa_de_bits_constante">bitrate constante CBR</a> desperdiciaría bits y sería poco eficiente al otorgar a toda la pista la misma cantidad de bits, encodea a ciegas dando lo mismo a todo.</p>
+      <p>La mejor manera de mantener una calidad de audio a través de toda la pista es usando un <a href="https://es.wikipedia.org/wiki/Tasa_de_bits_variable">bitrate variable <abbr title="Variable Bitrate">VBR</abbr></a>, el cual utiliza solo los bits necesarios para preservar la calidad de audio. Por otro lado, encodear con <a href="https://es.wikipedia.org/wiki/Tasa_de_bits_constante">bitrate constante <abbr title="Constant Bitrate">CBR</abbr></a> desperdiciaría bits y sería poco eficiente al otorgar a toda la pista la misma cantidad de bits, encodea a ciegas dando lo mismo a todo.</p>
 
       <h3>WAV a MP3 (VBR)</h3>
 
-      <p>Para encodear con el codec <a href="https://es.wikipedia.org/wiki/Mp3">MP3</a> hay que utilizar el encoder <a href="http://wiki.hydrogenaudio.org/index.php?title=LAME">LAME</a>, el cual utiliza un rango de calidad entre 0 a 9, siendo 0 lo mejor y 9 lo peor:</p>
+      <p>Para encodear con el codec <a href="https://es.wikipedia.org/wiki/Mp3"><abbr title="MPEG-2 Audio Layer III">MP3</abbr></a> hay que utilizar el encoder <a href="http://wiki.hydrogenaudio.org/index.php?title=LAME">LAME</a>, el cual utiliza un rango de calidad entre 0 a 9, siendo 0 lo mejor y 9 lo peor:</p>
 
       <code>lame audio.wav -V 0 audio.mp3</code>
 
@@ -44,7 +44,7 @@
 
       <h3>WAV a MP3 (CBR)</h3>
 
-      <p>Si quieren desperdiciar espacio o limitar bits, pueden encodear con bitrate variable CBR. Con la opción "--preset insane" se puede usar 320 CBR (la opción "-b 320 --cbr" tiene el mismo efecto y puede cambiar de numero):</p>
+      <p>Si quieren desperdiciar espacio o limitar bits, pueden encodear con bitrate variable <abbr title="Constant Bitrate">CBR</abbr>. Con la opción "--preset insane" se puede usar 320 CBR (la opción "-b 320 --cbr" tiene el mismo efecto y puede cambiar de numero):</p>
 
       <code>lame audio.wav --preset insane audio.mp3</code>
 
@@ -54,7 +54,7 @@
 
       <h3>WAV a AAC (VBR)</h3>
 
-      <p>El encoder <a href="https://en.wikipedia.org/wiki/FAAC">FAAC</a> utiliza el codec <a href="https://es.wikipedia.org/wiki/Advanced_Audio_Coding">AAC</a> con bitrate variable VBR. Funciona con porcentajes de calidad entre 10 a 500, siendo 10 lo más bajo en calidad y 500 lo más alto (también pueden utilizar contenedor .m4a):</p>
+      <p>El encoder <a href="https://en.wikipedia.org/wiki/FAAC">FAAC</a> utiliza el codec <a href="https://es.wikipedia.org/wiki/Advanced_Audio_Coding"><abbr title="Advanced Audio Coding">AAC</abbr></a> con bitrate variable <abbr title="Variable Bitrate">VBR</abbr>. Funciona con porcentajes de calidad entre 10 a 500, siendo 10 lo más bajo en calidad y 500 lo más alto (también pueden utilizar contenedor .m4a):</p>
 
       <code>faac audio.wav -q 500 -o audio.aac</code>
 
@@ -62,7 +62,7 @@
 
       <code>ffmpeg -i audio.wav -c:a libfaac -q:a 500 audio.aac</code>
 
-      <p>Actualmente <a href="http://ffmpeg.org/trac/ffmpeg/wiki/UbuntuCompilationGuide#fdk-aac">el encoder fdk-aac es el mejor</a>. Tiene un rango de calidad entre 1 a 5, siendo 1 lo más bajo y 5 lo más alto en calidad:</p>
+      <p>Actualmente <a href="https://ffmpeg.org/trac/ffmpeg/wiki/UbuntuCompilationGuide#fdk-aac">el encoder fdk-aac es el mejor</a>. Tiene un rango de calidad entre 1 a 5, siendo 1 lo más bajo y 5 lo más alto en calidad:</p>
 
       <code>ffmpeg -i audio.wav -c:a libfdk_aac -vbr 5 audio.aac</code>
 
@@ -88,7 +88,7 @@
 
       <h3>WAV a FLAC (Lossless)</h3>
 
-      <p>El codec <a href="https://es.wikipedia.org/wiki/Free_Lossless_Audio_Codec">FLAC</a> mantiene el audio sin pérdidas de calidad (Lossless), intacto internamente. Su encoder del mismo nombre, tiene un rango de compresión de archivo entre 0 a 8, siendo 0 menos comprimido y 8 más comprimido. Por defecto usa el rango 5 el cual otorga mejor equilibrio entre tiempo de encodeo y peso (también pueden utilizar contenedor .ogg):</p>
+      <p>El codec <a href="https://es.wikipedia.org/wiki/Free_Lossless_Audio_Codec"><abbr title="Free Lossless Audio Codec">FLAC</abbr></a> mantiene el audio sin pérdidas de calidad (Lossless), intacto internamente. Su encoder del mismo nombre, tiene un rango de compresión de archivo entre 0 a 8, siendo 0 menos comprimido y 8 más comprimido. Por defecto usa el rango 5 el cual otorga mejor equilibrio entre tiempo de encodeo y peso (también pueden utilizar contenedor .ogg):</p>
 
       <code>flac audio.wav -5 -o audio.flac</code>
 

@@ -18,7 +18,7 @@
 
       <h2>ssh</h2>
 
-      <p>Permite conectarse remotamente a otros equipos por conexión segura/encriptada <a href="https://es.wikipedia.org/wiki/Secure_Shell">SSH</a> (si tienes router debes habilitar el puerto 22 de tu equipo). La IP_DESTINO es la IP publica del destino que se puede ver en <a href="https://www.whatismyip.com/">What Is My IP</a> (o terminal: curl icanhazip.com). El destino debe tener un servidor SSH instalado, como <a href="https://help.ubuntu.com/10.04/serverguide/openssh-server.html">OpenSSH-Server</a>. Solo pedirá la contraseña del destino:</p>
+      <p>Permite conectarse remotamente a otros equipos por conexión segura/encriptada <a href="https://es.wikipedia.org/wiki/Secure_Shell"><abbr title="Secure Shell">SSH</abbr></a> (si tienes router debes habilitar el puerto 22 de tu equipo). La IP_DESTINO es la <abbr title="Internet Protocol">IP</abbr> publica del destino que se puede ver en <a href="https://www.whatismyip.com/">What Is My IP</a> (o terminal: curl icanhazip.com). El destino debe tener un servidor <abbr title="Secure Shell">SSH</abbr> instalado, como <a href="https://help.ubuntu.com/10.04/serverguide/openssh-server.html">OpenSSH-Server</a>. Solo pedirá la contraseña del destino:</p>
 
       <code>ssh usuario@IP_DESTINO</code>
 
@@ -42,7 +42,7 @@
 
       <h2>lancat</h2>
 
-      <p>Mandar archivos a través de la Red de Área Local (<a href="https://es.wikipedia.org/wiki/Red_de_%C3%A1rea_local">LAN</a>), fácil y automáticamente. Alguien que mande el archivo (-s). Y alguien que reciba el archivo (-r). (<a href="http://cont3mpo.github.io/post/2015/probando-lancat.html">Instalar y usar lancat</a>):</p>
+      <p>Mandar archivos a través de la Red de Área Local (<a href="https://es.wikipedia.org/wiki/Red_de_%C3%A1rea_local"><abbr title="Local Area Network">LAN</abbr></a>), fácil y automáticamente. Alguien que mande el archivo (-s). Y alguien que reciba el archivo (-r). (<a href="https://cont3mpo.github.io/post/2015/probando-lancat.html">Instalar y usar lancat</a>):</p>
 
       <code>lancat -s &lt; archivo</code>
 
@@ -50,7 +50,7 @@
 
       <h2>wget</h2>
 
-      <p>Descarga directo un archivo. O descarga el código <a href="https://es.wikipedia.org/wiki/HTML">HTML</a> del sitio y edita con <a href="http://es.wikipedia.org/wiki/Nano_(editor_de_texto)">nano</a>:</p>
+      <p>Descarga directo un archivo. O descarga el código <a href="https://es.wikipedia.org/wiki/HTML"><abbr title="HyperText Markup Language">HTML</abbr></a> del sitio y edita con <a href="http://es.wikipedia.org/wiki/Nano_(editor_de_texto)">nano</a>:</p>
 
       <code>wget www.web.com/archivo</code>
 
@@ -74,11 +74,11 @@
 
       <h2>curl</h2>
 
-      <p>Se puede subir cualquier tipo de archivo a <a href="https://transfer.sh/">transfer.sh</a>, un sitio que almacena por 2 semanas archivos de hasta 5GB (la URL de descarga aparecerá automáticamente):</p>
+      <p>Se puede subir cualquier tipo de archivo a <a href="https://transfer.sh/">transfer.sh</a>, un sitio que almacena por 2 semanas archivos de hasta 5GB (la <abbr title="Uniform Resource Locator">URL</abbr> de descarga aparecerá automáticamente):</p>
 
       <code>curl -T archivo https://transfer.sh</code>
 
-      <p>Bajar archivos con curl. O descarga el código HTML de un sitio:</p>
+      <p>Bajar archivos con curl. O descarga el código <abbr title="HyperText Markup Language">HTML</abbr> de un sitio:</p>
 
       <code>curl -O www.web.com/archivo</code>
 
@@ -98,7 +98,7 @@
 
       <code>pastebinit -i archivo</code>
 
-      <p>Capturar pantalla en PNG con retardo de 5 segundos (-d). O seleccionar áreas de la pantalla con puntero (-s). Y capturar ventana en uso con retardo de 5 segundos (-s -b -d):</p>
+      <p>Capturar pantalla en <abbr title="Portable Network Graphics">PNG</abbr> con retardo de 5 segundos (-d). O seleccionar áreas de la pantalla con puntero (-s). Y capturar ventana en uso con retardo de 5 segundos (-s -b -d):</p>
 
       <code>scrot -d 5</code>
 
@@ -132,7 +132,7 @@
 
       <h2>ffmpeg, lame, mediainfo</h2>
 
-      <p><a href="http://ffmpeg.org/">FFmpeg</a> encodea cualquier tipo de video/audio (<a href="http://cont3mpo.github.io/post/2013/encodear-con-ffmpeg.html">guía extensa</a>). O capturar video streaming:</p>
+      <p><a href="http://ffmpeg.org/">FFmpeg</a> encodea cualquier tipo de video/audio (<a href="https://cont3mpo.github.io/post/2013/encodear-con-ffmpeg.html">guía extensa</a>). O capturar video streaming:</p>
 
       <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -c:a flac salida.mkv</code>
 
@@ -148,7 +148,7 @@
 
       <code>ffmpeg -f video4linux2 -i /dev/video0 -f alsa -i pulse salida.mkv</code>
 
-      <p>Encodea cualquier audio a MP3 con <a href="https://es.wikipedia.org/wiki/Tasa_de_bits_variable">VBR</a> de alta calidad (<a href="http://cont3mpo.github.io/post/2009/encodear-audio-en-linux.html">guía extensa de encodear audio</a>):</p>
+      <p>Encodea cualquier audio a MP3 con <a href="https://es.wikipedia.org/wiki/Tasa_de_bits_variable"><abbr title="Variable Bitrate">VBR</abbr></a> de alta calidad (<a href="https://cont3mpo.github.io/post/2009/encodear-audio-en-linux.html">guía extensa de encodear audio</a>):</p>
 
       <code>lame audio.wav -V 0 audio.mp3</code>
 
@@ -164,7 +164,7 @@
 
       <code>cclive http://youtube.com/asdf</code>
 
-      <p>Y ver videos desde Youtube/Vimeo/Dailymotion. O video y audio en web con el reproductor <a href="http://mpv.io/">mpv</a> (<a href="http://cont3mpo.github.io/post/2013/mpv-el-sucesor-de-mplayer2.html">porqué usar mpv</a>). También si quisiéramos escuchar solo la música de un video:</p>
+      <p>Y ver videos desde Youtube/Vimeo/Dailymotion. O video y audio en web con el reproductor <a href="http://mpv.io/">mpv</a> (<a href="https://cont3mpo.github.io/post/2013/mpv-el-sucesor-de-mplayer2.html">porqué usar mpv</a>). También si quisiéramos escuchar solo la música de un video:</p>
 
       <code>mpv http://youtube.com/asdf</code>
 
@@ -212,7 +212,7 @@
 
       <code>transmission-cli -d 800 -u 30 archivo.torrent</code>
 
-      <p>Para video streaming de torrents (<a href="http://cont3mpo.github.io/post/2015/probando-peerflix.html">instalar y usar Peerflix</a>):</p>
+      <p>Para video streaming de torrents (<a href="https://cont3mpo.github.io/post/2015/probando-peerflix.html">instalar y usar Peerflix</a>):</p>
 
       <code>peerflix archivo.torrent --mpv</code>
 
@@ -380,7 +380,7 @@
 
       <h2>nano, echo, cat, alias</h2>
 
-      <p>El editor de texto fácil y entendible, solo para crear un archivo y ponerse a escribir (Guardar: Ctrl + O. Salir: Ctrl + X). O lee y edita el código HTML de un sitio:</p>
+      <p>El editor de texto fácil y entendible, solo para crear un archivo y ponerse a escribir (Guardar: Ctrl + O. Salir: Ctrl + X). O lee y edita el código <abbr title="HyperText Markup Language">HTML</abbr> de un sitio:</p>
 
       <code>nano archivo</code>
 
@@ -428,7 +428,7 @@
 
       <h2>cp, gcp</h2>
 
-      <p>Copia archivos rápidamente dentro del sistema o otros dispositivos (<a href="http://cont3mpo.github.io/post/2015/respaldando-rsync-cp-pv.html">cp es más rápido que rsync</a>, pero sin información de transferencias y copia archivos aunque existan en destino). También copia recursivamente carpetas (-r). Y copiar todo el contenido del actual directorio:</p>
+      <p>Copia archivos rápidamente dentro del sistema o otros dispositivos (<a href="https://cont3mpo.github.io/post/2015/respaldando-rsync-cp-pv.html">cp es más rápido que rsync</a>, pero sin información de transferencias y copia archivos aunque existan en destino). También copia recursivamente carpetas (-r). Y copiar todo el contenido del actual directorio:</p>
 
       <code>cp archivo /destino</code>
 
@@ -468,7 +468,7 @@
 
       <h2>pycp, pymv</h2>
 
-      <p>Lo mismo que cp (aunque <a href="http://cont3mpo.github.io/post/2015/respaldando-rsync-cp-pv.html">es más lento que cp</a>) y mv, pero con una barra de progreso e información de transferencia (instala python-pip, y luego: sudo pip install pycp):</p>
+      <p>Lo mismo que cp (aunque <a href="https://cont3mpo.github.io/post/2015/respaldando-rsync-cp-pv.html">es más lento que cp</a>) y mv, pero con una barra de progreso e información de transferencia (instala python-pip, y luego: sudo pip install pycp):</p>
 
       <code>pycp archivo /destino</code>
 
@@ -522,7 +522,7 @@
 
       <h2>chmod, chown</h2>
 
-      <p>Modificar permisos de un archivo (u: usuario, g: grupo, o: otros, a: todos - w: leer, w: escribir, x: ejecutar) (<a href="http://cont3mpo.github.io/post/2009/permisos-de-usuario-en-linux.html">guía extensa</a>). Y cambiar al dueño de un archivo:</p>
+      <p>Modificar permisos de un archivo (u: usuario, g: grupo, o: otros, a: todos - w: leer, w: escribir, x: ejecutar) (<a href="https://cont3mpo.github.io/post/2009/permisos-de-usuario-en-linux.html">guía extensa</a>). Y cambiar al dueño de un archivo:</p>
 
       <code>chmod ugoa+rwx archivo</code>
 
@@ -530,7 +530,7 @@
 
       <h2>apt</h2>
 
-      <p>El poderoso <a href="https://mvogt.wordpress.com/2014/04/04/apt-1-0/">APT que desde la versión 1.0</a>&nbsp;puede usar también 'apt orden'. Para sistemas basados en Debian, como <a href="http://cont3mpo.github.io/post/2013/el-futuro-unificado-de-ubuntu.html">Ubuntu</a> 14.04 LTS y <a href="http://cont3mpo.github.io/post/2014/probando-elementary-os-freya-beta.html">elementary OS Freya</a>. Para actualizar la lista de software (update). Y actualizar sistema (upgrade):</p>
+      <p>El poderoso <abbr title="Advanced Packaging Tool">APT</abbr> que desde la <a href="https://mvogt.wordpress.com/2014/04/04/apt-1-0/">versión 1.0</a> puede usar también 'apt orden'. Para sistemas basados en Debian, como <a href="https://cont3mpo.github.io/post/2013/el-futuro-unificado-de-ubuntu.html">Ubuntu</a> 14.04 LTS y <a href="https://cont3mpo.github.io/post/2014/probando-elementary-os-freya-beta.html">elementary OS Freya</a>. Para actualizar la lista de software (update). Y actualizar sistema (upgrade):</p>
 
       <code>sudo apt update</code>
 
@@ -564,7 +564,7 @@
 
       <h2>nmap, arp-scan</h2>
 
-      <p>Para ver a todos los que están conectados a tu Red de Área Local (LAN), incluidos los con Wi-Fi (aparece la IP, MAC y el fabricante):</p>
+      <p>Para ver a todos los que están conectados a tu Red de Área Local (<abbr title="Local Area Network">LAN</abbr>), incluidos los con Wi-Fi (aparece la <abbr title="Internet Protocol">IP</abbr>, <abbr title="Media Access Control Address">MAC</abbr> y el fabricante):</p>
 
       <code>sudo nmap -sP 192.168.1.0/24</code>
 
@@ -592,7 +592,7 @@
 
       <code>ifconfig wlan0 | grep Bytes</code>
 
-      <p>Para ver la calidad de señal Wi-Fi actual (70 máx), y el nivel de señal&nbsp;<a href="http://es.wikipedia.org/wiki/DBm">dBm</a> (prueben acercándose y alejándose para ver como afecta):</p>
+      <p>Para ver la calidad de señal Wi-Fi actual (70 máx), y el nivel de señal <a href="http://es.wikipedia.org/wiki/DBm">dBm</a> (prueben acercándose y alejándose para ver como afecta):</p>
 
       <code>iwconfig wlan0 | grep Quality</code>
 
@@ -602,7 +602,7 @@
 
       <h2>htop, iotop, pydf</h2>
 
-      <p>Con htop se puede monitorear el uso de procesos que están corriendo, también uso de <a href="https://es.wikipedia.org/wiki/Unidad_central_de_procesamiento">CPU</a>, <a href="https://es.wikipedia.org/wiki/Memoria_de_acceso_aleatorio">RAM</a> y <a href="https://es.wikipedia.org/wiki/Espacio_de_intercambio">Swap</a> (los que utilizan más procesamiento aparecen en la cabecera). Y con iotop puedes ver que procesos están escribiendo y leyendo en tu disco:</p>
+      <p>Con htop se puede monitorear el uso de procesos que están corriendo, también uso de <a href="https://es.wikipedia.org/wiki/Unidad_central_de_procesamiento"><abbr title="Central Processing Unit">CPU</abbr></a>, <a href="https://es.wikipedia.org/wiki/Memoria_de_acceso_aleatorio"><abbr title="Random-Access Memory">RAM</abbr></a> y <a href="https://es.wikipedia.org/wiki/Espacio_de_intercambio">Swap</a> (los que utilizan más procesamiento aparecen en la cabecera). Y con iotop puedes ver que procesos están escribiendo y leyendo en tu disco:</p>
 
       <code>htop</code>
 
@@ -654,7 +654,7 @@
 
       <h2>lspci, lshw</h2>
 
-      <p>Para ver el tipo de <a href="https://es.wikipedia.org/wiki/Unidad_de_procesamiento_gr%C3%A1fico">GPU</a> (gráficos) que usa el equipo, y fabricante del modelo Wi-Fi:</p>
+      <p>Para ver el tipo de <a href="https://es.wikipedia.org/wiki/Unidad_de_procesamiento_gr%C3%A1fico"><abbr title="Graphics Processing Unit">GPU</abbr></a> (gráficos) que usa el equipo, y fabricante del modelo Wi-Fi:</p>
 
       <code>lspci | grep -e VGA -e Wireless</code>
 
@@ -686,11 +686,11 @@
 
       <h2>tcpdump, whois, host</h2>
 
-      <p>Para monitorear todo lo que pasa por el puerto 80 <a href="https://es.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a> (usado en <a href="https://es.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP</a>) (Salir: Ctrl + C):</p>
+      <p>Para monitorear todo lo que pasa por el puerto 80 <a href="https://es.wikipedia.org/wiki/Transmission_Control_Protocol"><abbr title="Transmission Control Protocol">TCP</abbr></a> (usado en <a href="https://es.wikipedia.org/wiki/Hypertext_Transfer_Protocol"><abbr title="Hypertext Transfer Protocol">HTTP</abbr></a>) (Salir: Ctrl + C):</p>
 
       <code>sudo tcpdump tcp port 80</code>
 
-      <p>Para ver información de dueño del dominio, servidores, y creación del dominio. Y host puede ver la <a href="https://es.wikipedia.org/wiki/Direcci%C3%B3n_IP">IP</a> del dominio:</p>
+      <p>Para ver información de dueño del dominio, servidores, y creación del dominio. Y host puede ver la <a href="https://es.wikipedia.org/wiki/Direcci%C3%B3n_IP"><abbr title="Internet Protocol">IP</abbr></a> del dominio:</p>
 
       <code>whois web.com</code>
 

@@ -187,6 +187,10 @@ strong {
   font-weight: 600;
 }
 
+abbr[title] {
+  text-decoration: none;
+}
+
 img {
   max-width: 100%;
   height: auto;

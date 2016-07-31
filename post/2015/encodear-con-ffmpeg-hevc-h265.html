@@ -14,13 +14,13 @@
     <article>
       <h1>Encodear con FFmpeg: HEVC (H.265)</h1>
 
-      <p>En esta tercera parte de encodear con FFmpeg, le toca el turno al nuevo codec de video <a href="http://es.wikipedia.org/wiki/H.265">HEVC</a>.</p>
+      <p>En esta tercera parte de encodear con FFmpeg, le toca el turno al nuevo codec de video <a href="http://es.wikipedia.org/wiki/H.265"><abbr title="High Efficiency Video Coding">HEVC</abbr></a>.</p>
 
-      <p>Ya encodeamos <a href="http://cont3mpo.github.io/post/2013/encodear-con-ffmpeg.html">en H.264</a>, también <a href="http://cont3mpo.github.io/post/2014/encodear-con-ffmpeg-vp9.html">en VP9</a>, y ahora será en HEVC (H.265). Y justo hoy se lanzó <a href="http://git.videolan.org/?p=ffmpeg.git;a=blob;f=RELEASE_NOTES;hb=release/2.6">FFmpeg 2.6</a> con algunas optimizaciones en HEVC, el cual ya está casi funcionando bien. Y vale la pena adelantarse.</p>
+      <p>Ya encodeamos <a href="https://cont3mpo.github.io/post/2013/encodear-con-ffmpeg.html">en H.264</a>, también <a href="https://cont3mpo.github.io/post/2014/encodear-con-ffmpeg-vp9.html">en VP9</a>, y ahora será en <abbr title="High Efficiency Video Coding">HEVC</abbr> (H.265). Y justo hoy se lanzó <a href="http://git.videolan.org/?p=ffmpeg.git;a=blob;f=RELEASE_NOTES;hb=release/2.6">FFmpeg 2.6</a> con algunas optimizaciones en <abbr title="High Efficiency Video Coding">HEVC</abbr>, el cual ya está casi funcionando bien. Y vale la pena adelantarse.</p>
 
       <h2>Instalar FFmpeg</h2>
 
-      <p>En Ubuntu/elementary OS se agrega un <a href="https://launchpad.net/~mc3man/+archive/ubuntu/trusty-media">PPA actualizado con FFmpeg</a>, e&nbsp;instalan FFmpeg (otro <a href="https://launchpad.net/~djcj/+archive/ubuntu/hybrid">PPA de respaldo</a>).</p>
+      <p>En Ubuntu/elementary OS se agrega un <a href="https://launchpad.net/~mc3man/+archive/ubuntu/trusty-media">PPA actualizado con FFmpeg</a>, e instalan FFmpeg (otro <a href="https://launchpad.net/~djcj/+archive/ubuntu/hybrid">PPA de respaldo</a>).</p>
 
       <p>En OS X instalan FFmpeg usando <a href="http://brew.sh/index_es.html">Homebrew</a>. Y para instalar los encoders que faltan:</p>
 
@@ -28,15 +28,15 @@
 
       <h2>Configurar CRF y Compresión</h2>
 
-      <p>Afortunadamente, las configuraciones de HEVC son parecidas a las de H.264, y se puede usar Constant Rate Factor (CRF), y preset para compresión de calidad. Usaremos el encoder <a href="http://es.wikipedia.org/wiki/X265">x265</a> para encodear a HEVC.</p>
+      <p>Afortunadamente, las configuraciones de HEVC son parecidas a las de H.264, y se puede usar Constant Rate Factor (<abbr title="Constant Rate Factor">CRF</abbr>), y preset para compresión de calidad. Usaremos el encoder <a href="http://es.wikipedia.org/wiki/X265">x265</a> para encodear a <abbr title="High Efficiency Video Coding">HEVC</abbr>.</p>
 
-      <p>En HEVC usan un CRF con un <a href="http://x265.readthedocs.org/en/default/cli.html#cmdoption--crf">rango de medición de calidad entre 0 a 51</a>, siendo 0 lo mejor y 51 lo peor. Por defecto usa 28, el cual no tiene nada que ver con la medición de H.264. Pero recomiendo 23 (que vendría a ser el equivalente de 18 en H.264). Los preset de compresión de calidad son los mismos, por defecto usa medium, pero por las moscas usaremos slow (<a href="http://x265.readthedocs.org/en/default/cli.html#cmdoption--preset">hay varios disponibles</a> para relentizar o acelerar el encodeo), El profile no está funcionando, así que solo modificar el crf y preset con todo lo demás por defecto:</p>
+      <p>En <abbr title="High Efficiency Video Coding">HEVC</abbr> usan un <abbr title="Constant Rate Factor">CRF</abbr> con un <a href="http://x265.readthedocs.org/en/default/cli.html#cmdoption--crf">rango de medición de calidad entre 0 a 51</a>, siendo 0 lo mejor y 51 lo peor. Por defecto usa 28, el cual no tiene nada que ver con la medición de H.264. Pero recomiendo 23 (que vendría a ser el equivalente de 18 en H.264). Los preset de compresión de calidad son los mismos, por defecto usa medium, pero por las moscas usaremos slow (<a href="http://x265.readthedocs.org/en/default/cli.html#cmdoption--preset">hay varios disponibles</a> para relentizar o acelerar el encodeo), El profile no está funcionando, así que solo modificar el crf y preset con todo lo demás por defecto:</p>
 
       <code>ffmpeg -i entrada.mkv -c:v libx265 -crf 23 -preset slow -c:a copy salida.mkv</code>
 
-      <p>Con HEVC obtienes menos peso, pero también puede relentizar la reproducción dependiendo del equipo usado. Si se hizo un encodeo lento con configuraciones que priorizan la calidad, eso puede afectar la decodificación. Si pasa eso, entonces usa un preset más rápido como faster, veryfast o ultrafast.</p>
+      <p>Con <abbr title="High Efficiency Video Coding">HEVC</abbr> obtienes menos peso, pero también puede relentizar la reproducción dependiendo del equipo usado. Si se hizo un encodeo lento con configuraciones que priorizan la calidad, eso puede afectar la decodificación. Si pasa eso, entonces usa un preset más rápido como faster, veryfast o ultrafast.</p>
 
-      <p>Y por último, revisa cuadros de imagen comparando si hay perdida visual cuando uses CRF altos o bajos. Esta vez será HEVC en 8 bits, ya que FFmpeg todavía no habilita el profile main10. Cuando optimicen para 10 bits, lo agregaré acá.</p>
+      <p>Y por último, revisa cuadros de imagen comparando si hay perdida visual cuando uses CRF altos o bajos. Esta vez será <abbr title="High Efficiency Video Coding">HEVC</abbr> en 8 bits, ya que FFmpeg todavía no habilita el profile main10. Cuando optimicen para 10 bits, lo agregaré acá.</p>
     </article>
   </div>
 </body>

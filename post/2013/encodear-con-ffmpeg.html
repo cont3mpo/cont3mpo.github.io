@@ -26,7 +26,7 @@
 
       <h3>Constant Rate Factor (CRF)</h3>
 
-      <p>Fijarse solo en el bitrate al encodear para limitar el peso de un video está mal. La gracia de la opción <a href="http://slhck.info/crf.html">CRF</a> en x264 es que solo se enfoca en mantener una calidad constante al video por medio de distribución de <a href="https://en.wikipedia.org/wiki/Bitrate#Multimedia_encoding">bitrates</a> dependiendo de las escenas, él decidirá cuantos bits usar en cada imagen sin importar el peso del video y así mantener una calidad constante</p>
+      <p>Fijarse solo en el bitrate al encodear para limitar el peso de un video está mal. La gracia de la opción <a href="http://slhck.info/crf.html"><abbr title="Constant Rate Factor">CRF</abbr></a> en x264 es que solo se enfoca en mantener una calidad constante al video por medio de distribución de <a href="https://en.wikipedia.org/wiki/Bitrate#Multimedia_encoding">bitrates</a> dependiendo de las escenas, él decidirá cuantos bits usar en cada imagen sin importar el peso del video y así mantener una calidad constante</p>
 
       <h3>10bit</h3>
 
@@ -34,7 +34,7 @@
 
       <h3>FLAC</h3>
 
-      <p>La gracia del codec abierto <a href="https://es.wikipedia.org/wiki/Free_Lossless_Audio_Codec">FLAC</a> es que no tiene pérdidas de calidad de audio. Debes usar una fuente de <a href="https://en.wikipedia.org/wiki/Blu-ray_Disc#Audio">audio sin pérdidas (Lossless)</a>. Usa <a href="https://en.wikipedia.org/wiki/Linear_pulse-code_modulation">LPCM</a>, <a href="https://en.wikipedia.org/wiki/DTS-HD_Master_Audio">DTS-HD MA</a> y <a href="https://en.wikipedia.org/wiki/Dolby_TrueHD">Dolby TrueHD</a>, los cuales no traen pérdida de audio (lossless), utiliza esos para encodear a FLAC. <a href="https://en.wikipedia.org/wiki/DTS_(sound_system)">DTS</a> y <a href="https://en.wikipedia.org/wiki/Dolby_Digital">Dolby Digital</a> traen perdida (lossy), así que no encodeen desde esos dos.</p>
+      <p>La gracia del codec abierto <a href="https://es.wikipedia.org/wiki/Free_Lossless_Audio_Codec"><abbr title="Free Lossless Audio Codec">FLAC</abbr></a> es que no tiene pérdidas de calidad de audio. Debes usar una fuente de <a href="https://en.wikipedia.org/wiki/Blu-ray_Disc#Audio">audio sin pérdidas (Lossless)</a>. Usa <a href="https://en.wikipedia.org/wiki/Linear_pulse-code_modulation">LPCM</a>, <a href="https://en.wikipedia.org/wiki/DTS-HD_Master_Audio">DTS-HD MA</a> y <a href="https://en.wikipedia.org/wiki/Dolby_TrueHD">Dolby TrueHD</a>, los cuales no traen pérdida de audio (lossless), utiliza esos para encodear a FLAC. <a href="https://en.wikipedia.org/wiki/DTS_(sound_system)">DTS</a> y <a href="https://en.wikipedia.org/wiki/Dolby_Digital">Dolby Digital</a> traen perdida (lossy), así que no encodeen desde esos dos.</p>
 
       <h2>Instalar x264-10bit y FFmpeg</h2>
 
@@ -80,7 +80,7 @@
 
       <code>ffmpeg -i entrada.mkv -c:v libx264 -tune animation -c:a copy salida.mkv</code>
 
-      <p>FLAC utiliza un <a href="http://flac.sourceforge.net/documentation_tools_flac.html#flac_options_levels">rango de compresión de archivo entre 0 a 8</a> y el audio se mantiene sin pérdidas, siendo 0 menos comprimido y 8 más comprimido. Por defecto comprime en 5, así que no lo modifico. Se usa así -c:a flac -compression_level 8. FLAC soporta <a href="http://xiph.org/flac/faq.html#general__channels">hasta 8 canales de audio y 32 bits de profundidad</a>:</p>
+      <p><abbr title="Free Lossless Audio Codec">FLAC</abbr> utiliza un <a href="http://flac.sourceforge.net/documentation_tools_flac.html#flac_options_levels">rango de compresión de archivo entre 0 a 8</a> y el audio se mantiene sin pérdidas, siendo 0 menos comprimido y 8 más comprimido. Por defecto comprime en 5, así que no lo modifico. Se usa así -c:a flac -compression_level 8. FLAC soporta <a href="http://xiph.org/flac/faq.html#general__channels">hasta 8 canales de audio y 32 bits de profundidad</a>:</p>
 
       <code>ffmpeg -i entrada.mkv -c:v copy -c:a flac salida.mkv</code>
 

@@ -26,7 +26,7 @@
 
       <h2>Tiempo de transferencia</h2>
 
-      <p>Hice unas transferencias/copias localmente. En un computador con <a href="http://cont3mpo.blogspot.com/2014/08/probando-elementary-os-freya-beta.html">elementary OS Freya</a> 64-bit ya instalado, el disco duro formateado en <a href="https://es.wikipedia.org/wiki/Ext4">Ext4</a>, y un archivo de 1,8 GB para testear. Después conecté el disco duro externo (HDD portátil) por USB 2.0 formateado en NTFS y le transferí el archivo:</p>
+      <p>Hice unas transferencias/copias localmente. En un computador con <a href="https://cont3mpo.github.io/post/2014/probando-elementary-os-freya-beta.html">elementary OS Freya</a> 64-bit ya instalado, el disco duro formateado en <a href="https://es.wikipedia.org/wiki/Ext4">Ext4</a>, y un archivo de 1,8 GB para testear. Después conecté el disco duro externo (HDD portátil) por USB 2.0 formateado en NTFS y le transferí el archivo:</p>
 
       <ul>
         <li>cp 30s (local) - 56s (externa)</li>
@@ -68,7 +68,7 @@
 
       <p>En fin. rsync será muy inteligente para respaldar y mostrar información, pero cp es muy rápido y puede copiar sin dar nombres de destinatarios como no lo hace pv, aunque los dos son rápidos y eficientes en procesamiento. gcp es muy rápido para copiar y mostrar información a la vez, usa las mismas opciones que cp pero en procesamiento se comporta medio extraño. Y pycp al menos le ganó a rsync pero no a los otros (¿culpa de Python?). Pero también si vas a <a href="https://lists.gnu.org/archive/html/coreutils/2014-08/msg00012.html">copiar millones de archivos en terabytes usando cp</a> de una sola tirada, mejor piénsalo y hazlo por secciones.</p>
 
-      <p>No probé <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/scp.1.html">scp</a>, ya que <a href="http://www.digitalsanctuary.com/tech-blog/debian/rsync-is-much-faster-than-scp.html">dicen que es jodidamente lento</a>. Y ya es conocido que <a href="https://lwn.net/Articles/400489/">rsync utiliza mucho procesamiento</a>. Pensaba testear <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/mv.1posix.html">mv</a> quizá, pero mv no copia, solo mueve, y no sería lo mismo. Pueden ver los <a href="http://cont3mpo.github.io/post/2014/comandos-productivos-simples.html">comandos productivos</a> para saber como se usan.</p>
+      <p>No probé <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/scp.1.html">scp</a>, ya que <a href="http://www.digitalsanctuary.com/tech-blog/debian/rsync-is-much-faster-than-scp.html">dicen que es jodidamente lento</a>. Y ya es conocido que <a href="https://lwn.net/Articles/400489/">rsync utiliza mucho procesamiento</a>. Pensaba testear <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/mv.1posix.html">mv</a> quizá, pero mv no copia, solo mueve, y no sería lo mismo. Pueden ver los <a href="https://cont3mpo.github.io/post/2014/comandos-productivos-simples.html">comandos productivos</a> para saber como se usan.</p>
     </article>
   </div>
 </body>
