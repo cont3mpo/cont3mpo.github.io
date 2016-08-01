@@ -46,7 +46,7 @@ a:hover, .logo a:hover, h2.title a:hover, .plus h4 a:hover {
   color: #D8BFD8;
 }
 
-::-moz-selection {
+::-moz-selection { /* Firefox */
   background: #E91E63;
   color: #fff;
 }
@@ -54,14 +54,6 @@ a:hover, .logo a:hover, h2.title a:hover, .plus h4 a:hover {
 ::selection {
   background: #E91E63;
   color: #fff;
-}
-
-a::-moz-selection:hover {
-  color: #D8BFD8;
-}
-
-a::selection:hover {
-  color: #D8BFD8;
 }
 
 /* Header */
