@@ -478,7 +478,7 @@
 
       <code>pycp -g carpeta /destino</code>
 
-      <h2>ls, du, sort, wc</h2>
+      <h2>ls, sort, wc</h2>
 
       <p>Para ver el tamaño de los archivos (-sh). Ver los permisos/dueños (-l). Y ver todos los archivos ocultos (-a) (se pueden combinar):</p>
 
@@ -496,6 +496,14 @@
 
       <code>ls *.{jpg,gif,png}</code>
 
+      <p>Combinando ls + wc se puede contar la cantidad de archivos y carpetas de un directorio. Y que también sume los archivos ocultos (-A) recursivamente en las demás carpetas (-R):</p>
+
+      <code>ls | wc -l</code>
+
+      <code>ls -AR | wc -l</code>
+
+      <h2>du</h2>
+
       <p>Con du se puede ver el peso de todos los directorios (-sh *). O el peso total del directorio actual (-sh):</p>
 
       <code>du -sh *</code>
@@ -506,11 +514,11 @@
 
       <code>du -sh * | sort -h</code>
 
-      <p>Combinando ls + wc se puede contar la cantidad de archivos y carpetas de un directorio. Y que también sume los archivos ocultos (-A) recursivamente en las demás carpetas (-R):</p>
+      <h2>ncdu</h2>
 
-      <code>ls | wc -l</code>
+      <p>Muy parecido a du pero navegable a través de los directorios:</p>
 
-      <code>ls -AR | wc -l</code>
+      <code>ncdu</code>
 
       <h2>tree</h2>
 
