@@ -38,11 +38,11 @@
 
       <h2>Instalar x264-10bit y FFmpeg</h2>
 
-      <p>Solo 10 bit: Se instalan 3 cosas, <a href="https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu">instalar dependencias (+ yasm), x264, y FFmpeg</a> (en ese orden), copiar/pegar en la terminal lo que aparece en los cuadros. Para compilar x264-10bit, al final de la linea "./configure" tienes que agregar: --bit-depth=10 (Antes de instalar FFmpeg, primero borra de la lista todos los encoders que no instalaste, como por ejemplo --enable-libfdk-aac, --enable-libmp3lame, etc.)</p>
+      <p><strong>Solo Linux x264-10bit</strong>: Se instalan 3 cosas, <a href="https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu">instalar dependencias (+ yasm), x264, y FFmpeg</a> (en ese orden), copiar/pegar en la terminal lo que aparece en los cuadros. Para compilar x264-10bit, al final de la linea "./configure" tienes que agregar: --bit-depth=10 (Antes de instalar FFmpeg, primero borra de la lista todos los encoders que no instalaste, como por ejemplo --enable-libfdk-aac, --enable-libmp3lame, etc.)</p>
 
-      <p>Solo 8 bit: Esto es más fácil, instala <a href="https://launchpad.net/~mc3man/+archive/ubuntu/trusty-media">FFmpeg actualizado desde un PPA</a> (otro <a href="https://launchpad.net/~djcj/+archive/ubuntu/hybrid">PPA con FFmpeg, la última versión de x264 y Mkvtoolnix</a>). Y listo, a encodear.</p>
+      <p><strong>Solo Linux x264-8bit</strong>: Esto es más fácil, instala <a href="https://launchpad.net/~mc3man/+archive/ubuntu/trusty-media">FFmpeg actualizado desde un PPA</a> (otro <a href="https://launchpad.net/~djcj/+archive/ubuntu/hybrid">PPA con FFmpeg, la última versión de x264 y Mkvtoolnix</a>). Y listo, a encodear.</p>
 
-      <p>En OS X instala FFmpeg usando <a href="http://brew.sh/index_es.html">Homebrew</a>. Y para agregar más encoders:</p>
+      <p><strong>Solo macOS x264-8bit</strong>: Instala FFmpeg usando <a href="http://brew.sh/index_es.html">Homebrew</a>. Y para agregar más encoders:</p>
 
       <code>brew reinstall ffmpeg --with-faac --with-libvpx --with-x265 --with-opus</code>
 
@@ -68,7 +68,7 @@
 
       <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -preset slow -profile:v high10 -c:a copy salida.mkv</code>
 
-      <p>Modificar opciones x264: Opcionalmente si no quiere usar un preset, también puedes modificar parámetros específicos en la compresión de x264 + ffmpeg, <a href="http://sonnati.wordpress.com/2011/08/19/ffmpeg-%E2%80%93-the-swiss-army-knife-of-internet-streaming-%E2%80%93-part-iii/">por ejemplo modificar los bframes, me_method, refs, me_range, etc</a> (solo recomendado para usuarios avanzados, y <a href="http://mewiki.project357.com/wiki/X264_Settings#Frame-type_options">lee para que sirve cada uno</a>, también su <a href="https://sites.google.com/site/linuxencoding/x264-ffmpeg-mapping">nombre al ponerlos con ffmpeg</a> y en la <a href="https://ffmpeg.org/ffmpeg-codecs.html">documentación de ffmpeg</a>). Unas modificaciones para mejorar el encodeo:</p>
+      <p><strong>Modificar opciones x264</strong>: Opcionalmente si no quiere usar un preset, también puedes modificar parámetros específicos en la compresión de x264 + ffmpeg, <a href="http://sonnati.wordpress.com/2011/08/19/ffmpeg-%E2%80%93-the-swiss-army-knife-of-internet-streaming-%E2%80%93-part-iii/">por ejemplo modificar los bframes, me_method, refs, me_range, etc</a> (solo recomendado para usuarios avanzados, y <a href="http://mewiki.project357.com/wiki/X264_Settings#Frame-type_options">lee para que sirve cada uno</a>, también su <a href="https://sites.google.com/site/linuxencoding/x264-ffmpeg-mapping">nombre al ponerlos con ffmpeg</a> y en la <a href="https://ffmpeg.org/ffmpeg-codecs.html">documentación de ffmpeg</a>). Unas modificaciones para mejorar el encodeo:</p>
 
       <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -profile:v high10 -bf 8 -refs 8 -b_strategy 2 -me_range 24 -trellis 2 -subq 9 -me_method umh -deblock 1:-1:-2 -qcomp 0.80 -psy-rd 0.70:0.00 -rc-lookahead 120 -aq-strength 1.0 -c:a copy avanzado.mkv</code>
 
@@ -80,7 +80,7 @@
 
       <code>ffmpeg -i entrada.mkv -c:v libx264 -tune animation -c:a copy salida.mkv</code>
 
-      <p><abbr title="Free Lossless Audio Codec">FLAC</abbr> utiliza un <a href="http://flac.sourceforge.net/documentation_tools_flac.html#flac_options_levels">rango de compresión de archivo entre 0 a 8</a> y el audio se mantiene sin pérdidas, siendo 0 menos comprimido y 8 más comprimido. Por defecto comprime en 5, así que no lo modifico. Se usa así -c:a flac -compression_level 8. FLAC soporta <a href="http://xiph.org/flac/faq.html#general__channels">hasta 8 canales de audio y 32 bits de profundidad</a>:</p>
+      <p><strong> Para audio <abbr title="Free Lossless Audio Codec">FLAC</abbr></strong>: Utiliza un <a href="http://flac.sourceforge.net/documentation_tools_flac.html#flac_options_levels">rango de compresión de archivo entre 0 a 8</a> y el audio se mantiene sin pérdidas, siendo 0 menos comprimido y 8 más comprimido. Por defecto comprime en 5, así que no lo modifico. Se usa así -c:a flac -compression_level 8. FLAC soporta <a href="http://xiph.org/flac/faq.html#general__channels">hasta 8 canales de audio y 32 bits de profundidad</a>:</p>
 
       <code>ffmpeg -i entrada.mkv -c:v copy -c:a flac salida.mkv</code>
 
