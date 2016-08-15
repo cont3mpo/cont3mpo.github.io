@@ -478,7 +478,7 @@
 
       <code>pycp -g carpeta /destino</code>
 
-      <h2>ls, sort, wc</h2>
+      <h2>ls, wc</h2>
 
       <p>Para ver el tamaño de los archivos (-sh). Ver los permisos/dueños (-l). Y ver todos los archivos ocultos (-a) (se pueden combinar):</p>
 
@@ -488,13 +488,15 @@
 
       <code>ls -a</code>
 
-      <p>Localizar archivo que comience con una palabra. O mostrar solo con extensión .jpg. También que muestre solo con algunas extensiones:</p>
+      <p>Localizar archivo que comience con una palabra. O mostrar solo con extensión .jpg. También que muestre solo con algunas extensiones (*.{jpg,gif,png}). Listar resultados recursivamente dentro de las demás carpetas (-R):</p>
 
       <code>ls archiv*</code>
 
       <code>ls *.jpg</code>
 
       <code>ls *.{jpg,gif,png}</code>
+
+      <code>ls -R *.jpg</code>
 
       <p>Combinando ls + wc se puede contar la cantidad de archivos y carpetas de un directorio. Y que también sume los archivos ocultos (-A) recursivamente en las demás carpetas (-R):</p>
 
