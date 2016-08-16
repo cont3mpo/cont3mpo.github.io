@@ -488,7 +488,7 @@
 
       <code>ls -a</code>
 
-      <p>Localizar archivo que comience con una palabra. O mostrar solo con extensión .jpg. También que muestre solo con algunas extensiones (*.{jpg,gif,png}). Listar resultados recursivamente dentro de las demás carpetas (-R):</p>
+      <p>Localizar archivo que comience con una palabra. O mostrar solo con extensión .jpg. También que muestre solo con algunas extensiones (*.{jpg,gif,png}).</p>
 
       <code>ls archiv*</code>
 
@@ -496,17 +496,17 @@
 
       <code>ls *.{jpg,gif,png}</code>
 
-      <code>ls -R *.jpg</code>
-
       <p>Combinando ls + wc se puede contar la cantidad de archivos y carpetas de un directorio. Y que también sume los archivos ocultos (-A) recursivamente en las demás carpetas (-R):</p>
 
       <code>ls | wc -l</code>
 
       <code>ls -AR | wc -l</code>
 
-      <p>Listar y usar grep para mostrar solo los archivos que usen esa palabra:</p>
+      <p>Listar y usar grep para mostrar solo los archivos que usen esa palabra. Y recursivamente (-R):</p>
 
       <code>ls | grep palabra</code>
+
+      <code>ls -R | grep *.jpg</code>
 
       <h2>du</h2>
 
