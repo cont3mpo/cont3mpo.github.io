@@ -406,13 +406,15 @@
 
       <h2>rm, trash-cli</h2>
 
-      <p>Para eliminar definitivamente varios archivos que terminen o empiecen con la misma palabra. O borrar todos los archivos en el directorio actual (sin tocar las carpetas):</p>
+      <p>Para eliminar definitivamente varios archivos que terminen o empiecen con la misma palabra. O borrar todos los archivos en el directorio actual (sin tocar las carpetas). O solo con extensiones especificas:</p>
 
       <code>rm *rchivo archiv*</code>
 
       <code>rm *</code>
 
-      <p>Para eliminar una carpeta hay que hacerlo recursivamente (-r). También eliminar todas las carpetas y archivos sueltos sin indicar nombres en el directorio actual (-r *):</p>
+      <code>rm *.jpg</code>
+
+      <p>Para eliminar una carpeta se debe hacer recursivamente (-r). También eliminar todas las carpetas y archivos sueltos sin indicar nombres en el directorio actual (-r *):</p>
 
       <code>rm -r carpeta</code>
 
@@ -477,6 +479,18 @@
       <p>Si están transfiriendo una carpeta con muchos archivos usen -g para que aparezca una sola barra y no múltiples (no necesita opción de recursiva):</p>
 
       <code>pycp -g carpeta /destino</code>
+
+      <h2>cd</h2>
+
+      <p>Con cd se pueden escalar directorios. También ir a uno nuevo, como raíz (/). O ir al home (~), también se vuelve al home simplemente escribiendo solo cd. Y retroceder un nivel:</p>
+
+      <code>cd directorio</code>
+
+      <code>cd /</code>
+
+      <code>cd ~</code>
+
+      <code>cd ..</code>
 
       <h2>ls, wc</h2>
 
@@ -576,6 +590,12 @@
 
       <code>brew upgrade</code>
 
+      <h2>open</h2>
+
+      <p>En macOS puedes abrir un archivo con open y lo abrirá con su app predeterminada:</p>
+
+      <code>open archivo</code>
+
       <h2>nmap, arp-scan</h2>
 
       <p>Para ver a todos los que están conectados a tu Red de Área Local (<abbr title="Local Area Network">LAN</abbr>), incluidos los con Wi-Fi (aparece la <abbr title="Internet Protocol">IP</abbr>, <abbr title="Media Access Control Address">MAC</abbr> y el fabricante):</p>
@@ -648,9 +668,11 @@
 
       <code>free -h | grep -e usado -e cache</code>
 
-      <p>Con ps se puede ver la lista de todos los procesos que están corriendo y el usuario que los usa:</p>
+      <p>Con ps se puede ver la lista de todos los procesos que están corriendo y el usuario que los usa. O buscar el nombre de un proceso corriendo:</p>
 
-      <code>ps -aux</code>
+      <code>ps aux</code>
+
+      <code>ps x | grep -i nombreapp</code>
 
       <p>Para información en un-solo-lugar de uso de cpu, ram, swap, red, procesos, instala <a href="http://askubuntu.com/a/293447">Glances</a>.</p>
 
@@ -698,6 +720,16 @@
 
       <code>ping -c 5 www.google.com</code>
 
+      <h2>whoami, who, pwd</h2>
+
+      <p>Con whoami se puede ver el nombre del usuario actual. Con who se ven los conectados actualmente. Con pwd la ruta completa del directorio actual:</p>
+
+      <code>whoami</code>
+
+      <code>who</code>
+
+      <code>pwd</code>
+
       <h2>tcpdump, whois, host</h2>
 
       <p>Para monitorear todo lo que pasa por el puerto 80 <a href="https://es.wikipedia.org/wiki/Transmission_Control_Protocol"><abbr title="Transmission Control Protocol">TCP</abbr></a> (usado en <a href="https://es.wikipedia.org/wiki/Hypertext_Transfer_Protocol"><abbr title="Hypertext Transfer Protocol">HTTP</abbr></a>) (Salir: Ctrl + C):</p>
@@ -728,11 +760,13 @@
 
       <h2>xkill, killall</h2>
 
-      <p>Las dos formas rápidas de matar o cerrar a la fuerza apps/procesos, con xkill se apunta con el cursor a la ventana y la mata. Con killall hay que escribir el nombre de la app:</p>
+      <p>Las tres formas de matar o cerrar a la fuerza apps/procesos. Con xkill se apunta con el cursor a la ventana y la mata. Con killall hay que escribir el nombre de la app. Con kill se escribe su PID que se obtiene con (ps x | grep -i nombreapp):</p>
 
       <code>xkill</code>
 
       <code>killall nombre</code>
+
+      <code>kill PIDapp</code>
 
       <p>Pueden seguir viendo <a href="http://www.reddit.com/r/linux/comments/eizx9/top_linux_commands_every_linux_user_should_know/">algunas recomendaciones en Reddit</a> y visitar <a href="http://www.reddit.com/r/commandline">/r/commandline</a>, ver un <a href="http://ss64.com/bash/">indice de comandos</a> útiles, leer <a href="http://www.die.net/">sus manuales</a> o de <a href="http://manpages.ubuntu.com/">otros manuales de Ubuntu</a>, o ir <a href="http://linuxcommand.org/lc3_learning_the_shell.php">aprendiendo más detalladamente</a>. También pueden empezar creando <a href="http://cont3mpo.blogspot.com/2009/09/interpretar-ordenes-shell-script.html">shell scripts básicos</a> y ver comandos más complejos en <a href="http://www.commandlinefu.com/">Commandlinefu</a>. O leer en linea el libro <a href="http://conqueringthecommandline.com/book">Conquering the Command Line</a>. También una <a href="http://www.oliverelliott.org/article/computing/tut_unix/">Introducción a Unix</a>, y <a href="http://www.oliverelliott.org/article/computing/ref_unix/">100 comandos útiles</a>.</p>
 
