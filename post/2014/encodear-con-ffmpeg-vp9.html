@@ -30,7 +30,7 @@
 
       <h2>Configurar CRF, Compresión, y Audio</h2>
 
-      <p>Por suerte VP9 utiliza calidad constante al encodear, con la opción -crf. CRF tiene un rango de calidad entre 0 a 63, siendo 0 lo mejor y 63 lo peor, 10 o 15 es recomendable. Pero también tienes que poner un bitrate máximo/tope variable, con la opción -b:v pondremos 0 para que solo se preocupe del CRF sin limitar bitrates. Y usaremos el encoder libvpx-vp9:</p>
+      <p>Por suerte VP9 utiliza calidad constante al encodear, con la opción -crf. CRF tiene un rango de calidad entre 0 a 63, siendo 0 lo mejor y 63 lo peor, 10 o 15 es recomendable. Con la opción -b:v 0 solo se enfocará en el CRF sin limitar bitrates. Y usaremos el encoder libvpx-vp9:</p>
 
       <code>ffmpeg -i entrada.mkv -c:v libvpx-vp9 -crf 15 -b:v 0 -c:a copy salida.webm</code>
 
