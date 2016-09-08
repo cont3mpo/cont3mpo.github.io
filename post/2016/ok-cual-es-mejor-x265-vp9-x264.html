@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Ok, cual es mejor: x265, vp9, x264 • Contempo</title>
+  <script src="../../js/head-article.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <script src="../../js/header.js"></script>
+    </header>
+
+    <article>
+      <h1>Ok, cual es mejor: x265, vp9, x264</h1>
+
+      <p>Vamos a testear encoders y ver como va de bien x265, vp9, y x264. Todo usando <a href="https://ffmpeg.org/">FFmpeg</a>.</p>
+
+      <p>Hace unos días Netflix y su equipo de nerd-encoders se <a href="http://techblog.netflix.com/2016/08/a-large-scale-comparison-of-x264-x265.html">juntaron a encodear usando estos tres encoders</a>, y definieron que x265 erá el encoder que daba mejor resultado de bitrate/peso archivo. Pero tengo que ver para creer, así que dije, al carajo. Veamos que pasa.</p>
+
+      <h2>Configuraciones FFmpeg</h2>
+
+      <p>Partí con FFmpeg 3.1.3 y mi nueva amiga terminal <a href="https://cont3mpo.github.io/post/2016/probando-hyperterm.html">HyperTerm</a>. Luego instalé los encoders, y nos preparamos a encodear usando un Intel Core i5 (Quad-core).</p>
+
+      <h3>CRF, y por defectos</h3>
+
+      <p>Lo único que modifiqué es el CRF (Constant Rate Factor), que es utilizado en los tres encoders, se preocupa más de a imagen, y no le importa mucho el tamaño del archivo al priorizar calidad visual. Todo lo demás está por defecto en cada encoder, desde la compresión en medium de todos, y perfiles automáticos. Todos usan el CRF guía de <a href="https://cont3mpo.github.io/post/2013/encodear-con-ffmpeg.html">x264</a> para mantener la calidad original, que es 18 (23 en <a href="https://cont3mpo.github.io/post/2015/encodear-con-ffmpeg-hevc-h265.html">x265</a>, y 15 en <a href="https://cont3mpo.github.io/post/2014/encodear-con-ffmpeg-vp9.html">vp9</a>, todos son equivalentes).</p>
+
+      <p>Usé un video con H.264 a resolución de 1280x720p. El audio lo copié directo. Con duración de un minuto exacto. El archivo pesa 73MB con un bitrate de 9.9M.</p>
+
+      <h2>Tiempo de encodear</h2>
+
+      <p>Voy al grano. vp9 fue jodidamente lento para encodear, con casi 14 minutos más que los demás. x264 el más rápido, aunque x265 estuvo muy cerca.</p>
+
+      <ul>
+        <li>x264: 2:09 min. (Ganador, muy rápido)</li>
+        <li>x265: 2:41 min.</li>
+        <li>vp9: 16:15 min.</li>
+      </ul>
+
+      <h2>Procesamiento</h2>
+
+      <p>El procesamiento lo medí por el uso de FFmpeg y los núcleos. vp9 usó un procesamiento constante de núcleos, al nunca sobrepasar el 54% (no olvidar que se demoró 16 minutos). El ventilador no se volvió loco. Aunque con x265 se aceleró notoriamente el ventilador interno y se prendió antes que todos.</p>
+
+      <ul>
+        <li>vp9: CPU 54% - FFmpeg 101% (Ganador, poco procesamiento)</li>
+        <li>x264: CPU 89% - FFmpeg 326%</li>
+        <li>x265: CPU 94% - FFmpeg 354%</li>
+      </ul>
+
+      <h2>Bitrate</h2>
+
+      <p>x265 administra muy bien el uso de bitrates, menos bitrates y manteniendo la imagen sin perder calidad visual.</p>
+
+      <ul>
+        <li>x265: 840 bitrate (Ganador, poco bitrate/calidad)</li>
+        <li>vp9: 4301 bitrate</li>
+        <li>x264: 4957 bitrate</li>
+      </ul>
+
+      <h2>Peso de archivo</h2>
+
+      <p>Y x265 vuelve a ganar. El peso del archivo es muy pequeño, la compresión por defecto y el uso de bitrate y calidad visual hace milagros.</p>
+
+      <ul>
+        <li>x265: 6MB (Ganador, poco peso/calidad)</li>
+        <li>vp9: 31MB</li>
+        <li>x264: 36MB</li>
+      </ul>
+
+      <h2>Conclusiones</h2>
+
+      <p>Lo siento por vp9, pero es demasiado lento para encodear, quizás en una granja de servidores de Google sirva más (lo usan en YouTube). x265 exige mayor procesamiento pero no tan alejado de x264 que lleva años de desarrollo. Y el peso de x265 y el uso de bitrates es impresionante lo optimo que ya se encuentra. Ahí está el futuro codec usado por Netflix, x265 (HEVC).</p>
+
+      <time datetime="2016-09-07">7 de septiembre, 2016</time>
+    </article>
+  </div>
+</body>
+</html>
