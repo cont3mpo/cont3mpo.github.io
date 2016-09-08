@@ -16,7 +16,7 @@
 
       <p>Vamos a testear encoders y ver como va de bien x265, vp9, y x264. Todo usando <a href="https://ffmpeg.org/">FFmpeg</a>.</p>
 
-      <p>Hace unos días Netflix y su equipo de nerd-encoders se <a href="http://techblog.netflix.com/2016/08/a-large-scale-comparison-of-x264-x265.html">juntaron a encodear usando estos tres encoders</a>, y definieron que x265 erá el encoder que daba mejor resultado de bitrate/peso archivo. Pero tengo que ver para creer, así que dije, al carajo. Veamos que pasa.</p>
+      <p>Hace unos días Netflix y su equipo de nerd-encoders se <a href="http://techblog.netflix.com/2016/08/a-large-scale-comparison-of-x264-x265.html">juntaron a encodear usando estos tres encoders</a>, y definieron que x265 era el encoder que daba mejor resultado de bitrate/peso archivo. Pero tengo que ver para creer, así que dije, al carajo. Veamos que pasa.</p>
 
       <h2>Configuraciones FFmpeg</h2>
 
@@ -24,7 +24,7 @@
 
       <h3>CRF, y por defectos</h3>
 
-      <p>Lo único que modifiqué es el CRF (Constant Rate Factor), que es utilizado en los tres encoders, se preocupa más de a imagen, y no le importa mucho el tamaño del archivo al priorizar calidad visual. Todo lo demás está por defecto en cada encoder, desde la compresión en medium de todos, y perfiles automáticos. Todos usan el CRF guía de <a href="https://cont3mpo.github.io/post/2013/encodear-con-ffmpeg.html">x264</a> para mantener la calidad original, que es 18 (23 en <a href="https://cont3mpo.github.io/post/2015/encodear-con-ffmpeg-hevc-h265.html">x265</a>, y 15 en <a href="https://cont3mpo.github.io/post/2014/encodear-con-ffmpeg-vp9.html">vp9</a>, todos son equivalentes).</p>
+      <p>Lo único que modifiqué es el CRF (Constant Rate Factor), que es utilizado en los tres encoders, se preocupa más de la imagen, y no le importa mucho el tamaño del archivo al priorizar calidad visual. Todo lo demás está por defecto en cada encoder, desde la compresión en medium de todos, y perfiles automáticos. Todos usan el CRF guía de <a href="https://cont3mpo.github.io/post/2013/encodear-con-ffmpeg.html">x264</a> para mantener la calidad original, que es 18 (23 en <a href="https://cont3mpo.github.io/post/2015/encodear-con-ffmpeg-hevc-h265.html">x265</a>, y 15 en <a href="https://cont3mpo.github.io/post/2014/encodear-con-ffmpeg-vp9.html">vp9</a>, todos son equivalentes).</p>
 
       <p>Usé un video con H.264 a resolución de 1280x720p. El audio lo copié directo. Con duración de un minuto exacto. El archivo pesa 73MB con un bitrate de 9.9M.</p>
 
