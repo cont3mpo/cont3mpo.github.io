@@ -92,11 +92,11 @@ nav ul li a {
 
 nav ul li a:hover {
   color: #D8BFD8;
-  border-bottom: 3px solid #D8BFD8;
+  border-bottom: 4px solid #D8BFD8;
 }
 
 .on {
-  border-bottom: 3px solid #E91E63;
+  border-bottom: 4px solid #E91E63;
 }
 
 /* Inicio */
