@@ -43,7 +43,7 @@ a {
 }
 
 a:hover, .logo a:hover, h2.title a:hover, .plus h4 a:hover {
-  color: #D8BFD8;
+  color: #a78c96;
 }
 
 ::-moz-selection { /* Firefox */
