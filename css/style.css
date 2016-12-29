@@ -87,6 +87,7 @@ nav ul li:last-child {
 }
 
 nav ul li a {
+  padding-bottom: 3px;
   font-size: 1.3375rem; /* 21.4px */
 }
 
@@ -96,7 +97,6 @@ nav ul li a:hover {
 }
 
 .on {
-  padding-bottom: 3px;
   border-bottom: 4px solid #E91E63;
 }
 
