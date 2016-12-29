@@ -96,6 +96,7 @@ nav ul li a:hover {
 }
 
 .on {
+  padding-bottom: 3px;
   border-bottom: 4px solid #E91E63;
 }
 
