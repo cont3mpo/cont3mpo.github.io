@@ -79,7 +79,7 @@ nav ul {
 }
 
 nav ul li {
-  float: left;
+  display: inline-block;
 }
 
 nav ul li:nth-child(1n+2) {
