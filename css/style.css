@@ -82,7 +82,7 @@ nav ul li {
   float: left;
 }
 
-nav ul li:last-child {
+nav ul li:nth-child(2) + {
   margin-left: 15px;
 }
 
