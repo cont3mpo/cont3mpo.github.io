@@ -82,7 +82,7 @@ nav ul li {
   display: inline-block;
 }
 
-nav ul li:nth-child(1n+2) {
+nav ul li:nth-child(n+2) {
   margin-left: 15px;
 }
 
