@@ -20,7 +20,7 @@ body {
 nav ul {
   list-style-type: none;
   padding: 0;
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 nav ul li {
@@ -50,7 +50,7 @@ nav ul li a:hover img {
 }
 
 footer {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 footer .logo {
@@ -86,7 +86,7 @@ footer .nombre h2 {
   }
 
   nav ul {
-    margin-top: 40px;
+    margin-top: 30px;
   }
 
   nav ul li a {
@@ -100,7 +100,7 @@ footer .nombre h2 {
   }
 
   footer {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 
   footer .logo img {
