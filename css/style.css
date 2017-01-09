@@ -150,7 +150,8 @@ code, pre {
   line-height: 1.65; /* 26.4px */
   font-weight: 600;
   color: #90999A;
-  background-color: #e2dfdf;
+  background-color: rgba(226,223,223,0.8);
+  border: 1px solid rgba(204,204,204,0.5);
   display: block;
   padding: 8px 14px;
   margin: 20px 10px 30px 10px;
@@ -239,7 +240,7 @@ time {
 }
 }
 
-@media screen and (max-width: 480px), (max-height: 480px) {
+@media screen and (max-width: 550px), (max-height: 550px) {
 .container {
   width: 89%;
 }
@@ -250,12 +251,12 @@ body {
 }
 
 .articles {
-  margin-top: -36px;
+  margin-top: -20px;
 }
 
 header {
   display: block;
-  margin-bottom: 118px;
+  margin-bottom: 65px;
 }
 
 .logo a {
@@ -264,8 +265,7 @@ header {
 
 nav {
   padding-top: 0;
-  margin-top: -17px;
-  padding-left: 5px;
+  margin-top: -15px;
 }
 
 nav ul li a, .plus h4 a {
