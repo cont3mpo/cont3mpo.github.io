@@ -369,6 +369,10 @@ time {
   font-size: 0.9rem; /* 14.4px */
 }
 
+.perdidos {
+  margin-top: 40px;
+}
+
 .error {
   width: 142px;
   height: 142px;
