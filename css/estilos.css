@@ -90,16 +90,20 @@ footer .nombre h2 {
 
 @media screen and (max-width: 550px) {
   .container {
-    width: 82%;
+    width: 85%;
   }
 
   nav ul {
-    margin-top: 30px;
+    margin-top: 25px;
   }
 
   nav ul li {
-  margin-bottom: 18px;
-}
+    margin-bottom: 18px;
+  }
+
+  nav ul li:last-child {
+    margin-bottom: 8px;
+  }
 
   nav ul li a {
     font-size: 26px;
@@ -112,7 +116,7 @@ footer .nombre h2 {
   }
 
   footer {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
   }
 
   footer .logo img {

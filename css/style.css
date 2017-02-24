@@ -375,14 +375,9 @@ time {
   margin-top: 40px;
 }
 
-.error {
-  width: 142px;
-  height: 142px;
-}
-
-.animu-news {
-  width: 172px;
-  height: 172px;
+.animu-news, .error {
+  width: 138px;
+  height: 138px;
 }
 
 .news p {
