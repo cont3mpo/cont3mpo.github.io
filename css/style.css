@@ -229,12 +229,13 @@ time {
 
 .perdidos {
   text-align: center;
-  margin-top: 60px;
+  margin-top: 80px;
 }
 
 .error {
   width: 162px;
   height: 162px;
+  margin-bottom: 18px;
 }
 
 /* Newsletter */
@@ -244,8 +245,9 @@ time {
 }
 
 .animu-news {
-  width: 192px;
-  height: 192px;
+  width: 155px;
+  height: 155px;
+  margin-bottom: 18px;
 }
 
 .news p {

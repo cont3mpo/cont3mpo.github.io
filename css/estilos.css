@@ -28,10 +28,6 @@ nav ul li {
   margin-bottom: 30px;
 }
 
-.ultima {
-  margin-top: -2px;
-}
-
 nav ul li a {
   color: #4A4A4A;
   text-decoration: none;
@@ -51,17 +47,6 @@ nav ul li img {
 
 nav ul li a:hover img {
   opacity: 0.7;
-}
-
-.letter {
-  width: 47px;
-  height: 47px;
-  margin-right: -4px;
-  margin-left: 18px;
-}
-
-.nl {
-  vertical-align: 3px;
 }
 
 footer {
@@ -124,12 +109,6 @@ footer .nombre h2 {
     width: 36px;
     height: 36px;
     margin-left: 15px;
-  }
-
-  .letter {
-    width: 44px;
-    height: 44px;
-    margin-left: 11px;
   }
 
   footer {
