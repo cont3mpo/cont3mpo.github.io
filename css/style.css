@@ -376,8 +376,9 @@ time {
 }
 
 .animu-news, .error {
-  width: 128px;
-  height: 128px;
+  width: 122px;
+  height: 122px;
+  margin-bottom: 12px;
 }
 
 .news p {
