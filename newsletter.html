@@ -8,21 +8,19 @@
 <body class="newsletter">
   <div class="container">
     <article class="perdidos news">
+      <img class="animu-news" src="img/newsletter.svg" alt="Icono de Animu Newsletter">
+      <h1>Animu Newsletter</h1>
+      <p>Mi lista de noticias semanales sobre Anime y medios de consumo, directo a tu mail. Por <a href="https://cont3mpo.github.io">Rubén</a>.</p>
+      <form action="https://tinyletter.com/animunewsletter" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/animunewsletter', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <h3>Recíbelas todos los domingos</h3>
+        <input type="text" name="email" id="tlemail" placeholder="tumail@mail.com"/><input type="hidden" value="1" name="embed"/>
+        <input type="submit" value="Suscribirse" />
+      </form>
+    </article>
 
-    <img class="animu-news" src="img/newsletter.svg" alt="Icono de Animu Newsletter">
-
-    <h1>Animu Newsletter</h1>
-
-    <p>Mi lista de noticias semanales sobre Anime y medios de consumo a tu mail. Suscríbete para recibirlas todos los domingos.</p>
-
-    <form action="https://tinyletter.com/animunewsletter" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/animunewsletter', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"><h3>Ingresa tu mail</h3>
-
-    <input type="text" name="email" id="tlemail" placeholder="tumail@mail.com"/><input type="hidden" value="1" name="embed"/><input type="submit" value="Suscribirse" /></form>
-  </article>
-
-  <footer class="foot-news">
-    <a href="http://tinyletter.com/animunewsletter/archive">Publicaciones anteriores ›</a>
-  </footer>
+    <footer class="foot-news">
+      <a href="http://tinyletter.com/animunewsletter/archive">Publicaciones anteriores ›</a>
+    </footer>
   </div>
 </body>
 </html>
