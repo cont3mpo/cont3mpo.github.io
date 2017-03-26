@@ -257,19 +257,19 @@ time {
 }
 
 .news form {
-  margin-top: 30px;
+  margin-top: 35px;
 }
 
 .news form input {
-  margin-top: 25px;
+  margin-top: 18px;
 }
 
 .news form input[type="text"] {
-  border-radius: 4px;
+  border-radius: 4px 0 0 4px;
   border: 1px solid #ccc;
-  padding: 10px 14px;
+  padding: 10px 15px;
   text-align: center;
-  margin-right: 10px;
+  margin-right: -6px;
 }
 
 .news form input[type="text"]:hover {
@@ -286,9 +286,9 @@ time {
   color: #fff;
   background-color: #E91E63;
   border: none;
-  border-radius: 4px;
-  padding: 10px 14px;
-  cursor:pointer;
+  border-radius: 0 4px 4px 0;
+  padding: 11px 15px;
+  cursor: pointer;
   font-family: "Montserrat", sans-serif;;
   font-weight: 700;
   outline: none;
@@ -399,14 +399,18 @@ time {
 }
 
 .news form input {
-  width: 70%;
+  width: 72%;
 }
 
 .news form input[type="text"] {
   margin-right: 0;
+  border-radius: 4px 4px 0 0;
+  padding: 11px;
 }
 
 .news form input[type="submit"] {
-  margin-top: 20px;
+  margin-top: 0;
+  border-radius: 0 0 4px 4px;
+  padding: 12px;
 }
 }
