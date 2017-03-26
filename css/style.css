@@ -296,6 +296,7 @@ time {
 
 .news form input[type="submit"]:hover {
   box-shadow: 0 0 2px #E91E63;
+  background-color: #f91a65;
 }
 
 .foot-news {
