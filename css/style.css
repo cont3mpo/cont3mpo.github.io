@@ -246,7 +246,11 @@ time {
 }
 
 .newsletter a {
- color: #F22564;
+  color: #F22564;
+}
+
+.newsletter h1 {
+  color: #F1F1F1;
 }
 
 .animu-news {
