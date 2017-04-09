@@ -229,7 +229,7 @@ time {
 
 .perdidos {
   text-align: center;
-  margin-top: 80px;
+  margin-top: 90px;
 }
 
 .error {
@@ -249,6 +249,10 @@ time {
   color: #F22564;
 }
 
+.newsletter a:hover {
+  color: #a78c96;
+}
+
 .newsletter h1 {
   color: #F1F1F1;
 }
@@ -265,7 +269,7 @@ time {
 }
 
 .news form {
-  margin-top: 35px;
+  margin-top: 43px;
 }
 
 .news form input {
@@ -303,8 +307,8 @@ time {
 }
 
 .news form input[type="submit"]:hover {
-  box-shadow: 0 0 2px #E91E63;
-  background-color: #f91a65;
+  box-shadow: 0 0 3px #E91E63;
+  background-color: #fb0a5b;
 }
 
 .foot-news {
