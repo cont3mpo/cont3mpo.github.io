@@ -241,8 +241,12 @@ time {
 /* Newsletter */
 
 .newsletter {
-  background-color: rgba(247, 240, 219, 0.6);
-  color: #61646d;
+  background-color: #494555;
+  color: #F1F1F1;
+}
+
+.newsletter a {
+ color: #F22564;
 }
 
 .animu-news {
@@ -266,7 +270,7 @@ time {
 
 .news form input[type="text"] {
   border-radius: 4px 0 0 4px;
-  border: 1px solid #ccc;
+  border: 1px solid #fff;
   padding: 10px 15px;
   text-align: center;
   margin-right: -6px;
@@ -284,7 +288,7 @@ time {
 
 .news form input[type="submit"] {
   color: #fff;
-  background-color: #E91E63;
+  background-color: #F22564;
   border: none;
   border-radius: 0 4px 4px 0;
   padding: 11px 15px;
