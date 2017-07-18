@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Montserrat:700';
+@import 'https://fonts.googleapis.com/css?family=Montserrat:800';
 
 .container {
   width: 90%;
@@ -10,7 +10,7 @@
 body {
   background-color: #EBE0C9;
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,13 +25,13 @@ nav ul {
 
 nav ul li {
   text-align: right;
-  margin-bottom: 30px;
+  margin-bottom: 31px;
 }
 
 nav ul li a {
-  color: #4A4A4A;
+  color: #444C4E;
   text-decoration: none;
-  font-size: 38px;
+  font-size: 36px;
 }
 
 nav ul li a:hover  {
@@ -39,9 +39,9 @@ nav ul li a:hover  {
 }
 
 nav ul li img {
-  width: 41px;
-  height: 41px;
-  margin-left: 20px;
+  width: 44px;
+  height: 44px;
+  margin-left: 24px;
   vertical-align: -7px;
 }
 
@@ -58,9 +58,9 @@ footer .logo {
 }
 
 footer .logo img {
-  width: 94px;
-  height: 94px;
-  margin-right: 20px;
+  width: 85px;
+  height: 85px;
+  margin-right: 25px;
   transition: 400ms;
 }
 
@@ -72,20 +72,14 @@ footer .nombre {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
+  aling-items: center;
 }
 
 footer .nombre h1 {
-  color: #4A4A4A;
-  font-size: 45px;
+  color: #444C4E;
+  font-size: 44px;
   margin: 0;
   flex: 100%;
-}
-
-footer .nombre h2 {
-  color: #4A4A4A;
-  font-size: 24px;
-  margin: 0;
-  margin-bottom: 5px;
 }
 
 @media screen and (max-width: 550px) {
@@ -129,6 +123,4 @@ footer .nombre h2 {
     font-size: 30px;
   }
 
-  footer .nombre h2 {
-    font-size: 18px;
 }
