@@ -58,8 +58,8 @@ footer .logo {
 }
 
 footer .logo img {
-  width: 85px;
-  height: 85px;
+  width: 80px;
+  height: 80px;
   margin-right: 25px;
   transition: 400ms;
 }
@@ -114,8 +114,8 @@ footer .nombre h1 {
   }
 
   footer .logo img {
-    width: 62px;
-    height: 62px;
+    width: 57px;
+    height: 57px;
     margin-right: 13px;
   }
 
