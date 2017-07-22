@@ -254,6 +254,7 @@ time {
 
 .newsletter h1 {
   color: #F1F1F1;
+  font-size: 2rem;
 }
 
 .animu-news {
@@ -398,6 +399,10 @@ time {
   width: 115px;
   height: 115px;
   margin-bottom: 12px;
+}
+  
+.newsletter h1 {
+  font-size: 1.7rem;  
 }
 
 .news p {
