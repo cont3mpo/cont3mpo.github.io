@@ -267,6 +267,11 @@ time {
 .news p {
   width: 80%;
   margin: auto;
+  color: #ddd;
+}
+
+.news h3 {
+  color: #ddd;
 }
 
 .news form {
