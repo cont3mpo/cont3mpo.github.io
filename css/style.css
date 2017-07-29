@@ -270,12 +270,13 @@ time {
   color: #ddd;
 }
 
-.news h3 {
-  color: #ddd;
-}
-
 .news form {
   margin-top: 43px;
+}
+
+
+.news form h3 {
+  color: #ddd;
 }
 
 .news form input {
