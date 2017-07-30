@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Montserrat:800';
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400,800';
 
 .container {
   width: 90%;
@@ -35,7 +35,7 @@ nav ul li a {
 }
 
 nav ul li a:hover  {
-  color: rgba(255,255,255,0.9);
+  color: rgba(68,76,78,0.6);
 }
 
 nav ul li img {
@@ -47,6 +47,45 @@ nav ul li img {
 
 nav ul li a:hover img {
   opacity: 0.6;
+}
+
+/* Tooltip */
+
+a {
+  position: relative;
+  display: inline-block;
+}
+
+a span {
+  visibility: hidden;
+  background-color: #444C4E;
+  color: #eee;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 9px;
+/* posición del tooltip*/
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 110%;
+}
+
+a:hover span {
+  visibility: visible;
+}
+
+a span::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #444C4E;
 }
 
 footer {
@@ -80,7 +119,10 @@ footer .nombre h1 {
   font-size: 44px;
   margin: 0;
   flex: 100%;
+  cursor: default;
 }
+
+/* Teléfono */
 
 @media screen and (max-width: 550px) {
   .container {
