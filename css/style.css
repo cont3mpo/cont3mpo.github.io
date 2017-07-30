@@ -274,7 +274,6 @@ time {
   margin-top: 43px;
 }
 
-
 .news form h3 {
   color: #ddd;
 }
@@ -407,9 +406,9 @@ time {
   height: 115px;
   margin-bottom: 12px;
 }
-  
+
 .newsletter h1 {
-  font-size: 1.7rem;  
+  font-size: 1.7rem;
 }
 
 .news p {
@@ -428,13 +427,13 @@ time {
 
 .news form input[type="text"] {
   margin-right: 0;
-  border-radius: 15px 15px 0 0;
+  border-radius: 10px 10px 0 0;
   padding: 11px;
 }
 
 .news form input[type="submit"] {
   margin-top: 0;
-  border-radius: 0 0 15px 15px;
+  border-radius: 0 0 10px 10px;
   padding: 12px;
 }
 }
