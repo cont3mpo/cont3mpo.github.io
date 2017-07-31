@@ -1,6 +1,6 @@
 /* Tipografías */
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:700|Source+Code+Pro:600|Work+Sans:500,600');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700,800|Source+Code+Pro:600|Work+Sans:500,600');
 
 /* General */
 
@@ -42,7 +42,7 @@ a {
   transition: color 200ms;
 }
 
-a:hover, .logo a:hover, h2.title a:hover, .plus h4 a:hover {
+a:hover, .logo a:hover, h2.title a:hover, .plus h4 a:hover, .yo .logo a:hover {
   color: #a78c96;
 }
 
@@ -65,8 +65,9 @@ header {
 }
 
 .logo a {
-  font-size: 3rem; /* 48px */
+  font-size: 44px; /* 48px */
   color: #50555A;
+  font-weight: 800;
 }
 
 nav {
@@ -323,6 +324,22 @@ time {
   margin-top: 70px;
   text-align: center;
   font-size: 16px;
+}
+
+/* Contacto */
+
+.yo {
+  background-color: #efeee8;
+  color: #444C4E;
+}
+
+.yo .logo a {
+  font-size: 44px;
+  font-weight: 800;
+}
+
+.yo .logo a, .yo h1 {
+  color: #444C4E;
 }
 
 /* Mobile */

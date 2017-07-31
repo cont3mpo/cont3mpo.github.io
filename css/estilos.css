@@ -51,12 +51,12 @@ nav ul li a:hover img {
 
 /* Tooltip */
 
-a {
+li a {
   position: relative;
   display: inline-block;
 }
 
-a span {
+li a span {
   visibility: hidden;
   background-color: #444C4E;
   color: #eee;
@@ -73,11 +73,11 @@ a span {
   right: 110%;
 }
 
-a:hover span {
+li a:hover span {
   visibility: visible;
 }
 
-a span::after {
+li a span::after {
   content: " ";
   position: absolute;
   top: 50%;
@@ -86,6 +86,43 @@ a span::after {
   border-width: 11px;
   border-style: solid;
   border-color: transparent transparent transparent #444C4E;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .contact {
+  visibility: hidden;
+  background-color: #444C4E;
+  color: #eee;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 12px 6px 6px 12px;
+  padding: 5px 9px;
+/* posición del tooltip*/
+  position: absolute;
+  z-index: 1;
+  top: 13px;
+  left: 110%;
+}
+
+.tooltip:hover .contact {
+  visibility: visible;
+}
+
+.tooltip .contact::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 88px;
+  margin-top: -11px;
+  border-width: 11px;
+  border-style: solid;
+  border-color: transparent #444C4E transparent transparent;
 }
 
 footer {
@@ -115,11 +152,15 @@ footer .nombre {
 }
 
 footer .nombre h1 {
-  color: #444C4E;
   font-size: 44px;
   margin: 0;
   flex: 100%;
   cursor: default;
+}
+
+footer .nombre h1 a {
+  text-decoration: none;
+  color: #444C4E;
 }
 
 /* Teléfono */
@@ -151,7 +192,11 @@ footer .nombre h1 {
     margin-left: 11px;
   }
 
-  a:hover span {
+  li a:hover span {
+    visibility: hidden;
+  }
+
+  .tooltip:hover .contact {
     visibility: hidden;
   }
 
