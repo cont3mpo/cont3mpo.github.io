@@ -17,6 +17,10 @@ body {
   justify-content: space-between;
 }
 
+a {
+  transition: color 200ms;
+}
+
 nav ul {
   list-style-type: none;
   padding: 0;
