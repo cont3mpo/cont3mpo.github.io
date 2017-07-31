@@ -34,7 +34,7 @@ nav ul li a {
   font-size: 36px;
 }
 
-nav ul li a:hover  {
+nav ul li a:hover {
   color: rgba(68,76,78,0.6);
 }
 
@@ -161,6 +161,10 @@ footer .nombre h1 {
 footer .nombre h1 a {
   text-decoration: none;
   color: #444C4E;
+}
+
+footer h1 a:hover {
+  color: rgba(68,76,78,0.6);
 }
 
 /* Teléfono */
