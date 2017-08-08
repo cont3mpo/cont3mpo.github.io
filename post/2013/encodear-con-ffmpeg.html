@@ -60,13 +60,19 @@
 
       <h2>Configurar CRF, Compresión, y FLAC</h2>
 
-      <p>CRF tiene un <a href="https://trac.ffmpeg.org/wiki/Encode/H.264#a1.ChooseaCRFvalue">rango de medición de calidad entre 0 a 63 (en 10bit)</a>, siendo 0 lo mejor y 63 lo peor, entre más bajo el número de CRF más grande el tamaño del video. Se recomienda usar CRF entre 18 a 15 (por defecto usa 23). Si eres exigente y quieres mantener calidad en secuencias complejas, usa 15, si trae poco movimiento o imagen estática, usa 17. CRF utiliza una sola pasada constante, nada de dos pasadas, así quedaría -crf 15:</p>
+      <p>CRF tiene un <a href="https://trac.ffmpeg.org/wiki/Encode/H.264#a1.ChooseaCRFvalue">rango de medición de calidad entre 0 a 63 (en 10bit)</a>, siendo 0 lo mejor y 63 lo peor, entre más bajo el número de CRF más grande el tamaño del video. Se recomienda usar CRF entre 18 a 15 (por defecto usa 23). Si eres exigente y quieres mantener calidad en secuencias complejas, usa 15, si trae poco movimiento o imagen estática, usa 18. CRF utiliza una sola pasada constante, nada de dos pasadas, así quedaría -crf 15:</p>
 
       <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -c:a copy salida.mkv</code>
 
-      <p>Ahora hay que agregar un <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles">profile high10</a> (10bit) y un <a href="http://mewiki.project357.com/wiki/X264_Settings#preset">preset</a> para comprimir en lento (slow), más lento (slower) o muy lento (veryslow), cada uno ajusta automáticamente las opciones de compresión, entre más lento más comprimido y mejor será el encodeo. Normalmente uso slow, no demora tanto en comprimir y prioriza la calidad (<a href="https://trac.ffmpeg.org/wiki/Encode/H.264#Whyisplaceboawasteoftime">slow comprime de un 5 a 10% comparado al medium, slower agrega un 5% más a eso y veryslow un 3% más</a>). No utilizo un "<a href="http://mewiki.project357.com/wiki/X264_Settings#level">-level</a>" específico, debido a que automáticamente le otorga uno dependiendo de la compresión. Si quisieran compatibilidad con un reproductor blu-ray o smart TV tendrían que poner "-level 4.1". Finalmente quedaría así: -preset slow -profile:v high10 (por defecto no agrega profile, usa preset medium y level automático):</p>
+      <p>Ahora hay que agregar un <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles">profile high10</a> (10bit) y un <a href="http://mewiki.project357.com/wiki/X264_Settings#preset">preset</a> para comprimir (ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow), entre más lento más comprimido y mejor será el encodeo. Normalmente uso slow, no demora tanto en comprimir y prioriza la calidad (<a href="https://trac.ffmpeg.org/wiki/Encode/H.264#Whyisplaceboawasteoftime">slow comprime de un 5 a 10% comparado al medium, slower agrega un 5% más a eso y veryslow un 3% más</a>).</p>
+      
+      <p>Finalmente quedaría así: -preset slow -profile:v high10 (por defecto no agrega profile, preset medium y level automático):</p>
 
       <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -preset slow -profile:v high10 -c:a copy salida.mkv</code>
+      
+      <p>Si quisieran compatibilidad con un reproductor blu-ray o smart-TV, tendrían que eliminar los 10bit y agregar el chroma 4:2:0, así quedaría "-pix_fmt yuv420p -level 4.1":.</p>
+      
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -preset slow -pix_fmt yuv420p -level 4.1 -c:a copy salida.mkv</code>
 
       <p><strong>Modificar opciones x264</strong>: Opcionalmente si no quiere usar un preset, también puedes modificar parámetros específicos en la compresión de x264 + ffmpeg, <a href="http://sonnati.wordpress.com/2011/08/19/ffmpeg-%E2%80%93-the-swiss-army-knife-of-internet-streaming-%E2%80%93-part-iii/">por ejemplo modificar los bframes, me_method, refs, me_range, etc</a> (solo recomendado para usuarios avanzados, y <a href="http://mewiki.project357.com/wiki/X264_Settings#Frame-type_options">lee para que sirve cada uno</a>, también su <a href="https://sites.google.com/site/linuxencoding/x264-ffmpeg-mapping">nombre al ponerlos con ffmpeg</a> y en la <a href="https://ffmpeg.org/ffmpeg-codecs.html">documentación de ffmpeg</a>). Unas modificaciones para mejorar el encodeo:</p>
 
