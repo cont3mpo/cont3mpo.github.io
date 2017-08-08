@@ -66,11 +66,11 @@
 
       <p>Ahora hay que agregar un <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles">profile high10</a> (10bit) y un <a href="http://mewiki.project357.com/wiki/X264_Settings#preset">preset</a> para comprimir (ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow), entre más lento más comprimido y mejor será el encodeo. Normalmente uso slow, no demora tanto en comprimir y prioriza la calidad (<a href="https://trac.ffmpeg.org/wiki/Encode/H.264#Whyisplaceboawasteoftime">slow comprime de un 5 a 10% comparado al medium, slower agrega un 5% más a eso y veryslow un 3% más</a>).</p>
       
-      <p>Finalmente quedaría así: -preset slow -profile:v high10 (por defecto no agrega profile, preset medium y level automático):</p>
+      <p><strong>Encodear 10bit</strong>: -preset slow -profile:v high10 (por defecto no agrega profile, preset medium y level automático):</p>
 
       <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -preset slow -profile:v high10 -c:a copy salida.mkv</code>
       
-      <p>Si quisieran compatibilidad con un reproductor blu-ray o smart-TV, tendrían que eliminar los 10bit y agregar el chroma 4:2:0, así quedaría "-pix_fmt yuv420p -level 4.1":.</p>
+      <p><strong>Compatibilidad con reproductor blu-ray o smart-TV 8bit</strong>: Eliminar los 10bit y agregar chroma 4:2:0, así quedaría "-pix_fmt yuv420p -level 4.1":.</p>
       
       <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -preset slow -pix_fmt yuv420p -level 4.1 -c:a copy salida.mkv</code>
 
