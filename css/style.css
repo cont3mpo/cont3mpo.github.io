@@ -109,6 +109,10 @@ nav ul li a:hover {
   padding-bottom: 18px;
 }
 
+h2.title {
+  margin-bottom: -5px;
+}
+
 h2.title a {
   font-size: 1.625rem; /* 26px */
   line-height: 1.5; /* 39px */
@@ -170,7 +174,7 @@ h2 {
   font-size: 1.4rem; /* 22.4px */
   line-height: 1.6; /* 35.84px */
   padding-top: 20px;
-  margin-bottom: -1px;
+  margin-bottom: -5px;
   color: #585d63;
 }
 
@@ -178,6 +182,7 @@ h3 {
   font-size: 1.124rem; /* 17.984px */
   margin: 0;
   padding-top: 12px;
+  margin-bottom: -6px;
   color: #585d63;
 }
 
