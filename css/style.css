@@ -17,7 +17,7 @@ body {
   font-size: 1.124rem; /* 17.984px */
   line-height: 1.75; /* 28px */
   font-weight: 500;
-  color: #666c71;
+  color: #5a6365;
   background-color: #efeee8;
 }
 
@@ -335,7 +335,7 @@ time {
 
 .yo {
   background-color: #efeee8;
-  color: #444C4E;
+  color: #5a6365;
 }
 
 .yo .logo a {
