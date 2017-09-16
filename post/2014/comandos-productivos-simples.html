@@ -130,6 +130,16 @@
 
       <code>sudo mkfs.vfat -F 32 /dev/sdb</code>
 
+      <h2>fdisk</h2>
+
+      <p>Formatear el disco. Con -l lista las particiones existentes.</p>
+
+      <code>sudo fdisk -l</code>
+
+      <p>Para empezar a particionar indica el lugar, por ejemplo /dev/sda, y las letras de uso son borrar partición (d), agregar partición (n), cambiar tipo de partición (t), listar tipos de partición soportados (l), escribir los cambias hechos (w), y salir de fdisk (q):</p>
+
+      <code>sudo fdisk /dev/sda</code>
+
       <h2>ffmpeg, lame, mediainfo</h2>
 
       <p><a href="http://ffmpeg.org/">FFmpeg</a> encodea cualquier tipo de video/audio (<a href="https://cont3mpo.github.io/post/2013/encodear-con-ffmpeg.html">guía extensa</a>). O capturar video streaming:</p>
