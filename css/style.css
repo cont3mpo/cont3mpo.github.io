@@ -249,12 +249,11 @@ time {
 /* Newsletter */
 
 .newsletter {
-  background-color: #353041;
-  color: #F1F1F1;
+  background-color: #373244;
 }
 
 .newsletter a {
-  color: #F22564;
+  color: #ab4366;
 }
 
 .newsletter a:hover {
@@ -275,7 +274,7 @@ time {
 .news p {
   width: 80%;
   margin: auto;
-  color: #ddd;
+  color: #d6cfd3;
 }
 
 .news form {
@@ -283,7 +282,7 @@ time {
 }
 
 .news form h3 {
-  color: #ddd;
+  color: #F1F1F1;
 }
 
 .news form input {
@@ -299,18 +298,18 @@ time {
 }
 
 .news form input[type="text"]:hover {
-  border: 1px solid rgba(233,30,99,0.7);
+  border: 1px solid #ab4366;
 }
 
 .news form input[type="text"]:focus {
-  border: 1px solid #E91E63;
-  box-shadow: 0 0 2px #E91E63;
+  border: 1px solid #ab4366;
+  box-shadow: 0 0 3px #ab4366;
   outline: none;
 }
 
 .news form input[type="submit"] {
   color: #fff;
-  background-color: #F22564;
+  background-color: #ab4366;
   border: none;
   border-radius: 0 30px 30px 0;
   padding: 11px 18px;
@@ -321,8 +320,8 @@ time {
 }
 
 .news form input[type="submit"]:hover {
-  box-shadow: 0 0 3px #E91E63;
-  background-color: #fb0a5b;
+  box-shadow: 0 0 5px #c13665;
+  background-color: #c13665;
 }
 
 .foot-news {
