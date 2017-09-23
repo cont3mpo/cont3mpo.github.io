@@ -253,7 +253,7 @@ time {
 }
 
 .newsletter a {
-  color: #ab4366;
+  color: #b14569;
 }
 
 .newsletter a:hover {
@@ -309,7 +309,7 @@ time {
 
 .news form input[type="submit"] {
   color: #fff;
-  background-color: #ab4366;
+  background-color: #b14569;
   border: none;
   border-radius: 0 30px 30px 0;
   padding: 11px 18px;
