@@ -37,7 +37,7 @@ body {
 /* Links & Selection */
 
 a {
-  color: #cd5966;
+  color: #d86976;
   text-decoration: none;
   transition: color 200ms;
 }
@@ -47,12 +47,12 @@ a:hover, .logo a:hover, h2.title a:hover, .plus h4 a:hover, .yo .logo a:hover {
 }
 
 ::-moz-selection { /* Firefox */
-  background: #c5164c;
+  background: #d86976;
   color: #fff;
 }
 
 ::selection {
-  background: #c5164c;
+  background: #d86976;
   color: #fff;
 }
 
