@@ -337,6 +337,11 @@ time {
   color: #5a6365;
 }
 
+.yo .container {
+  max-width: 420px;
+  min-width: 40%;
+}
+
 .yo .logo a {
   font-size: 2.75rem; /* 44px */
   font-weight: 800;
