@@ -262,7 +262,7 @@ time {
 
 .newsletter h1 {
   color: #F1F1F1;
-  font-size: 2rem;
+  font-size: 2.1rem; /* 33.6px */
 }
 
 .animu-news {
@@ -283,6 +283,7 @@ time {
 
 .news form h3 {
   color: #F1F1F1;
+  font-family: "Muli", sans-serif;
 }
 
 .news form input {
