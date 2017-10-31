@@ -157,6 +157,7 @@ footer .nombre {
 
 footer .nombre h1 {
   font-size: 44px;
+  font-weight: 200;
   margin: 0;
   flex: 100%;
   cursor: default;
