@@ -18,7 +18,7 @@ body {
   line-height: 1.75;
   font-weight: 300;
   color: #687577;
-  background-color: #fbfaf8;
+  background-color: rgba(247, 245, 233, 0.5);
 }
 
 .container {
@@ -334,7 +334,7 @@ time {
 /* Contacto */
 
 .yo {
-  background-color: #fbfaf8;
+  background-color: rgba(247, 245, 233, 0.5);
   color: #687577;
 }
 
