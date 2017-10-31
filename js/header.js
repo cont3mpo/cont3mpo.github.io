@@ -1,7 +1,7 @@
 document.write('\
 \
   <div class="logo">\
-    <a href="https://cont3mpo.github.io" title="Inicio">Contempo.</a>\
+    <a href="https://cont3mpo.github.io" title="Inicio">Contempo</a>\
   </div>\
   <nav>\
     <ul>\
