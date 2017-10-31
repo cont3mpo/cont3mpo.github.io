@@ -1,6 +1,6 @@
 /* Tipografías */
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:700,800|Source+Code+Pro:600|Work+Sans:500,600');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200|Source+Code+Pro:400|Muli:300,600');
 
 /* General */
 
@@ -13,12 +13,12 @@ html {
 }
 
 body {
-  font-family: "Work Sans", sans-serif;
-  font-size: 1.124rem; /* 17.984px */
-  line-height: 1.75; /* 28px */
-  font-weight: 500;
+  font-family: "Muli", sans-serif;
+  font-size: 1.13rem; /* 18.08px */
+  line-height: 1.75;
+  font-weight: 300;
   color: #687577;
-  background-color: #efeee8;
+  background-color: #fbfaf8;
 }
 
 .container {
@@ -31,7 +31,7 @@ body {
 
 .logo, nav, h1, h2, h3, h4 {
   font-family: "Montserrat", sans-serif;
-  font-weight: 700;
+  font-weight: 200;
 }
 
 /* Links & Selection */
@@ -66,7 +66,7 @@ header {
 
 .logo a {
   font-size: 2.75rem; /* 44px */
-  color: #50555A;
+  color: #687577;
   font-weight: 800;
 }
 
@@ -114,8 +114,8 @@ h2.title {
 }
 
 h2.title a {
-  font-size: 1.625rem; /* 26px */
-  line-height: 1.5; /* 39px */
+  font-size: 1.8rem; /* 28.8px */
+  line-height: 1.5;
   color: #50555A;
 }
 
@@ -139,7 +139,7 @@ h2.title a {
 /* Artículos */
 
 .index ul {
-  line-height: 1.9; /* 34.1696px*/
+  line-height: 1.9;
   margin-bottom: 35px;
 }
 
@@ -152,10 +152,10 @@ h2.title a {
 code, pre {
   font-family: "Source Code Pro", monospace;
   font-size: 1rem; /* 16px */
-  line-height: 1.65; /* 26.4px */
-  font-weight: 600;
+  line-height: 1.65;
+  font-weight: 400;
   color: #817e8c;
-  background-color: #e4e3d9;
+  background-color: #f5f4f3;
   border: 1px solid rgba(204,204,204,0.5);
   display: block;
   padding: 8px 14px;
@@ -165,14 +165,14 @@ code, pre {
 }
 
 h1 {
-  font-size: 1.83rem; /* 29.28px */
-  line-height: 1.5; /* 43.92px */
+  font-size: 2rem; /* 32px */
+  line-height: 1.5;
   color: #50555A;
 }
 
 h2 {
-  font-size: 1.4rem; /* 22.4px */
-  line-height: 1.6; /* 35.84px */
+  font-size: 1.5rem; /* 24px */
+  line-height: 1.6;
   padding-top: 20px;
   margin-bottom: -5px;
   color: #585d63;
@@ -227,7 +227,7 @@ iframe {
 
 time {
   font-size: 1rem; /* 16px */
-  font-weight: 600;
+  font-weight: 300;
   color: #817e8c;
   display: block;
   text-align: right;
@@ -314,8 +314,7 @@ time {
   border-radius: 0 30px 30px 0;
   padding: 11px 18px;
   cursor: pointer;
-  font-family: "Montserrat", sans-serif;;
-  font-weight: 700;
+  font-weight: 600;
   outline: none;
 }
 
@@ -333,8 +332,8 @@ time {
 /* Contacto */
 
 .yo {
-  background-color: #efeee8;
-  color: #5a6365;
+  background-color: #fbfaf8;
+  color: #687577;
 }
 
 .yo .container {
@@ -344,11 +343,11 @@ time {
 
 .yo .logo a {
   font-size: 2.75rem; /* 44px */
-  font-weight: 800;
+  font-weight: 200;
 }
 
 .yo .logo a, .yo h1 {
-  color: #444C4E;
+  color: #50555A;
 }
 
 /* Mobile */
