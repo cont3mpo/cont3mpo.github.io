@@ -59,9 +59,18 @@ a:hover, .logo a:hover, h2.title a:hover, .plus h4 a:hover, .yo .logo a:hover {
 /* Header */
 
 header {
-  margin: 10px 0 80px 0;
+  margin: 20px 0 80px 0;
   display: flex;
   justify-content: space-between;
+}
+
+.logo {
+  border-left: 5px solid #d86976;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  padding-left: 13px;
 }
 
 .logo a {
@@ -92,15 +101,13 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #50555a;
-  background-color: rgba(255,255,255,0.6);
-  border: 1px solid #ccc;
+  color: #d86976;
+  border: 1px solid #d86976;
 }
 
 .on {
-  color: #50555a;
-  background-color: rgba(255,255,255,0.6);
-  border: 1px solid #ccc;
+  color: #d86976;
+  border: 1px solid #d86976;
 }
 
 /* Inicio */
@@ -165,7 +172,7 @@ code, pre {
 }
 
 h1 {
-  font-size: 2rem; /* 32px */
+  font-size: 1.8rem; /* 28.8px */
   line-height: 1.5;
   color: #50555A;
 }
@@ -249,7 +256,7 @@ time {
 /* Newsletter */
 
 .newsletter {
-  background-color: #373244;
+  background-color: #343040;
 }
 
 .newsletter a {
@@ -261,7 +268,7 @@ time {
 }
 
 .newsletter h1 {
-  color: #F1F1F1;
+  color: #e2e2e2;
   font-size: 2.1rem; /* 33.6px */
 }
 
@@ -274,7 +281,7 @@ time {
 .news p {
   width: 80%;
   margin: auto;
-  color: #d6cfd3;
+  color: #bdb6ba;
 }
 
 .news form {
@@ -282,7 +289,7 @@ time {
 }
 
 .news form h3 {
-  color: #F1F1F1;
+  color: #bdb6ba;
   font-family: "Muli", sans-serif;
 }
 
@@ -334,8 +341,8 @@ time {
 /* Contacto */
 
 .yo {
-  background-color: rgba(247, 245, 233, 0.5);
-  color: #687577;
+  background-color: #3d4248;
+  color: #727f82;
 }
 
 .yo .container {
@@ -346,11 +353,11 @@ time {
 .yo .logo a {
   font-size: 2.75rem; /* 44px */
   font-weight: 200;
-  color: #687577;
+  color: #d86976;
 }
 
 .yo h1 {
-  color: #50555A;
+  color: #949798;
 }
 
 /* Mobile */
@@ -378,6 +385,11 @@ body {
 header {
   display: block;
   margin-bottom: 65px;
+}
+  
+.logo {
+  height: 45px;
+  margin-bottom: 30px;
 }
 
 .logo a, .yo .logo a {
