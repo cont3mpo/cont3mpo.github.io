@@ -1,12 +1,5 @@
 @import 'https://fonts.googleapis.com/css?family=Montserrat:200';
 
-.container {
-  width: 90%;
-  max-width: 1400px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
 body {
   background-color: #f9e63c;
   font-family: "Montserrat", sans-serif;
@@ -15,6 +8,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 a {
