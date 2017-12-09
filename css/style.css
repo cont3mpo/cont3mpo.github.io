@@ -342,7 +342,7 @@ time {
 
 .yo {
   background-color: #3d4248;
-  color: #7a888c;
+  color: #9e9d94;
 }
 
 .yo .container {
@@ -351,17 +351,17 @@ time {
 }
 
 .yo .logo {
-  border-left: 5px solid #a7a7a0;
+  border-left: 5px solid #b3b3a0;
 }
 
 .yo .logo a {
   font-size: 2.75rem; /* 44px */
   font-weight: 200;
-  color: #a7a7a0;
+  color: #b3b3a0;
 }
 
 .yo h1 {
-  color: #a9aeaf;
+  color: #b9b7aa;
 }
 
 /* Mobile */
