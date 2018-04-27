@@ -36,7 +36,7 @@ div[class="item-5"], div[class="item-6"] {
 .container {
   display: grid;
   grid-gap: 10px;
-  grid-template-areas: /* 3 Columnas y 4 Filas/Rows en 993px hacia arriba */
+  grid-template-areas: /* 4 Columnas y 4 Filas/Rows en 993px hacia arriba */
     'header header header'
     'sidebar article-1 article-2'
     'sidebar article-3 article-4'
@@ -106,7 +106,7 @@ div[class="item-5"], div[class="item-6"] {
 /* ---------------- MOVIL ---------------- */
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 576px) {
   .container {
     grid-template-areas: /* 1 Columna y 7 Filas/Rows en 768px hacia abajo */
       'header'
