@@ -125,6 +125,7 @@ h2.title a {
   font-size: 1.8rem; /* 28.8px */
   line-height: 1.5;
   color: #50555A;
+  font-weight: 900;
 }
 
 .plus {
