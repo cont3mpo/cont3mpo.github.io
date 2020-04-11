@@ -1,9 +1,9 @@
-@import 'https://fonts.googleapis.com/css?family=Montserrat:200';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
 
 body {
   background-color: #f9e63c;
   font-family: "Montserrat", sans-serif;
-  font-weight: 200;
+  font-weight: 900;
   height: 100vh;
   display: flex;
   flex-direction: column;
