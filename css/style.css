@@ -54,6 +54,18 @@ a:hover, .logo a:hover, h2.title a:hover, .plus h4 a:hover, .yo .logo a:hover {
   color: #fff;
 }
 
+ul {
+  list-style: none;
+}
+
+li::before {
+  content: "•"; 
+  color: #d86976;
+  display: inline-block; 
+  width: 1em;
+  margin-left: -1em;
+}
+
 /* Header */
 
 header {
