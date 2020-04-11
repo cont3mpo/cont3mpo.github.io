@@ -1,6 +1,6 @@
 /* Tipografías */
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:200|Source+Code+Pro:400|Muli:300,600');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,700,900|Source+Code+Pro:400|Muli:300,400,600');
 
 /* General */
 
@@ -15,14 +15,14 @@ html {
 body {
   font-family: "Muli", sans-serif;
   font-size: 1.13rem; /* 18.08px */
-  line-height: 1.75;
-  font-weight: 300;
+  line-height: 1.70;
+  font-weight: 400;
   color: #687577;
-  background-color: rgba(247, 245, 233, 0.5);
+  background-color: #ffffff;
 }
 
 .container {
-  max-width: 720px;
+  max-width: 768px;
   min-width: 46%;
   margin: 0 auto;
   overflow: hidden;
@@ -62,21 +62,21 @@ header {
   margin: 20px 0 80px 0;
   display: flex;
   justify-content: space-between;
+  height: 65px;
 }
 
 .logo {
-  border-left: 5px solid #d86976;
-  height: 55px;
+  border-left: 14px solid #d86976;
   display: flex;
   align-items: center;
   margin-top: 15px;
-  padding-left: 13px;
+  padding-left: 17px;
 }
 
 .logo a {
-  font-size: 2.75rem; /* 44px */
-  color: #d86976;
-  font-weight: 200;
+  font-size: 2.5rem; /* 44px */
+  font-weight: 700;
+  color: #50555a;
 }
 
 nav {
@@ -93,11 +93,12 @@ nav ul li {
 }
 
 nav ul li a {
-  font-size: 1.3375rem; /* 21.4px */
+  font-size: 1.2rem; /* 21.4px */
   color: #50555a;
   padding: 5px 8px;
   border: 1px solid transparent;
   border-radius: 4px;
+  font-weight: 400;
 }
 
 nav ul li a:hover {
@@ -162,27 +163,29 @@ code, pre {
   line-height: 1.65;
   font-weight: 400;
   color: #817e8c;
-  background-color: #f5f2ed;
-  border: 1px solid rgba(204,204,204,0.5);
   display: block;
   padding: 8px 14px;
   margin: 20px 10px 30px 10px;
-  border-radius: 4px;
+  border-radius: 0 3px 3px 0;
   word-break: break-all;
+  border: 1px solid #f1f1f1;
+  border-left: 7px solid rgb(217, 105, 118);
 }
 
 h1 {
-  font-size: 1.8rem; /* 28.8px */
+  font-size: 1.9rem; /* 28.8px */
   line-height: 1.5;
   color: #50555A;
+  font-weight: 900;
 }
 
 h2 {
-  font-size: 1.5rem; /* 24px */
+  font-size: 1.2rem; /* 24px */
   line-height: 1.6;
   padding-top: 20px;
   margin-bottom: -5px;
   color: #585d63;
+  font-weight: 700;
 }
 
 h3 {
@@ -233,11 +236,13 @@ iframe {
 }
 
 time {
-  font-size: 1rem; /* 16px */
+  font-size: 0.9rem; /* 16px */
   font-weight: 300;
-  color: #817e8c;
+  color: #50555a;
   display: block;
   text-align: right;
+  border-right: 5px solid #d96876;
+  padding-right: 10px;
 }
 
 /* 404 */
@@ -410,11 +415,11 @@ nav ul li a, .plus h4 a {
 }
 
 h1, h2.title a {
-  font-size: 1.5rem; /* 24px */
+  font-size: 1.6rem; /* 24px */
 }
 
 h2 {
-  font-size: 1.25rem; /* 20px */
+  font-size: 1.1rem; /* 20px */
 }
 
 h3 {
