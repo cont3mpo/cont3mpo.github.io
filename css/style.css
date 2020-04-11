@@ -102,6 +102,10 @@ nav ul li {
   display: inline-block;
 }
 
+nav ul li::before {
+    content: none;
+}
+
 nav ul li a {
   font-size: 1.2rem; /* 21.4px */
   color: #50555a;
