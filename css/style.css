@@ -57,7 +57,7 @@ a:hover, .logo a:hover, h2.title a:hover, .plus h4 a:hover, .yo .logo a:hover {
 /* Header */
 
 header {
-  margin: 20px 0 80px 0;
+  margin: 20px 0 90px 0;
   display: flex;
   justify-content: space-between;
   height: 65px;
@@ -127,7 +127,7 @@ h2.title a {
 }
 
 .plus {
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 .plus h4 {
@@ -372,7 +372,7 @@ body {
 
 header {
   display: block;
-  margin-bottom: 65px;
+  margin-bottom: 80px;
 }
   
 .logo {
@@ -386,7 +386,7 @@ header {
 
 nav {
   padding-top: 0;
-  margin-top: -15px;
+  margin-top: -10px;
 }
 
 nav ul li a, .plus h4 a {
