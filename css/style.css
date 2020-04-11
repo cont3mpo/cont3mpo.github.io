@@ -348,31 +348,6 @@ time {
   font-size: 16px;
 }
 
-/* Contacto */
-
-.yo {
-  background-color: #3d4248;
-  color: #8e8d86;
-}
-
-.yo .container {
-  max-width: 420px;
-  min-width: 40%;
-}
-
-.yo .logo {
-  border-left: 5px solid #b3b3a0;
-}
-
-.yo .logo a {
-  font-size: 2.75rem; /* 44px */
-  font-weight: 200;
-  color: #b3b3a0;
-}
-
-.yo h1 {
-  color: #b9b7aa;
-}
 
 /* Mobile */
 
