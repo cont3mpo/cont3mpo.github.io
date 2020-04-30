@@ -76,21 +76,20 @@ header {
 }
 
 .logo {
-  border-left: 14px solid #d86976;
   display: flex;
   align-items: center;
   margin-top: 15px;
-  padding-left: 17px;
 }
 
 .logo a {
+  display: flex;
+  align-items: center;
   font-size: 2.5rem; /* 44px */
   font-weight: 700;
   color: #50555a;
 }
 
 .logo a .red {
-  color: #d96876;
   display: inline-block;
   width: 50px;
   height: 50px;
