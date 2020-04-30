@@ -122,7 +122,7 @@ li a span::after {
   content: " ";
   position: absolute;
   top: 50%;
-  right: 86px;
+  right: 94px;
   margin-top: -11px;
   border-width: 11px;
   border-style: solid;
