@@ -89,6 +89,16 @@ header {
   color: #50555a;
 }
 
+.logo a .red {
+  color: #d96876;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: #d96876;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
 nav {
   padding-top: 5px;
 }
@@ -111,7 +121,7 @@ nav ul li a {
   color: #50555a;
   padding: 5px 13px;
   border: 1px solid transparent;
-  border-radius: 3px;
+  border-radius: 25px;
   font-weight: 400;
 }
 
@@ -158,7 +168,7 @@ h2.title a {
   background-color: #d96976;
   font-weight: 400;
   padding: 8px 21px;
-  border-radius: 3px;
+  border-radius: 25px;
 }
 
 .articles {
