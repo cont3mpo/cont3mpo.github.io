@@ -398,8 +398,8 @@ time {
 }
 
 body {
-  font-size: 1.03125rem; /* 16.5px */
-  line-height: 1.65; /* 27.225px */
+  font-size: 17px;
+  line-height: 1.6;
 }
 
 .articles {
