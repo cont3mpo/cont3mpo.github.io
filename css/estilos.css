@@ -175,6 +175,10 @@ footer h1 a:hover {
 /* Teléfono */
 
 @media screen and (max-width: 550px) {
+  body {
+    height: 95vh;
+  }
+  
   .container {
     width: 85%;
   }
@@ -210,7 +214,7 @@ footer h1 a:hover {
   }
 
   footer {
-    margin-bottom: 45px;
+    margin-bottom: 25px;
   }
 
   footer .logo img {
