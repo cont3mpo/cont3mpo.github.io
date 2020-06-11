@@ -200,7 +200,7 @@ code, pre {
   font-size: 1rem; /* 16px */
   line-height: 1.65;
   font-weight: 400;
-  color: #817e8c;
+  color: #9e99ad;
   background-color: #fefefe;
   display: block;
   padding: 8px 14px;
@@ -278,7 +278,6 @@ iframe {
 time {
   font-size: 0.9rem; /* 16px */
   font-weight: 300;
-  color: #50555a;
   display: block;
   text-align: right;
   border-right: 5px solid #d96876;
