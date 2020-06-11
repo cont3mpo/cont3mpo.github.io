@@ -394,7 +394,7 @@ time {
 
 @media screen and (max-width: 550px), (max-height: 400px) {
 .container {
-  width: 86%;
+  width: 85%;
 }
 
 body {
