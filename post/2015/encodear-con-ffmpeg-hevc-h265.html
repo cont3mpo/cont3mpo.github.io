@@ -30,9 +30,9 @@
 
       <p>Afortunadamente, las configuraciones de HEVC son parecidas a las de H.264, y se puede usar Constant Rate Factor (<abbr title="Constant Rate Factor">CRF</abbr>), y preset para compresión de calidad. Usaremos el encoder <a href="http://es.wikipedia.org/wiki/X265">x265</a> para encodear a <abbr title="High Efficiency Video Coding">HEVC</abbr>.</p>
 
-      <p>En <abbr title="High Efficiency Video Coding">HEVC</abbr> usan un <abbr title="Constant Rate Factor">CRF</abbr> con un <a href="http://x265.readthedocs.org/en/default/cli.html#cmdoption--crf">rango de medición de calidad entre 0 a 51</a>, siendo 0 lo mejor y 51 lo peor. Por defecto usa 28, el cual no tiene nada que ver con la medición de H.264. Pero recomiendo 23 (que vendría a ser el equivalente de 18 en H.264). Los preset de compresión de calidad son los mismos, por defecto usa medium, pero por las moscas usaremos slow (<a href="http://x265.readthedocs.org/en/default/cli.html#cmdoption--preset">hay varios disponibles</a> para relentizar o acelerar el encodeo), El profile no está funcionando, así que solo modificar el crf y preset con todo lo demás por defecto:</p>
+      <p>En <abbr title="High Efficiency Video Coding">HEVC</abbr> usan un <abbr title="Constant Rate Factor">CRF</abbr> con un <a href="http://x265.readthedocs.org/en/default/cli.html#cmdoption--crf">rango de medición de calidad entre 0 a 51</a>, siendo 0 lo mejor y 51 lo peor. Por defecto usa 28, el cual no tiene nada que ver con la medición de H.264. Pero recomiendo 18. Los preset de compresión de calidad son los mismos, por defecto usa medium (<a href="http://x265.readthedocs.org/en/default/cli.html#cmdoption--preset">hay varios disponibles</a>), El profile no está funcionando, así que solo modificar el crf y preset con todo lo demás por defecto:</p>
 
-      <code>ffmpeg -i entrada.mkv -c:v libx265 -crf 23 -preset slow -c:a copy salida.mkv</code>
+      <code>ffmpeg -i entrada.mkv -c:v libx265 -crf 18 -c:a copy salida.mkv</code>
 
       <p>Con <abbr title="High Efficiency Video Coding">HEVC</abbr> obtienes menos peso, pero también puede relentizar la reproducción dependiendo del equipo usado. Si se hizo un encodeo lento con configuraciones que priorizan la calidad, eso puede afectar la decodificación. Si pasa eso, entonces usa un preset más rápido como faster, veryfast o ultrafast.</p>
 
