@@ -68,9 +68,9 @@
       
       <h3>Encodear 10-bit</h3>
       
-      <p>Usando -profile:v <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles">high10</a> (por defecto es profile automático, preset medium y level automático):</p>
+      <p>Usando -profile:v <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles">high10</a> deja todo listo para los 10-bit, y además un level 5.1 (por defecto es profile automático, preset medium y level automático):</p>
 
-      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -profile:v high10 -c:a copy salida.mkv</code>
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -profile:v high10 -level 5.1 -c:a copy salida.mkv</code>
       
       <h3>Compatibilidad con reproductor blu-ray o smart-TV 8-bit</h3>
       
