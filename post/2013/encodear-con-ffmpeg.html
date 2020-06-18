@@ -18,7 +18,7 @@
 
       <p>El año 2009 escribí <a href="https://cont3mpo.github.io/post/2009/edicion-multimedia-con-mencoder-y.html">unas guías sobre edición</a> de <a href="https://cont3mpo.github.io/post/2009/edicion-multimedia-mencoder-y-mplayer.html">video/audio con MEncoder</a>, es de pelos, pero el proyecto está ahí abandonado, así que ahora (mayo 2013) comenzaré a usar <a href="https://ffmpeg.org/">FFmpeg</a>, debido a que actualizan <a href="https://ffmpeg.org/download.html#releases">cada 3 meses</a>, es multiplataforma, utiliza <a href="http://libav.org/">libavcodec</a>, tiene sintaxis simples y es abierto. Todo esto se puede hacer en <a href="https://cont3mpo.github.io/post/2013/el-futuro-unificado-de-ubuntu.html">Ubuntu</a>, <a href="https://cont3mpo.github.io/post/2012/probando-elementary-os-luna.html">elementary OS</a> y <a href="https://cont3mpo.github.io/post/2015/os-x-y-homebrew.html">OS X</a>, también <a href="http://slhck.info/video-encoding.html">gracias a algunas ayudas</a> que me topé por ahí.</p>
 
-      <h2>Calidad: H.264, CRF, 10bit y FLAC</h2>
+      <h2>Calidad: H.264, CRF, 10-bit y FLAC</h2>
 
       <h3>H.264</h3>
 
@@ -28,9 +28,9 @@
 
       <p>Fijarse solo en el bitrate al encodear para limitar el peso de un video está mal. La gracia de la opción <a href="http://slhck.info/crf.html"><abbr title="Constant Rate Factor">CRF</abbr></a> en x264 es que solo se enfoca en mantener una calidad constante al video por medio de distribución de <a href="https://en.wikipedia.org/wiki/Bitrate#Multimedia_encoding">bitrates</a> dependiendo de las escenas, él decidirá cuantos bits usar en cada imagen sin importar el peso del video y así mantener una calidad constante</p>
 
-      <h3>10bit</h3>
+      <h3>10-bit</h3>
 
-      <p><a href="http://wiki.bakabt.me/index.php/Hi10P">10bit</a> brinda una mejor <a href="https://en.wikipedia.org/wiki/Color_depth">profundidad de color</a> en un video H.264, el degradado de colores se ve más suave al redimensionar la imagen o encodear desde un blu-ray. 10bit también contribuye en disminuir el peso del video. Actualmente el uso de 10bit se ha popularizado en los encoders de Animes.</p>
+      <p><a href="http://wiki.bakabt.me/index.php/Hi10P">10-bit</a> brinda una mejor <a href="https://en.wikipedia.org/wiki/Color_depth">profundidad de color</a> en un video H.264, el degradado de colores se ve más suave al redimensionar la imagen o encodear desde un blu-ray. 10bit también contribuye en disminuir el peso del video. Actualmente el uso de 10bit se ha popularizado en los encoders de Animes.</p>
 
       <h3>FLAC</h3>
 
@@ -66,11 +66,15 @@
 
       <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -c:a copy salida.mkv</code>
       
-      <p><strong>Encodear 10bit</strong>: -profile:v <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles">high10</a>  (por defecto es un profile automático, preset medium y level automático):</p>
+      <h3>Encodear 10-bit</h3>
+      
+      <p>Usando -profile:v <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles">high10</a> (por defecto es profile automático, preset medium y level automático):</p>
 
       <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -profile:v high10 -c:a copy salida.mkv</code>
       
-      <p><strong>Compatibilidad con reproductor blu-ray o smart-TV 8bit</strong>: Elimina los 10bit, agrega level 4.1 y también un chroma 4:2:0, así quedaría "-pix_fmt yuv420p -level 4.1":</p>
+      <h3>Compatibilidad con reproductor blu-ray o smart-TV 8-bit</h3>
+      
+      <p>Para compatibilidad elimina los 10-bit, agrega level 4.1 y también un chroma 4:2:0, así quedaría "-pix_fmt yuv420p -level 4.1":</p>
       
       <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -pix_fmt yuv420p -level 4.1 -c:a copy salida.mkv</code>
 
