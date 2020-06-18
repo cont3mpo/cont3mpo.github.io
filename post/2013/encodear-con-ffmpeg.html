@@ -58,35 +58,31 @@
 
       <p>Para ver el nombre de los encoders disponibles usa ffmpeg -encoders y para ver la lista de decoders con ffmpeg -decoders, para ver más opciones de configuración usa ffmpeg --help y la lista de todos los codecs con ffmpeg -codecs</p>
 
-      <h2>Configurar CRF, Compresión, y FLAC</h2>
+      <h2>Configurar CRF y 10-bit</h2>
 
-      <p>CRF tiene un <a href="https://trac.ffmpeg.org/wiki/Encode/H.264#a1.ChooseaCRFvalue">rango de medición de calidad entre 0 a 63 (en 10bit)</a>, siendo 0 lo mejor y 63 lo peor, entre más bajo el número de CRF más grande el tamaño del video. Se recomienda usar CRF entre 18 a 15 (por defecto usa 23). Si eres exigente y quieres mantener calidad en secuencias complejas, usa 15, si trae poco movimiento o imagen estática, usa 18. CRF utiliza una sola pasada constante, nada de dos pasadas, así quedaría -crf 15:</p>
+      <p>CRF tiene un <a href="https://trac.ffmpeg.org/wiki/Encode/H.264#a1.ChooseaCRFvalue">rango de medición de calidad entre 0 a 63 (en 10bit)</a>, siendo 0 lo mejor y 63 lo peor, entre más bajo el número de CRF más grande el tamaño del video. Se recomienda usar CRF entre 18 a 15 (por defecto usa 23). CRF utiliza una sola pasada constante:</p>
 
-      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -c:a copy salida.mkv</code>
-
-      <p>Ahora hay que agregar un <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles">profile high10</a> (10bit) y un <a href="http://mewiki.project357.com/wiki/X264_Settings#preset">preset</a> para comprimir (ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow), entre más lento más comprimido y mejor será el encodeo. Normalmente uso slow, no demora tanto en comprimir y prioriza la calidad (<a href="https://trac.ffmpeg.org/wiki/Encode/H.264#Whyisplaceboawasteoftime">slow comprime de un 5 a 10% comparado al medium, slower agrega un 5% más a eso y veryslow un 3% más</a>).</p>
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -c:a copy salida.mkv</code>
       
-      <p><strong>Encodear 10bit</strong>: -profile:v high10 (por defecto no agrega profile, preset medium y level automático):</p>
+      <p><strong>Encodear 10bit</strong>: -profile:v <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles">high10</a>  (por defecto es un profile automático, preset medium y level automático):</p>
 
-      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -profile:v high10 -c:a copy salida.mkv</code>
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -profile:v high10 -c:a copy salida.mkv</code>
       
-      <p><strong>Compatibilidad con reproductor blu-ray o smart-TV 8bit</strong>: Eliminar los 10bit y agregar chroma 4:2:0, así quedaría "-pix_fmt yuv420p -level 4.1":.</p>
+      <p><strong>Compatibilidad con reproductor blu-ray o smart-TV 8bit</strong>: Elimina los 10bit y agregar chroma 4:2:0, así quedaría "-pix_fmt yuv420p":.</p>
       
-      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -pix_fmt yuv420p -level 4.1 -c:a copy salida.mkv</code>
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -pix_fmt yuv420p -level 4.1 -c:a copy salida.mkv</code>
 
       <p><strong>Modificar opciones x264</strong>: Opcionalmente si no quiere usar un preset, también puedes modificar parámetros específicos en la compresión de x264 + ffmpeg, <a href="http://sonnati.wordpress.com/2011/08/19/ffmpeg-%E2%80%93-the-swiss-army-knife-of-internet-streaming-%E2%80%93-part-iii/">por ejemplo modificar los bframes, me_method, refs, me_range, etc</a> (solo recomendado para usuarios avanzados, y <a href="http://mewiki.project357.com/wiki/X264_Settings#Frame-type_options">lee para que sirve cada uno</a>, también su <a href="https://sites.google.com/site/linuxencoding/x264-ffmpeg-mapping">nombre al ponerlos con ffmpeg</a> y en la <a href="https://ffmpeg.org/ffmpeg-codecs.html">documentación de ffmpeg</a>). Unas modificaciones para mejorar el encodeo:</p>
 
-      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -profile:v high10 -bf 8 -refs 8 -b_strategy 2 -me_range 24 -trellis 2 -subq 9 -me_method umh -deblock 1:-1:-2 -qcomp 0.80 -psy-rd 0.70:0.00 -rc-lookahead 120 -aq-strength 1.0 -c:a copy avanzado.mkv</code>
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -profile:v high10 -bf 8 -refs 8 -b_strategy 2 -me_range 24 -trellis 2 -subq 9 -me_method umh -deblock 1:-1:-2 -qcomp 0.80 -psy-rd 0.70:0.00 -rc-lookahead 120 -aq-strength 1.0 -c:a copy avanzado.mkv</code>
 
       <p>Si quieres utilizar las opciones nativas de x264, hazlo con -x264opts. Con ello podrás modificar todas las <a href="http://mewiki.project357.com/wiki/X264_Settings">opciones nativas existentes en x264</a>:</p>
 
-      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -profile:v high10 -x264opts bframes=8:ref=8:b-adapt=2:merange=24:trellis=2:subme=9:me=umh:deblock=1,-1,-2:qcomp=0.80:psy-rd=0.70,0.00:rc-lookahead=120:aq-strength=1.0 -c:a copy salida.mkv</code>
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -profile:v high10 -x264opts bframes=8:ref=8:b-adapt=2:merange=24:trellis=2:subme=9:me=umh:deblock=1,-1,-2:qcomp=0.80:psy-rd=0.70,0.00:rc-lookahead=120:aq-strength=1.0 -c:a copy salida.mkv</code>
 
-      <p>Puedes agregar <a href="http://mewiki.project357.com/wiki/X264_Settings#tune">tune para optimizaciones de imágenes</a>, en Animes usa -tune animation, con actores reales usa -tune film, con video granulado usa -tune grain. Por defecto no viene ni una activada, prueba primero y si no ves cambios positivos entonces no los uses (<a href="http://superuser.com/questions/564402/explanation-of-x264-tune?answertab=votes#tab-top">ve para que sirve cada una y que hacen</a>):</p>
-
-      <code>ffmpeg -i entrada.mkv -c:v libx264 -tune animation -c:a copy salida.mkv</code>
-
-      <p><strong> Para audio <abbr title="Free Lossless Audio Codec">FLAC</abbr></strong>: Utiliza un <a href="http://flac.sourceforge.net/documentation_tools_flac.html#flac_options_levels">rango de compresión de archivo entre 0 a 8</a> y el audio se mantiene sin pérdidas, siendo 0 menos comprimido y 8 más comprimido. Por defecto comprime en 5, así que no lo modifico. Se usa así -c:a flac -compression_level 8. FLAC soporta <a href="http://xiph.org/flac/faq.html#general__channels">hasta 8 canales de audio y 32 bits de profundidad</a>:</p>
+      <h2>Audio FLAC</h2>
+      
+      <p>Para encodear el audio sin perdidas <abbr title="Free Lossless Audio Codec">FLAC</abbr></strong>, se usa así -c:a flac. FLAC soporta <a href="http://xiph.org/flac/faq.html#general__channels">hasta 8 canales de audio y 32 bits de profundidad</a>:</p>
 
       <code>ffmpeg -i entrada.mkv -c:v copy -c:a flac salida.mkv</code>
 
