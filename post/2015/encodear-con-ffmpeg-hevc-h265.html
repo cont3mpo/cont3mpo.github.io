@@ -22,21 +22,21 @@
 
       <p>En Ubuntu/elementary OS se agrega un <a href="https://launchpad.net/~mc3man/+archive/ubuntu/trusty-media">PPA actualizado con FFmpeg</a>, e instalan FFmpeg (otro <a href="https://launchpad.net/~djcj/+archive/ubuntu/hybrid">PPA de respaldo</a>).</p>
 
-      <p>En OS X instalan FFmpeg usando <a href="http://brew.sh/index_es.html">Homebrew</a>. Y para instalar los encoders que faltan:</p>
+      <p>En macOS instala FFmpeg usando <a href="http://brew.sh/index_es.html">Homebrew</a>. Y para instalar los encoders que faltan:</p>
 
-      <code>brew reinstall ffmpeg --with-faac --with-libvpx --with-x265 --with-opus</code>
+      <code>brew reinstall ffmpeg --with-faac --with-x265</code>
+      
+      <p>También puedes <a href="https://evermeet.cx/ffmpeg/">descargar un binario de FFmpeg</a> con su última versión, e incluye todos los codecs. Solamente lo instalas en la ruta /usr/local/bin y lo abres manteniendo el la tecla alt y click derecho en Abrir para dar permisos de ejecución.</p>
 
-      <h2>Configurar CRF y Compresión</h2>
+      <h2>Configurar CRF y 10-bit</h2>
 
-      <p>Afortunadamente, las configuraciones de HEVC son parecidas a las de H.264, y se puede usar Constant Rate Factor (<abbr title="Constant Rate Factor">CRF</abbr>), y preset para compresión de calidad. Usaremos el encoder <a href="http://es.wikipedia.org/wiki/X265">x265</a> para encodear a <abbr title="High Efficiency Video Coding">HEVC</abbr>.</p>
+      <p>Afortunadamente, las configuraciones de HEVC son parecidas a las de H.264, y se puede usar Constant Rate Factor (<abbr title="Constant Rate Factor">CRF</abbr>). Usaremos el encoder <a href="http://es.wikipedia.org/wiki/X265">x265</a> para encodear a <abbr title="High Efficiency Video Coding">HEVC</abbr>.</p>
 
-      <p>En <abbr title="High Efficiency Video Coding">HEVC</abbr> usan un <abbr title="Constant Rate Factor">CRF</abbr> con un <a href="http://x265.readthedocs.org/en/default/cli.html#cmdoption--crf">rango de medición de calidad entre 0 a 51</a>, siendo 0 lo mejor y 51 lo peor. Por defecto usa 28, el cual no tiene nada que ver con la medición de H.264. Pero recomiendo 18. Los preset de compresión de calidad son los mismos, por defecto usa medium (<a href="http://x265.readthedocs.org/en/default/cli.html#cmdoption--preset">hay varios disponibles</a>), El profile no está funcionando, así que solo modificar el crf y preset con todo lo demás por defecto:</p>
+      <p>En <abbr title="High Efficiency Video Coding">HEVC</abbr> usan un <abbr title="Constant Rate Factor">CRF</abbr> con un <a href="http://x265.readthedocs.org/en/default/cli.html#cmdoption--crf">rango de medición de calidad entre 0 a 51</a>, siendo 0 lo mejor y 51 lo peor. Por defecto usa 28, el cual no tiene nada que ver con la medición de H.264. Pero recomiendo 18. Los preset de compresión de calidad son los mismos, por defecto usa medium (<a href="http://x265.readthedocs.org/en/default/cli.html#cmdoption--preset">hay varios disponibles</a>), y agregaremos un profile Main10 para los 10-bit. Todo lo demás por defecto:</p>
 
-      <code>ffmpeg -i entrada.mkv -c:v libx265 -crf 18 -c:a copy salida.mkv</code>
+      <code>ffmpeg -i entrada.mkv -c:v libx265 -crf 18 -profile:v main10 -x265-params level=5.1 -c:a copy salida.mkv</code>
 
-      <p>Con <abbr title="High Efficiency Video Coding">HEVC</abbr> obtienes menos peso, pero también puede relentizar la reproducción dependiendo del equipo usado. Si se hizo un encodeo lento con configuraciones que priorizan la calidad, eso puede afectar la decodificación. Si pasa eso, entonces usa un preset más rápido como faster, veryfast o ultrafast.</p>
-
-      <p>Y por último, revisa cuadros de imagen comparando si hay perdida visual cuando uses CRF altos o bajos. Esta vez será <abbr title="High Efficiency Video Coding">HEVC</abbr> en 8 bits, ya que FFmpeg todavía no habilita el profile main10. Cuando optimicen para 10 bits, lo agregaré acá.</p>
+      <p>Con <abbr title="High Efficiency Video Coding">HEVC</abbr> obtienes menos peso y mejor calidad de imagen.</p>
 
       <time datetime="2015-03-07">7 de marzo, 2015</time>
     </article>
