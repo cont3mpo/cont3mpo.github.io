@@ -68,7 +68,7 @@
 
       <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -profile:v high10 -c:a copy salida.mkv</code>
       
-      <p><strong>Compatibilidad con reproductor blu-ray o smart-TV 8bit</strong>: Elimina los 10bit y agregar chroma 4:2:0, así quedaría "-pix_fmt yuv420p":.</p>
+      <p><strong>Compatibilidad con reproductor blu-ray o smart-TV 8bit</strong>: Elimina los 10bit, agrega level 4.1 y también un chroma 4:2:0, así quedaría "-pix_fmt yuv420p -level 4.1":</p>
       
       <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -pix_fmt yuv420p -level 4.1 -c:a copy salida.mkv</code>
 
@@ -78,13 +78,9 @@
 
       <code>ffmpeg -i entrada.mkv -c:v copy -c:a flac salida.mkv</code>
 
-      <p>Como dato extra, puedes <a href="https://cont3mpo.github.io/post/2009/encodear-audio-en-linux.html">encodear los archivos de audio por separado (MP3/AAC/Vorbis/Opus/FLAC)</a>.</p>
+      <p>Puedes <a href="https://cont3mpo.github.io/post/2009/encodear-audio-en-linux.html">encodear los archivos de audio por separado también (MP3/AAC/Vorbis/Opus/FLAC)</a>.</p>
 
-      <p>Y finalmente, si por ejemplo encodearamos un Anime con video H.264 en 10bit, CRF 15 y audio FLAC sería así (en este orden; crf, preset, tune y demás configuraciones):</p>
-
-      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -tune animation -profile:v high10 -c:a flac salida.mkv</code>
-
-      <p>Las demás opciones las dejé por defecto debido a que la mayoría son recomendables, una configuración simple pero buena a la vez, vean más opciones en ffmpeg --help y x264 --fullhelp.</p>
+      <p>Las demás opciones las dejé por defecto porque son recomendables, vean más opciones usando ffmpeg --help y x264 --fullhelp.</p>
 
       <h2>BDMV (archivos Blu-ray)</h2>
 
