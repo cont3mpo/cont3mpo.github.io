@@ -62,13 +62,13 @@
 
       <h2>Configurar CRF y 10-bit</h2>
 
-      <p>CRF tiene un <a href="https://trac.ffmpeg.org/wiki/Encode/H.264#a1.ChooseaCRFvalue">rango de medición de calidad entre 0 a 63 (en 10bit)</a>, siendo 0 lo mejor y 63 lo peor, entre más bajo el número de CRF más grande el tamaño del video. Se recomienda usar CRF entre 18 a 15 (por defecto usa 23). CRF utiliza una sola pasada constante:</p>
+      <p>CRF tiene un <a href="https://trac.ffmpeg.org/wiki/Encode/H.264#a1.ChooseaCRFvalue">rango de medición de calidad entre 0 a 63 (en 10bit)</a>, siendo 0 lo mejor y 63 lo peor. Se recomienda usar CRF entre 18 a 15 (por defecto usa 23). CRF utiliza una sola pasada constante:</p>
 
       <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -c:a copy salida.mkv</code>
       
       <h3>Encodear 10-bit</h3>
       
-      <p>Usando -profile:v <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles">high10</a> deja todo listo para los 10-bit, y además un level 5.1 (por defecto es profile automático, preset medium y level automático):</p>
+      <p>Usando un <a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding#Profiles">Profile</a> high10 deja todo listo para los 10-bit, y además un <a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding#Levels">Level</a> 5.1 (por defecto es profile automático, preset medium y level automático):</p>
 
       <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -profile:v high10 -level 5.1 -c:a copy salida.mkv</code>
       
