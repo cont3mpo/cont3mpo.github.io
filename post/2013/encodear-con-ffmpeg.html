@@ -66,13 +66,13 @@
 
       <p>Ahora hay que agregar un <a href="https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Profiles">profile high10</a> (10bit) y un <a href="http://mewiki.project357.com/wiki/X264_Settings#preset">preset</a> para comprimir (ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow), entre más lento más comprimido y mejor será el encodeo. Normalmente uso slow, no demora tanto en comprimir y prioriza la calidad (<a href="https://trac.ffmpeg.org/wiki/Encode/H.264#Whyisplaceboawasteoftime">slow comprime de un 5 a 10% comparado al medium, slower agrega un 5% más a eso y veryslow un 3% más</a>).</p>
       
-      <p><strong>Encodear 10bit</strong>: -preset slow -profile:v high10 (por defecto no agrega profile, preset medium y level automático):</p>
+      <p><strong>Encodear 10bit</strong>: -profile:v high10 (por defecto no agrega profile, preset medium y level automático):</p>
 
-      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -preset slow -profile:v high10 -c:a copy salida.mkv</code>
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -profile:v high10 -c:a copy salida.mkv</code>
       
       <p><strong>Compatibilidad con reproductor blu-ray o smart-TV 8bit</strong>: Eliminar los 10bit y agregar chroma 4:2:0, así quedaría "-pix_fmt yuv420p -level 4.1":.</p>
       
-      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -preset slow -pix_fmt yuv420p -level 4.1 -c:a copy salida.mkv</code>
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -pix_fmt yuv420p -level 4.1 -c:a copy salida.mkv</code>
 
       <p><strong>Modificar opciones x264</strong>: Opcionalmente si no quiere usar un preset, también puedes modificar parámetros específicos en la compresión de x264 + ffmpeg, <a href="http://sonnati.wordpress.com/2011/08/19/ffmpeg-%E2%80%93-the-swiss-army-knife-of-internet-streaming-%E2%80%93-part-iii/">por ejemplo modificar los bframes, me_method, refs, me_range, etc</a> (solo recomendado para usuarios avanzados, y <a href="http://mewiki.project357.com/wiki/X264_Settings#Frame-type_options">lee para que sirve cada uno</a>, también su <a href="https://sites.google.com/site/linuxencoding/x264-ffmpeg-mapping">nombre al ponerlos con ffmpeg</a> y en la <a href="https://ffmpeg.org/ffmpeg-codecs.html">documentación de ffmpeg</a>). Unas modificaciones para mejorar el encodeo:</p>
 
@@ -94,7 +94,7 @@
 
       <p>Y finalmente, si por ejemplo encodearamos un Anime con video H.264 en 10bit, CRF 15 y audio FLAC sería así (en este orden; crf, preset, tune y demás configuraciones):</p>
 
-      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -preset slow -tune animation -profile:v high10 -c:a flac salida.mkv</code>
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 15 -tune animation -profile:v high10 -c:a flac salida.mkv</code>
 
       <p>Las demás opciones las dejé por defecto debido a que la mayoría son recomendables, una configuración simple pero buena a la vez, vean más opciones en ffmpeg --help y x264 --fullhelp.</p>
 
