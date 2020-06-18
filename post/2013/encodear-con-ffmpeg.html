@@ -74,9 +74,9 @@
       
       <h3>Compatibilidad con reproductor blu-ray o smart-TV 8-bit</h3>
       
-      <p>Para compatibilidad elimina los 10-bit, agrega level 4.1 y también un chroma 4:2:0, así quedaría "-pix_fmt yuv420p -level 4.1":</p>
+      <p>Para compatibilidad elimina los 10-bit, agrega level 4.1, un chroma 4:2:0 y también un profile main, así quedaría "-pix_fmt yuv420p -level 4.1":</p>
       
-      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -pix_fmt yuv420p -level 4.1 -c:a copy salida.mkv</code>
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -profile:v main -level 4.1 -pix_fmt yuv420p -c:a copy salida.mkv</code>
 
       <h2>Audio FLAC</h2>
       
