@@ -62,21 +62,21 @@
 
       <h2>Configurar CRF y 10-bit</h2>
 
-      <p>CRF tiene un <a href="https://trac.ffmpeg.org/wiki/Encode/H.264#a1.ChooseaCRFvalue">rango de medición de calidad entre 0 a 63 (en 10bit)</a>, siendo 0 lo mejor y 63 lo peor. Se recomienda usar CRF entre 18 a 15 (por defecto usa 23). CRF utiliza una sola pasada constante:</p>
+      <p>CRF tiene un <a href="https://trac.ffmpeg.org/wiki/Encode/H.264#a1.ChooseaCRFvalue">rango de medición de calidad entre 0 a 63 (en 10bit)</a>, siendo 0 lo mejor y 63 lo peor. Recomiendo usar 17 para una calidad visual sin pérdidas (lossless). CRF utiliza una sola pasada constante:</p>
 
-      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -c:a copy salida.mkv</code>
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 17 -c:a copy salida.mkv</code>
       
       <h3>Encodear 10-bit</h3>
       
       <p>Usando un <a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding#Profiles">Profile</a> high10 deja todo listo para los 10-bit, y además un <a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding#Levels">Level</a> 5.1 (por defecto es profile automático, preset medium y level automático):</p>
 
-      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -profile:v high10 -level 5.1 -c:a copy salida.mkv</code>
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 17 -profile:v high10 -level 5.1 -c:a copy salida.mkv</code>
       
       <h3>Compatibilidad con reproductor blu-ray o smart-TV 8-bit</h3>
       
       <p>Para compatibilidad elimina los 10-bit, agrega level 4.1, un chroma 4:2:0 y también un profile high, así quedaría "-pix_fmt yuv420p -level 4.1":</p>
       
-      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 18 -profile:v high -level 4.1 -pix_fmt yuv420p -c:a copy salida.mkv</code>
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 17 -profile:v high -level 4.1 -pix_fmt yuv420p -c:a copy salida.mkv</code>
 
       <h2>Audio FLAC</h2>
       
@@ -108,7 +108,7 @@
 
       <code>ffmpeg -i entrada.m2ts -map 0:0 -c:v libx264 -crf 15 -preset slow -x264opts nal-hrd=vbr:b-pyramid=strict:slices=4:aud:colorprim=bt709:transfer=bt709:colormatrix=bt709 -map 0:1 -c:a flac salida.mkv</code>
 
-      <h2>Extras: Resolución video, relación aspecto, recortar imagen, dividir/pegar video, extraer audio/video, info MKV, poner bitrate, FPS, captura pantalla/micrófono y cámara</h2>
+      <h2>Opciones extras de FFmpeg</h2>
 
       <h3>Resolución video</h3>
 
