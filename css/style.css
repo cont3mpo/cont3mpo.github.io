@@ -439,11 +439,11 @@ h1, h2.title a {
 }
 
 h2 {
-  font-size: 1.1rem; /* 20px */
+  font-size: 19px;
 }
 
 h3 {
-  font-size: 0.9rem;
+  font-size: 15px;
 }
 
 code {
