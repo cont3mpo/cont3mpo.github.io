@@ -438,7 +438,7 @@ h1, h2.title a {
   font-size: 1.6rem; /* 24px */
 }
 
-h2 {
+h2, .index h2 {
   font-size: 19px;
 }
 
