@@ -184,6 +184,10 @@ h2.title a {
 
 /* Artículos */
 
+.index h2 {
+  font-size: 21px;
+}
+
 .index ul {
   line-height: 1.9;
   margin-bottom: 35px;
