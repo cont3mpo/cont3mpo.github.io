@@ -34,7 +34,7 @@ body {
 /* Links & Selection */
 
 a {
-  color: #d86976;
+  color: #ea6575;
   text-decoration: none;
   transition: color 200ms;
 }
@@ -44,12 +44,12 @@ a:hover, .logo a:hover, h2.title a:hover, .plus h4 a:hover, .yo .logo a:hover {
 }
 
 ::-moz-selection { /* Firefox */
-  background: #d86976;
+  background: #ea6575;
   color: #fff;
 }
 
 ::selection {
-  background: #d86976;
+  background: #ea6575;
   color: #fff;
 }
 
@@ -59,7 +59,7 @@ ul {
 
 li::before {
   content: "•"; 
-  color: #d86976;
+  color: #ea6575;
   display: inline-block; 
   width: 1em;
   margin-left: -1em;
@@ -90,7 +90,7 @@ header {
 }
 
 .logo a:hover .red {
-  background-color: #eadce9;
+  background-color: #ea6575;
 }
 
 .logo a .red {
@@ -134,14 +134,14 @@ nav ul li a {
 
 nav ul li a:hover {
   color: #eadce9;
-  border: 1px solid #d86976;
-  background-color: #d86976;
+  border: 1px solid #ea6575;
+  background-color: #ea6575;
 }
 
 .on {
   color: #ffffff;
-  border: 1px solid #d86976;
-  background-color: #d86976;
+  border: 1px solid #ea6575;
+  background-color: #ea6575;
 }
 
 /* Inicio */
@@ -212,7 +212,7 @@ code, pre {
   border-radius: 0 3px 3px 0;
   word-break: break-all;
   border: 1px solid #f1f1f1;
-  border-left: 7px solid rgb(217, 105, 118);
+  border-left: 7px solid #ea6575;
 }
 
 h1 {
