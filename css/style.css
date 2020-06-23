@@ -27,7 +27,7 @@ body {
   padding-bottom: 30px;
 }
 
-.logo, nav, h1, h2, h3, h4 {
+.logo, nav, h1, h2, h3, .plus a {
   font-family: "Montserrat", sans-serif;
 }
 
@@ -39,7 +39,7 @@ a {
   transition: color 200ms;
 }
 
-a:hover, .logo a:hover, h2.title a:hover, .plus h4 a:hover, .yo .logo a:hover {
+a:hover, .logo a:hover, h2.title a:hover, .plus a:hover, .yo .logo a:hover {
   color: #c7a2b6;
 }
 
@@ -163,13 +163,10 @@ h2.title a {
 
 .plus {
   margin-top: 50px;
+  text-align: right;
 }
 
-.plus h4 {
-    text-align: right;
-}
-
-.plus h4 a {
+.plus a {
   font-size: 1.2rem;
   color: #ffffff;
   background-color: #ea6575;
@@ -430,7 +427,7 @@ nav {
   margin-top: -10px;
 }
 
-nav ul li a, .plus h4 a {
+nav ul li a, .plus a {
   font-size: 1.25rem; /* 20px */
 }
 
