@@ -201,7 +201,7 @@ code, pre {
   font-size: 1rem; /* 16px */
   line-height: 1.65;
   font-weight: 400;
-  color: #a9a0c3;
+  color: #a093c5;
   background-color: #fefefe;
   display: block;
   padding: 13px 18px;
@@ -225,7 +225,7 @@ h2 {
   padding-top: 20px;
   margin-bottom: -5px;
   color: #585d63;
-  font-weight: 700;
+  font-weight: 900;
 }
 
 h3 {
