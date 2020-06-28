@@ -37,12 +37,18 @@
       <p>La gracia del codec abierto <a href="https://es.wikipedia.org/wiki/Free_Lossless_Audio_Codec"><abbr title="Free Lossless Audio Codec">FLAC</abbr></a> es que no tiene pérdidas de calidad de audio. Debes usar una fuente de <a href="https://en.wikipedia.org/wiki/Blu-ray_Disc#Audio">audio sin pérdidas (Lossless)</a>. Usa <a href="https://en.wikipedia.org/wiki/Linear_pulse-code_modulation">LPCM</a>, <a href="https://en.wikipedia.org/wiki/DTS-HD_Master_Audio">DTS-HD MA</a> y <a href="https://en.wikipedia.org/wiki/Dolby_TrueHD">Dolby TrueHD</a>, los cuales no traen pérdida de audio (lossless), utiliza esos para encodear a FLAC. <a href="https://en.wikipedia.org/wiki/DTS_(sound_system)">DTS</a> y <a href="https://en.wikipedia.org/wiki/Dolby_Digital">Dolby Digital</a> traen perdida (lossy), así que no encodeen desde esos dos.</p>
 
       <h2>Instalar x264-10bit y FFmpeg</h2>
+      
+      <h3>Solo Linux x264-10bit</h3>
+      
+      <p>Se instalan 3 cosas, <a href="https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu">instalar dependencias (+ yasm), x264, y FFmpeg</a> (en ese orden), copiar/pegar en la terminal lo que aparece en los cuadros. Para compilar x264-10bit, al final de la linea "./configure" tienes que agregar: --bit-depth=10 (Antes de instalar FFmpeg, primero borra de la lista todos los encoders que no instalaste, como por ejemplo --enable-libfdk-aac, --enable-libmp3lame, etc.)</p>
 
-      <p><strong>Solo Linux x264-10bit</strong>: Se instalan 3 cosas, <a href="https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu">instalar dependencias (+ yasm), x264, y FFmpeg</a> (en ese orden), copiar/pegar en la terminal lo que aparece en los cuadros. Para compilar x264-10bit, al final de la linea "./configure" tienes que agregar: --bit-depth=10 (Antes de instalar FFmpeg, primero borra de la lista todos los encoders que no instalaste, como por ejemplo --enable-libfdk-aac, --enable-libmp3lame, etc.)</p>
+      <h3>Solo Linux x264-8bit</h3>
+      
+      <p>Esto es más fácil, instala <a href="https://launchpad.net/~mc3man/+archive/ubuntu/trusty-media">FFmpeg actualizado desde un PPA</a> (otro <a href="https://launchpad.net/~djcj/+archive/ubuntu/hybrid">PPA con FFmpeg, la última versión de x264 y Mkvtoolnix</a>). Y listo, a encodear.</p>
 
-      <p><strong>Solo Linux x264-8bit</strong>: Esto es más fácil, instala <a href="https://launchpad.net/~mc3man/+archive/ubuntu/trusty-media">FFmpeg actualizado desde un PPA</a> (otro <a href="https://launchpad.net/~djcj/+archive/ubuntu/hybrid">PPA con FFmpeg, la última versión de x264 y Mkvtoolnix</a>). Y listo, a encodear.</p>
-
-      <p><strong>Solo macOS x264-8bit</strong>: Instala FFmpeg usando <a href="http://brew.sh/index_es.html">Homebrew</a>. Y para agregar más encoders:</p>
+      <h3>Solo macOS x264-8bit</h3>
+      
+      <p>Instala FFmpeg usando <a href="http://brew.sh/index_es.html">Homebrew</a>. Y para agregar más encoders:</p>
 
       <code>brew reinstall ffmpeg --with-faac --with-x265</code>
       
