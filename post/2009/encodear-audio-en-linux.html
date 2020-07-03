@@ -70,6 +70,12 @@
       <h3>FFmpeg Opus (VBR)</h3>
 
       <code>ffmpeg -i audio.wav -c:a libopus -vbr on -b:a 320k audio.opus</code>
+      
+      <h2>DTS (CBR)</h2>
+
+      <p><a href="https://es.wikipedia.org/wiki/DTS">DTS</a> es un codec con pérdida pero es CBR.</p>
+
+      <code>ffmpeg -i audio.wav -c:a dca -strict -2 audio.mka</code>
 
       <h2>FLAC (Lossless)</h2>
 
