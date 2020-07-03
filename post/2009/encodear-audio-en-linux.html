@@ -26,75 +26,58 @@
       
       <p>También puedes <a href="https://evermeet.cx/ffmpeg/">descargar un binario de FFmpeg</a> con su última versión para macOS. Instalas en la ruta /usr/local/bin, lo abres manteniendo la tecla alt y click derecho en Abrir para dar permiso de ejecución.</p>
 
-      <h2>Encodeando WAV a MP3/AAC/Vorbis/Opus/FLAC</h2>
+      <h2>Usa audio Lossless sin pérdida</h2>
 
-      <p>Ya teniendo archivos <abbr title="Waveform Audio File Format">WAV</abbr> (o cualquier lossless), se puede encodear a un codec de audio comprimido <a href="https://es.wikipedia.org/wiki/Algoritmo_de_compresi%C3%B3n_con_p%C3%A9rdida#Compresi.C3.B3n_de_audio_con_p.C3.A9rdida">con pérdida</a> o <a href="https://es.wikipedia.org/wiki/Algoritmo_de_compresi%C3%B3n_sin_p%C3%A9rdida">sin pérdida</a>. Aparecen varios <a href="https://en.wikipedia.org/wiki/Encoder">encoders</a> específicos y también <a href="https://en.wikipedia.org/wiki/Ffmpeg">FFmpeg</a>, el cual utiliza los mismos encoders.</p>
+      <p>Ya teniendo el audio <abbr title="Waveform Audio File Format">WAV</abbr> (o cualquier lossless), se puede encodear a un codec de audio comprimido <a href="https://es.wikipedia.org/wiki/Algoritmo_de_compresi%C3%B3n_con_p%C3%A9rdida#Compresi.C3.B3n_de_audio_con_p.C3.A9rdida">con pérdida</a> o <a href="https://es.wikipedia.org/wiki/Algoritmo_de_compresi%C3%B3n_sin_p%C3%A9rdida">sin pérdida</a>. Aparecen varios <a href="https://en.wikipedia.org/wiki/Encoder">encoders</a> específicos y también <a href="https://en.wikipedia.org/wiki/Ffmpeg">FFmpeg</a>, el cual utiliza los mismos encoders.</p>
 
       <h3>Usa VBR</h3>
 
       <p>La mejor manera de mantener una calidad de audio a través de toda la pista es usando un <a href="https://es.wikipedia.org/wiki/Tasa_de_bits_variable">bitrate variable <abbr title="Variable Bitrate">VBR</abbr></a>, el cual utiliza solo los bits necesarios para preservar la calidad de audio. Por otro lado, encodear con <a href="https://es.wikipedia.org/wiki/Tasa_de_bits_constante">bitrate constante <abbr title="Constant Bitrate">CBR</abbr></a> desperdiciaría bits y sería poco eficiente al otorgar a toda la pista la misma cantidad de bits, encodea a ciegas dando lo mismo a todo.</p>
 
-      <h3>WAV a MP3 (VBR)</h3>
+      <h2>MP3 (VBR)</h2>
 
       <p>Para encodear con el codec <a href="https://es.wikipedia.org/wiki/Mp3"><abbr title="MPEG-2 Audio Layer III">MP3</abbr></a> hay que utilizar el encoder <a href="http://wiki.hydrogenaudio.org/index.php?title=LAME">LAME</a>, el cual utiliza un rango de calidad entre 0 a 9, siendo 0 lo mejor y 9 lo peor:</p>
 
+      <h3>LAME</h3>
       <code>lame audio.wav -V 0 audio.mp3</code>
 
-      <p>En FFmpeg el VBR tiene el mismo rango:</p>
+      <h3>FFmpeg MP3 VBR</h3>
 
       <code>ffmpeg -i audio.wav -c:a libmp3lame -q:a 0 audio.mp3</code>
 
-      <h3>WAV a MP3 (CBR)</h3>
-
-      <p>Si quieren desperdiciar espacio o limitar bits, pueden encodear con bitrate variable <abbr title="Constant Bitrate">CBR</abbr>. Con la opción "--preset insane" se puede usar 320 CBR (la opción "-b 320 --cbr" tiene el mismo efecto y puede cambiar de numero):</p>
-
-      <code>lame audio.wav --preset insane audio.mp3</code>
-
-      <p>En FFmpeg pueden usar CBR también:</p>
-
-      <code>ffmpeg -i audio.wav -c:a libmp3lame -b:a 320k audio.mp3</code>
-
-      <h3>WAV a AAC (VBR)</h3>
+      <h2>AAC (VBR)</h2>
 
       <p>El encoder <a href="https://en.wikipedia.org/wiki/FAAC">FAAC</a> utiliza el codec <a href="https://es.wikipedia.org/wiki/Advanced_Audio_Coding"><abbr title="Advanced Audio Coding">AAC</abbr></a> con bitrate variable <abbr title="Variable Bitrate">VBR</abbr>. Funciona con porcentajes de calidad entre 10 a 500, siendo 10 lo más bajo en calidad y 500 lo más alto (también pueden utilizar contenedor .m4a):</p>
 
       <code>faac audio.wav -q 500 -o audio.aac</code>
 
-      <p>En FFmpeg se usa igual:</p>
+      <h3>FFmpeg AAC (VBR)</h3>
 
-      <code>ffmpeg -i audio.wav -c:a libfaac -q:a 500 audio.aac</code>
+      <code>ffmpeg -i audio.wav -c:a aac -q:a 500 audio.aac</code>
+      
+      <h3>FFmpeg HE-AAC (VBR)</h3>
 
-      <p>Actualmente <a href="https://ffmpeg.org/trac/ffmpeg/wiki/UbuntuCompilationGuide#fdk-aac">el encoder fdk-aac es el mejor</a>. Tiene un rango de calidad entre 1 a 5, siendo 1 lo más bajo y 5 lo más alto en calidad:</p>
+      <p>Actualmente el encoder <a href="https://ffmpeg.org/trac/ffmpeg/wiki/UbuntuCompilationGuide#fdk-aac">fdk-aac es el mejor</a>. Tiene un rango de calidad entre 1 a 5, siendo 1 lo más bajo y 5 lo más alto en calidad:</p>
 
       <code>ffmpeg -i audio.wav -c:a libfdk_aac -vbr 5 audio.aac</code>
 
-      <h3>WAV a Vorbis (VBR)</h3>
-
-      <p>El paquete de aplicaciones vorbis-tools trae consigo el encoder <a href="http://wiki.hydrogenaudio.org/index.php?title=Oggenc">Oggenc</a>, y puede utilizar el codec libre <a href="https://es.wikipedia.org/wiki/Vorbis">Vorbis</a>. Tiene un rango de calidad de bitrate variable VBR entre 0 a 10, siendo 0 lo peor y 10 lo mejor (aunque 9 llega a los 320Kbps y 10 a los 500Kbps):</p>
-
-      <code>oggenc audio.wav -q 9 -o audio.ogg</code>
-
-      <p>En FFmpeg se usa así:</p>
-
-      <code>ffmpeg -i audio.wav -c:a libvorbis -q:a 9 audio.ogg</code>
-
-      <h3>WAV a Opus (VBR)</h3>
+      <h2>Opus (VBR)</h2>
 
       <p>El paquete opus-tools trae el encoder opusenc, el cual utiliza el codec <a href="https://es.wikipedia.org/wiki/Opus_(c%C3%B3dec)">Opus</a> y ejecuta por defecto un bitrate variable VBR. El rango de calidad ya viene activado por defecto en máxima calidad, solo hay que otorgar un bitrate máximo variable VBR, en este caso 320Kbps (llega hasta 510 y también pueden utilizar contenedor .ogg):</p>
 
       <code>opusenc audio.wav --vbr --bitrate 320 audio.opus</code>
 
-      <p>En FFmpeg el encoder libopus actúa igual, solo se otorga un bitrate máximo variable VBR:</p>
+      <h3>FFmpeg Opus (VBR)</h3>
 
       <code>ffmpeg -i audio.wav -c:a libopus -vbr on -b:a 320k audio.opus</code>
 
-      <h3>WAV a FLAC (Lossless)</h3>
+      <h2>FLAC (Lossless)</h2>
 
       <p>El codec <a href="https://es.wikipedia.org/wiki/Free_Lossless_Audio_Codec"><abbr title="Free Lossless Audio Codec">FLAC</abbr></a> mantiene el audio sin pérdidas de calidad (Lossless), intacto internamente. Su encoder del mismo nombre, tiene un rango de compresión de archivo entre 0 a 8, siendo 0 menos comprimido y 8 más comprimido. Por defecto usa el rango 5 el cual otorga mejor equilibrio entre tiempo de encodeo y peso (también pueden utilizar contenedor .ogg):</p>
 
       <code>flac audio.wav -5 -o audio.flac</code>
 
-      <p>En FFmpeg pueden usar flac también (rango 5 viene por defecto):</p>
+      <h3>FFmpeg FLAC</h3>
 
       <code>ffmpeg -i audio.wav -c:a flac audio.flac</code>
 
