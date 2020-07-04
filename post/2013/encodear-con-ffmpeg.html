@@ -38,19 +38,21 @@
 
       <h2>Instalar x264-10bit y FFmpeg</h2>
       
-      <h3>Solo Linux x264-10bit</h3>
+      <h3>Linux x264-10bit</h3>
       
       <p>Se instalan 3 cosas, <a href="https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu">instalar dependencias (+ yasm), x264, y FFmpeg</a> (en ese orden), copiar/pegar en la terminal lo que aparece en los cuadros. Para compilar x264-10bit, al final de la linea "./configure" tienes que agregar: --bit-depth=10 (Antes de instalar FFmpeg, primero borra de la lista todos los encoders que no instalaste, como por ejemplo --enable-libfdk-aac, --enable-libmp3lame, etc.)</p>
 
-      <h3>Solo Linux x264-8bit</h3>
+      <h3>Linux x264-8bit</h3>
       
       <p>Esto es más fácil, instala <a href="https://launchpad.net/~mc3man/+archive/ubuntu/trusty-media">FFmpeg actualizado desde un PPA</a> (otro <a href="https://launchpad.net/~djcj/+archive/ubuntu/hybrid">PPA con FFmpeg, la última versión de x264 y Mkvtoolnix</a>). Y listo, a encodear.</p>
 
-      <h3>Solo macOS x264-8bit</h3>
+      <h3>macOS x264-8bit</h3>
       
       <p>Instala FFmpeg usando <a href="http://brew.sh/index_es.html">Homebrew</a>. Y para agregar más encoders:</p>
 
       <code>brew reinstall ffmpeg --with-faac --with-x265</code>
+      
+      <h3>macOS x264-10bit y 8bit</h3>
       
       <p>También puedes <a href="https://evermeet.cx/ffmpeg/">descargar un binario de FFmpeg</a> con su última versión para macOS. Instalas en la ruta /usr/local/bin, lo abres manteniendo la tecla alt y click derecho en Abrir para dar permiso de ejecución.</p>
 
@@ -74,7 +76,7 @@
       
       <h3>Encodear 10-bit y Compresión</h3>
       
-      <p>Usando un <a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding#Profiles">Profile</a> high10 deja todo listo para los 10-bit, y además un <a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding#Levels">Level</a> 5.1. Para comprimir usaremos un <a href="http://www.chaneru.com/Roku/HLS/X264_Settings.htm#preset">Preset</>, el cual comprime el tamaño del archivo, entre más lento el encodeo menor el tamaño del archivo, por defecto usa compresión medium, y lo dejaremos ahí. (por defecto es profile automático, preset medium y level automático):</p>
+      <p>Usando un <a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding#Profiles">Profile</a> high10 deja todo listo para los 10-bit, y además un <a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding#Levels">Level</a> 5.1. Para comprimir se usa <a href="http://www.chaneru.com/Roku/HLS/X264_Settings.htm#preset">Preset</a>, este comprime el tamaño del archivo, entre más lento el encodeo menor el tamaño del archivo, usaremos medium. (por defecto es profile automático, preset medium y level automático):</p>
 
       <code>ffmpeg -i entrada.mkv -c:v libx264 -preset medium -crf 17 -profile:v high10 -level 5.1 -c:a copy salida.mkv</code>
       
