@@ -72,17 +72,17 @@
 
       <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 17 -c:a copy salida.mkv</code>
       
-      <h3>Encodear 10-bit</h3>
+      <h3>Encodear 10-bit y Compresión</h3>
       
-      <p>Usando un <a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding#Profiles">Profile</a> high10 deja todo listo para los 10-bit, y además un <a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding#Levels">Level</a> 5.1 (por defecto es profile automático, preset medium y level automático):</p>
+      <p>Usando un <a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding#Profiles">Profile</a> high10 deja todo listo para los 10-bit, y además un <a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding#Levels">Level</a> 5.1. Para comprimir usaremos un <a href="http://www.chaneru.com/Roku/HLS/X264_Settings.htm#preset">Preset</>, el cual comprime el tamaño del archivo, entre más lento el encodeo menor el tamaño del archivo, por defecto usa compresión medium, y lo dejaremos ahí. (por defecto es profile automático, preset medium y level automático):</p>
 
-      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 17 -profile:v high10 -level 5.1 -c:a copy salida.mkv</code>
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -preset medium -crf 17 -profile:v high10 -level 5.1 -c:a copy salida.mkv</code>
       
       <h3>Compatibilidad con reproductor blu-ray o smart-TV 8-bit</h3>
       
       <p>Para compatibilidad elimina los 10-bit, agrega level 4.1, un chroma 4:2:0 y también un profile high, así quedaría "-pix_fmt yuv420p -level 4.1":</p>
       
-      <code>ffmpeg -i entrada.mkv -c:v libx264 -crf 17 -profile:v high -level 4.1 -pix_fmt yuv420p -c:a copy salida.mkv</code>
+      <code>ffmpeg -i entrada.mkv -c:v libx264 -preset medium -crf 17 -profile:v high -level 4.1 -pix_fmt yuv420p -c:a copy salida.mkv</code>
 
       <h2>Audio FLAC</h2>
       
@@ -108,11 +108,11 @@
 
       <p>Por ejemplo 0:0 sería el video a encodear, y 0:1 es la pista de audio lossless que queremos. Se usaría así: -map 0:0 -map 0:1 (y otras opciones recomendadas para encodear blu-ray).</p>
 
-      <code>ffmpeg -i entrada.m2ts -map 0:0 -c:v libx264 -crf 15 -preset slow -profile:v high10 -nal-hrd vbr -b-pyramid strict -slices 4 -aud 1 -map 0:1 -c:a flac salida.mkv</code>
+      <code>ffmpeg -i entrada.m2ts -map 0:0 -c:v libx264 -preset medium -crf 15 -profile:v high10 -nal-hrd vbr -b-pyramid strict -slices 4 -aud 1 -map 0:1 -c:a flac salida.mkv</code>
 
       <p>O también la configuración con opciones nativas recomendadas para encodear blu-ray con el <a href="http://mewiki.project357.com/wiki/X264_Settings#colorprim">uso de colores bt709</a>:</p>
 
-      <code>ffmpeg -i entrada.m2ts -map 0:0 -c:v libx264 -crf 15 -preset slow -x264opts nal-hrd=vbr:b-pyramid=strict:slices=4:aud:colorprim=bt709:transfer=bt709:colormatrix=bt709 -map 0:1 -c:a flac salida.mkv</code>
+      <code>ffmpeg -i entrada.m2ts -map 0:0 -c:v libx264 -preset medium -crf 15 -x264opts nal-hrd=vbr:b-pyramid=strict:slices=4:aud:colorprim=bt709:transfer=bt709:colormatrix=bt709 -map 0:1 -c:a flac salida.mkv</code>
 
       <h2>Opciones extras de FFmpeg</h2>
 
