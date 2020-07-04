@@ -76,7 +76,9 @@
       
       <h3>Encodear 10-bit y Compresión</h3>
       
-      <p>Usando un <a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding#Profiles">Profile</a> high10 deja todo listo para los 10-bit, y además un <a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding#Levels">Level</a> 5.1. Para comprimir se usa <a href="http://www.chaneru.com/Roku/HLS/X264_Settings.htm#preset">Preset</a>, este comprime el tamaño del archivo, entre más lento el encodeo menor el tamaño del archivo, usaremos medium. (por defecto es profile automático, preset medium y level automático):</p>
+      <p>Usando un <a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding#Profiles">Profile</a> high10 deja todo listo para los 10-bit, y además un <a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding#Levels">Level</a> 5.1.</p> 
+      
+      <p>Para comprimir se usa <a href="http://www.chaneru.com/Roku/HLS/X264_Settings.htm#preset">Preset</a>, este comprime el tamaño del archivo, entre más lento el encodeo menor el tamaño del archivo, usaremos medium (por defecto es profile automático, preset medium y level automático):</p>
 
       <code>ffmpeg -i entrada.mkv -c:v libx264 -preset medium -crf 17 -profile:v high10 -level 5.1 -c:a copy salida.mkv</code>
       
