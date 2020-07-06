@@ -89,8 +89,8 @@ header {
   transition: 300ms;
 }
 
-.logo a:hover .red {
-  background-color: #F44336;
+.logo a:hover {
+  color: #ea6575;
 }
 
 .logo a .red {
@@ -124,7 +124,7 @@ nav ul li::before {
 }
 
 nav ul li a {
-  font-size: 1.2rem; /* 21.4px */
+  font-size: 20px;
   color: #50555a;
   padding: 5px 13px;
   border: 1px solid transparent;
@@ -159,6 +159,10 @@ h2.title a {
   line-height: 1.5;
   color: #50555A;
   font-weight: 900;
+}
+
+h2.title a:hover {
+  color: #ea6575;
 }
 
 .plus {
@@ -220,7 +224,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2rem; /* 24px */
+  font-size: 20px;
   line-height: 1.6;
   padding-top: 20px;
   margin-bottom: -5px;
@@ -429,7 +433,7 @@ nav {
 }
 
 nav ul li a, .plus a {
-  font-size: 1.25rem; /* 20px */
+  font-size: 19px;
 }
 
 h1, h2.title a {
