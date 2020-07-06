@@ -42,7 +42,7 @@ article a, article h2.title {
   transition: color 220ms;
 }
 
-a:hover, .logo a:hover, h2.title a:hover, .plus a:hover, .yo .logo a:hover {
+article a:hover {
   color: #c7a2b6;
 }
 
@@ -172,11 +172,16 @@ h2.title a:hover {
 
 .plus a {
   font-size: 1.2rem;
-  color: #ffffff;
+  color: #fff;
   background-color: #ea6575;
   font-weight: 400;
   padding: 8px 21px;
   border-radius: 25px;
+  transition: 220ms;
+}
+
+.plus a:hover {
+  background-color: #ff435a;
 }
 
 .articles {
