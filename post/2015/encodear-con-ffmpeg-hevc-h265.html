@@ -28,11 +28,17 @@
       
       <p>También puedes <a href="https://evermeet.cx/ffmpeg/">descargar un binario de FFmpeg</a> con su última versión para macOS. Instalas en la ruta /usr/local/bin, la primera vez abres el binario manteniendo la tecla alt y click derecho en Abrir para dar permiso de ejecución. Luego puedes usarlo desde Terminal.</p>
 
-      <h2>Configurar CRF, 10-bit y Compresión</h2>
+      <h2>Configurando el encoder</h2>
+      
+      <h3>CRF</h3>
 
       <p><abbr title="High Efficiency Video Coding">HEVC</abbr> usa Constant Rate Factor (<abbr title="Constant Rate Factor">CRF</abbr>), con el encoder <a href="http://es.wikipedia.org/wiki/X265">x265</a>. CRF utiliza un <a href="https://x265.readthedocs.io/en/default/cli.html#cmdoption-crf">rango de medición de calidad</a> entre 0 como lo mejor y 51 lo peor, para una imagen sin pérdidas visuales (lossless) usaremos 17. </p>
 
+      <h3>10-bit</h3>
+      
       <p>También agreguen un <a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding#Profiles">Profile</a> Main10 para los 10-bit. Junto con un <a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding#Tiers_and_levels">Level</a> 5.1.</p>
+      
+      <h3>Compresión</h3>
       
       <p>Para comprimir se usa <a href="https://x265.readthedocs.io/en/default/presets.html#presets">Preset</a>, este comprime el tamaño del archivo, entre más lento el encodeo menor el tamaño del archivo, usaremos medium (por defecto es profile automático, preset medium y level automático):</p>
 
