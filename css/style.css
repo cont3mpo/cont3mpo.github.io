@@ -400,7 +400,7 @@ time {
 }
 }
 
-@media screen and (max-width: 550px), (max-height: 400px) {
+@media screen and (max-width: 660px), (max-height: 400px) {
 .container {
   width: 84%;
 }
