@@ -1,4 +1,4 @@
-/* Tipografías */
+/* ------------ Tipografias ------------ */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Muli:wght@400;600&family=Source+Code+Pro&display=swap');/* General */
 
@@ -31,7 +31,7 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-/* Links & Selection */
+/* ------------ Links ------------ */
 
 a {
   color: #ea6575;
@@ -68,7 +68,7 @@ li::before {
   margin-left: -1em;
 }
 
-/* Header */
+/* ------------ Cabecera ------------ */
 
 header {
   margin: 20px 0 90px 0;
@@ -144,7 +144,7 @@ nav ul li a:hover {
   background-color: #ea6575;
 }
 
-/* Inicio */
+/* ------------ Inicio ------------ */
 
 .front-page {
   padding-bottom: 18px;
@@ -183,7 +183,7 @@ h2.title a:hover {
   margin-top: -18px;
 }
 
-/* Artículos */
+/* ------------ Articulos ------------ */
 
 .index h2 {
   font-size: 21px;
@@ -198,7 +198,7 @@ h2.title a:hover {
     margin-bottom: 18px;
 }
 
-/* Article */
+/* ------------ Articulo ------------ */
 
 code, pre {
   font-family: "Source Code Pro", monospace;
@@ -291,7 +291,7 @@ time {
   color: #a5afb1;
 }
 
-/* 404 */
+/* ------------ No encontrado 404 ------------ */
 
 .perdidos {
   text-align: center;
@@ -304,7 +304,7 @@ time {
   margin-bottom: 18px;
 }
 
-/* Newsletter */
+/* ------------ Newsletter ------------ */
 
 .newsletter {
   background-color: #343040;
@@ -390,7 +390,7 @@ time {
 }
 
 
-/* Mobile */
+/* ------------ Movil ------------ */
 
 @media screen and (max-width: 820px) {
 .container {
