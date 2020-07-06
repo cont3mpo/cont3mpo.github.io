@@ -2,10 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Muli:wght@400;600&family=Source+Code+Pro&display=swap');/* General */
 
-* {
-  box-sizing: border-box;
-}
-
 html {
   font-size: 100%;
 }
@@ -16,7 +12,7 @@ body {
   line-height: 1.70;
   font-weight: 400;
   color: #687577;
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 .container {
