@@ -34,11 +34,11 @@ body {
 /* ------------ Links ------------ */
 
 a {
-  color: #ea6575;
   text-decoration: none;
 }
 
-article a, article h2.title {
+article a {
+  color: #ea6575;
   transition: color 220ms;
 }
 
@@ -89,7 +89,7 @@ header {
   font-size: 2.5rem; /* 44px */
   font-weight: 700;
   color: #50555a;
-  transition: 220ms;
+  transition: color 220ms;
 }
 
 .logo a:hover {
@@ -159,6 +159,7 @@ h2.title a {
   line-height: 1.5;
   color: #50555A;
   font-weight: 900;
+  transition: color 220ms;
 }
 
 h2.title a:hover {
