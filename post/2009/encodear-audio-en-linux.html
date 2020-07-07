@@ -28,7 +28,9 @@
 
       <h2>Usa una fuente de audio Lossless sin pérdida</h2>
 
-      <p>Ya teniendo el audio <abbr title="Waveform Audio File Format">WAV</abbr> (o cualquier lossless), se puede encodear a un codec de audio comprimido <a href="https://es.wikipedia.org/wiki/Algoritmo_de_compresi%C3%B3n_con_p%C3%A9rdida#Compresi.C3.B3n_de_audio_con_p.C3.A9rdida">con pérdida</a> o <a href="https://es.wikipedia.org/wiki/Algoritmo_de_compresi%C3%B3n_sin_p%C3%A9rdida">sin pérdida</a>. Aparecen varios <a href="https://en.wikipedia.org/wiki/Encoder">encoders</a> específicos y también <a href="https://en.wikipedia.org/wiki/Ffmpeg">FFmpeg</a>, el cual utiliza los mismos encoders.</p>
+      <p>Ya teniendo el audio FLAC/ALAC o cualquier <a href="https://en.wikipedia.org/wiki/List_of_codecs#Lossless_compression">codec lossless</a>, se puede encodear a un codec de audio <a href="https://es.wikipedia.org/wiki/Algoritmo_de_compresi%C3%B3n_con_p%C3%A9rdida#Compresi.C3.B3n_de_audio_con_p.C3.A9rdida">con pérdida</a> (lossy).</p>
+      
+      <p>Nunca encodees de un codec lossy con pérdidas a otro lossy, porque quedará peor. Siempre desde un lossless a un lossy.</p>
 
       <h3>Encodea a VBR</h3>
 
@@ -81,21 +83,13 @@
 
       <h2>FLAC (Lossless)</h2>
 
-      <p>El codec <a href="https://es.wikipedia.org/wiki/Free_Lossless_Audio_Codec"><abbr title="Free Lossless Audio Codec">FLAC</abbr></a> mantiene el audio sin pérdidas de calidad (Lossless), intacto internamente. Su encoder del mismo nombre, tiene un rango de compresión de archivo entre 0 a 8, siendo 0 menos comprimido y 8 más comprimido. Por defecto usa el rango 5 el cual otorga mejor equilibrio entre tiempo de encodeo y peso (también pueden utilizar contenedor .ogg):</p>
+      <p>El codec <a href="https://es.wikipedia.org/wiki/Free_Lossless_Audio_Codec"><abbr title="Free Lossless Audio Codec">FLAC</abbr></a> mantiene el audio sin pérdidas de calidad (Lossless):</p>
 
-      <code>flac audio.wav -5 -o audio.flac</code>
+      <code>flac audio.wav -o audio.flac</code>
 
       <h3>FFmpeg FLAC</h3>
 
       <code>ffmpeg -i audio.wav -c:a flac audio.flac</code>
-
-      <h2>Descomprimir cualquier codec a WAV</h2>
-
-      <p>Para pasar cualquiera de los codecs MP3, AAC, Vorbis, Opus a WAV. Por defecto lo deja en 16bit (pcm_s16le) de profundidad, pero dependiendo de la fuente (Blu-ray) se puede usar 24bit:</p>
-
-      <code>ffmpeg -i audio.mp3 audio.wav </code>
-
-      <code>ffmpeg -i audio.mp3 -c:a pcm_s24le audio.wav</code>
 
       <h2>Extras</h2>
 
