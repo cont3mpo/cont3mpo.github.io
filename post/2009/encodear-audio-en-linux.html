@@ -36,7 +36,7 @@
 
       <p>La mejor manera de mantener una calidad de audio a través de toda la pista es usando un <a href="https://es.wikipedia.org/wiki/Tasa_de_bits_variable">bitrate variable <abbr title="Variable Bitrate">VBR</abbr></a>, el cual utiliza solo los bits necesarios para preservar la calidad de audio. Por otro lado, encodear con <a href="https://es.wikipedia.org/wiki/Tasa_de_bits_constante">bitrate constante <abbr title="Constant Bitrate">CBR</abbr></a> desperdiciaría bits y sería poco eficiente al otorgar a toda la pista la misma cantidad de bits, encodea a ciegas dando lo mismo a todo.</p>
 
-      <h2>MP3 (VBR)</h2>
+      <h2>MP3 (VBR Lossy)</h2>
 
       <p>Para encodear con el codec <a href="https://es.wikipedia.org/wiki/Mp3"><abbr title="MPEG-2 Audio Layer III">MP3</abbr></a> hay que utilizar el encoder <a href="http://wiki.hydrogenaudio.org/index.php?title=LAME">LAME</a>, el cual utiliza un rango de calidad entre 0 a 9, siendo 0 lo mejor y 9 lo peor:</p>
 
@@ -47,7 +47,7 @@
 
       <code>ffmpeg -i audio.wav -c:a libmp3lame -q:a 0 audio.mp3</code>
 
-      <h2>AAC (VBR)</h2>
+      <h2>AAC (VBR Lossy)</h2>
 
       <p>El encoder <a href="https://en.wikipedia.org/wiki/FAAC">FAAC</a> utiliza el codec <a href="https://es.wikipedia.org/wiki/Advanced_Audio_Coding"><abbr title="Advanced Audio Coding">AAC</abbr></a> con bitrate variable <abbr title="Variable Bitrate">VBR</abbr>. Funciona con porcentajes de calidad entre 10 a 500, siendo 10 lo más bajo en calidad y 500 lo más alto:</p>
 
@@ -65,7 +65,7 @@
 
       <code>ffmpeg -i audio.wav -c:a libfdk_aac -vbr 5 audio.aac</code>
 
-      <h2>Opus (VBR)</h2>
+      <h2>Opus (VBR Lossy)</h2>
 
       <p>El paquete opus-tools trae el encoder opusenc, el cual utiliza el codec <a href="https://es.wikipedia.org/wiki/Opus_(c%C3%B3dec)">Opus</a> y ejecuta por defecto un bitrate variable VBR. El rango de calidad ya viene activado por defecto en máxima calidad, solo hay que otorgar un bitrate máximo variable VBR, en este caso 320Kbps (llega hasta 510 y también pueden utilizar contenedor .ogg):</p>
 
@@ -75,7 +75,7 @@
 
       <code>ffmpeg -i audio.wav -c:a libopus -vbr on -b:a 320k audio.opus</code>
       
-      <h2>DTS (CBR)</h2>
+      <h2>DTS (CBR Lossy)</h2>
 
       <p><a href="https://es.wikipedia.org/wiki/DTS">DTS</a> es un codec con pérdida pero es CBR.</p>
 
@@ -83,7 +83,7 @@
 
       <h2>FLAC (Lossless)</h2>
 
-      <p>El codec <a href="https://es.wikipedia.org/wiki/Free_Lossless_Audio_Codec"><abbr title="Free Lossless Audio Codec">FLAC</abbr></a> mantiene el audio sin pérdidas de calidad (Lossless):</p>
+      <p>El codec <a href="https://es.wikipedia.org/wiki/Free_Lossless_Audio_Codec"><abbr title="Free Lossless Audio Codec">FLAC</abbr></a> mantiene el audio sin pérdidas de calidad (Lossless). FLAC soporta hasta <a href="https://xiph.org/flac/faq.html#general__channels">8 canales de audio y 32-bit de profundidad</a>:</p>
 
       <code>flac audio.wav -o audio.flac</code>
 
