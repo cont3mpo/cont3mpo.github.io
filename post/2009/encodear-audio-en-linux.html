@@ -38,7 +38,7 @@
 
       <h2>MP3 (VBR Lossy)</h2>
 
-      <p>Para encodear con el codec <a href="https://es.wikipedia.org/wiki/Mp3"><abbr title="MPEG-2 Audio Layer III">MP3</abbr></a> hay que utilizar el encoder <a href="http://wiki.hydrogenaudio.org/index.php?title=LAME">LAME</a>, el cual utiliza un rango de calidad entre 0 a 9, siendo 0 lo mejor y 9 lo peor:</p>
+      <p>El codec <a href="https://es.wikipedia.org/wiki/Mp3"><abbr title="MPEG-2 Audio Layer III">MP3</abbr></a> fue desarrollado por <a href="https://es.wikipedia.org/wiki/Moving_Picture_Experts_Group">Moving Picture Experts Group</a> (MPEG). Se utiliza con el encoder <a href="http://wiki.hydrogenaudio.org/index.php?title=LAME">LAME</a>, el cual tiene un rango de calidad entre 0 a 9, siendo 0 lo mejor y 9 lo peor:</p>
 
       <h3>LAME</h3>
       <code>lame audio.wav -V 0 audio.mp3</code>
@@ -49,7 +49,7 @@
 
       <h2>AAC (VBR Lossy)</h2>
 
-      <p>El encoder <a href="https://en.wikipedia.org/wiki/FAAC">FAAC</a> utiliza el codec <a href="https://es.wikipedia.org/wiki/Advanced_Audio_Coding"><abbr title="Advanced Audio Coding">AAC</abbr></a> con bitrate variable <abbr title="Variable Bitrate">VBR</abbr>. Funciona con porcentajes de calidad entre 10 a 500, siendo 10 lo más bajo en calidad y 500 lo más alto:</p>
+      <p>El codec <a href="https://es.wikipedia.org/wiki/Advanced_Audio_Coding"><abbr title="Advanced Audio Coding">AAC</abbr></a> también fue fue desarrollado por <a href="https://es.wikipedia.org/wiki/Moving_Picture_Experts_Group">Moving Picture Experts Group</a> (MPEG). Se utiliza con el encoder <a href="https://en.wikipedia.org/wiki/FAAC">FAAC</a> con bitrate variable <abbr title="Variable Bitrate">VBR</abbr>. Funciona con porcentajes de calidad entre 10 a 500, siendo 10 lo más bajo en calidad y 500 lo más alto:</p>
 
       <code>faac audio.wav -q 500 -o audio.aac</code>
 
@@ -67,23 +67,19 @@
 
       <h2>Opus (VBR Lossy)</h2>
 
-      <p>El paquete opus-tools trae el encoder opusenc, el cual utiliza el codec <a href="https://es.wikipedia.org/wiki/Opus_(c%C3%B3dec)">Opus</a> y ejecuta por defecto un bitrate variable VBR. El rango de calidad ya viene activado por defecto en máxima calidad, solo hay que otorgar un bitrate máximo variable VBR, en este caso 320Kbps (llega hasta 510 y también pueden utilizar contenedor .ogg):</p>
-
-      <code>opusenc audio.wav --vbr --bitrate 320 audio.opus</code>
-
-      <h3>FFmpeg Opus (VBR)</h3>
+      <p>El codec <a href="https://es.wikipedia.org/wiki/Opus_(c%C3%B3dec)">Opus</a> fue desarrollado por <a href="https://es.wikipedia.org/wiki/Fundaci%C3%B3n_Xiph.Org">Xiph</a>. Primero se activa vbr on, y un bitrate máximo variable VBR, usaremos 320Kbps:</p>
 
       <code>ffmpeg -i audio.wav -c:a libopus -vbr on -b:a 320k audio.opus</code>
       
       <h2>DTS (CBR Lossy)</h2>
 
-      <p><a href="https://es.wikipedia.org/wiki/DTS">DTS</a> es un codec con pérdida pero es CBR.</p>
+      <p><a href="https://es.wikipedia.org/wiki/DTS">DTS</a> fue desarrollado por <a href="https://en.wikipedia.org/wiki/Xperi">Xperi</a>. Es un codec con pérdida pero es CBR.</p>
 
       <code>ffmpeg -i audio.wav -c:a dca -strict -2 audio.mka</code>
 
       <h2>FLAC (VBR Lossless)</h2>
 
-      <p>El codec abierto <a href="https://es.wikipedia.org/wiki/Free_Lossless_Audio_Codec"><abbr title="Free Lossless Audio Codec">FLAC</abbr></a> mantiene el audio sin pérdidas de calidad (Lossless). FLAC soporta hasta <a href="https://xiph.org/flac/faq.html#general__channels">8 canales de audio y 32-bit de profundidad</a>:</p>
+      <p>El codec <a href="https://es.wikipedia.org/wiki/Free_Lossless_Audio_Codec"><abbr title="Free Lossless Audio Codec">FLAC</abbr></a> fue desarrollado por <a href="https://es.wikipedia.org/wiki/Fundaci%C3%B3n_Xiph.Org">Xiph</a>. Mantiene un audio sin pérdidas de calidad (Lossless). FLAC soporta hasta <a href="https://xiph.org/flac/faq.html#general__channels">8 canales de audio y 32-bit de profundidad</a>:</p>
 
       <code>flac audio.wav -o audio.flac</code>
 
@@ -93,7 +89,7 @@
       
       <h2>ALAC (VBR Lossless)</h2>
 
-      <p><a href="https://es.wikipedia.org/wiki/Apple_Lossless"><abbr title="Apple Lossless Audio Codec">ALAC</abbr></a> también es un codec abierto pero desarrollado por Apple, y mantiene un audio sin pérdidas de calidad (Lossless):</p>
+      <p><a href="https://es.wikipedia.org/wiki/Apple_Lossless"><abbr title="Apple Lossless Audio Codec">ALAC</abbr></a> también mantiene un audio sin pérdidas de calidad (Lossless), y fue desarrollado por <a href="https://es.wikipedia.org/wiki/Apple">Apple</a>:</p>
 
       <code>ffmpeg -i audio.wav -c:a alac audio.m4a</code>
 
