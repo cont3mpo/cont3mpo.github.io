@@ -38,7 +38,7 @@
 
       <h2>MP3 (VBR Lossy)</h2>
 
-      <p>El codec <a href="https://es.wikipedia.org/wiki/Mp3"><abbr title="MPEG-2 Audio Layer III">MP3</abbr></a> se utiliza con el encoder <a href="http://wiki.hydrogenaudio.org/index.php?title=LAME">LAME</a>, el cual tiene un rango de calidad entre 0 a 9, de mejor a peor:</p>
+      <p>El codec <a href="https://es.wikipedia.org/wiki/Mp3"><abbr title="MPEG-2 Audio Layer III">MP3</abbr></a> se utiliza con el encoder <a href="http://wiki.hydrogenaudio.org/index.php?title=LAME">LAME</a>, el cual tiene un rango de calidad entre 0 (mejor) a 9 (peor):</p>
 
       <h3>LAME</h3>
       <code>lame audio.wav -V 0 audio.mp3</code>
@@ -49,19 +49,19 @@
 
       <h2>AAC (VBR Lossy)</h2>
 
-      <p>El codec <a href="https://es.wikipedia.org/wiki/Advanced_Audio_Coding"><abbr title="Advanced Audio Coding">AAC</abbr></a> se utiliza con el encoder <a href="https://en.wikipedia.org/wiki/FAAC">FAAC</a> con bitrate variable <abbr title="Variable Bitrate">VBR</abbr>. Funciona con rango de calidad entre 10 a 500, de peor a mejor:</p>
+      <p>El codec <a href="https://es.wikipedia.org/wiki/Advanced_Audio_Coding"><abbr title="Advanced Audio Coding">AAC</abbr></a> se utiliza con el encoder <a href="https://en.wikipedia.org/wiki/FAAC">FAAC</a> con bitrate variable <abbr title="Variable Bitrate">VBR</abbr>. Funciona con rango de calidad entre 10 (peor) a 500 (mejor):</p>
 
       <code>faac audio.wav -q 500 -o audio.aac</code>
 
       <h3>FFmpeg AAC (VBR)</h3>
       
-      <p>El encoder nativo aac en FFmpeg usa una medición entre 0 a 2, de peor a mejor calidad:</p>
+      <p>El encoder nativo aac en FFmpeg tiene un rango de calidad entre 0 (peor) a 2 (mejor):</p>
 
       <code>ffmpeg -i audio.wav -c:a aac -q:a 2 audio.aac</code>
       
       <h3>FFmpeg HE-AAC (VBR)</h3>
 
-      <p>Actualmente el encoder <a href="https://ffmpeg.org/trac/ffmpeg/wiki/UbuntuCompilationGuide#fdk-aac">fdk-aac es el mejor</a>. Tiene un rango de calidad entre 1 a 5, siendo 1 lo más bajo y 5 lo más alto en calidad:</p>
+      <p>Actualmente el encoder <a href="https://ffmpeg.org/trac/ffmpeg/wiki/UbuntuCompilationGuide#fdk-aac">fdk-aac es el mejor</a>. Tiene un rango de calidad entre 1 (peor) a 5 (mejor):</p>
 
       <code>ffmpeg -i audio.wav -c:a libfdk_aac -vbr 5 audio.aac</code>
 
