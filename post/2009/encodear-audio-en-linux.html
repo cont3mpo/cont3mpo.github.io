@@ -81,15 +81,21 @@
 
       <code>ffmpeg -i audio.wav -c:a dca -strict -2 audio.mka</code>
 
-      <h2>FLAC (Lossless)</h2>
+      <h2>FLAC (VBR Lossless)</h2>
 
-      <p>El codec <a href="https://es.wikipedia.org/wiki/Free_Lossless_Audio_Codec"><abbr title="Free Lossless Audio Codec">FLAC</abbr></a> mantiene el audio sin pérdidas de calidad (Lossless). FLAC soporta hasta <a href="https://xiph.org/flac/faq.html#general__channels">8 canales de audio y 32-bit de profundidad</a>:</p>
+      <p>El codec abierto <a href="https://es.wikipedia.org/wiki/Free_Lossless_Audio_Codec"><abbr title="Free Lossless Audio Codec">FLAC</abbr></a> mantiene el audio sin pérdidas de calidad (Lossless). FLAC soporta hasta <a href="https://xiph.org/flac/faq.html#general__channels">8 canales de audio y 32-bit de profundidad</a>:</p>
 
       <code>flac audio.wav -o audio.flac</code>
 
       <h3>FFmpeg FLAC</h3>
 
       <code>ffmpeg -i audio.wav -c:a flac audio.flac</code>
+      
+      <h2>ALAC (VBR Lossless)</h2>
+
+      <p><a href="https://es.wikipedia.org/wiki/Apple_Lossless"><abbr title="Apple Lossless Audio Codec">ALAC</abbr></a> también es un codec abierto pero desarrollado por Apple, y mantiene un audio sin pérdidas de calidad (Lossless):</p>
+
+      <code>ffmpeg -i audio.wav -c:a alac audio.m4a</code>
 
       <h2>Extras</h2>
 
