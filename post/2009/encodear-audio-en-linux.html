@@ -40,9 +40,11 @@
 
       <p>El codec <a href="https://es.wikipedia.org/wiki/Mp3"><abbr title="MPEG-2 Audio Layer III">MP3</abbr></a> se utiliza con el encoder <a href="http://wiki.hydrogenaudio.org/index.php?title=LAME">LAME</a>, el cual tiene un rango de calidad entre 0 (mejor) a 9 (peor):</p>
 
+      <h3>Lame (VBR)</h3>
+      
       <code>lame audio.wav -V 0 audio.mp3</code>
 
-      <h3>FFmpeg MP3 VBR</h3>
+      <h3>FFmpeg MP3 (VBR)</h3>
 
       <code>ffmpeg -i audio.wav -c:a libmp3lame -q:a 0 audio.mp3</code>
 
@@ -50,6 +52,8 @@
 
       <p>El codec <a href="https://es.wikipedia.org/wiki/Advanced_Audio_Coding"><abbr title="Advanced Audio Coding">AAC</abbr></a> se utiliza con el encoder <a href="https://en.wikipedia.org/wiki/FAAC">FAAC</a> con bitrate variable <abbr title="Variable Bitrate">VBR</abbr>. Funciona con rango de calidad entre 10 (peor) a 500 (mejor):</p>
 
+      <h3>Faac (VBR)</h3>
+      
       <code>faac audio.wav -q 500 -o audio.aac</code>
 
       <h3>FFmpeg AAC (VBR)</h3>
@@ -74,9 +78,11 @@
 
       <p>El codec <a href="https://es.wikipedia.org/wiki/Free_Lossless_Audio_Codec"><abbr title="Free Lossless Audio Codec">FLAC</abbr></a> mantiene un audio sin pérdidas de calidad (Lossless). FLAC soporta hasta <a href="https://xiph.org/flac/faq.html#general__channels">8 canales de audio y 32-bit de profundidad</a>:</p>
 
+      <h3>Flac (VBR)</h3>
+      
       <code>flac audio.wav -o audio.flac</code>
 
-      <h3>FFmpeg FLAC</h3>
+      <h3>FFmpeg FLAC (VBR)</h3>
 
       <code>ffmpeg -i audio.wav -c:a flac audio.flac</code>
       
