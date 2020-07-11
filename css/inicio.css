@@ -64,8 +64,6 @@ li a span {
   visibility: hidden;
   background-color: #444C4E;
   color: #eee;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 200;
   font-size: 16px;
   text-align: center;
   border-radius: 6px 12px 12px 6px;
@@ -101,8 +99,6 @@ li a span::after {
   visibility: hidden;
   background-color: #444C4E;
   color: #eee;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 200;
   font-size: 16px;
   text-align: center;
   border-radius: 12px 6px 6px 12px;
