@@ -238,7 +238,7 @@ time {
   display: block;
   text-align: right;
   margin-top: 35px;
-  color: #a5afb1;
+  color: #99a3a5;
 }
 time:after {
   content: '';
