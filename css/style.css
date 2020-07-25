@@ -254,6 +254,10 @@ time:after {
   margin-left: 10px;
   vertical-align: -4px;
 }
+/* ------------ Yo ------------ */
+.yo h1, .yo p:first-of-type {
+    text-align: center;
+}
 /* ------------ No encontrado 404 ------------ */
 .perdidos {
   text-align: center;
@@ -325,6 +329,10 @@ iframe {
 }
 time {
   font-size: 0.9rem; /* 14.4px */
+}
+.yo h1, .yo p:first-of-type {
+  max-width: 350px;
+  margin: 0 auto;
 }
 .perdidos {
   margin-top: 40px;
