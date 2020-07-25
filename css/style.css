@@ -232,7 +232,9 @@ iframe {
   margin: 20px 0;
 }
 time {
+  font-family: "Montserrat", sans-serif;
   font-size: 0.9rem;
+  font-weight: 400;
   display: block;
   text-align: right;
   margin-top: 35px;
@@ -243,7 +245,7 @@ time:after {
   display: inline-block;
   width: 20px;
   height: 20px;
-  background-image: url('../../img/clock-regular.svg');
+  background-image: url('../../img/calendario.svg');
   background-repeat: no-repeat;
   margin-left: 10px;
   vertical-align: -4px;
