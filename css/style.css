@@ -192,6 +192,12 @@ h2 {
   color: #585d63;
   font-weight: 900;
 }
+h2 img {
+  width: 22px;
+  height: auto;
+  margin-right: 5px;
+  vertical-align: -3px;
+}
 h3 {
   font-size: 1rem;
   margin: 0;
