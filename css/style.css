@@ -334,6 +334,9 @@ time {
   max-width: 350px;
   margin: 0 auto;
 }
+.yo p:first-of-type {
+    margin-bottom: 50px;
+}
 .perdidos {
   margin-top: 40px;
 }
