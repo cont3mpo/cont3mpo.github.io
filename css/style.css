@@ -44,6 +44,7 @@ article a:hover {
 }
 ul {
   list-style: none;
+  padding-left: 30px;
 }
 li::before {
   content: "•"; 
@@ -51,6 +52,10 @@ li::before {
   display: inline-block; 
   width: 1em;
   margin-left: -1em;
+}
+.index li::before {
+  content: "○"; 
+  color: #99a3a5;
 }
 /* ------------ Cabecera ------------ */
 header {
