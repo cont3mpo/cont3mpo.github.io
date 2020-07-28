@@ -258,6 +258,9 @@ time:after {
 .yo h1, .yo p:first-of-type {
     text-align: center;
 }
+.yo p:first-of-type {
+    margin-bottom: 50px;
+}
 /* ------------ No encontrado 404 ------------ */
 .perdidos {
   text-align: center;
@@ -335,7 +338,7 @@ time {
   margin: 0 auto;
 }
 .yo p:first-of-type {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 .perdidos {
   margin-top: 40px;
