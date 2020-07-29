@@ -54,16 +54,16 @@
       <h3>Administrador de contraseñas</h3>
       <p>Usa un administrador de contraseñas. Ahora uso <a href="https://www.remembear.com/">RememBear</a> en macOS y el iPhone. También existe <a href="https://agilebits.com/onepassword">1Password</a>.</p> 
       
-      <p><a href="https://passwords.google.com/">Google Password Manager</a> es donde se albergan todas las contraseñas que guardas en Chrome, se encriptan en sus servidores y se abren con la contraseña maestra de gmail.</p>
+      <p><a href="https://passwords.google.com/">Google Password Manager</a> es donde se albergan todas las contraseñas que guardas en Chrome, <a href="https://support.google.com/accounts/answer/6208650?hl=es-419">se encriptan en sus servidores</a> y se abren con la contraseña de gmail.</p>
 
-      <p><a href="https://support.apple.com/en-us/HT204085">iCloud Keychain</a> es donde se albergan todas las contraseñas que guardas en tu Mac y iPhone.</p>
+      <p><a href="https://support.apple.com/en-us/HT204085">iCloud Keychain</a> es donde se albergan todas las contraseñas que guardas en tu Mac y iPhone, y Apple utiliza encriptación de extremo a extremo para guardarlas.</p>
       
       <h3>Autentificación de 2 pasos - 2FA</h3>
       <p><a href="https://www.youtube.com/watch?v=GtcVjOWHg9E">Usa verificación de 2-pasos</a> para incrementar la seguridad de tus cuentas. En <a href="https://www.google.com/landing/2step/">Google</a> y <a href="https://support.apple.com/es-cl/HT204915">Apple</a> ya utilizan 2FA. El primer paso es tu contraseña, el segundo paso es un código de verificación que se envía a tú teléfono para ingresarlo.</p>
       
       <p>Siempre usa una contraseña o identificación de dedo o rostro para abrir y desbloquear tu notebook o teléfono, no uses patrones de dedos son fáciles de ver. Usa contraseñas largas de unos 16 caracteres hacia arriba, para cada servicio que uses. Los administradores de contraseñas pueden crear la contraseña para ti.</p>
       
-      <h2>Encriptar</h2>
+      <h2>Encriptar discos</h2>
 
       <p><a href="https://cont3mpo.github.io/post/2015/el-software-de-citizenfour.html">Encripta todo el OS</a>, no solo la carpeta de tu usuario. Android viene con la opción de encriptar todo el <abbr title="Operating System">OS</abbr> (Configurar &gt; Seguridad). Y todos los iPhone vienen encriptados desde fábrica.</p>
 
@@ -76,19 +76,26 @@
       <p>Microsoft utiliza <a href="https://support.microsoft.com/es-mx/help/4028713/windows-10-turn-on-device-encryption">BitLocker</a> para encriptar Windows 10.</p>
 
       <h3>Crifrado con GPG</h3>
-      <p>Puedes <a href="http://www.cyberciti.biz/tips/linux-how-to-encrypt-and-decrypt-files-with-a-password.html">encriptar archivos usando GPG</a>. macOS también viene con una herramienta de discos para encriptar unidades externas.</p>
+      <p>Puedes <a href="http://www.cyberciti.biz/tips/linux-how-to-encrypt-and-decrypt-files-with-a-password.html">encriptar archivos usando GPG</a>. macOS viene con una app de Utilidad de Discos discos para encriptar unidades externas.</p>
 
-      <h2>Mensajería y Mail</h2>
+      <h2>Mensajería cifrada</h2>
 
-      <p>Usa <a href="https://whispersystems.org/">Signal</a>. Signal se encuentra en <a href="https://play.google.com/store/apps/details?id=org.thoughtcrime.securesms&amp;hl=es">Android</a> y <a href="https://itunes.apple.com/us/app/signal-private-messenger/id874139669?mt=8">iOS</a>, usa cifrado de extremo a extremo (E2E) y no guarda registros de nada. Hasta el mismo <a href="https://twitter.com/snowden/status/661313394906161152?lang=es">Edward Snowden lo usa</a>.</p>
+      <h3>Apps de mensajes</h3>
+      <p>Usa <a href="https://whispersystems.org/">Signal</a>. Signal se encuentra en <a href="https://play.google.com/store/apps/details?id=org.thoughtcrime.securesms&amp;hl=es">Android</a> y <a href="https://itunes.apple.com/us/app/signal-private-messenger/id874139669?mt=8">iOS</a>, usa cifrado de extremo a extremo (E2E) y no guarda registros de nada. iMessage, la app de mensajería de Apple <a href="https://support.apple.com/es-cl/HT209110">también usa encriptación</a> de extremo a extremo.</p>
       
       <p>Whatsapp también habilitó el <a href="https://faq.whatsapp.com/general/security-and-privacy/end-to-end-encryption/">cifrado de extremo a extremo</a> en sus mensajes, pero <a href="https://www.andreafortuna.org/2019/08/12/why-whatsapp-and-telegram-messages-are-not-really-private/">guardan la metadata</a>, cosas como cuando te conectaste y con quienes hablaste pero no el contenido de los mensajes.</p>  
       
-      <p>Para enviar mail con cifrado de extremo a extremo (2E2), puedes usar <a href="https://protonmail.com/security-details">ProtonMail</a>, también <a href="https://www.msgsafe.io/">MsgSafe</a>. En <a href="https://www.fastmail.com/privacy-and-security/">FastMail no guardan llaves</a> para acceder a tu contenido, tus mails son solo para ti.</p>
+      <h3>Mail</h3>
+      <p>Para enviar mail con cifrado de extremo a extremo (E2E), puedes usar <a href="https://protonmail.com/security-details">ProtonMail</a>, también <a href="https://www.msgsafe.io/">MsgSafe</a>. En <a href="https://www.fastmail.com/privacy-and-security/">FastMail no guardan llaves</a> para acceder a tu contenido, tus mails son solo para ti.</p>
       
       <p>En Gmail <a href="https://policies.google.com/privacy#infocollect">conservan las llaves</a> para recolectar información, y el nuevo <a href="https://hey.com/faqs/#can-you-read-my-emails">HEY también guardan sus llaves</a> para tener un acceso a los servidores.</p>
       
+      <h2>Mapas</h2>
+      
+      <p>Apple Maps <a href="https://www.forbes.com/sites/kateoflahertyuk/2020/01/30/apple-just-dealt-a-major-blow-to-google-with-this-new-maps-update/#1cb7165346a7">recolecta datos anonimamente</a>, y con esto Apple no puede saber nada de tus busquedas ni donde estuviste.</p>
+      
       <h2>Archivos en la nube</h2>
+      
       <p>Si necesitas respaldar archivos en la nube de forma segura, usa servicios con servidores encriptados y que no sepan tu clave de acceso, tales como <a href="https://mega.nz/about/privacy">MEGA</a>, <a href="https://www.pcloud.com/es/encrypted-cloud-storage.html">pCloud</a>, <a href="https://tresorit.com/security">Tresorit</a> o <a href="https://spideroak.com/no-knowledge/">SpiderOak</a>. Servicos como Google Drive o Dropbox no encriptan tus archivos en sus servidores, cualquiera con las llaves puede acceder.</p>
       
       <h2>Móvil</h2>
