@@ -171,7 +171,7 @@ h2.title a:hover {
 /* ------------ Articulo ------------ */
 code, pre {
   font-family: "Source Code Pro", monospace;
-  font-size: 1rem;
+  font-size: 15px;
   line-height: 1.65;
   font-weight: 400;
   color: #90a3bf;
