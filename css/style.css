@@ -166,7 +166,7 @@ h2.title a:hover {
 }
 .index li::before {
   content: "⚬"; 
-  color: #99a3a5;
+  color: #8c8fb3;
 }
 /* ------------ Articulo ------------ */
 code, pre {
