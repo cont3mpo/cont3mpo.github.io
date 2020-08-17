@@ -248,7 +248,7 @@ time {
   display: block;
   text-align: right;
   margin-top: 35px;
-  color: #99a3a5;
+  color: #8c8fb3;
 }
 time:after {
   content: '';
