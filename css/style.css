@@ -10,7 +10,7 @@ body {
   font-size: 1.13rem; /* 18.08px */
   line-height: 1.70;
   font-weight: 400;
-  color: #687577;
+  color: #686B90;
   background-color: #fff;
 }
 .container {
@@ -35,11 +35,11 @@ article a:hover {
   color: #c7a2b6;
 }
 ::-moz-selection { /* Firefox */
-  background: #ea6575;
+  background: #686B90;
   color: #fff;
 }
 ::selection {
-  background: #ea6575;
+  background: #686B90;
   color: #fff;
 }
 ul {
@@ -71,7 +71,7 @@ header .logo a {
   align-items: center;
   font-size: 2.5rem; /* 44px */
   font-weight: 700;
-  color: #50555a;
+  color: #686B90;
   transition: color 220ms;
 }
 header .logo a:hover {
@@ -103,7 +103,7 @@ header nav ul li::before {
 }
 header nav ul li a {
   font-size: 20px;
-  color: #50555a;
+  color: #686B90;
   padding: 6px 14px;
   border-radius: 25px;
   font-weight: 400;
@@ -127,7 +127,7 @@ h2.title {
 h2.title a {
   font-size: 1.8rem; /* 28.8px */
   line-height: 1.5;
-  color: #50555A;
+  color: #686B90;
   font-weight: 900;
   transition: color 220ms;
 }
@@ -187,7 +187,7 @@ code, pre {
 h1 {
   font-size: 1.9rem; /* 28.8px */
   line-height: 1.5;
-  color: #50555A;
+  color: #686B90;
   font-weight: 900;
 }
 h2 {
@@ -195,7 +195,7 @@ h2 {
   line-height: 1.6;
   padding-top: 20px;
   margin-bottom: -5px;
-  color: #60666d;
+  color: #686B90;
   font-weight: 900;
 }
 h2 img {
@@ -207,7 +207,7 @@ h3 {
   margin: 0;
   padding-top: 12px;
   margin-bottom: -6px;
-  color: #808792;
+  color: #686B90;
   font-weight: 700;
 }
 strong {
