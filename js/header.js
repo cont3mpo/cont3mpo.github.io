@@ -7,7 +7,6 @@ document.write('\
     <ul>\
       <li><a href="../../blog.html" title="Blog">Blog</a></li>\
       <li><a href="../../articulos.html" title="Artículos del blog">Artículos</a></li>\
-      <li><a href="../../contacto.html" title="Sobre mí">Yo</a></li>\
     </ul>\
   </nav>\
 \
