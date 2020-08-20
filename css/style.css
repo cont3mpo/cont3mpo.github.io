@@ -265,7 +265,7 @@ time:after {
 /* ------------ Yo ------------ */
 .yo {
     padding: 6px 0;
-    /* background-color: #fafafa; */
+    background-color: #fafafa;
 }
 .yo .container {
     max-width: 1000px;
@@ -327,7 +327,7 @@ time:after {
   }
   .yo .titulo h1 {
     margin-top: 55px;
-    font-size: 28px;
+    font-size: 26px;
   }
   .yo section {
     width: 100%;
@@ -341,6 +341,9 @@ time:after {
 @media screen and (max-width: 660px), (max-height: 400px) {
 .container {
   width: 84%;
+}
+.yo .container {
+  width: 80%;
 }
 body {
   font-size: 17px;
