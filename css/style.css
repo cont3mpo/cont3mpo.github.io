@@ -316,6 +316,9 @@ time:after {
 }
 /* ------------ Movil ------------ */
 @media screen and (max-width: 840px) {
+  .yo .container {
+    width: 82%;
+  }
   .container {
     width: 88%;
   }
