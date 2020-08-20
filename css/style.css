@@ -345,6 +345,11 @@ time:after {
 .yo .container {
   width: 80%;
 }
+.yo h1 .red {
+  width: 42px;
+  height: 42px;
+  font-size: 31px;
+}
 body {
   font-size: 17px;
   line-height: 1.6;
