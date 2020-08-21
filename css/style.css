@@ -337,7 +337,8 @@ time:after {
 }
 @media screen and (max-width: 660px), (max-height: 400px) {
 .yo .container {
-  width: 80%;
+  width: 79%;
+  padding: 0 24px;
 }
 .yo h1 .red {
   width: 42px;
