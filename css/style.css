@@ -186,7 +186,7 @@ code, pre {
   border-left: 7px solid #ea6575;
 }
 h1 {
-  font-size: 36px; /* 28.8px */
+  font-size: 29px;
   line-height: 1.5;
   color: #686B90;
   font-weight: 900;
@@ -292,6 +292,7 @@ time:after {
     transition: color 220ms;
     margin-bottom: 5px;
     margin-top: 65px;
+    font-size: 36px;
 }
 .yo section {
     width: 43%;
