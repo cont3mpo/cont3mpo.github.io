@@ -332,7 +332,7 @@ time:after {
   }
   .yo p.mb {
     max-width: 370px;
-    margin-bottom: 70px;
+    margin-bottom: 60px;
   }
 }
 @media screen and (max-width: 660px), (max-height: 400px) {
