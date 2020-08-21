@@ -335,7 +335,8 @@ time:after {
     padding: 0;
   }
   .yo p.mb {
-    margin-bottom: 55px;
+    max-width: 370px;
+    margin-bottom: 70px;
   }
 }
 @media screen and (max-width: 660px), (max-height: 400px) {
@@ -367,7 +368,12 @@ header .logo {
   margin-bottom: 30px;
 }
 header .logo a {
-  font-size: 2.4rem; /* 38.4px */
+  font-size: 38px;
+}
+header .logo a .red {
+  width: 46px;
+  height: 46px;
+  font-size: 35px;
 }
 header nav {
   padding-top: 0;
