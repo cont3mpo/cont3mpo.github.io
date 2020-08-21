@@ -341,9 +341,6 @@ time:after {
   }
 }
 @media screen and (max-width: 660px), (max-height: 400px) {
-.container {
-  width: 84%;
-}
 .yo .container {
   width: 80%;
 }
