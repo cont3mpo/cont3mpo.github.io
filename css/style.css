@@ -11,14 +11,17 @@ body {
   line-height: 1.70;
   font-weight: 400;
   color: #686B90;
-  background-color: #fff;
 }
 .container {
   max-width: 784px;
   min-width: 46%;
   margin: 8px auto;
   overflow: hidden;
-  padding-bottom: 60px;
+  border: 1px solid #E2E4F5;
+  border-radius: 30px;
+  padding: 0 50px;
+  padding-bottom: 30px;
+  padding-top: 10px;
 }
 .logo, nav, h1, h2, h3, .plus a {
   font-family: "Montserrat", sans-serif;
@@ -119,9 +122,6 @@ header nav .on {
   background-color: #ea6575;
 }
 /* ------------ Inicio ------------ */
-.front-page {
-  padding-bottom: 30px;
-}
 h2.title {
   margin-bottom: -5px;
 }
@@ -265,7 +265,6 @@ time:after {
 /* ------------ Yo ------------ */
 .yo {
     padding: 6px 0;
-    background-color: #fafafa;
 }
 .yo .container {
     max-width: 1000px;
@@ -273,7 +272,6 @@ time:after {
     border-radius: 30px;
     padding: 0 20px;
     padding-bottom: 30px;
-    background-color: #fff;
 }
 .yo .titulo {
     max-width: 600px;
@@ -321,7 +319,9 @@ time:after {
     width: 82%;
   }
   .container {
-    width: 88%;
+    width: 80%;
+    padding-left: 30px;
+    padding-right: 30px;
   }
   .yo .titulo {
     max-width: 400px;
