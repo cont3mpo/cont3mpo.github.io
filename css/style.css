@@ -86,6 +86,9 @@ header .logo a .red, .yo h1 .red {
   color: #fff;
   font-weight: 700;
 }
+header .logo a .red {
+  font-size: 36px;
+}
 header nav ul {
   list-style-type: none;
   padding: 0;
