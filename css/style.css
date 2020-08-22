@@ -141,7 +141,8 @@ h2.title a:hover {
   transition: 220ms;
 }
 .plus a:hover {
-  background-color: #ff435a;
+  color: #fff;
+  background-color: #ea6575;
 }
 .articles {
   margin-top: -18px;
