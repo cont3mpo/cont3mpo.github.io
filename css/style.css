@@ -365,6 +365,9 @@ header .logo a .red {
   height: 46px;
   font-size: 35px;
 }
+header .logo a .red {
+  font-size: 34px;
+}
 header nav ul li a {
   font-size: 19px;
 }
