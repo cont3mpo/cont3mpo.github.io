@@ -57,20 +57,16 @@ li::before {
 }
 /* ------------ Cabecera ------------ */
 header {
-  margin: 20px 0 90px 0;
+  margin: 20px 0 140px 0;
   display: flex;
-  justify-content: space-between;
-  height: 65px;
-}
-header .logo {
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-top: 15px;
+  height: 65px;
 }
 header .logo a {
   display: flex;
   align-items: center;
-  font-size: 2.5rem; /* 44px */
+  font-size: 43px; /* 44px */
   font-weight: 700;
   color: #686B90;
   transition: color 220ms;
@@ -90,12 +86,10 @@ header .logo a .red, .yo h1 .red {
   color: #fff;
   font-weight: 700;
 }
-header nav {
-  padding-top: 5px;
-}
 header nav ul {
   list-style-type: none;
   padding: 0;
+  margin-top: 5px;
 }
 header nav ul li {
   display: inline-block;
@@ -116,8 +110,8 @@ header nav ul li a:hover {
   background-color: #ea6575;
 }
 header nav .on {
-  color: #fff;
-  background-color: #ea6575;
+  color: #ea6575;
+  border: 2px solid #ea6575;
 }
 /* ------------ Inicio ------------ */
 h2.title {
@@ -138,9 +132,9 @@ h2.title a:hover {
   text-align: right;
 }
 .plus a {
-  font-size: 1.2rem;
-  color: #fff;
-  background-color: #ea6575;
+  font-size: 19px;
+  color: #ea6575;
+  border: 2px solid #ea6575;
   font-weight: 400;
   padding: 8px 21px;
   border-radius: 25px;
@@ -196,7 +190,6 @@ h2 {
   margin-bottom: -5px;
   color: #686B90;
   font-weight: 900;
-  /* text-align: center; */
 }
 h2 img {
   margin-right: 5px;
@@ -353,13 +346,12 @@ body {
   margin-top: -20px;
 }
 header {
-  display: block;
   margin-bottom: 90px;
   margin-top: 30px;
 }
 header .logo {
   height: 45px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 header .logo a {
   font-size: 38px;
@@ -368,10 +360,6 @@ header .logo a .red {
   width: 46px;
   height: 46px;
   font-size: 35px;
-}
-header nav {
-  padding-top: 0;
-  margin-top: -10px;
 }
 header nav ul li a {
   font-size: 19px;
