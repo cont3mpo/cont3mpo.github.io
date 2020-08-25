@@ -100,7 +100,7 @@ header nav ul li {
 header nav ul li::before {
     content: none;
 }
-header nav ul li a {
+header nav ul li a, .yo .contactame a {
   font-size: 20px;
   color: #686B90;
   padding: 6px 14px;
@@ -108,11 +108,11 @@ header nav ul li a {
   font-weight: 400;
   transition: 220ms;
 }
-header nav ul li a:hover {
-  color: #fff;
-  background-color: #ea6575;
+header nav ul li a:hover, .yo .contactame a:hover {
+  color: #ea6575;
+  background-color: #ffe8ec;
 }
-header nav .on {
+header nav .on, .yo .contactame a {
   color: #ea6575;
   border: 2px solid #ea6575;
 }
@@ -194,10 +194,6 @@ h2 {
   margin-bottom: -5px;
   color: #686B90;
   font-weight: 900;
-}
-h2 img {
-  margin-right: 5px;
-  vertical-align: -3px;
 }
 h3 {
   font-size: 1rem;
@@ -292,8 +288,17 @@ time:after {
 .yo p.mb {
     max-width: 400px;
     margin: auto;
-    margin-bottom: 80px;
+    margin-bottom: 30px;
     text-align: center;
+}
+.yo h2 img, .yo .contactame img {
+  margin-right: 5px;
+  vertical-align: -3px;
+}
+
+.yo .contactame {
+    text-align: center;
+    margin-bottom: 40px;
 }
 /* ------------ No encontrado 404 ------------ */
 .perdidos {
@@ -329,7 +334,7 @@ time:after {
   }
   .yo p.mb {
     max-width: 370px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
   }
 }
 @media screen and (max-width: 660px), (max-height: 400px) {
@@ -368,7 +373,7 @@ header .logo a .red {
 header .logo a .red {
   font-size: 34px;
 }
-header nav ul li a {
+header nav ul li a, .yo .contactame a {
   font-size: 19px;
 }
 .plus a {
