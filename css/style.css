@@ -252,8 +252,6 @@ time:after {
 /* ------------ Yo ------------ */
 .yo .container {
     max-width: 1000px;
-    border: 1px solid #E2E4F5;
-    border-radius: 30px;
     padding: 0 20px;
     padding-bottom: 30px;
 }
