@@ -363,10 +363,8 @@ header .logo a {
 header .logo a .red {
   width: 46px;
   height: 46px;
-  font-size: 35px;
-}
-header .logo a .red {
   font-size: 34px;
+  margin-right: 10px;
 }
 header nav ul li a, .yo .contactame a {
   font-size: 19px;
